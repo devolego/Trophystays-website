@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/index.css">
     <title>Trophy Stays - Home</title>
 </head>
 
 <body>
-    <header>
+    <header class="container">
         <nav>
             <div class="nav-links">
                 <div class="logo-wrapper">
@@ -19,13 +20,21 @@
                     </a>
                 </div>
 
-                <ul class="nav-links">
+                <ul class="nav-links-options">
                     <li class="nav-item">
                         <a class="nav-link" href="#">About Us</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Stay with Us</a>
-                        <!-- Drop Down -->
+                    <li class="nav-item" id="dropdownmenu">
+
+                        <div class="select-btn">
+                            <span class="btn-text">Stay with us</span>
+                            <img src="/assets/dropdown.svg" alt="" class="chevron">
+
+                        </div>
+                        <ul class="submenu">
+                            <a href="">Daily Stays</a>
+                            <a href="">Monthly Stays</a>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Host with Us</a>
@@ -47,11 +56,11 @@
             <div class="user-authentication-links">
                 <a class="create-account-button" href="#">Create an Account</a>
                 <a class="login-button" href="#">Login</a>
-                <a class="logout-button" href="#">Logout</a>
+                <!-- <a class="logout-button" href="#">Logout</a> -->
             </div>
         </nav>
     </header>
-    <section class="hero-img">
+    <section class="hero-img container">
         <h1 class="hero-title">Short-term</h1>
         <h3 class="hero-subtitle">Properties Designed for Comfort.</h3>
         <p class="hero-description">
@@ -213,6 +222,8 @@
     </section>
 
     <!-- <footer></footer> -->
+
+    <script src="/scripts/landing.js"></script>
 </body>
 
 </html>
