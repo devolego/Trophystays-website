@@ -56,10 +56,6 @@ html {
     box-sizing: border-box !important;
 }
 
-body {
-
-}
-
 a {
     text-decoration: none;
     color: #292021;
@@ -280,7 +276,7 @@ nav {
     margin: 0 7.8125rem;
     background-color: white;
     border-radius: 0.75rem;
-    padding: 1.875rem 1.875rem 2.5rem;
+    padding: 1.875em 1.875em 2.5em;
     transform: translateY(-4.375rem);
     box-shadow: 4px 12px 24px -4px rgba(0, 0, 0, 0.16);
 }
@@ -305,12 +301,27 @@ nav {
 }
 
 .search-box .search-box-option {
-    background-color: #333333;
+    /* background-color: #333333; */
+    border: 1px solid #E1D9CE;
+    padding: 1em;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-#location > svg {
-    
+.search-box-option-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
 }
+
+.search-box-option svg {
+    width: 1.5rem;
+}
+
 
 #search-btn {
     color: white;
@@ -318,7 +329,125 @@ nav {
     border: none;
     outline: none;
     padding: 0.875rem 1.875rem;
+    /* padding: 1.875rem 1.875rem 2.5rem; */
     border-radius: 0.5rem;
     background-color: #333333;
     transition: background-color 200ms ease-in-out;
+    margin-left: 0.6rem;
+    min-height: 100%;
+    width: 100%;
 }
+
+.search-btn-wrapper {
+    align-self: stretch;
+}
+
+#location,
+#term,
+#bedrooms,
+#arrival,
+#departure {
+    position: relative;
+}
+
+
+#location-dropdown, #term-dropdown, #bedrooms-dropdown, #arrival-dropdown, #departure-dropdown {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 0.625rem);
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.75em;
+    box-shadow: 4px 12px 24px -4px rgba(0, 0, 0, 0.16);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-15px);
+    transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+}
+
+#location #location-dropdown.show,
+#term #term-dropdown.show,
+#bedrooms #bedrooms-dropdown.show,
+#arrival #arrival-dropdown.show,
+#departure #departure-dropdown.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+#location-dropdown {
+    width: 50rem;
+}
+
+.dropdown-sb {
+    display: flex;
+    width: 100%;
+    max-height: 20rem;
+    margin: auto;
+    overflow-y: auto;
+}
+
+.column {
+    flex: 1;
+    border-right: 1px solid #E1D9CE;
+    padding: 0 1.875rem;
+}
+
+.column:last-child {
+    border-right: none;
+}
+
+.column h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #292021;
+    margin-bottom: 1rem;
+}
+
+.column ul li {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-weight: 300;
+    color: #292021;
+    font-family: 'Poppins', sans-serif;
+}
+
+.column ul:not(:last-child) {
+    margin-bottom: 2.5rem; /* Adjust this as needed */
+}
+
+
+
+/* For Webkit (Safari, Chrome) browsers */
+.dropdown-sb::-webkit-scrollbar {
+    width: 0.3125rem; /* Width of the scrollbar */
+  }
+  
+  .dropdown-sb::-webkit-scrollbar-track {
+    background: transparent; /* Color of the track */
+  }
+  
+  .dropdown-sb::-webkit-scrollbar-thumb {
+    background: #E1D9CE; /* Color of the scrollbar thumb */
+  }
+  
+  .dropdown-sb::-webkit-scrollbar-thumb:hover {
+    background: #b9a78d; /* Color when hovering over the scrollbar thumb */
+  }
+
+  .dropdown::-webkit-scrollbar-thumb {
+    background: #E1D9CE; /* Color of the scrollbar thumb */
+    border-radius: 0.75rem; /* Round corners of scrollbar thumb */
+    min-height: 100%; /* Minimum length of scrollbar thumb */
+  }
+  
+  .dropdown::-webkit-scrollbar-thumb:hover {
+    background: #b9a78d; /* Color when hovering over the scrollbar thumb */
+  }
+  
+  /* For Firefox */
+  .dropdown-sb {
+    scrollbar-width: 0.3125rem; /* Width of the scrollbar */
+    scrollbar-color: #E1D9CE transparent; /* Color of the scrollbar thumb and track */
+  }
+  
