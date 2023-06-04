@@ -318,6 +318,10 @@ nav {
     gap: 0.75rem;
 }
 
+/* .search-box-option-wrapper span {
+    cursor: pointer;
+} */
+
 .search-box-option svg {
     width: 1.5rem;
 }
@@ -363,6 +367,7 @@ nav {
     pointer-events: none;
     transform: translateY(-15px);
     transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+    cursor: default;
 }
 
 #location #location-dropdown.show,
@@ -385,12 +390,14 @@ nav {
     max-height: 20rem;
     margin: auto;
     overflow-y: auto;
+    height: 100%;
 }
 
 .column {
     flex: 1;
     border-right: 1px solid #E1D9CE;
     padding: 0 1.875rem;
+    height: calc(100% - 3rem);
 }
 
 .column:last-child {
@@ -416,6 +423,32 @@ nav {
     margin-bottom: 2.5rem; /* Adjust this as needed */
 }
 
+.dropdown-sp ul li:hover, .dropdown-sp h4:hover {
+    color: #CAB08F;  /* Or any other color */
+    cursor: pointer;
+    transition: color 150ms ease-in-out;
+}
+
+.all-city, .all-bedrooms {
+    font-size: 1.25rem !important; /* Adjust as needed */
+    font-weight: 700 !important; /* Adjust as needed */
+}
+
+#term-dropdown {
+    width: 8.75rem;
+}
+
+#term-dropdown li, #bedrooms-dropdown li {
+    margin-bottom: 0.75rem;
+}
+
+#term-dropdown li:last-of-type, #bedrooms-dropdown li:last-of-type{
+    margin-bottom: 0;
+}
+
+#bedrooms-dropdown {
+    width: 5rem;
+}
 
 
 /* For Webkit (Safari, Chrome) browsers */
