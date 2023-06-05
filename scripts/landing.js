@@ -187,6 +187,14 @@ function createCalendar(id) {
 
         let currentDate = new Date()
 
+        const addDay = (date) => {
+            let newDate = new Date(date)
+            newDate.setDate(newDate.getDate() + 1)
+            return newDate
+        }
+
+        let currentDatePlusOne = addDay(currentDate)
+
         monthPicker.innerText = month_names[month]
         calendarHeaderYear.innerText = year
 
@@ -211,8 +219,16 @@ function createCalendar(id) {
                 day.classList.add('current-date');
             }
 
+            // if (id === 'arrival') {
+            //     if (thisDay <= currentDate || thisDay <= currentDatePlusOne) {
+            //         day.classList.add('disabled-date');
+            //     } else {
+            //         //Code
+            //     }
+            // }
+
             // Disable selection for dates before and on the current date
-            if (thisDay <= currentDate) {
+            if (thisDay <= currentDate || thisDay <= currentDatePlusOne || (id === 'departure' && arrivalDate && thisDay <= arrivalDate)) {
                 day.classList.add('disabled-date');
             } else {
                 // Check if this day is the currently selected date
@@ -221,10 +237,36 @@ function createCalendar(id) {
                 }
                 // Add event listener for click
                 day.addEventListener('click', function () {
+
+                    // If this day is before the arrival date and this is the departure calendar, return immediately
+                    // Check if the selected arrival date is later than the date in the departure calendar
+                    if (id === 'departure' && arrivalDate && thisDay < arrivalDate) {
+                        return; // If it is, do nothing (i.e., don't allow this date to be selected)
+                    }
+
                     document.querySelector(`#${id} .search-box-option-wrapper span`).textContent = `${i} ${month_names[month]} ${year}`;
+
+
 
                     // Store this day as the selected date
                     selectedDate = thisDay;
+
+                    // If this is the arrival calendar, update the global arrivalDate
+                    if (id === 'arrival') { arrivalDate = thisDay }
+                    // If this is the departure calendar, check if thisDay is before arrivalDate
+                    if (id === 'departure' && thisDay <= arrivalDate) {
+                        return;
+                    }
+
+                    function isDepartureBeforeArrival(departureDate, arrivalDate) {
+                        if (!departureDate || !arrivalDate) return false
+                        if (id === 'arrival') return false
+                        else if (departureDate < arrivalDate) {
+                            return true
+                        }
+                    }
+
+
 
                     // Reset the class for all days
                     let allDays = calendarDays.children;

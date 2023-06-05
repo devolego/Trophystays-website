@@ -608,3 +608,9 @@ nav {
 .selected-date {
     background-color: #333;
 }
+
+.calendar .disabled-date {
+    background-color: grey;
+    color: white;
+    pointer-events: none;
+}
