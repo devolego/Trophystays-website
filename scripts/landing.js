@@ -140,8 +140,15 @@ options.forEach(option => {
     });
 });
 
-function arrivalCalendar() {
+let arrivalDate
+let departureDate
+
+function createCalendar(id) {
     // Calendar
+
+    // Object to hold selected dates for each month/year
+    let selectedDates = {};
+
     //Check leap year
     function isLeapYear(year) {
         return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)
@@ -157,23 +164,24 @@ function arrivalCalendar() {
         }
     }
 
-
-
-    let calendar = document.querySelector('.calendar')
+    let calendar = document.querySelector('#' + id + ' .calendar')
 
     const month_names = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
-    let monthPicker = document.querySelector('#month-picker')
+    let monthPicker = document.querySelector('#month-picker-' + id)
 
     monthPicker.onclick = () => {
         monthList.classList.toggle('show-months')
     }
+
+    let selectedDate; // Move the declaration of selectedDate out of generateCalendar
+
     //Generate the calendar
     function generateCalendar(month, year) {
-        let calendarDays = document.querySelector('.calendar-days')
+        let calendarDays = document.querySelector('#' + id + ' .calendar-days')
         calendarDays.innerHTML = ''
 
-        let calendarHeaderYear = document.querySelector('#year')
+        let calendarHeaderYear = document.querySelector('#year-' + id)
 
         let daysOfMonth = [31, getFebDays(year, month), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
@@ -190,38 +198,48 @@ function arrivalCalendar() {
             calendarDays.appendChild(day)
         }
 
-        // Object to hold selected dates for each month/year
-        let selectedDates = {};
-
         // generate divs for the days of the month
         for (let i = 1; i <= daysOfMonth[month]; i++) {
             let day = document.createElement('div');
             day.innerHTML = i;
+
+            // Create a Date object for this day
+            let thisDay = new Date(year, month, i);
+
+            // If this day is today, add the 'current-date' class
             if (i === currentDate.getDate() && year === currentDate.getFullYear() && month === currentDate.getMonth()) {
                 day.classList.add('current-date');
             }
-            // Check if this day was previously selected
-            if (selectedDates[`${month}-${year}`] === i) {
-                day.classList.add('selected-date');
-            }
-            // Add event listener for click
-            day.addEventListener('click', function () {
-                document.querySelector('#arrival .search-box-option-wrapper span').textContent = `${i} ${month_names[month]} ${year}`;
 
-                // Remove class from previously selected date
-                if (selectedDates[`${month}-${year}`]) {
-                    let prevSelectedDay = calendarDays.children[selectedDates[`${month}-${year}`] + new Date(year, month, 1).getDay() - 1];
-                    if (prevSelectedDay) {
-                        prevSelectedDay.classList.remove('selected-date');
-                    }
+            // Disable selection for dates before and on the current date
+            if (thisDay <= currentDate) {
+                day.classList.add('disabled-date');
+            } else {
+                // Check if this day is the currently selected date
+                if (selectedDate && thisDay.getDate() === selectedDate.getDate() && thisDay.getMonth() === selectedDate.getMonth() && thisDay.getFullYear() === selectedDate.getFullYear()) {
+                    day.classList.add('selected-date');
                 }
+                // Add event listener for click
+                day.addEventListener('click', function () {
+                    document.querySelector(`#${id} .search-box-option-wrapper span`).textContent = `${i} ${month_names[month]} ${year}`;
 
-                // Add class to newly selected date and update selected date for the month and year
-                day.classList.add('selected-date');
-                selectedDates[`${month}-${year}`] = i;
-            });
+                    // Store this day as the selected date
+                    selectedDate = thisDay;
+
+                    // Reset the class for all days
+                    let allDays = calendarDays.children;
+                    for (let j = 0; j < allDays.length; j++) {
+                        allDays[j].classList.remove('selected-date');
+                    }
+
+                    // Add the selected-date class to the clicked day
+                    day.classList.add('selected-date');
+                });
+            }
             calendarDays.appendChild(day);
         }
+
+
 
     }
 
@@ -232,40 +250,30 @@ function arrivalCalendar() {
         month.innerHTML = `<div>${e}</div>`
         month.onclick = () => {
             monthList.classList.remove('show-months')
-            currentMonth.value = index
-            generateCalendar(currentMonth.value, currentYear.value)
+            generateCalendar(index, currentYear)
         }
         monthList.appendChild(month)
     })
 
+    let currentMonth = new Date().getMonth()
+    let currentYear = new Date().getFullYear()
 
-    let currentDate = new Date()
+    generateCalendar(currentMonth, currentYear)
 
-    let currentMonth = { value: currentDate.getMonth() }
-    let currentYear = { value: currentDate.getFullYear() }
-
-    generateCalendar(currentMonth.value, currentYear.value)
-
-    let prevMonthElement = document.querySelector('#prev-month');
-    let nextMonthElement = document.querySelector('#next-month');
-
-    prevMonthElement.onclick = () => {
-        currentMonth.value = (currentMonth.value - 1 + 12) % 12; // Ensure the value stays within 0-11
-        if (currentMonth.value === 11) {
-            currentYear.value--; // Decrement the year if the month changes from January to December
-        }
-        generateCalendar(currentMonth.value, currentYear.value);
+    document.querySelector('#next-month-' + id).onclick = () => {
+        currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear
+        currentMonth = (currentMonth + 1) % 12
+        generateCalendar(currentMonth, currentYear)
     }
 
-    nextMonthElement.onclick = () => {
-        currentMonth.value = (currentMonth.value + 1) % 12; // Ensure the value stays within 0-11
-        if (currentMonth.value === 0) {
-            currentYear.value++; // Increment the year if the month changes from December to January
-        }
-        generateCalendar(currentMonth.value, currentYear.value);
+    document.querySelector('#prev-month-' + id).onclick = () => {
+        currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear
+        currentMonth = (currentMonth === 0) ? 11 : (currentMonth - 1)
+        generateCalendar(currentMonth, currentYear)
     }
-
-
 }
 
-arrivalCalendar()
+window.onload = function () {
+    createCalendar('arrival')
+    createCalendar('departure')
+}
