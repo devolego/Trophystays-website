@@ -454,33 +454,157 @@ nav {
 /* For Webkit (Safari, Chrome) browsers */
 .dropdown-sb::-webkit-scrollbar {
     width: 0.3125rem; /* Width of the scrollbar */
-  }
+}
   
-  .dropdown-sb::-webkit-scrollbar-track {
+.dropdown-sb::-webkit-scrollbar-track {
     background: transparent; /* Color of the track */
-  }
+}
   
-  .dropdown-sb::-webkit-scrollbar-thumb {
+.dropdown-sb::-webkit-scrollbar-thumb {
     background: #E1D9CE; /* Color of the scrollbar thumb */
-  }
+}
   
-  .dropdown-sb::-webkit-scrollbar-thumb:hover {
+.dropdown-sb::-webkit-scrollbar-thumb:hover {
     background: #b9a78d; /* Color when hovering over the scrollbar thumb */
-  }
+}
 
-  .dropdown::-webkit-scrollbar-thumb {
+.dropdown::-webkit-scrollbar-thumb {
     background: #E1D9CE; /* Color of the scrollbar thumb */
     border-radius: 0.75rem; /* Round corners of scrollbar thumb */
     min-height: 100%; /* Minimum length of scrollbar thumb */
-  }
+}
   
-  .dropdown::-webkit-scrollbar-thumb:hover {
+.dropdown::-webkit-scrollbar-thumb:hover {
     background: #b9a78d; /* Color when hovering over the scrollbar thumb */
-  }
+}
   
   /* For Firefox */
-  .dropdown-sb {
+.dropdown-sb {
     scrollbar-width: 0.3125rem; /* Width of the scrollbar */
     scrollbar-color: #E1D9CE transparent; /* Color of the scrollbar thumb and track */
-  }
-  
+}
+
+
+
+/* Calendar Styling  */
+
+.calendar {
+    height: max-content;
+    width: max-content;
+    padding: 6px;
+    position: relative;
+    overflow: hidden;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 600;
+    padding: 10px;
+}
+
+.calendar-body {
+    padding: 10px;
+}
+
+.calendar-week-day {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: 600;
+    height: 50px;
+}
+
+.calendar-week-day div {
+    display: grid;
+    place-items: center;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+}
+
+.calendar-days div {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    position: relative;
+    cursor: pointer;
+}
+
+.month-picker {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.year-picker {
+    cursor: pointer;
+}
+
+.month-change {
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+
+.calendar-footer .save {
+    width: 100%;
+   display: flex;
+   justify-content: flex-end;
+}
+
+.calendar-days div.current-date {
+    background-color: #333;
+    border-radius: 50%;
+    color: white;
+}
+
+.month-list, .year-list {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    background-color: white;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 5px;
+    transform: scale(1.5);
+    pointer-events: none;
+    visibility: hidden;
+    transition: all 200ms ease-in-out;
+}
+
+.month-list.show-months, .year-list.show-years {
+    transform: scale(1);
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.month-list > div, .year-list > div {
+    display: grid;
+    place-items: center;
+}
+
+.month-list > div > div, .year-list > div > div {
+    width: 100%;
+    padding: 5px 20px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.month-list > div > div:hover, .year-list > div > div:hover {
+    background-color: #333;
+}
+
+.selected-date {
+    background-color: #333;
+}

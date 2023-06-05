@@ -140,3 +140,132 @@ options.forEach(option => {
     });
 });
 
+function arrivalCalendar() {
+    // Calendar
+    //Check leap year
+    function isLeapYear(year) {
+        return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)
+    }
+
+    //getFebDays
+    function getFebDays(year, month) {
+        if (month === 1) { // Now February is 1
+            return isLeapYear(year) ? 29 : 28;
+        }
+        else {
+            return 31 - (month % 7 % 2); // This will return the correct number of days for any month
+        }
+    }
+
+
+
+    let calendar = document.querySelector('.calendar')
+
+    const month_names = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+    let monthPicker = document.querySelector('#month-picker')
+
+    monthPicker.onclick = () => {
+        monthList.classList.toggle('show-months')
+    }
+    //Generate the calendar
+    function generateCalendar(month, year) {
+        let calendarDays = document.querySelector('.calendar-days')
+        calendarDays.innerHTML = ''
+
+        let calendarHeaderYear = document.querySelector('#year')
+
+        let daysOfMonth = [31, getFebDays(year, month), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+        let currentDate = new Date()
+
+        monthPicker.innerText = month_names[month]
+        calendarHeaderYear.innerText = year
+
+        let firstDay = new Date(year, month, 1)
+
+        // generate empty divs for the days of the week before the first day of the month
+        for (let i = 0; i < firstDay.getDay(); i++) {
+            let day = document.createElement('div')
+            calendarDays.appendChild(day)
+        }
+
+        // Object to hold selected dates for each month/year
+        let selectedDates = {};
+
+        // generate divs for the days of the month
+        for (let i = 1; i <= daysOfMonth[month]; i++) {
+            let day = document.createElement('div');
+            day.innerHTML = i;
+            if (i === currentDate.getDate() && year === currentDate.getFullYear() && month === currentDate.getMonth()) {
+                day.classList.add('current-date');
+            }
+            // Check if this day was previously selected
+            if (selectedDates[`${month}-${year}`] === i) {
+                day.classList.add('selected-date');
+            }
+            // Add event listener for click
+            day.addEventListener('click', function () {
+                document.querySelector('#arrival .search-box-option-wrapper span').textContent = `${i} ${month_names[month]} ${year}`;
+
+                // Remove class from previously selected date
+                if (selectedDates[`${month}-${year}`]) {
+                    let prevSelectedDay = calendarDays.children[selectedDates[`${month}-${year}`] + new Date(year, month, 1).getDay() - 1];
+                    if (prevSelectedDay) {
+                        prevSelectedDay.classList.remove('selected-date');
+                    }
+                }
+
+                // Add class to newly selected date and update selected date for the month and year
+                day.classList.add('selected-date');
+                selectedDates[`${month}-${year}`] = i;
+            });
+            calendarDays.appendChild(day);
+        }
+
+    }
+
+    let monthList = calendar.querySelector('.month-list')
+
+    month_names.forEach((e, index) => {
+        let month = document.createElement('div')
+        month.innerHTML = `<div>${e}</div>`
+        month.onclick = () => {
+            monthList.classList.remove('show-months')
+            currentMonth.value = index
+            generateCalendar(currentMonth.value, currentYear.value)
+        }
+        monthList.appendChild(month)
+    })
+
+
+    let currentDate = new Date()
+
+    let currentMonth = { value: currentDate.getMonth() }
+    let currentYear = { value: currentDate.getFullYear() }
+
+    generateCalendar(currentMonth.value, currentYear.value)
+
+    let prevMonthElement = document.querySelector('#prev-month');
+    let nextMonthElement = document.querySelector('#next-month');
+
+    prevMonthElement.onclick = () => {
+        currentMonth.value = (currentMonth.value - 1 + 12) % 12; // Ensure the value stays within 0-11
+        if (currentMonth.value === 11) {
+            currentYear.value--; // Decrement the year if the month changes from January to December
+        }
+        generateCalendar(currentMonth.value, currentYear.value);
+    }
+
+    nextMonthElement.onclick = () => {
+        currentMonth.value = (currentMonth.value + 1) % 12; // Ensure the value stays within 0-11
+        if (currentMonth.value === 0) {
+            currentYear.value++; // Increment the year if the month changes from December to January
+        }
+        generateCalendar(currentMonth.value, currentYear.value);
+    }
+
+
+}
+
+arrivalCalendar()
