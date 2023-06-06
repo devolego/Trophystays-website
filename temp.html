@@ -25,49 +25,107 @@
         }
 
         .card {
-            width: 70%;
+            width: 20rem;
             background: #fff;
             position: relative;
+            border-radius: 0.75em;
+            overflow: hidden;
         }
 
-        .carousel img {
+        .carousel-wrapper {
+            height: 15rem;
+        }
+
+        .carousel {
+            height: 100%;
             width: 100%;
+        }
+
+        .slick-slide {
+            max-height: 100%;
+        }
+
+        .carousel img,
+        .slick-slide img {
+            max-width: 100%;
+            max-height: 100%;
             box-sizing: border-box;
             border: none;
+            object-fit: contain;
         }
 
         /* Custom Arrow Styles */
         .slick-prev,
         .slick-next {
-            color: #000 !important;
+            color: white !important;
             z-index: 1 !important;
         }
 
         .slick-prev:before,
         .slick-next:before {
-            color: #000;
+            color: #CAB08F;
+
         }
 
         .slick-prev,
         .slick-next {
-            background: transparent;
-            height: 50px;
-            width: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.1em;
+            background: #CAB08F;
+            border-radius: 50%;
+            transition: background 150ms ease-in-out;
+        }
+
+        .slick-next:before,
+        .slick-prev:before {
+            font-size: 0px !important;
+        }
+
+        .slick-next:before {
+            content: url('/assets/next.svg');
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slick-prev:before {
+            height: 100%;
+            content: url('assets/prev.svg');
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slick-prev,
+        .slick-next {
+            height: 1.5rem;
+            width: 1.5rem;
         }
 
         .slick-prev {
-            left: 25px;
+            left: 1rem;
         }
 
         .slick-next {
-            right: 25px;
+            right: 1rem;
+        }
+
+        .slick-next:hover,
+        .slick-prev:hover,
+        .slick-next:focus,
+        .slick-prev:focus {
+            background: #b18a59 !important;
+            transition: background 150ms ease-in-out;
         }
 
         /* Dot Styles */
         .slick-dots {
             position: absolute;
-            bottom: 10px;
-            right: 10px;
+            bottom: 1.3125rem;
+            right: 1.3125rem;
             display: block;
             width: auto;
             padding: 0;
@@ -81,14 +139,21 @@
             display: inline-block;
             margin: 0 5px;
             padding: 0;
+            height: 0.375rem;
+            width: 0.375rem;
+        }
+
+        .slick-dots li button {
+            height: 0.375rem;
+            width: 0.375rem;
         }
 
         .slick-dots li button:before {
-            color: #000;
+            color: white;
         }
 
         .slick-dots li.slick-active button:before {
-            color: #000;
+            color: white;
         }
 
         .carousel-wrapper {
@@ -97,8 +162,20 @@
 
         .price-tag {
             position: absolute;
-            bottom: 0;
-            left: 0;
+            bottom: 0.75rem;
+            left: 1rem;
+            background-color: rgba(41, 32, 33, 0.4);
+            border-radius: 0.75em;
+            padding: 0.125em 0.6875em;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
+
+        }
+
+        .price-tag span {
+            color: #CAB08F;
         }
 
         .slick-dotted.slick-slider {
@@ -124,6 +201,19 @@
             display: flex;
             justify-content: space-evenly;
         }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+        }
+
+        .score {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            color: #292021;
+        }
     </style>
 </head>
 
@@ -141,20 +231,57 @@
 
 
             </div>
-            <span class="price-tag">$12/Month</span>
+            <span class="price-tag">$12 <span>/ Month</span></span>
         </div>
         <div class="details">
             <div class="rating-wishlist">
                 <div class="rating">
-                    <span class="star">&#9733;</span>
+                    <span class="star"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M7.64319 1.42372C8.03185 0.7779 8.96815 0.777901 9.35681 1.42372L11.4086 4.83304C11.5482 5.06505 11.7759 5.23052 12.0397 5.29162L15.9162 6.18942C16.6505 6.35949 16.9399 7.24996 16.4458 7.81917L13.8373 10.824C13.6598 11.0285 13.5728 11.2963 13.5963 11.566L13.9403 15.5302C14.0055 16.2812 13.248 16.8315 12.5539 16.5375L8.89009 14.9853C8.64076 14.8796 8.35924 14.8796 8.10991 14.9853L4.44605 16.5375C3.75202 16.8315 2.99454 16.2812 3.05971 15.5302L3.40375 11.566C3.42716 11.2963 3.34017 11.0285 3.16266 10.824L0.554233 7.81916C0.0601239 7.24996 0.349457 6.35949 1.08377 6.18942L4.96025 5.29162C5.22406 5.23052 5.45181 5.06505 5.59143 4.83304L7.64319 1.42372Z"
+                                fill="#E48630" />
+                        </svg>
+                    </span>
                     <!-- These are just example stars. You'll likely want to replace these with actual star icons. -->
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="score">5</span>
+                    <span class="star"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M7.64319 1.42372C8.03185 0.7779 8.96815 0.777901 9.35681 1.42372L11.4086 4.83304C11.5482 5.06505 11.7759 5.23052 12.0397 5.29162L15.9162 6.18942C16.6505 6.35949 16.9399 7.24996 16.4458 7.81917L13.8373 10.824C13.6598 11.0285 13.5728 11.2963 13.5963 11.566L13.9403 15.5302C14.0055 16.2812 13.248 16.8315 12.5539 16.5375L8.89009 14.9853C8.64076 14.8796 8.35924 14.8796 8.10991 14.9853L4.44605 16.5375C3.75202 16.8315 2.99454 16.2812 3.05971 15.5302L3.40375 11.566C3.42716 11.2963 3.34017 11.0285 3.16266 10.824L0.554233 7.81916C0.0601239 7.24996 0.349457 6.35949 1.08377 6.18942L4.96025 5.29162C5.22406 5.23052 5.45181 5.06505 5.59143 4.83304L7.64319 1.42372Z"
+                                fill="#E48630" />
+                        </svg>
+                    </span>
+                    <span class="star"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M7.64319 1.42372C8.03185 0.7779 8.96815 0.777901 9.35681 1.42372L11.4086 4.83304C11.5482 5.06505 11.7759 5.23052 12.0397 5.29162L15.9162 6.18942C16.6505 6.35949 16.9399 7.24996 16.4458 7.81917L13.8373 10.824C13.6598 11.0285 13.5728 11.2963 13.5963 11.566L13.9403 15.5302C14.0055 16.2812 13.248 16.8315 12.5539 16.5375L8.89009 14.9853C8.64076 14.8796 8.35924 14.8796 8.10991 14.9853L4.44605 16.5375C3.75202 16.8315 2.99454 16.2812 3.05971 15.5302L3.40375 11.566C3.42716 11.2963 3.34017 11.0285 3.16266 10.824L0.554233 7.81916C0.0601239 7.24996 0.349457 6.35949 1.08377 6.18942L4.96025 5.29162C5.22406 5.23052 5.45181 5.06505 5.59143 4.83304L7.64319 1.42372Z"
+                                fill="#E48630" />
+                        </svg>
+                    </span>
+                    <span class="star"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M7.64319 1.42372C8.03185 0.7779 8.96815 0.777901 9.35681 1.42372L11.4086 4.83304C11.5482 5.06505 11.7759 5.23052 12.0397 5.29162L15.9162 6.18942C16.6505 6.35949 16.9399 7.24996 16.4458 7.81917L13.8373 10.824C13.6598 11.0285 13.5728 11.2963 13.5963 11.566L13.9403 15.5302C14.0055 16.2812 13.248 16.8315 12.5539 16.5375L8.89009 14.9853C8.64076 14.8796 8.35924 14.8796 8.10991 14.9853L4.44605 16.5375C3.75202 16.8315 2.99454 16.2812 3.05971 15.5302L3.40375 11.566C3.42716 11.2963 3.34017 11.0285 3.16266 10.824L0.554233 7.81916C0.0601239 7.24996 0.349457 6.35949 1.08377 6.18942L4.96025 5.29162C5.22406 5.23052 5.45181 5.06505 5.59143 4.83304L7.64319 1.42372Z"
+                                fill="#E48630" />
+                        </svg>
+                    </span>
+                    <span class="star"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M7.64319 1.42372C8.03185 0.7779 8.96815 0.777901 9.35681 1.42372L11.4086 4.83304C11.5482 5.06505 11.7759 5.23052 12.0397 5.29162L15.9162 6.18942C16.6505 6.35949 16.9399 7.24996 16.4458 7.81917L13.8373 10.824C13.6598 11.0285 13.5728 11.2963 13.5963 11.566L13.9403 15.5302C14.0055 16.2812 13.248 16.8315 12.5539 16.5375L8.89009 14.9853C8.64076 14.8796 8.35924 14.8796 8.10991 14.9853L4.44605 16.5375C3.75202 16.8315 2.99454 16.2812 3.05971 15.5302L3.40375 11.566C3.42716 11.2963 3.34017 11.0285 3.16266 10.824L0.554233 7.81916C0.0601239 7.24996 0.349457 6.35949 1.08377 6.18942L4.96025 5.29162C5.22406 5.23052 5.45181 5.06505 5.59143 4.83304L7.64319 1.42372Z"
+                                fill="#E48630" />
+                        </svg>
+                    </span>
+                    <span class="score">5.0</span>
                 </div>
-                <button class="wishlist-button">Add to wishlist</button>
+                <button class="wishlist-button">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M12 24C6.344 24 3.51467 24 1.75733 22.2427C1.11262e-06 20.4853 0 17.656 0 12C0 6.344 1.11262e-06 3.51467 1.75733 1.75733C3.51467 -1.58946e-07 6.344 0 12 0C17.656 0 20.4853 -1.58946e-07 22.2427 1.75733C24 3.51467 24 6.344 24 12C24 17.656 24 20.4853 22.2427 22.2427C20.4853 24 17.656 24 12 24ZM8.12 16.576C6.08 14.7893 4 12.4053 4 10.128C4 5.4 8.4 3.63467 12 7.288C15.6 3.63467 20 5.4 20 10.128C20 12.4053 17.92 14.7867 15.88 16.576C14.2907 17.9707 13.496 18.6667 12 18.6667C10.5067 18.6667 9.70933 17.9707 8.12 16.576Z"
+                            fill="#E1D9CE" />
+                    </svg>
+
+                </button>
             </div>
             <hr>
             <div class="description">1 Bed Apartment with Stunning view</div>
@@ -200,7 +327,7 @@
             $('.carousel').slick({
                 slidesToShow: 1,
                 slidesToScroll: 1,
-                prevArrow: '<button type="button" class="slick-prev">Prev</button>',
+                prevArrow: `<button type="button" class="slick-prev">Prev</button>`,
                 nextArrow: '<button type="button" class="slick-next">Next</button>',
                 dots: true,
             });
