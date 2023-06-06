@@ -203,7 +203,7 @@ nav {
 
 }
 
-.login-button:hover, .login-button:focus, #search-btn:focus, #search-btn:hover {
+.login-button:hover, .login-button:focus, #search-btn:focus, #search-btn:hover, .featured-listings-cta:hover, .featured-listings-cta:focus {
     background-color: #7F7F7F;
     cursor: pointer;
 }
@@ -720,4 +720,305 @@ html {
     font-weight: 500;
     font-family: 'Josefin Sans', sans-serif;
     color:#292021;
+}
+
+.featured-listings {
+    padding: 3.75rem 0 4.375rem 0;
+    background-color: #F5EADB;
+}
+
+.featured-listings-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.featured-listings-container h2 {
+    color: #292021;
+    font-size: 2.5rem;
+    font-family: 'Josefin Sans', sans-serif;
+    width: 28rem;
+    font-weight: 400;
+}
+
+.featured-listings-container a {
+    align-self: flex-end;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    background-color: #333;
+    padding: 0.5em 1.4375em;
+    border-radius: 0.5em;
+    transition: background-color 200ms ease-in-out;
+}
+
+/* Card listings */
+
+.card {
+    width: 20rem;
+    background: #fff;
+    position: relative;
+    border-radius: 0.75em;
+    overflow: hidden;
+}
+
+.carousel-wrapper {
+    height: 15rem;
+}
+
+.carousel {
+    height: 100%;
+    width: 100%;
+}
+
+.carousel div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.slick-slide {
+    max-height: 100%;
+}
+
+.carousel img {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: none;
+    object-fit: cover;
+}
+
+/* Custom Arrow Styles */
+.slick-prev,
+.slick-next {
+    color: white !important;
+    z-index: 1 !important;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    color: #CAB08F;
+
+}
+
+.slick-prev,
+.slick-next {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.1em;
+    background: #CAB08F;
+    border-radius: 50%;
+    transition: background 150ms ease-in-out;
+}
+
+.slick-next:before,
+.slick-prev:before {
+    font-size: 0px !important;
+}
+
+.slick-next:before {
+    content: url('/assets/next.svg');
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slick-prev:before {
+    height: 100%;
+    content: url('assets/prev.svg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slick-prev,
+.slick-next {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.slick-prev {
+    left: 1rem;
+}
+
+.slick-next {
+    right: 1rem;
+}
+
+.slick-next:hover,
+.slick-prev:hover,
+.slick-next:focus,
+.slick-prev:focus {
+    background: #b18a59 !important;
+    transition: background 150ms ease-in-out;
+}
+
+/* Dot Styles */
+.slick-dots {
+    position: absolute;
+    bottom: 1.3125rem;
+    right: 1.3125rem;
+    display: block;
+    width: auto;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: right;
+}
+
+.slick-dots li {
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+    padding: 0;
+    height: 0.375rem;
+    width: 0.375rem;
+}
+
+.slick-dots li button {
+    height: 0.375rem;
+    width: 0.375rem;
+}
+
+.slick-dots li button:before {
+    color: white;
+}
+
+.slick-dots li.slick-active button:before {
+    color: white;
+}
+
+.carousel-wrapper {
+    position: relative;
+}
+
+.price-tag {
+    position: absolute;
+    bottom: 0.75rem;
+    left: 1rem;
+    background-color: rgba(41, 32, 33, 0.4);
+    border-radius: 0.75em;
+    padding: 0.125em 0.6875em;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+
+}
+
+.price-tag span {
+    color: #CAB08F;
+}
+
+.slick-dotted.slick-slider {
+    margin-bottom: 0rem;
+}
+
+.details {
+    padding: 1.625rem 1rem;
+}
+
+.rating-wishlist {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.6875rem;
+}
+
+.wishlist-button {
+    cursor: pointer;
+}
+
+.wishlist-button:hover .wishlist-button-path {
+    fill: #F5EADB;
+}
+
+.wishlist-button:hover .wishlist-button-path-heart {
+    fill: #F18181;
+}
+
+.wishlist-button-path {
+    fill: #E1D9CE;
+}
+
+/* .wishlist-button-path:hover {
+    fill: #F5EADB;
+} */
+
+.wishlist-button-path-heart {
+    fill: transparent;
+}
+
+/* .wishlist-button-path-heart:hover {
+    fill: #F18181;
+} */
+
+.wishlist-button.heart-active .wishlist-button-path-heart {
+    fill: #F18181
+}
+
+.wishlist-button.heart-active .wishlist-button-path {
+    fill: #F5EADB;
+}
+
+.wishlist-button .wishlist-button-path,
+.wishlist-button .wishlist-button-path-heart {
+    transition: fill 0.2s ease;
+}
+
+
+hr {
+    width: 3.5rem;
+    margin-left: 0;
+    background-color: #CAB08F;
+    display: block;
+    height: 3px;
+    border: 0;
+    border-top: 1px solid #CAB08F;
+    padding: 0;
+    border-radius: 0.5em;
+    margin-bottom: 0.625rem;
+}
+
+.ammenities {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1rem;
+}
+
+.ammenities div {
+    font-size: 0.875rem;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    color: #886750;
+    display: flex;
+    align-items: center;
+}
+
+.ammenities div svg {
+    margin-right: 0.375rem;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+}
+
+.score {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #292021;
+}
+
+.description {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 500;
+    font-size: 1.125rem;
+    color: #292021;
+    margin-bottom: 0.625rem;
 }
