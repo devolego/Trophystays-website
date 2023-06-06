@@ -228,55 +228,89 @@ function createCalendar(id) {
             // }
 
             // Disable selection for dates before and on the current date
-            if (thisDay <= currentDate || thisDay <= currentDatePlusOne || (id === 'departure' && arrivalDate && thisDay <= arrivalDate)) {
+            if (thisDay <= currentDate || thisDay <= currentDatePlusOne) {
                 day.classList.add('disabled-date');
             } else {
-                // Check if this day is the currently selected date
-                if (selectedDate && thisDay.getDate() === selectedDate.getDate() && thisDay.getMonth() === selectedDate.getMonth() && thisDay.getFullYear() === selectedDate.getFullYear()) {
-                    day.classList.add('selected-date');
-                }
-                // Add event listener for click
-                day.addEventListener('click', function () {
-
-                    // If this day is before the arrival date and this is the departure calendar, return immediately
-                    // Check if the selected arrival date is later than the date in the departure calendar
-                    if (id === 'departure' && arrivalDate && thisDay < arrivalDate) {
-                        return; // If it is, do nothing (i.e., don't allow this date to be selected)
+                // Check if this day is in the departure calendar and is earlier than the arrival date
+                if (id === 'departure' && arrivalDate && thisDay < arrivalDate) {
+                    day.classList.add('disabled-date');
+                } else {
+                    // Check if this day is the currently selected date
+                    if (selectedDate && thisDay.getDate() === selectedDate.getDate() && thisDay.getMonth() === selectedDate.getMonth() && thisDay.getFullYear() === selectedDate.getFullYear()) {
+                        day.classList.add('selected-date');
                     }
 
-                    document.querySelector(`#${id} .search-box-option-wrapper span`).textContent = `${i} ${month_names[month]} ${year}`;
-
-
-
-                    // Store this day as the selected date
-                    selectedDate = thisDay;
-
-                    // If this is the arrival calendar, update the global arrivalDate
-                    if (id === 'arrival') { arrivalDate = thisDay }
-                    // If this is the departure calendar, check if thisDay is before arrivalDate
-                    if (id === 'departure' && thisDay <= arrivalDate) {
-                        return;
+                    // Check if this day is the arrival date
+                    if (id === 'departure' && arrivalDate && thisDay.getTime() === arrivalDate.getTime()) {
+                        day.classList.add('disabled-date');
                     }
 
-                    function isDepartureBeforeArrival(departureDate, arrivalDate) {
-                        if (!departureDate || !arrivalDate) return false
-                        if (id === 'arrival') return false
-                        else if (departureDate < arrivalDate) {
-                            return true
+                    let departureDateElement = document.querySelector('#departure')
+
+                    // Initially, add the disabled class to the departure date
+                    if (!arrivalDate) {
+                        departureDateElement.classList.add('disabled-departure');
+                    }
+
+                    // Add event listener for click
+                    day.addEventListener('click', function () {
+                        // If this day is before the arrival date and this is the departure calendar, return immediately
+                        // Check if the selected arrival date is later than the date in the departure calendar
+                        if (id === 'departure' && arrivalDate && thisDay.getTime() === arrivalDate.getTime()) {
+                            return; // If it is, do nothing (i.e., don't allow this date to be selected)
                         }
-                    }
+
+                        document.querySelector(`#${id} .search-box-option-wrapper span`).textContent = `${i} ${month_names[month]} ${year}`;
 
 
 
-                    // Reset the class for all days
-                    let allDays = calendarDays.children;
-                    for (let j = 0; j < allDays.length; j++) {
-                        allDays[j].classList.remove('selected-date');
-                    }
+                        // Store this day as the selected date
+                        selectedDate = thisDay;
 
-                    // Add the selected-date class to the clicked day
-                    day.classList.add('selected-date');
-                });
+                        // If this is the arrival calendar, update the global arrivalDate
+                        if (id === 'arrival') {
+                            arrivalDate = selectedDate;
+                            // When a new arrival date is selected, re-generate the departure calendar to disable earlier dates
+                            let currentMonth = new Date().getMonth();
+                            let currentYear = new Date().getFullYear();
+                            createCalendar('departure', currentMonth, currentYear);
+
+                            // Clear the placeholder text in the departure date
+                            document.querySelector('#departure .search-box-option-wrapper span').textContent = 'Departure';
+
+                            // Remove the disabled class from the departure date
+                            if (arrivalDate) {
+                                departureDateElement.classList.remove('disabled-departure');
+                            }
+                        }
+
+                        if (id === 'departure') { departureDate = selectedDate }
+                        // If this is the departure calendar, check if thisDay is before arrivalDate
+                        if (id === 'departure' && thisDay <= arrivalDate) {
+                            return;
+                        }
+
+                        function isDepartureBeforeArrival(departureDate, arrivalDate) {
+                            if (!departureDate || !arrivalDate) return false
+                            if (id === 'arrival') return false
+                            else if (departureDate < arrivalDate) {
+                                return true
+                            }
+                        }
+
+
+
+                        // Reset the class for all days
+                        let allDays = calendarDays.children;
+                        for (let j = 0; j < allDays.length; j++) {
+                            allDays[j].classList.remove('selected-date');
+                        }
+
+                        // Add the selected-date class to the clicked day
+                        day.classList.add('selected-date');
+                    });
+                }
+
             }
             calendarDays.appendChild(day);
         }
@@ -293,6 +327,7 @@ function createCalendar(id) {
         month.onclick = () => {
             monthList.classList.remove('show-months')
             generateCalendar(index, currentYear)
+            currentMonth = index;
         }
         monthList.appendChild(month)
     })
@@ -303,19 +338,24 @@ function createCalendar(id) {
     generateCalendar(currentMonth, currentYear)
 
     document.querySelector('#next-month-' + id).onclick = () => {
-        currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear
-        currentMonth = (currentMonth + 1) % 12
-        generateCalendar(currentMonth, currentYear)
+        let nextMonth = (currentMonth + 1) % 12;
+        let nextYear = currentMonth === 11 ? currentYear + 1 : currentYear;
+        generateCalendar(nextMonth, nextYear);
+        currentMonth = nextMonth;
+        currentYear = nextYear;
     }
 
     document.querySelector('#prev-month-' + id).onclick = () => {
-        currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear
-        currentMonth = (currentMonth === 0) ? 11 : (currentMonth - 1)
-        generateCalendar(currentMonth, currentYear)
+        let prevMonth = currentMonth === 0 ? 11 : currentMonth - 1;
+        let prevYear = currentMonth === 0 ? currentYear - 1 : currentYear;
+        generateCalendar(prevMonth, prevYear);
+        currentMonth = prevMonth;
+        currentYear = prevYear;
     }
+
 }
 
 window.onload = function () {
     createCalendar('arrival')
-    createCalendar('departure')
+    // createCalendar('departure')
 }
