@@ -10,3 +10,4 @@ Landing Page - 1 hour 45 mins
 Landing Page - 1 hour 5 mins
 Landing Page - 55 mins 
 Landing Page - 1 hour
+Landing Page = 2 hours 25 mins
