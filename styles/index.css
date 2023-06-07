@@ -677,6 +677,7 @@ html {
     height: auto;
     margin-left: 4.6875rem;
     display: block;
+    z-index: -1;
 }
 
 .main-neighbourhood-details {
@@ -1293,6 +1294,7 @@ hr {
 .featured-blogs-container {
     display: flex;
     gap: 1.875rem;
+    justify-content: center;
 }
 
 .featured-blogs-item {
@@ -1325,3 +1327,183 @@ hr {
 }
 
 /* Footer */
+footer {
+    background-color: #241400;
+    padding-top: 3.125em;
+    padding-bottom: 4em;
+}
+
+.footer-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 7.5rem;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+footer .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.terms, .copyright-reserved {
+    margin-bottom: 2.75rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.3125rem;
+}
+
+.copyright-reserved {
+    margin-bottom: 0;
+}
+
+.footer-nav-pages-heading {
+    margin-bottom: 3.125rem;
+    min-width: 5.875rem;
+}
+
+.newsletter-signup {
+    margin-bottom: 1.25rem;
+    
+}
+
+.social-links .footer-nav-pages-heading {
+    margin-bottom: 1.5rem;
+}
+
+.footer-nav-pages {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 8.375rem;
+}
+
+.footer-nav-pages-contact .footer-nav-pages-heading {
+    margin-bottom: 1rem;
+}
+
+.copyright {
+    width: 25rem;
+}
+
+.footer-nav-pages-heading, .newsletter-signup h3 {
+    margin-top: 0.625rem;
+}
+
+.newsletter-signup h3 {
+    font-family: 'Josefin Sans',sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1.25rem;
+}
+
+.footer-nav-pages-contact .footer-nav-pages-heading {
+    margin-top: 0;
+}
+
+.footer-nav-pages-list-item {
+    margin-bottom: 1rem;
+}
+
+.footer-nav-pages-list-item a {
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 400;
+}
+
+.footer-nav-pages-contact {
+    margin-top: calc(1.875rem - 1rem);
+}
+
+.footer-nav-pages > .footer-nav-pages-contact > ul {
+    display: flex;
+    gap: 3.5rem;
+    position: absolute;
+}
+
+.newsletter > .social-links > ul {
+    display: flex;
+    gap: 3.75rem;
+}
+
+.footer-nav-pages > .footer-nav-pages-contact > ul > li > a, .newsletter > .social-links > ul > li > a {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.newsletter > .social-links > ul > li > a {
+    color: white;
+}
+
+.newsletter-signup-input-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.newsletter-signup-input-icon {
+    position: absolute;
+    left: 10px; /* Adjust as needed */
+}
+
+.email-input {
+    flex-grow: 1; /* Adjust based on the size of your SVG */
+    border: 1px solid #E1D9CE;
+    border-radius: 0.5em;
+    height: 40px; /* Adjust as needed */
+    outline: none;
+    background: transparent;
+    padding: 0.3em;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.email-input {
+    padding-left: calc(0.3em + 20px + 20px);
+}
+
+.email-input::placeholder {
+    color: #939393;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+}
+
+.newsletter-signup-submit-btn {
+    padding: 0.875em 1.75em;
+    border-radius: 0.5em;
+    outline: none;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.newsletter-signup-form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.social-links {
+    margin-bottom: 4rem;
+}
+
+.privacy-policy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+}
+
+.privacy-policy a {
+    color: white;
+    font-size: 0.7rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
