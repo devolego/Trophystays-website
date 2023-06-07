@@ -369,6 +369,7 @@ nav {
     transform: translateY(-15px);
     transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
     cursor: default;
+    z-index: 1000;
 }
 
 #location #location-dropdown.show,
@@ -514,6 +515,9 @@ html {
     overflow: hidden;
 }
 
+#departure-dropdown.calendar {
+}
+
 .calendar-header {
     display: flex;
     justify-content: space-between;
@@ -530,8 +534,9 @@ html {
 .calendar-week-day {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    font-weight: 600;
+    font-weight: 400;
     height: 50px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .calendar-week-day div {
@@ -559,16 +564,28 @@ html {
 .month-picker {
     padding: 5px 10px;
     cursor: pointer;
+    text-align: center;
+    color: #886750;
 }
 
 .year-picker {
     cursor: pointer;
+    text-align: center;
+    margin-top: 0.5rem;
+    color: #886750;
 }
 
 .month-change {
     height: 40px;
     width: 40px;
     cursor: pointer;
+    font-weight: 300;
+    color: #886750;
+    background-color: rgba(136, 103, 80, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .calendar-footer .save {
@@ -578,7 +595,7 @@ html {
 }
 
 .calendar-days div.current-date {
-    background-color: #333;
+    background-color: #9B99E3;
     border-radius: 50%;
     color: white;
 }
@@ -624,18 +641,29 @@ html {
 }
 
 .selected-date {
-    background-color: #333;
+    background-color: #886750;
+    color: white;
+    border-radius: 50%;
 }
 
 .calendar .disabled-date {
-    background-color: grey;
-    color: white;
+    /* background-color: grey; */
+    /* color: white; */
     pointer-events: none;
 }
 
 .disabled-departure {
     pointer-events: none;
     opacity: 0.6;
+}
+
+.disabled-date {
+    text-decoration: line-through;
+    color: #939393;
+}
+
+.current-date.disabled-date {
+    text-decoration: none;
 }
 
 .neighbourhoods {
@@ -660,9 +688,13 @@ html {
 
 .img-wrapper {
     width: 100%;
-    
+    z-index: -10;
     margin-bottom: 1rem;
     position: relative;
+}
+
+.z-index {
+    z-index: 10;
 }
 
 .img-wrapper a {

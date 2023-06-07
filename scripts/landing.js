@@ -1,4 +1,6 @@
 const searchDivs = document.querySelectorAll('.search-box-option')
+const sectionimageWrapper = document.querySelector('.img-wrapper')
+
 
 searchDivs.forEach(searchDiv => {
     searchDiv.setAttribute('tabindex', '0')
@@ -11,11 +13,12 @@ searchDivs.forEach(searchDiv => {
                 if (otherSearchDiv !== searchDiv) {
                     const otherDropdown = otherSearchDiv.querySelector('[data-dropdown]')
                     if (otherDropdown) {
+                        sectionimageWrapper.classList.add('z-index')
                         otherDropdown.classList.remove('show')
                     }
                 }
             })
-
+            sectionimageWrapper.classList.toggle('z-index')
             dropdown.classList.toggle('show')
 
             // Stop event propagation to prevent document click handler from firing
@@ -48,6 +51,7 @@ document.addEventListener('click', () => {
     searchDivs.forEach(searchDiv => {
         const dropdown = searchDiv.querySelector('[data-dropdown]')
         if (dropdown) {
+            sectionimageWrapper.classList.add('z-index')
             dropdown.classList.remove('show')
         }
     })
@@ -59,6 +63,7 @@ document.addEventListener('click', () => {
     searchDivs.forEach(searchDiv => {
         const dropdown = searchDiv.querySelector('[data-dropdown]')
         if (dropdown) {
+            sectionimageWrapper.classList.add('z-index')
             dropdown.classList.remove('show')
         }
     })
@@ -360,24 +365,3 @@ window.onload = function () {
     // createCalendar('departure')
 }
 
-document.querySelector('#arrival .calendar').addEventListener('change', updateImagePointerEvents);
-document.querySelector('#departure .calendar').addEventListener('change', updateImagePointerEvents);
-
-// If you have buttons or other elements that show and hide the dropdown calendars, add event listeners to them as well:
-// document.querySelector('#show-calendar-button-selector').addEventListener('click', updateImagePointerEvents);
-// document.querySelector('#hide-calendar-button-selector').addEventListener('click', updateImagePointerEvents);
-
-
-function isDropdownVisible(dropdownCalendarId) {
-    let dropdownCalendar = document.querySelector(dropdownCalendarId);
-    return dropdownCalendar.classList.contains('show-calendar'); // Replace 'show-calendar' with the class that makes the dropdown calendar visible
-}
-
-function updateImagePointerEvents() {
-    let image = document.querySelector('#your-image-selector'); // replace this with the actual selector of your section's image
-    if (isDropdownVisible('#arrival .calendar') || isDropdownVisible('#departure .calendar')) {
-        image.style.pointerEvents = 'none';
-    } else {
-        image.style.pointerEvents = 'auto';
-    }
-}
