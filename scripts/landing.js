@@ -359,3 +359,25 @@ window.onload = function () {
     createCalendar('arrival')
     // createCalendar('departure')
 }
+
+document.querySelector('#arrival .calendar').addEventListener('change', updateImagePointerEvents);
+document.querySelector('#departure .calendar').addEventListener('change', updateImagePointerEvents);
+
+// If you have buttons or other elements that show and hide the dropdown calendars, add event listeners to them as well:
+// document.querySelector('#show-calendar-button-selector').addEventListener('click', updateImagePointerEvents);
+// document.querySelector('#hide-calendar-button-selector').addEventListener('click', updateImagePointerEvents);
+
+
+function isDropdownVisible(dropdownCalendarId) {
+    let dropdownCalendar = document.querySelector(dropdownCalendarId);
+    return dropdownCalendar.classList.contains('show-calendar'); // Replace 'show-calendar' with the class that makes the dropdown calendar visible
+}
+
+function updateImagePointerEvents() {
+    let image = document.querySelector('#your-image-selector'); // replace this with the actual selector of your section's image
+    if (isDropdownVisible('#arrival .calendar') || isDropdownVisible('#departure .calendar')) {
+        image.style.pointerEvents = 'none';
+    } else {
+        image.style.pointerEvents = 'auto';
+    }
+}
