@@ -16,7 +16,10 @@ app.get("/hotels", function (req, res) {
     res.render('hotels/hotel.ejs');
 });
 
+
+
 // For Setting Up the Port at Local Host 4000
-app.listen('1000', function () {
-    console.log("Listening");
+const PORT = 4000
+app.listen(PORT, function () {
+    console.log(`Listening on port ${PORT}`);
 });
