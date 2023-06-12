@@ -17,16 +17,17 @@
   <link href="/styles/output.css" rel="stylesheet">
   <title>Trophy Stays - Home</title>
 </head>
-
-<body class="d-flex flex-column vh-100">
-  <%- include('./partials/navbar.ejs') %>
-    <main class='container mt-5'>
+<%- include('./partials/navbar.ejs') %>
+<body class="h-full min-h-screen">
+    <main class=' mt-5 h-full'>
       <%- body %>
     </main>
 
-      <%- include('./partials/footer.ejs') %>
+  
 
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
           <!-- Add the slick.js file -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
@@ -38,5 +39,5 @@
 
 
 </body>
-
+<%- include('./partials/footer.ejs') %>
 </html>
