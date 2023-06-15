@@ -21,15 +21,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      {/* <Link rel="preconnect" href="https://fonts.googleapis.com" />
-      <Link rel="preconnect" href="https://fonts.gstatic.com" />
-      <Link
-        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap"
-        rel="stylesheet"
-      ></Link> */}
-      <body className={`${poppins.className} px-[50px]`}>
+      <body className={`${poppins.className}`}>
         <Navbar />
-        {children}
+        <div className="px-5 min-lg:px-[50px]">{children}</div>
       </body>
     </html>
   );

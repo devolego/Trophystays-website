@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        laptopScreen: "1250px",
+      },
       colors: {
         white: "#ffffff",
         black: "#292021",
@@ -18,6 +21,7 @@ module.exports = {
         greyishBrown: "#E1D9CE",
         offWhite: "#FAFAFA",
       },
+
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
