@@ -21,11 +21,16 @@ module.exports = {
         greyishBrown: "#E1D9CE",
         offWhite: "#FAFAFA",
       },
+      gridTemplateColumns: {
+        "image-gallery-4": "160px repeat(3 , 1fr)",
+      },
 
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "banner-image": "url('../images/hero.jpg')",
+        "banner-overlay": "url('../images/banner-overlay.png')",
       },
     },
   },

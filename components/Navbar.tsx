@@ -5,7 +5,6 @@ import Image from "next/image";
 // import logoText from "../images/trophy-logo.png";
 import logoText from "../images/logo-text.png";
 import { navbarItems } from "../utils/utilsItems";
-import Button from "./Button";
 
 const Navbar = () => {
   return (
