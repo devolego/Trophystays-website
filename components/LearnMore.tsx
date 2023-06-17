@@ -1,16 +1,16 @@
-import React from 'react'
-import CardImgWithText from './CardImgWithText'
-import WFHIcon from "../images/work-from-home.png"
-import festiveSeasonImg from "../images/festive-season.png"
-import kitchenImg from "../images/kitchen-img-2.png"
-import { josefin } from '../utils/utilsFonts'
+import React from "react";
+import CardImgWithText from "./CardImgWithText";
+import WFHIcon from "../images/work-from-home.png";
+import festiveSeasonImg from "../images/festive-season.png";
+import kitchenImg from "../images/kitchen-img-2.png";
+import { josefin } from "../utils/utilsFonts";
 
 const LearnMore = () => {
   return (
     <div className="mt-[119px] mb-[61px] rounded-[16px]">
       <div className="max-w-[545px] w-full mb-[50px]">
         <h2 className={`text-[40px] mb-4 ${josefin.className} `}>
-        Learn more about the passion that powers us
+          Learn more about the passion that powers us
         </h2>
         {/* <p className="text-darkGrey text-base">
           {
@@ -51,10 +51,9 @@ const LearnMore = () => {
           cardContent={"Read More"}
           cardLink={"/"}
         />
-
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default LearnMore
+export default LearnMore;
