@@ -1,0 +1,89 @@
+import React from "react";
+import { josefin } from "../utils/utilsItems";
+import CardImgWithText from "./CardImgWithText";
+import contactCheckIn from "../images/checkIn.png";
+import netflix from "../images/netflix.png";
+import BathroomImg from "../images/bathroom-toiletries.png";
+import kitchenIcon from "../images/kitchen.png";
+import bedRoomIcon from "../images/premium-linen.png";
+import routerImg from "../images/router-img.png";
+
+const EveryThingRightHere = () => {
+  return (
+    <div className="my-[119px] rounded-[16px]">
+      <div className="max-w-[405px] w-full mb-[50px]">
+        <h2 className={`text-4xl mb-4 ${josefin.className} `}>
+          Everything You Need. All Right Here.
+        </h2>
+        <p className="text-darkGrey text-base">
+          {
+            " You'll find a range of facilities in your holiday home booked with Trophy Stays."
+          }
+        </p>
+      </div>
+      <div className="grid grid-cols-3 px-[124px] gap-[30px]">
+        <CardImgWithText
+          cardImage={contactCheckIn}
+          cardClass={`bg-lightBrown text-center max-w-[377px] w-full`}
+          cardContentClasses={"px-[27px] py-[30px] "}
+          cardHeading={"Contactless Check-In"}
+          cardPara={
+            "You'll find a range of facilities in your holiday home booked with Trophy Stays."
+          }
+        />
+
+        <CardImgWithText
+          cardImage={bedRoomIcon}
+          cardClass={`bg-lightBrown text-center max-w-[377px] w-full`}
+          cardContentClasses={"px-[27px] py-[30px] "}
+          cardHeading={"Premium Linen"}
+          cardPara={
+            "You'll find a range of facilities in your holiday home booked with Trophy Stays."
+          }
+        />
+
+        <CardImgWithText
+          cardImage={routerImg}
+          cardClass={`bg-lightBrown text-center max-w-[377px] w-full`}
+          cardContentClasses={"px-[27px] py-[30px] "}
+          cardHeading={"Fast Wi-Fi 250 Mbps"}
+          cardPara={
+            "You'll find a range of facilities in your holiday home booked with Trophy Stays."
+          }
+        />
+
+        <CardImgWithText
+          cardImage={kitchenIcon}
+          cardClass={`bg-lightBrown text-center max-w-[377px] w-full`}
+          cardContentClasses={"px-[27px] py-[30px] "}
+          cardHeading={"Equipped Kitchen"}
+          cardPara={
+            "You'll find a range of facilities in your holiday home booked with Trophy Stays."
+          }
+        />
+
+        <CardImgWithText
+          cardImage={netflix}
+          cardClass={`bg-lightBrown text-center max-w-[377px] w-full`}
+          cardContentClasses={"px-[27px] py-[30px] "}
+          cardHeading={"Smart TV W/ Netflix"}
+          cardPara={
+            "You'll find a range of facilities in your holiday home booked with Trophy Stays."
+          }
+        />
+
+        <CardImgWithText
+          cardImage={BathroomImg}
+          cardClass={`bg-lightBrown text-center max-w-[377px] w-full`}
+          cardContentClasses={"px-[27px] py-[30px] "}
+          cardHeading={"Bathroom Toiletries"}
+          cardPara={
+            "You'll find a range of facilities in your holiday home booked with Trophy Stays."
+          }
+        />
+      </div>
+    </div>
+  );
+};
+
+export default EveryThingRightHere;
