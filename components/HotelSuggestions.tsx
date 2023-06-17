@@ -10,7 +10,10 @@ const HotelSuggestions = () => {
       >
         Hotels You would want to Visit
       </h2>
-      <div className="grid grid-cols-4 hotel-card-design">
+      <div className="grid grid-cols-4 hotel-card-design gap-6">
+        <CardWithSlider />
+        <CardWithSlider />
+        <CardWithSlider />
         <CardWithSlider />
       </div>
     </div>

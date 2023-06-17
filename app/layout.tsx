@@ -2,6 +2,8 @@ import Link from "next/link";
 import "./globals.css";
 import { Inter, Poppins } from "next/font/google";
 import Navbar from "../components/Navbar";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 // const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({
@@ -21,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <link
+      {/* <link
         rel="stylesheet"
         type="text/css"
         charset="UTF-8"
@@ -31,7 +33,7 @@ export default function RootLayout({
         rel="stylesheet"
         type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-      />
+      /> */}
       <body className={`${poppins.className}`}>
         <Navbar />
         <div className="px-5 min-lg:px-[50px]">{children}</div>
