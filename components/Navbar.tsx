@@ -61,9 +61,9 @@ const Navbar = () => {
               htmlFor="nav-check"
               className="flex flex-col items-end cursor-pointer"
             >
-              <span className="block w-4 h-[3px] mb-[6px] rounded-md bg-darkGray text-darkGray"></span>
-              <span className="block w-4 h-[3px] mb-[6px] rounded-md bg-darkGray text-darkGray"></span>
-              <span className="block w-[21px] h-[3px] rounded-md bg-darkGray text-darkGray"></span>
+              <span className="block w-4 h-[3px] mb-[6px] rounded-md bg-darkGrey text-darkGrey"></span>
+              <span className="block w-4 h-[3px] mb-[6px] rounded-md bg-darkGrey text-darkGrey"></span>
+              <span className="block w-[21px] h-[3px] rounded-md bg-darkGrey text-darkGrey"></span>
             </label>
           </div>
         </div>

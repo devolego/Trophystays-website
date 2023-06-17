@@ -13,7 +13,7 @@ const Neighbourhoods = () => {
         <h3 className={`text-[40px] text-black ${josefin.className}`}>
           Neighbourhoods
         </h3>
-        <p className="text-darkGray ">
+        <p className="text-darkGrey ">
           From a room for a night to a loft for as long as you like, there’s a
           Sonder for every occasion.
         </p>
@@ -27,7 +27,7 @@ const Neighbourhoods = () => {
         />
         <div className="grid gap-6 pt-6 grid-cols-image-gallery-4">
           <div className="">
-            <span className="text-sm text-darkGray ">5 Neighbourhoods</span>
+            <span className="text-sm text-darkGrey ">5 Neighbourhoods</span>
             <h3 className={`text-[32px] leading-[32px] ${josefin.className}`}>
               Abu Dhabi
             </h3>
@@ -40,7 +40,7 @@ const Neighbourhoods = () => {
               alt=""
             />
             <div className="pt-4">
-              <span className="text-sm text-darkGray ">2 Neighbourhoods</span>
+              <span className="text-sm text-darkGrey ">2 Neighbourhoods</span>
               <h3 className={`text-[32px] leading-[32px] ${josefin.className}`}>
                 Sharjah
               </h3>
@@ -54,7 +54,7 @@ const Neighbourhoods = () => {
               alt=""
             />
             <div className="pt-4">
-              <span className="text-sm text-darkGray ">3 Neighbourhoods</span>
+              <span className="text-sm text-darkGrey ">3 Neighbourhoods</span>
               <h3 className={`text-[32px] leading-[32px] ${josefin.className}`}>
                 Umm Al Qaiwain
               </h3>
@@ -68,7 +68,7 @@ const Neighbourhoods = () => {
               alt=""
             />
             <div className="pt-4">
-              <span className="text-sm text-darkGray ">3 Neighbourhoods</span>
+              <span className="text-sm text-darkGrey ">3 Neighbourhoods</span>
               <h3 className={`text-[32px] leading-[32px] ${josefin.className}`}>
                 Fujairah
               </h3>
@@ -86,7 +86,7 @@ const Neighbourhoods = () => {
                   height="100"
                 />
                 <div className="pt-4">
-                  <span className="text-sm text-darkGray ">
+                  <span className="text-sm text-darkGrey ">
                     {value.subHeading}
                   </span>
                   <h3
