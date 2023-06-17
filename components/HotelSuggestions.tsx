@@ -6,7 +6,7 @@ const HotelSuggestions = () => {
   return (
     <div className="bg-lightBrown py-[60px] px-[50px]">
       <h2
-        className={` ${josefin.className} text-4xl text-black max-w-[452px] mb-[50px]`}
+        className={` ${josefin.className} text-[40px] text-black max-w-[452px] mb-[50px]`}
       >
         Hotels You would want to Visit
       </h2>

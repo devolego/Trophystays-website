@@ -10,7 +10,7 @@ const Neighbourhoods = () => {
   return (
     <div className="py-[120px] px-[75px] mx-auto">
       <div className="pb-[50px] max-w-[460px]">
-        <h3 className={`text-4xl text-black ${josefin.className}`}>
+        <h3 className={`text-[40px] text-black ${josefin.className}`}>
           Neighbourhoods
         </h3>
         <p className="text-darkGray ">

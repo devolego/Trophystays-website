@@ -12,7 +12,7 @@ const EveryThingRightHere = () => {
   return (
     <div className="my-[119px] rounded-[16px]">
       <div className="max-w-[405px] w-full mb-[50px]">
-        <h2 className={`text-4xl mb-4 ${josefin.className} `}>
+        <h2 className={`text-[40px] mb-4 ${josefin.className} `}>
           Everything You Need. All Right Here.
         </h2>
         <p className="text-darkGrey text-base">
@@ -25,7 +25,7 @@ const EveryThingRightHere = () => {
         <CardImgWithText
           cardImage={contactCheckIn}
           cardClass={`bg-lightBrown text-center max-w-[377px] w-full`}
-          cardContentClasses={"px-[27px] py-[30px] "}
+          cardContentClasses={"px-[27px] py-5"}
           cardHeading={"Contactless Check-In"}
           cardPara={
             "You'll find a range of facilities in your holiday home booked with Trophy Stays."
@@ -35,7 +35,7 @@ const EveryThingRightHere = () => {
         <CardImgWithText
           cardImage={bedRoomIcon}
           cardClass={`bg-lightBrown text-center max-w-[377px] w-full`}
-          cardContentClasses={"px-[27px] py-[30px] "}
+          cardContentClasses={"px-[27px] py-5"}
           cardHeading={"Premium Linen"}
           cardPara={
             "You'll find a range of facilities in your holiday home booked with Trophy Stays."
@@ -45,7 +45,7 @@ const EveryThingRightHere = () => {
         <CardImgWithText
           cardImage={routerImg}
           cardClass={`bg-lightBrown text-center max-w-[377px] w-full`}
-          cardContentClasses={"px-[27px] py-[30px] "}
+          cardContentClasses={"px-[27px] py-5"}
           cardHeading={"Fast Wi-Fi 250 Mbps"}
           cardPara={
             "You'll find a range of facilities in your holiday home booked with Trophy Stays."
@@ -55,7 +55,7 @@ const EveryThingRightHere = () => {
         <CardImgWithText
           cardImage={kitchenIcon}
           cardClass={`bg-lightBrown text-center max-w-[377px] w-full`}
-          cardContentClasses={"px-[27px] py-[30px] "}
+          cardContentClasses={"px-[27px] py-5"}
           cardHeading={"Equipped Kitchen"}
           cardPara={
             "You'll find a range of facilities in your holiday home booked with Trophy Stays."
@@ -65,7 +65,7 @@ const EveryThingRightHere = () => {
         <CardImgWithText
           cardImage={netflix}
           cardClass={`bg-lightBrown text-center max-w-[377px] w-full`}
-          cardContentClasses={"px-[27px] py-[30px] "}
+          cardContentClasses={"px-[27px] py-5"}
           cardHeading={"Smart TV W/ Netflix"}
           cardPara={
             "You'll find a range of facilities in your holiday home booked with Trophy Stays."
@@ -75,7 +75,7 @@ const EveryThingRightHere = () => {
         <CardImgWithText
           cardImage={BathroomImg}
           cardClass={`bg-lightBrown text-center max-w-[377px] w-full`}
-          cardContentClasses={"px-[27px] py-[30px] "}
+          cardContentClasses={"px-[27px] py-5"}
           cardHeading={"Bathroom Toiletries"}
           cardPara={
             "You'll find a range of facilities in your holiday home booked with Trophy Stays."

@@ -3,7 +3,9 @@ import { josefin } from "../utils/utilsItems";
 import Banner from "../components/Banner";
 import Neighbourhoods from "../components/Neighbourhoods";
 import HotelSuggestions from "../components/HotelSuggestions";
-import EveryThingRightHere from "../components/EveryThingRIghtHere";
+import EveryThingRightHere from "../components/EveryThingRightHere";
+import ImageGallerySection from "../components/ImageGallerySection";
+import LearnMore from "../components/LearnMore";
 
 export default function Home() {
   return (
@@ -12,7 +14,8 @@ export default function Home() {
       <Neighbourhoods />
       <HotelSuggestions />
       <EveryThingRightHere />
-
+      <ImageGallerySection />
+      <LearnMore />
       {/* Hello */}
     </div>
   );
