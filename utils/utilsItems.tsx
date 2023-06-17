@@ -1,11 +1,6 @@
-import { Josefin_Sans } from "next/font/google";
 import sharjahImg from "../images/sharjah.png";
 import ummalquwainImg from "../images/ummalquwain.png";
 import fujairahImg from "../images/fujairah.png";
-// const inter = Inter({ subsets: ["latin"] });
-export const josefin = Josefin_Sans({
-  subsets: ["latin"],
-});
 
 export const navbarItems = [
   "About Us",

@@ -1,5 +1,4 @@
 import React from "react";
-import { josefin } from "../utils/utilsItems";
 import CardImgWithText from "./CardImgWithText";
 import contactCheckIn from "../images/checkIn.png";
 import netflix from "../images/netflix.png";
@@ -7,6 +6,7 @@ import BathroomImg from "../images/bathroom-toiletries.png";
 import kitchenIcon from "../images/kitchen.png";
 import bedRoomIcon from "../images/premium-linen.png";
 import routerImg from "../images/router-img.png";
+import { josefin } from "../utils/utilsFonts";
 
 const EveryThingRightHere = () => {
   return (

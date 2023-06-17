@@ -1,9 +1,9 @@
 import React from 'react'
-import { josefin } from '../utils/utilsItems'
 import CardImgWithText from './CardImgWithText'
 import WFHIcon from "../images/work-from-home.png"
 import festiveSeasonImg from "../images/festive-season.png"
 import kitchenImg from "../images/kitchen-img-2.png"
+import { josefin } from '../utils/utilsFonts'
 
 const LearnMore = () => {
   return (

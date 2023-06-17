@@ -1,5 +1,5 @@
 import React from "react";
-import { josefin } from "../utils/utilsItems";
+import { josefin } from "../utils/utilsFonts";
 import CardWithSlider from "./CardWithSlider";
 
 const HotelSuggestions = () => {

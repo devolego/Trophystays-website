@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { josefin } from "../utils/utilsItems";
+import { josefin } from "../utils/utilsFonts";
 
 const CardImgWithText = (props) => {
   return (

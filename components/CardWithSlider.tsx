@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import Slider from "react-slick";
+// import Slider from "react-slick";
 import sliderImg from "../images/slider-img.png";
 import startImg from "../images/starIcon.png";
 import heartImg from "../images/heartIcon.png";
@@ -9,8 +9,8 @@ import greylineImg from "../images/grey-line.png";
 import multiPerson from "../images/multiPerson.png";
 import bedRoomIcon from "../images/bedroomIcon.png";
 import bathTubIcon from "../images/bathTubIcon.png";
-import { josefin } from "../utils/utilsItems";
 import Link from "next/link";
+import { josefin } from "../utils/utilsFonts";
 
 const CardWithSlider = (props) => {
   return (
