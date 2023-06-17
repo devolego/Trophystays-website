@@ -32,6 +32,11 @@ module.exports = {
         "banner-image": "url('../images/hero.jpg')",
         "banner-overlay": "url('../images/banner-overlay.png')",
       },
+      container: {
+        screens: {
+          "2xl": "1440px",
+        },
+      },
     },
   },
   plugins: [],

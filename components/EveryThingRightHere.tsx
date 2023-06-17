@@ -24,7 +24,7 @@ const EveryThingRightHere = () => {
       <div className="grid grid-cols-3 px-[124px] gap-[30px]">
         <CardImgWithText
           cardImage={contactCheckIn}
-          cardClass={`bg-lightBrown text-center max-w-[377px] w-full`}
+          cardClass={`bg-lightBrown text-center w-full`}
           cardContentClasses={"px-[27px] py-5"}
           cardHeading={"Contactless Check-In"}
           cardPara={
@@ -34,7 +34,7 @@ const EveryThingRightHere = () => {
 
         <CardImgWithText
           cardImage={bedRoomIcon}
-          cardClass={`bg-lightBrown text-center max-w-[377px] w-full`}
+          cardClass={`bg-lightBrown text-center w-full`}
           cardContentClasses={"px-[27px] py-5"}
           cardHeading={"Premium Linen"}
           cardPara={
@@ -44,7 +44,7 @@ const EveryThingRightHere = () => {
 
         <CardImgWithText
           cardImage={routerImg}
-          cardClass={`bg-lightBrown text-center max-w-[377px] w-full`}
+          cardClass={`bg-lightBrown text-center w-full`}
           cardContentClasses={"px-[27px] py-5"}
           cardHeading={"Fast Wi-Fi 250 Mbps"}
           cardPara={
@@ -54,7 +54,7 @@ const EveryThingRightHere = () => {
 
         <CardImgWithText
           cardImage={kitchenIcon}
-          cardClass={`bg-lightBrown text-center max-w-[377px] w-full`}
+          cardClass={`bg-lightBrown text-center w-full`}
           cardContentClasses={"px-[27px] py-5"}
           cardHeading={"Equipped Kitchen"}
           cardPara={
@@ -64,7 +64,7 @@ const EveryThingRightHere = () => {
 
         <CardImgWithText
           cardImage={netflix}
-          cardClass={`bg-lightBrown text-center max-w-[377px] w-full`}
+          cardClass={`bg-lightBrown text-center w-full`}
           cardContentClasses={"px-[27px] py-5"}
           cardHeading={"Smart TV W/ Netflix"}
           cardPara={
@@ -74,7 +74,7 @@ const EveryThingRightHere = () => {
 
         <CardImgWithText
           cardImage={BathroomImg}
-          cardClass={`bg-lightBrown text-center max-w-[377px] w-full`}
+          cardClass={`bg-lightBrown text-center w-full`}
           cardContentClasses={"px-[27px] py-5"}
           cardHeading={"Bathroom Toiletries"}
           cardPara={

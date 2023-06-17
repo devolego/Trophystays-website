@@ -10,14 +10,18 @@ import LearnMore from "../components/LearnMore";
 export default function Home() {
   return (
     <div>
-      <Banner />
-      <Neighbourhoods />
+      <div className="container-2xl px-5 min-lg:px-[50px]">
+        <Banner />
+        <Neighbourhoods />
+      </div>
       <HotelSuggestions />
-      <EveryThingRightHere />
-      <ImageGallerySection />
-      <LearnMore />
+      <div className="container-2xl px-5 min-lg:px-[50px]">
+        <EveryThingRightHere />
+        <ImageGallerySection />
+        <LearnMore />
+      </div>
+
       {/* <ClientReviews /> */}
-      {/* Hello */}
     </div>
   );
 }

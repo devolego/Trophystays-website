@@ -11,8 +11,8 @@ import { josefin } from "../utils/utilsFonts";
 const ImageGallerySection = () => {
   return (
     <div>
-      <div className="grid grid-cols-4 gap-[30px]">
-        <div className="col-span-2 mb-[30px]">
+      <div className="grid grid-cols-4 gap-[30px] mb-[30px]">
+        <div className="col-span-2 ">
           <h2 className={`text-[40px] mb-2 ${josefin.className}`}>
             Discover exciting locations where skyline views, modern luxury, and
             amenities seamlessly merge.

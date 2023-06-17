@@ -3,6 +3,7 @@ import React from "react";
 // import Slider from "react-slick";
 import sliderImg from "../images/slider-img.png";
 import startImg from "../images/starIcon.png";
+import startOutlineImg from "../images/star-outline.png";
 import heartImg from "../images/heartIcon.png";
 import filledHeartImg from "../images/filledHeartIcon.png";
 import greylineImg from "../images/grey-line.png";
@@ -19,11 +20,45 @@ const CardWithSlider = (props) => {
       <div className="px-4 py-6">
         <div className="rating-like flex justify-between items-center ">
           <div className="starts flex mb-2 gap-1">
-            <Image className="object-contain" src={startImg} alt="" />
-            <Image className="object-contain" src={startImg} alt="" />
-            <Image className="object-contain" src={startImg} alt="" />
-            <Image className="object-contain" src={startImg} alt="" />
-            <Image className="object-contain" src={startImg} alt="" />
+            {props.rating === "5.0" ? (
+              <>
+                <Image className="object-contain" src={startImg} alt="" />
+                <Image className="object-contain" src={startImg} alt="" />
+                <Image className="object-contain" src={startImg} alt="" />
+                <Image className="object-contain" src={startImg} alt="" />
+                <Image className="object-contain" src={startImg} alt="" />
+              </>
+            ) : props.rating === "4.0" ? (
+              <>
+                <Image className="object-contain" src={startImg} alt="" />
+                <Image className="object-contain" src={startImg} alt="" />
+                <Image className="object-contain" src={startImg} alt="" />
+                <Image className="object-contain" src={startImg} alt="" />
+                <Image
+                  className="object-contain"
+                  src={startOutlineImg}
+                  alt=""
+                />
+              </>
+            ) : props.rating === "3.0" ? (
+              <>
+                <Image className="object-contain" src={startImg} alt="" />
+                <Image className="object-contain" src={startImg} alt="" />
+                <Image className="object-contain" src={startImg} alt="" />
+                <Image
+                  className="object-contain"
+                  src={startOutlineImg}
+                  alt=""
+                />
+                <Image
+                  className="object-contain"
+                  src={startOutlineImg}
+                  alt=""
+                />
+              </>
+            ) : (
+              ""
+            )}
             <span>{props.rating}</span>
           </div>
           <div>

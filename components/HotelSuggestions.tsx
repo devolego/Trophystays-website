@@ -25,7 +25,7 @@ const HotelSuggestions = () => {
           perRoomUserCount={"2 sleeps"}
           bedCount={"1 Bedroom"}
           bathCount={"1 Bath"}
-          likeButton={"unfilled"}
+          likeButton={"filled"}
         />
         <CardWithSlider
           paraText={" 1 Bed Apartment with Stunning View"}

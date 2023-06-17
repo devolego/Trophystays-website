@@ -7,8 +7,10 @@ const Banner = () => {
     <div className="bg-banner-image h-[640px] bg-no-repeat bg-right rounded-[16px] relative bg-cover overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full bg-cover bg-banner-overlay"></div>
       <div className="absolute text-white max-w-[586px] top-[50%] left-[75px] -translate-y-1/2">
-        <h1 className={`text-[64px] ${josefin.className}`}>Short-term</h1>
-        <h4 className={`text-[40px] mb-6 ${josefin.className}`}>
+        <h1 className={`text-[64px] leading-[64px] ${josefin.className}`}>
+          Short-term
+        </h1>
+        <h4 className={`text-4xl mb-6 ${josefin.className}`}>
           Properties Designed For Comfort.
         </h4>
         <p className="text-lg mb-[30px]">

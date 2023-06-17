@@ -21,7 +21,7 @@ const LearnMore = () => {
       <div className="grid grid-cols-3 px-[124px] gap-[30px]">
         <CardImgWithText
           cardImage={WFHIcon}
-          cardClass={`bg-white max-w-[377px] w-full text-black`}
+          cardClass={`bg-white w-full text-black`}
           cardContentClasses={"py-3"}
           cardPara={
             "Tips from our interior designers on optimizing your WFH space"
@@ -32,7 +32,7 @@ const LearnMore = () => {
 
         <CardImgWithText
           cardImage={festiveSeasonImg}
-          cardClass={`bg-white max-w-[377px] w-full text-black`}
+          cardClass={`bg-white w-full text-black`}
           cardContentClasses={"py-3"}
           cardPara={
             "Kick Off Festival Season with Sonder at Coachella and Stagecoach 2023"
@@ -43,7 +43,7 @@ const LearnMore = () => {
 
         <CardImgWithText
           cardImage={kitchenImg}
-          cardClass={`bg-white max-w-[377px] w-full text-black`}
+          cardClass={`bg-white w-full text-black`}
           cardContentClasses={"py-3"}
           cardPara={
             "The rise of hybrid and remote working, as well as travellers combining business."
