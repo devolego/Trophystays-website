@@ -1,6 +1,6 @@
 import React from "react";
 import CardImgWithText from "./CardImgWithText";
-import contactCheckIn from "../images/checkIn.png";
+import contactCheckIn from "../images/check-in.png";
 import netflix from "../images/netflix.png";
 import BathroomImg from "../images/bathroom-toiletries.png";
 import kitchenIcon from "../images/kitchen.png";
