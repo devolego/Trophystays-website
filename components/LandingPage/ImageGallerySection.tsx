@@ -1,12 +1,12 @@
 import Image from "next/image";
 import React from "react";
-import gallerImgOne from "../images/gallery-img-1.png";
-import gallerImgSecond from "../images/gallery-img-2.png";
-import gallerImgThird from "../images/gallery-img-3.png";
-import gallerImgFourth from "../images/gallery-img-4.png";
-import gallerImgFifth from "../images/gallery-img-5.png";
-import gallerImgSixth from "../images/gallery-img-6.png";
-import { josefin } from "../utils/utilsFonts";
+import gallerImgOne from "../../images/gallery-img-1.png";
+import gallerImgSecond from "../../images/gallery-img-2.png";
+import gallerImgThird from "../../images/gallery-img-3.png";
+import gallerImgFourth from "../../images/gallery-img-4.png";
+import gallerImgFifth from "../../images/gallery-img-5.png";
+import gallerImgSixth from "../../images/gallery-img-6.png";
+import { josefin } from "../../utils/utilsFonts";
 
 const ImageGallerySection = () => {
   return (

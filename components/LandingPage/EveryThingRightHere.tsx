@@ -1,12 +1,12 @@
 import React from "react";
-import CardImgWithText from "./CommonComponents/CardImgWithText";
-import contactCheckIn from "../images/check-in.png";
-import netflix from "../images/netflix.png";
-import BathroomImg from "../images/bathroom-toiletries.png";
-import kitchenIcon from "../images/kitchen.png";
-import bedRoomIcon from "../images/premium-linen.png";
-import routerImg from "../images/router-img.png";
-import { josefin } from "../utils/utilsFonts";
+import contactCheckIn from "../../images/check-in.png";
+import netflix from "../../images/netflix.png";
+import BathroomImg from "../../images/bathroom-toiletries.png";
+import kitchenIcon from "../../images/kitchen.png";
+import bedRoomIcon from "../../images/premium-linen.png";
+import routerImg from "../../images/router-img.png";
+import { josefin } from "../../utils/utilsFonts";
+import CardImgWithText from "../Common/CardImgWithText";
 
 const EveryThingRightHere = () => {
   return (

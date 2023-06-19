@@ -1,10 +1,10 @@
 import Link from "next/link";
 import React from "react";
-import logoLionImage from "../images/logo.png";
+import logoLionImage from "../../images/logo.png";
 import Image from "next/image";
-// import logoText from "../images/trophy-logo.png";
-import logoText from "../images/logo-text.png";
-import { navbarItems } from "../utils/utilsItems";
+// import logoText from "../../images/trophy-logo.png";
+import logoText from "../../images/logo-text.png";
+import { navbarItems } from "../../utils/utilsItems";
 
 const Navbar = () => {
   return (

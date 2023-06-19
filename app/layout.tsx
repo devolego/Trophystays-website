@@ -1,8 +1,9 @@
 import Link from "next/link";
 import "./globals.css";
 import { Inter, Poppins } from "next/font/google";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Navbar from "../components/Layout/Navbar";
+import Footer from "../components/Layout/Footer";
+import Layout from "../components/Layout";
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
 
@@ -36,9 +37,9 @@ export default function RootLayout({
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
       /> */}
       <body className={`${poppins.className}`}>
-        <Navbar />
-        <div>{children}</div>
-        <Footer />
+        <Layout>
+          <div>{children}</div>
+        </Layout>
       </body>
     </html>
   );

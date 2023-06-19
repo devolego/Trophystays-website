@@ -1,10 +1,10 @@
 import React from "react";
-import neighbourhoodImage from "../images/abu-dhabi.png";
-import sharjahImg from "../images/sharjah.png";
-import ummalquwainImg from "../images/ummalquwain.png";
-import fujairahImg from "../images/fujairah.png";
+import neighbourhoodImage from "../../images/abu-dhabi.png";
+import sharjahImg from "../../images/sharjah.png";
+import ummalquwainImg from "../../images/ummalquwain.png";
+import fujairahImg from "../../images/fujairah.png";
 import Image from "next/image";
-import { josefin } from "../utils/utilsFonts";
+import { josefin } from "../../utils/utilsFonts";
 
 const Neighbourhoods = () => {
   return (

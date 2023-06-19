@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { josefin } from "../utils/utilsFonts";
+import { josefin } from "../../utils/utilsFonts";
 
 const Banner = () => {
   return (

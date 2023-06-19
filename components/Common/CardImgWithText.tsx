@@ -11,7 +11,7 @@ const CardImgWithText = ({
   cardPara,
   cardLink,
   cardContent,
-}) => {
+}:any) => {
   return (
     <div className={`rounded-[16px] w-full ${cardClass}`}>
       <Image className="w-full" src={cardImage} alt="" />

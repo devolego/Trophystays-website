@@ -1,6 +1,6 @@
 import React from "react";
-import { josefin } from "../utils/utilsFonts";
-import CardWithSlider from "./CommonComponents/CardWithSlider";
+import { josefin } from "../../utils/utilsFonts";
+import CardWithSlider from "../Common/CardWithSlider";
 
 const HotelSuggestions = () => {
   return (

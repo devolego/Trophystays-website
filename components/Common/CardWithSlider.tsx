@@ -3,7 +3,7 @@ import React from "react";
 // import Slider from "react-slick";
 import sliderImg from "../../images/slider-img.png";
 import startImg from "../../images/star-icon.png";
-import startOutlineImg from "../../images/star-outline.png";
+import startOutlineImg from "../../images/Star-outline.png";
 import heartImg from "../../images/heart-icon-outline.png";
 import filledHeartImg from "../../images/heart-icon.png";
 import greylineImg from "../../images/grey-line.png";
