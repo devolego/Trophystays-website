@@ -1,13 +1,19 @@
+"use client";
 import React from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-
+import { usePathname } from "next/navigation";
+const withoutLayout = ["/login", "/signup"];
 const Layout = ({ children }) => {
+  
+  const router = usePathname();
+  const isWithoutLayout = withoutLayout.includes(router);
+  
   return (
     <React.Fragment>
-      <Navbar />
+      {!isWithoutLayout && <Navbar />}
       {children}
-      <Footer />
+      {!isWithoutLayout && <Footer />}
     </React.Fragment>
   );
 };

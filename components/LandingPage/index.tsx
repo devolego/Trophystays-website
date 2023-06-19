@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Banner from "./Banner";
 import Neighbourhoods from "./Neighbourhoods";
@@ -5,6 +6,7 @@ import HotelSuggestions from "./HotelSuggestions";
 import EveryThingRightHere from "./EveryThingRightHere";
 import ImageGallerySection from "./ImageGallerySection";
 import LearnMore from "./LearnMore";
+import ClientReviews from "./ClientReviews";
 
 const LandingPage = () => {
   return (

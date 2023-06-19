@@ -39,14 +39,15 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-5 max-lg:hidden">
-          <div className="lg:text-sm laptopScreen:text-base">
+          <Link href={'/signup'} className="lg:text-sm laptopScreen:text-base">
             Create an Account
-          </div>
-          <div
+          </Link>
+          <Link
             className={`bg-blackLight rounded-[8px] px-[31px] py-2  laptopScreen:text-base text-white`}
+            href={"/login"}
           >
             Sign In
-          </div>
+          </Link>
           {/* <Button /> */}
         </div>
 
