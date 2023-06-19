@@ -44,9 +44,16 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-5 max-lg:hidden">
-          <div className="lg:text-sm xl:text-base">Create an Account</div>
-
-          <Button ButtonText="Sign In" ButtonClasses="text-white" />
+          <Link href={'/signup'} className="lg:text-sm laptopScreen:text-base">
+            Create an Account
+          </Link>
+          <Link
+            className={`bg-blackLight rounded-[8px] px-[31px] py-2  laptopScreen:text-base text-white`}
+            href={"/login"}
+          >
+            Sign In
+          </Link>
+          {/* <Button /> */}
         </div>
 
         <div className="flex items-center gap-4 nav-button lg:hidden">

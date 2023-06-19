@@ -2,6 +2,9 @@ import Image from "next/image";
 import React from "react";
 // import Slider from "react-slick";
 import sliderImg from "../../images/slider-img.png";
+import sliderImg1 from "../../images/kitchen-img-2.png";
+import sliderImg2 from "../../images/hero.png";
+import sliderImg3 from "../../images/login-form-img-1.png";
 import startImg from "../../images/star-icon.png";
 import startOutlineImg from "../../images/Star-outline.png";
 import heartImg from "../../images/heart-icon-outline.png";
@@ -12,11 +15,41 @@ import bedRoomIcon from "../../images/bedroom-icon.png";
 import bathTubIcon from "../../images/bathtub-icon.png";
 import Link from "next/link";
 import { josefin } from "../../utils/utilsFonts";
-
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+var settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+};
 const CardWithSlider = (props) => {
   return (
     <div className="bg-white rounded-[16px] overflow-hidden">
-      <Image className="w-full h-[240px] object-cover" src={sliderImg} alt="" />
+      <Slider {...settings}>
+        <Image
+          className="w-full h-[240px] object-cover"
+          src={sliderImg}
+          alt=""
+        />
+        <Image
+          className="w-full h-[240px] object-cover"
+          src={sliderImg1}
+          alt=""
+        />
+        <Image
+          className="w-full h-[240px] object-cover"
+          src={sliderImg2}
+          alt=""
+        />
+        <Image
+          className="w-full h-[240px] object-cover"
+          src={sliderImg3}
+          alt=""
+        />
+      </Slider>
       <div className="px-4 py-6">
         <div className="flex items-center justify-between rating-like ">
           <div className="flex gap-1 mb-2 starts">

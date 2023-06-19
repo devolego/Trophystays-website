@@ -10,36 +10,8 @@ import arrowRight from "../../images/arrow-with-circle-dark.png";
 import Image from "next/image";
 
 const ClientReviews = () => {
-  // var settings = {
-  //   dots: true,
-  //   infinite: true,
-  //   speed: 500,
-  //   slidesToShow: 1,
-  //   slidesToScroll: 1,
-  // };
   return (
     <div className="py-[140px]">
-      {/* Hello World.
-      <Slider {...settings}>
-        <div>
-          <h3>1</h3>
-        </div>
-        <div>
-          <h3>2</h3>
-        </div>
-        <div>
-          <h3>3</h3>
-        </div>
-        <div>
-          <h3>4</h3>
-        </div>
-        <div>
-          <h3>5</h3>
-        </div>
-        <div>
-          <h3>6</h3>
-        </div>
-      </Slider> */}
       <div className="flex items-center justify-between">
         <h2
           className={`text-[40px] mb-4 max-w-[452px] w-full ${josefin.className} max-lg:text-[32px] max-lg:leading-[40px]`}

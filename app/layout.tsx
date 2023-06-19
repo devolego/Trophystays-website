@@ -1,11 +1,7 @@
 import Link from "next/link";
 import "./globals.css";
 import { Inter, Poppins } from "next/font/google";
-import Navbar from "../components/Layout/Navbar";
-import Footer from "../components/Layout/Footer";
 import Layout from "../components/Layout";
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
 
 // const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({
@@ -21,7 +17,7 @@ export const metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode ;
 }) {
   return (
     <html lang="en">
