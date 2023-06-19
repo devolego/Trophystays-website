@@ -35,7 +35,7 @@ const Navbar = () => {
                     key={index}
                     className="lg:mr-[20px] max-lg:text-2xl lg:text-sm xl:mr-[50px] xl:text-base text-black max-lg:leading-[] "
                   >
-                    {items}
+                    <Link href={`${items.link}`}>{items.name}</Link>
                   </li>
                 );
               })}

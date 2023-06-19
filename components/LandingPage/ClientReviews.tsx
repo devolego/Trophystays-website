@@ -42,18 +42,18 @@ const ClientReviews = () => {
       </Slider> */}
       <div className="flex items-center justify-between">
         <h2
-          className={`text-[40px] mb-4 max-w-[452px] w-full ${josefin.className}`}
+          className={`text-[40px] mb-4 max-w-[452px] w-full ${josefin.className} max-lg:text-[32px] max-lg:leading-[40px]`}
         >
           What Our Clients Says About Us
         </h2>
 
-        <div className="flex gap-6 pr-[124px] cursor-pointer">
+        <div className="flex gap-6 pr-[124px] cursor-pointer max-lg:hidden">
           <Image className="object-contain w-[55px]" src={arrowLeft} alt="" />
           <Image className="object-contain w-[55px]" src={arrowRight} alt="" />
         </div>
       </div>
 
-      <div className="grid grid-cols-3 px-[124px] gap-[30px]">
+      <div className="grid lg:grid-cols-3 lg:px-[124px] gap-[30px]">
         <CardImgWithText
           cardClass="bg-lightBrown px-[27px] pb-11"
           cardImage={QuoteIcon}
