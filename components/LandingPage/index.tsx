@@ -10,12 +10,12 @@ import ClientReviews from "./ClientReviews";
 const LandingPage = () => {
   return (
     <React.Fragment>
-      <div className="container-2xl px-[50px]">
+      <div className="container-2xl max-lg:px-4 lg:px-[50px]">
         <Banner />
         <Neighbourhoods />
       </div>
       <HotelSuggestions />
-      <div className="container-2xl px-[50px]">
+      <div className="container-2xl max-lg:px-4 lg:px-[50px]">
         <EveryThingRightHere />
         <ImageGallerySection />
         <LearnMore />

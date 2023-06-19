@@ -7,9 +7,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      screens: {
-        laptopScreen: "1250px",
-      },
       colors: {
         white: "#ffffff",
         black: "#292021",
