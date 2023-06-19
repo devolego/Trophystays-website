@@ -11,18 +11,19 @@ import Button from "../Common/Button";
 import emailIcon from "../../images/email-icon.png";
 import instaIcon from "../../images/insta.png";
 import linkedIn from "../../images/linkedIn.png";
+import whatappIcon from "../../images/whatapp.png";
 import Link from "next/link";
 
 const Footer = () => {
   return (
-    <>
-      <div className="bg-[#241400] text-white p-[50px] grid grid-cols-5 gap-[50px]">
+    <div className="bg-[#241400] text-white p-[50px]">
+      <div className="grid grid-cols-5 gap-[50px]">
         <div>
           <div className="flex items-center justify-start">
             <Image className="object-contain" src={FooterLogo} alt="" />
             <Image className="object-contain" src={FooterLogoText} alt="" />
           </div>
-          <p className="pt-4 text-sm py-11">
+          <p className="pt-4 pb-2 text-sm pt-11">
             Trophy Stays™ (Trophy Stays Vacation Homes LLC) is a DTCM licensed
             Operator managing vacation rental apartments for a short-term stay
             in Dubai.
@@ -67,7 +68,7 @@ const Footer = () => {
               <input
                 type="email"
                 placeholder="Email"
-                className="bg-transparent placeholder:text-darkGrey border border-[#E1D9CE] py-[14px] pl-[46px] rounded-[8px]"
+                className="bg-transparent placeholder:text-darkGrey border border-[#E1D9CE] py-[14px] pl-[46px] rounded-[8px] max-w-[311px] w-full"
               />
               <Image
                 className="absolute top-[19px] left-4"
@@ -83,7 +84,7 @@ const Footer = () => {
             />
           </div>
 
-          <div className="w-full mb-[65px]">
+          <div className="w-full">
             <h6 className="font-medium">Follow Us</h6>
             <div className="flex mt-6">
               <Link href="/" className="flex mr-[60px]">
@@ -97,21 +98,39 @@ const Footer = () => {
               </Link>
             </div>
           </div>
-
-          {/* <Link href="/" className="w-full text-sm">
-        Privacy Policy | Reservation Terms | House Rules | Refund Rules
-      </Link> */}
-        </div>
-
-        <div className="grid grid-cols-5 gap-[50px]">
-          <div>
-            <p className="text-sm">
-              COPYRIGHT 2021 | TROPHY STAYS™. ALL RIGHTS RESERVED.
-            </p>
-          </div>
         </div>
       </div>
-    </>
+
+      <div className="grid grid-cols-5 gap-[50px]">
+        <div className="pt-[47px]">
+          <p className="text-sm">
+            COPYRIGHT 2021 | TROPHY STAYS™. ALL RIGHTS RESERVED.
+          </p>
+        </div>
+
+        <div className="col-span-2 ml-[48px] flex flex-col justify-between">
+          <h6 className="text-base font-medium mb-[42px]">Contact</h6>
+
+          <div className="grid grid-cols-2">
+            <Link href="\" className="flex">
+              <Image src={whatappIcon} alt="" className="mr-4" />
+              <p className="text-sm"> +1 231 412 1411</p>
+            </Link>
+
+            <Link href="\" className="flex">
+              <Image src={emailIcon} alt="" className="mr-4" />
+              <p className="text-sm">trophy@example.com</p>
+            </Link>
+          </div>
+        </div>
+
+        <div className="self-end col-span-2">
+          <Link href="/" className="w-full text-sm">
+            Privacy Policy | Reservation Terms | House Rules | Refund Rules
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 };
 
