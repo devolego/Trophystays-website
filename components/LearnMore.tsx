@@ -1,5 +1,5 @@
 import React from "react";
-import CardImgWithText from "./CardImgWithText";
+import CardImgWithText from "./CommonComponents/CardImgWithText";
 import WFHIcon from "../images/work-from-home.png";
 import festiveSeasonImg from "../images/festive-season.png";
 import kitchenImg from "../images/kitchen-img-2.png";

@@ -5,7 +5,7 @@ import HotelSuggestions from "../components/HotelSuggestions";
 import EveryThingRightHere from "../components/EveryThingRightHere";
 import ImageGallerySection from "../components/ImageGallerySection";
 import LearnMore from "../components/LearnMore";
-// import ClientReviews from "../components/ClientReviews";
+import ClientReviews from "../components/ClientReviews";
 
 export default function Home() {
   return (
@@ -19,6 +19,7 @@ export default function Home() {
         <EveryThingRightHere />
         <ImageGallerySection />
         <LearnMore />
+        {/* <ClientReviews /> */}
       </div>
 
       {/* <ClientReviews /> */}

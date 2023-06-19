@@ -11,6 +11,9 @@ export const navbarItems = [
   "Contact Us",
 ];
 
+export const footerMenuMainPageOption = ["About Us" , "Stay with Us" , "Host with Us" , "Contact "]
+export const footerMenuOtherOption = ["Reviews" , "Blogs" , "Contact Us"]
+
 // export const neighbourhoodsContent = [
 //   {
 //     id: 1,

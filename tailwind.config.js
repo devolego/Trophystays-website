@@ -31,6 +31,7 @@ module.exports = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "banner-image": "url('../images/hero.jpg')",
         "banner-overlay": "url('../images/banner-overlay.png')",
+        "email-icon": "url('../images/email-icon.png)",
       },
       container: {
         screens: {

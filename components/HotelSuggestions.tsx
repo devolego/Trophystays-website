@@ -1,6 +1,6 @@
 import React from "react";
 import { josefin } from "../utils/utilsFonts";
-import CardWithSlider from "./CardWithSlider";
+import CardWithSlider from "./CommonComponents/CardWithSlider";
 
 const HotelSuggestions = () => {
   return (
@@ -10,7 +10,7 @@ const HotelSuggestions = () => {
       >
         Hotels You would want to Visit
       </h2>
-      <div className="grid grid-cols-4 hotel-card-design gap-6">
+      <div className="grid grid-cols-4 gap-6 hotel-card-design">
         <CardWithSlider
           paraText={" 1 Bed Apartment with Stunning View"}
           rating={"5.0"}

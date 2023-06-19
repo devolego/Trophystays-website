@@ -1,5 +1,5 @@
 import React from "react";
-import CardImgWithText from "./CardImgWithText";
+import CardImgWithText from "./CommonComponents/CardImgWithText";
 import contactCheckIn from "../images/check-in.png";
 import netflix from "../images/netflix.png";
 import BathroomImg from "../images/bathroom-toiletries.png";
