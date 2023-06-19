@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { josefin } from "../../utils/utilsFonts";
+import Button from "../Common/Button";
 
 const Banner = () => {
   return (
@@ -18,12 +19,7 @@ const Banner = () => {
           of excellence. You deserve a love-at-first-sight home, ideal for
           living, working or relaxing.
         </p>
-        <Link
-          className="bg-blackLight rounded-[8px] px-[31px] py-2 laptopScreen:text-base text-white"
-          href="/"
-        >
-          Contact Us
-        </Link>
+        <Button ButtonText="Contact Us" ButtonClasses="text-white w-max" />
       </div>
     </div>
   );
