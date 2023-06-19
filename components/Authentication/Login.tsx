@@ -7,8 +7,8 @@ import RightFormSection from "./RightFormSection";
 
 const Login = () => {
   return (
-    <div className="flex">
-      <Image src={loginImage} alt="loginImage" />
+    <div className="flex p-[50px] bg-white rounded-[16px]">
+      <Image src={loginImage} alt="loginImage" className="basis-3/6"/>
       <RightFormSection
         titleText={"Log In to Your Account"}
         googleText={"Login with Google"}
@@ -18,15 +18,15 @@ const Login = () => {
         authLinkText={"Register"}
         authLink={'/signup'}
       >
-        <form>
-          <div className="mb-2">
-            <input type="text" placeholder="Email" />
+        <form className="flex flex-col justify-center items-center pt-6 max-w-[384px] w-full mx-auto">
+          <div>
+            <input type="text" placeholder="Email" className="py-[18px] mb-[30px] px-6 border border-greyishBrown rounded-[8px]"/>
           </div>
-          <div className="mb-2">
-            <input type="text" placeholder="Password" />
+          <div>
+            <input type="text" placeholder="Password" className="py-[18px] px-6 border border-greyishBrown rounded-[8px]"/>
           </div>
-          <Link href="#">Forgot Password?</Link>
-          <Button ButtonText={"Login"} ButtonClasses={"bg-[#886750] text-center"}></Button>
+          <Link className="text-darkGrey text-sm underline mt-[18px] mb-[24px] self-end" href="#">Forgot Password?</Link>
+          <Button ButtonText={"Login"} ButtonClasses={"w-full bg-primary text-center text-white py-[15px]"}></Button>
         </form>
       </RightFormSection>
     </div>
