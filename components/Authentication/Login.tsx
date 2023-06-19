@@ -7,7 +7,7 @@ import RightFormSection from "./RightFormSection";
 
 const Login = () => {
   return (
-    <div className="flex p-[50px] bg-white rounded-[16px]">
+    <div className="flex m-[50px] bg-white rounded-2xl overflow-hidden">
       <Image src={loginImage} alt="loginImage" className="basis-3/6"/>
       <RightFormSection
         titleText={"Log In to Your Account"}
@@ -18,12 +18,12 @@ const Login = () => {
         authLinkText={"Register"}
         authLink={'/signup'}
       >
-        <form className="flex flex-col justify-center items-center pt-6 max-w-[384px] w-full mx-auto">
-          <div>
-            <input type="text" placeholder="Email" className="py-[18px] mb-[30px] px-6 border border-greyishBrown rounded-[8px]"/>
+        <form className="flex flex-col justify-center items-center pt-6 max-w-[384px] w-full mx-auto w-full">
+          <div className="w-full">
+            <input type="text" placeholder="Email" className="py-[18px] mb-[30px] px-6 border border-greyishBrown rounded-[8px] w-full"/>
           </div>
-          <div>
-            <input type="text" placeholder="Password" className="py-[18px] px-6 border border-greyishBrown rounded-[8px]"/>
+          <div className="w-full">
+            <input type="text" placeholder="Password" className="py-[18px] px-6 border border-greyishBrown rounded-[8px] w-full"/>
           </div>
           <Link className="text-darkGrey text-sm underline mt-[18px] mb-[24px] self-end" href="#">Forgot Password?</Link>
           <Button ButtonText={"Login"} ButtonClasses={"w-full bg-primary text-center text-white py-[15px]"}></Button>
