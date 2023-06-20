@@ -16,9 +16,9 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="bg-[#241400] text-white p-[50px]">
-      <div className="grid grid-cols-5 gap-[50px]">
-        <div>
+    <div className="bg-[#241400] text-white lg:p-[50px] px-5 py-10">
+      <div className="grid grid-cols-5 gap-[15px] lg:gap-[50px] max-lg:grid-cols-2">
+        <div className="max-lg:col-span-2">
           <div className="flex items-center justify-start">
             <Image className="object-contain" src={FooterLogo} alt="" />
             <Image className="object-contain" src={FooterLogoText} alt="" />
@@ -31,8 +31,10 @@ const Footer = () => {
           {/* <p>COPYRIGHT 2021 | TROPHY STAYS™. ALL RIGHTS RESERVED.</p> */}
         </div>
 
-        <div className=" ml-[48px]">
-          <h6 className="text-base font-medium mb-[50px]">Main Pages</h6>
+        <div className="lg:ml-[48px]">
+          <h6 className="text-base font-medium max-lg:mb-[24px] lg:mb-[50px]">
+            Main Pages
+          </h6>
           <ul>
             {footerMenuMainPageOption.map((items, index) => {
               return (
@@ -45,7 +47,9 @@ const Footer = () => {
         </div>
 
         <div>
-          <h6 className="text-base font-medium mb-[50px]">Others</h6>
+          <h6 className="text-base font-medium max-lg:mb-[24px] lg:mb-[50px]">
+            Others
+          </h6>
           <ul className="">
             {footerMenuOtherOption.map((items, index) => {
               return (
@@ -55,8 +59,24 @@ const Footer = () => {
               );
             })}
           </ul>
+        </div>
 
-          <h6 className="text-base font-medium mb-[50px]"></h6>
+        <div className="flex flex-col justify-between col-span-2 lg:hidden mb-[30px]">
+          <h6 className="mb-6 text-base font-medium">Contact</h6>
+
+          <div className="grid grid-cols-2">
+            <Link href="\" className="flex items-start">
+              <Image src={whatappIcon} alt="" className="object-contain mr-4" />
+              <p className="text-sm"> +1 231 412 1411</p>
+            </Link>
+
+            <Link href="\" className="flex items-start">
+              <Image src={emailIcon} alt="" className="object-contain mr-4" />
+              <Link href="/" className="text-sm break-all">
+                trophy@example.com
+              </Link>
+            </Link>
+          </div>
         </div>
 
         <div className="col-span-2">
@@ -68,10 +88,10 @@ const Footer = () => {
               <input
                 type="email"
                 placeholder="Email"
-                className="bg-transparent placeholder:text-darkGrey border border-[#E1D9CE] py-[14px] pl-[46px] rounded-[8px] max-w-[311px] w-full"
+                className="bg-transparent placeholder:text-darkGrey border border-[#E1D9CE] py-[14px] pl-[46px] rounded-[8px] max-w-[311px] w-full max-lg:py-[7px]"
               />
               <Image
-                className="absolute top-[19px] left-4"
+                className="absolute left-4 top-[50%] -translate-y-[50%]"
                 src={emailIcon}
                 alt=""
               />
@@ -79,7 +99,7 @@ const Footer = () => {
             <Button
               ButtonText={"Subscribe"}
               ButtonClasses={
-                "bg-white text-blackLight px-[24px] py-[14px] w-max font-medium leading-4"
+                "bg-white text-blackLight px-[24px] py-[14px] w-max font-medium leading-4 flex items-center max-lg:px-4 max-lg:py-[7px]"
               }
             />
           </div>
@@ -101,14 +121,14 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-5 gap-[50px]">
-        <div className="pt-[47px]">
+      <div className="grid grid-cols-5 gap-[15px] lg:gap-[50px] max-lg:grid-cols-2 max-lg:pt-[50px]">
+        <div className="lg:pt-[47px] max-lg:col-span-2">
           <p className="text-sm">
             COPYRIGHT 2021 | TROPHY STAYS™. ALL RIGHTS RESERVED.
           </p>
         </div>
 
-        <div className="col-span-2 ml-[48px] flex flex-col justify-between">
+        <div className="col-span-2 lg:ml-[48px] flex flex-col justify-between max-lg:hidden">
           <h6 className="text-base font-medium mb-[42px]">Contact</h6>
 
           <div className="grid grid-cols-2">
@@ -124,7 +144,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="self-end col-span-2">
+        <div className="max-lg:mb-[30px] self-end col-span-2 max-lg:row-start-1">
           <Link href="/" className="w-full text-sm">
             Privacy Policy | Reservation Terms | House Rules | Refund Rules
           </Link>
