@@ -24,12 +24,12 @@ const ImageGallerySection = () => {
           </p>
         </div>
         <Image
-          className="w-full rounded-[16px] max-lg:hidden"
+          className="w-full rounded-[16px] max-lg:max-h-[195px] max-lg:h-full object-cover max-lg:hidden"
           src={gallerImgOne}
           alt=""
         />
         <Image
-          className="w-full rounded-[16px] max-lg:hidden"
+          className="w-full rounded-[16px] max-lg:max-h-[195px] max-lg:h-full object-cover max-lg:hidden"
           src={gallerImgSecond}
           alt=""
         />
@@ -38,7 +38,7 @@ const ImageGallerySection = () => {
       <div className="grid lg:grid-cols-6 gap-[30px] max-lg:grid-cols-3">
         <div className="lg:col-span-3">
           <Image
-            className="w-full rounded-[16px]"
+            className="w-full rounded-[16px] max-lg:max-h-[195px] max-lg:h-full object-cover"
             src={gallerImgThird}
             alt=""
           />
@@ -53,9 +53,21 @@ const ImageGallerySection = () => {
           src={gallerImgSecond}
           alt=""
         />
-        <Image className="w-full rounded-[16px]" src={gallerImgFourth} alt="" />
-        <Image className="w-full rounded-[16px]" src={gallerImgFifth} alt="" />
-        <Image className="w-full rounded-[16px]" src={gallerImgSixth} alt="" />
+        <Image
+          className="w-full rounded-[16px] max-lg:max-h-[195px] max-lg:h-full object-cover"
+          src={gallerImgFourth}
+          alt=""
+        />
+        <Image
+          className="w-full rounded-[16px] max-lg:max-h-[195px] max-lg:h-full object-cover"
+          src={gallerImgFifth}
+          alt=""
+        />
+        <Image
+          className="w-full rounded-[16px] max-lg:max-h-[195px] max-lg:h-full object-cover"
+          src={gallerImgSixth}
+          alt=""
+        />
       </div>
     </div>
   );

@@ -1,3 +1,5 @@
+const { url } = require("inspector");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -29,6 +31,7 @@ module.exports = {
         "banner-image": "url('../images/hero.jpg')",
         "banner-overlay": "url('../images/banner-overlay.png')",
         "email-icon": "url('../images/email-icon.png)",
+        "slider-overlay": "url('../images/slider-overlay.png')",
       },
       container: {
         screens: {

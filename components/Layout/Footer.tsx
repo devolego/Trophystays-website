@@ -39,7 +39,7 @@ const Footer = () => {
             {footerMenuMainPageOption.map((items, index) => {
               return (
                 <li className="mb-4 text-sm" key={index}>
-                  {items}
+                  <Link href="/"> {items}</Link>
                 </li>
               );
             })}
@@ -54,7 +54,7 @@ const Footer = () => {
             {footerMenuOtherOption.map((items, index) => {
               return (
                 <li className="mb-4 text-sm" key={index}>
-                  {items}
+                  <Link href="/"> {items}</Link>
                 </li>
               );
             })}
