@@ -13,6 +13,7 @@ import heartImg from "../../images/heart-icon-outline.png";
 import multiPerson from "../../images/multi-person.png";
 import bedRoomIcon from "../../images/bedroom-icon.png";
 import bathTubIcon from "../../images/bathtub-icon.png";
+import CustomModal from "../Common/CustomModal";
 
 var settings = {
   dots: true,
@@ -22,6 +23,7 @@ var settings = {
   slidesToScroll: 2,
 };
 const PropertyDetails = () => {
+  const [showModal, setShowModal] = React.useState<boolean>(true);
   return (
     <div>
       <Slider {...settings}>
@@ -68,6 +70,34 @@ const PropertyDetails = () => {
           </div>
         </div>
       </div>
+      <CustomModal
+        isBackground={false}
+        showModal={showModal}
+        setShowModal={setShowModal}
+      >
+        <div className="flex">
+          <Image
+            className="w-full h-[240px] object-cover"
+            src={sliderImg}
+            alt=""
+          />
+          <Image
+            className="w-full h-[240px] object-cover"
+            src={sliderImg1}
+            alt=""
+          />
+          <Image
+            className="w-full h-[240px] object-cover"
+            src={sliderImg2}
+            alt=""
+          />
+          <Image
+            className="w-full h-[240px] object-cover"
+            src={sliderImg3}
+            alt=""
+          />
+        </div>
+      </CustomModal>
     </div>
   );
 };
