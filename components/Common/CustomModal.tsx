@@ -21,18 +21,18 @@ const CustomModal = ({
     <>
       {showModal ? (
         <>
-          <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-            <div className="relative w-auto my-6 mx-auto max-w-3xl">
+          <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
+            <div className="relative w-auto max-w-3xl mx-auto my-6">
               <div className={modalBg}>
                 <div className="flex items-start justify-between p-5 ">
                   {modalTitle ? (
                     <h3 className="text-3xl font-semibold">{modalTitle}</h3>
                   ) : null}
                   <button
-                    className="p-1 ml-auto border-0 text-white float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                    className="float-right p-1 ml-auto text-3xl font-semibold leading-none text-white border-0 outline-none focus:outline-none"
                     onClick={() => setShowModal(false)}
                   >
-                    <span className=" text-white h-6 w-6 text-2xl block outline-none focus:outline-none">
+                    <span className="block w-6 h-6 text-2xl text-white outline-none focus:outline-none">
                       ×
                     </span>
                   </button>
@@ -41,16 +41,16 @@ const CustomModal = ({
                 {children ? children : null}
                 {/*footer*/}
                 {isFooter ? (
-                  <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
+                  <div className="flex items-center justify-end p-6 border-t border-solid rounded-b border-slate-200">
                     <button
-                      className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                      className="px-6 py-2 mb-1 mr-1 text-sm font-bold text-red-500 uppercase transition-all duration-150 ease-linear outline-none background-transparent focus:outline-none"
                       type="button"
                       onClick={() => setShowModal(false)}
                     >
                       Close
                     </button>
                     <button
-                      className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                      className="px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-emerald-500 active:bg-emerald-600 hover:shadow-lg focus:outline-none"
                       type="button"
                       onClick={() => setShowModal(false)}
                     >
@@ -61,7 +61,7 @@ const CustomModal = ({
               </div>
             </div>
           </div>
-          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+          <div className="fixed inset-0 z-40 bg-black opacity-25"></div>
         </>
       ) : null}
     </>
