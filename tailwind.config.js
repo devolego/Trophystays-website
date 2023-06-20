@@ -32,6 +32,7 @@ module.exports = {
         "banner-overlay": "url('../images/banner-overlay.png')",
         "email-icon": "url('../images/email-icon.png)",
         "slider-overlay": "url('../images/slider-overlay.png')",
+        "down-arrow": "url('../images/down-triangle.png')",
       },
       container: {
         screens: {
