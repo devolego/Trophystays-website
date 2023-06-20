@@ -136,7 +136,7 @@ const PropertyDetails = () => {
                   </div>
                 </div>
 
-                <div className="flex px-[10px] py-[6px] bg-lightBrown rounded-xl max-sm:my-3">
+                <div className="flex px-[10px] py-[6px] bg-lightBrown rounded-xl my-3">
                   <Image src={userImg} alt="" className="object-contain mr-3" />
                   <div className="flex flex-col">
                     <p>Jane Doe</p>
