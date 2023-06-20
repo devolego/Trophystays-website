@@ -15,7 +15,6 @@ import bedRoomIcon from "../../images/bedroom-icon.png";
 import bathTubIcon from "../../images/bathtub-icon.png";
 import spaceIcon from "../../images/space-in-ft.png";
 import floorIcon from "../../images/floor.png";
-import arrowUp from "../../images/primary-color-arrow.png";
 import map from "../../images/map.png";
 import starImg from "../../images/star-icon.png";
 import starOutlineImg from "../../images/Star-outline.png";
@@ -24,6 +23,7 @@ import userImg from "../../images/user-img.png";
 import { josefin } from "../../utils/utilsFonts";
 import Button from "../Common/Button";
 import Amenities from "./amenities";
+import CustomModal from "../Common/CustomModal";
 
 var settings = {
   dots: true,
@@ -33,6 +33,7 @@ var settings = {
   slidesToScroll: 2,
 };
 const PropertyDetails = () => {
+  const [showModal, setShowModal] = React.useState<boolean>(false);
   return (
     <div className="overflow-hidden">
       <Slider {...settings}>
@@ -247,6 +248,34 @@ const PropertyDetails = () => {
           />
         </div>
       </div>
+      <CustomModal
+        isBackground={false}
+        showModal={showModal}
+        setShowModal={setShowModal}
+      >
+        <div className="flex">
+          <Image
+            className="w-full h-[240px] object-cover"
+            src={sliderImg}
+            alt=""
+          />
+          <Image
+            className="w-full h-[240px] object-cover"
+            src={sliderImg1}
+            alt=""
+          />
+          <Image
+            className="w-full h-[240px] object-cover"
+            src={sliderImg2}
+            alt=""
+          />
+          <Image
+            className="w-full h-[240px] object-cover"
+            src={sliderImg3}
+            alt=""
+          />
+        </div>
+      </CustomModal>
     </div>
   );
 };

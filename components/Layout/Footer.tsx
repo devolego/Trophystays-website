@@ -28,7 +28,6 @@ const Footer = () => {
             Operator managing vacation rental apartments for a short-term stay
             in Dubai.
           </p>
-          {/* <p>COPYRIGHT 2021 | TROPHY STAYS™. ALL RIGHTS RESERVED.</p> */}
         </div>
 
         <div className="lg:ml-[48px]">
@@ -70,12 +69,12 @@ const Footer = () => {
               <p className="text-sm"> +1 231 412 1411</p>
             </Link>
 
-            <Link href="\" className="flex items-start">
+            <div className="flex items-start">
               <Image src={emailIcon} alt="" className="object-contain mr-4" />
               <Link href="/" className="text-sm break-all">
                 trophy@example.com
               </Link>
-            </Link>
+            </div>
           </div>
         </div>
 
