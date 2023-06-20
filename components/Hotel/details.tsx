@@ -70,7 +70,7 @@ const PropertyDetails = () => {
           </div>
           <div className="room-details flex gap-2 mt-[12px] justify-between flex-wrap mb-6">
             <div className="pb-[54px] w-full">
-              <div className="flex items-center justify-between w-full">
+              <div className="flex w-full sm:items-center sm:justify-between max-sm:flex-col max-sm-items-start">
                 <div className="flex pb-6">
                   <div className="flex text-sm text-primary">
                     <Image
@@ -105,12 +105,12 @@ const PropertyDetails = () => {
                     </span>
                   </div>
                 </div>
-                <div className="text-base bg-secondary rounded-[20px] px-5 flex items-center text-white py-[2px]">
+                <div className="text-base bg-secondary rounded-[20px] px-5 flex items-center text-white py-[2px] w-max">
                   ID: 1F2315
                 </div>
               </div>
 
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between max-sm:flex-wrap">
                 <div className="flex ">
                   <div className="flex text-sm text-primary">
                     <Image
@@ -136,7 +136,7 @@ const PropertyDetails = () => {
                   </div>
                 </div>
 
-                <div className="flex px-[10px] py-[6px] bg-lightBrown rounded-xl">
+                <div className="flex px-[10px] py-[6px] bg-lightBrown rounded-xl max-sm:my-3">
                   <Image src={userImg} alt="" className="object-contain mr-3" />
                   <div className="flex flex-col">
                     <p>Jane Doe</p>
