@@ -30,22 +30,29 @@ const RightFormSection = ({
         {titleText}
       </h3>
       {children}
-      <p className="text-center text-2xl mt-4 text-darkGrey">or</p>
-      <div className="m-2 max-w-[384px] w-full mx-auto">
-        <div className="flex justify-center items-center mb-6 px-4 py-[11px] border border-lightBrown rounded-[8px]">
-          <Image className="w-7 h-[30px]  mr-2" src={google} alt="" />
-          <p className="text-base text-black font-medium">{googleText}</p>
-        </div>
-        <div className="flex justify-center items-center mb-6 px-4 py-[11px] border border-lightBrown rounded-[8px]">
-          <Image className="w-7 h-[30px] mr-2" src={linkedin} alt="" />
-          <p className="text-base text-black font-medium">{linkedinText}</p>
-        </div>
-      </div>
+      {isAuthText ? (
+        <>
+          <p className="text-center text-2xl mt-4 text-darkGrey">or</p>
+          <div className="m-2 max-w-[384px] w-full mx-auto">
+            <div className="flex justify-center items-center mb-6 px-4 py-[11px] border border-lightBrown rounded-[8px]">
+              <Image className="w-7 h-[30px]  mr-2" src={google} alt="" />
+              <p className="text-base text-black font-medium">{googleText}</p>
+            </div>
+            <div className="flex justify-center items-center mb-6 px-4 py-[11px] border border-lightBrown rounded-[8px]">
+              <Image className="w-7 h-[30px] mr-2" src={linkedin} alt="" />
+              <p className="text-base text-black font-medium">{linkedinText}</p>
+            </div>
+          </div>
+        </>
+      ) : null}
       {isAuthText ? (
         <p className="text-center mt-3 text-darkGrey text-sm">
           {authText}{" "}
           <span>
-            <Link className="text-[#886750] underline capitalize" href={`${authLink}`}>
+            <Link
+              className="text-[#886750] underline capitalize"
+              href={`${authLink}`}
+            >
               {authLinkText}
             </Link>
           </span>

@@ -44,7 +44,7 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-5 max-lg:hidden">
-          <Link href={'/signup'} className="lg:text-sm laptopScreen:text-base">
+          <Link href={"/signup"} className="lg:text-sm laptopScreen:text-base">
             Create an Account
           </Link>
           <Link
@@ -57,7 +57,12 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-4 nav-button lg:hidden">
-          <Button ButtonText="Sign In" ButtonClasses="text-white" />
+          <Link
+            href={"/login"}
+            className={`bg-blackLight rounded-[8px] px-[31px] py-2  laptopScreen:text-base text-white`}
+          >
+            Sign In
+          </Link>
           <div className="flex flex-col justify-center ">
             <label
               htmlFor="nav-check"

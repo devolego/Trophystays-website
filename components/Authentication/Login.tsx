@@ -7,7 +7,7 @@ import RightFormSection from "./RightFormSection";
 
 const Login = () => {
   return (
-    <div className="flex m-[50px] bg-white rounded-2xl overflow-hidden">
+    <div className="lg:flex md:m-[50px] m-[20px]  bg-white rounded-2xl overflow-hidden">
       <Image src={loginImage} alt="loginImage" className="basis-3/6"/>
       <RightFormSection
         titleText={"Log In to Your Account"}
@@ -25,7 +25,7 @@ const Login = () => {
           <div className="w-full">
             <input type="text" placeholder="Password" className="py-[18px] px-6 border border-greyishBrown rounded-[8px] w-full"/>
           </div>
-          <Link className="text-darkGrey text-sm underline mt-[18px] mb-[24px] self-end" href="#">Forgot Password?</Link>
+          <Link className="text-darkGrey text-sm underline mt-[18px] mb-[24px] self-end" href="/forgot-password">Forgot Password?</Link>
           <Button ButtonText={"Login"} ButtonClasses={"w-full bg-primary text-center text-white py-[15px]"}></Button>
         </form>
       </RightFormSection>

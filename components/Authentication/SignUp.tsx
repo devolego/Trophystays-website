@@ -6,7 +6,7 @@ import RightFormSection from "./RightFormSection";
 
 const SignUp = () => {
   return (
-    <div className="flex m-[50px] bg-white rounded-2xl overflow-hidden">
+    <div className="lg:flex md:m-[50px] m-[20px]  bg-white rounded-2xl overflow-hidden">
       <Image src={signupImage} alt="loginImage" className="basis-3/6" />
       <RightFormSection
         titleText={"Register Your Account"}

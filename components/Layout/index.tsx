@@ -3,7 +3,7 @@ import React from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { usePathname } from "next/navigation";
-const withoutLayout = ["/login", "/signup"];
+const withoutLayout = ["/login", "/signup", "/forgot-password"];
 const Layout = ({ children }) => {
   
   const router = usePathname();
