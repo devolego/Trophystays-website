@@ -4,7 +4,7 @@ import CardWithSlider from "../Common/CardWithSlider";
 
 const HotelListing = () => {
   return (
-    <div className="grid grid-cols-4 gap-6 hotel-card-design max-lg:grid-cols-1">
+    <div className="grid grid-cols-4 gap-6 hotel-suggestion max-lg:grid-cols-1">
       {Array.from(Array(12), (e, i) => {
         return (
           <CardWithSlider
