@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import CardWithSlider from "../Common/CardWithSlider";
 
@@ -9,6 +10,7 @@ const HotelListing = () => {
           <CardWithSlider
             paraText={" 1 Bed Apartment with Stunning View"}
             rating={"5.0"}
+            id={i}
             perRoomUserCount={"2 sleeps"}
             bedCount={"1 Bedroom"}
             bathCount={"1 Bath"}

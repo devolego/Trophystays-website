@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 // import Slider from "react-slick";
@@ -107,7 +108,9 @@ const CardWithSlider = (props) => {
           </div>
         </div>
         <Image className="my-2" src={greylineImg} alt="" />
-        <p className={`text-base ${josefin.className}`}>{props.paraText}</p>
+        <Link href={`property-details/1Aserdwaaxxde${props.id}`}>
+          <p className={`text-base ${josefin.className}`}>{props.paraText}</p>
+        </Link>
         <div className="room-details flex gap-2 mt-[12px] justify-between flex-wrap">
           <div className="flex text-sm text-primary">
             <Image className="object-contain mr-1" src={multiPerson} alt="" />
