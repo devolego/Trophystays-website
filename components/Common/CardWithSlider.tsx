@@ -1,4 +1,3 @@
-"use client";
 import Image from "next/image";
 import React from "react";
 // import Slider from "react-slick";
@@ -28,29 +27,43 @@ var settings = {
 };
 const CardWithSlider = (props) => {
   return (
-    <div className="bg-white rounded-[16px] overflow-hidden">
+    <div className="bg-white rounded-[16px] overflow-hidden hotel-card-design">
       <Slider {...settings}>
-        <Image
-          className="w-full h-[240px] object-cover"
-          src={sliderImg}
-          alt=""
-        />
-        <Image
-          className="w-full h-[240px] object-cover"
-          src={sliderImg1}
-          alt=""
-        />
-        <Image
-          className="w-full h-[240px] object-cover"
-          src={sliderImg2}
-          alt=""
-        />
-        <Image
-          className="w-full h-[240px] object-cover"
-          src={sliderImg3}
-          alt=""
-        />
+        <div className="relative before:bg-slider-overlay before:absolute before:h-full before:w-full before:top-0 before:left-0">
+          <Image
+            className="w-full h-[240px] object-cover"
+            src={sliderImg}
+            alt=""
+          />
+        </div>
+
+        <div className="relative before:bg-slider-overlay before:absolute before:h-full before:w-full before:top-0 before:left-0">
+          <Image
+            className="w-full h-[240px] object-cover"
+            src={sliderImg1}
+            alt=""
+          />
+        </div>
+
+        <div className="relative before:bg-slider-overlay before:absolute before:h-full before:w-full before:top-0 before:left-0">
+          <Image
+            className="w-full h-[240px] object-cover"
+            src={sliderImg2}
+            alt=""
+          />
+        </div>
+
+        <div className="relative before:bg-slider-overlay before:absolute before:h-full before:w-full before:top-0 before:left-0">
+          <Image
+            className="w-full h-[240px] object-cover"
+            src={sliderImg3}
+            alt=""
+          />
+        </div>
       </Slider>
+      <div className="text-white bg-black bg-opacity-50 px-[11px] py-[3px] -mt-[45px] relative z-1 w-max ml-4 rounded-2xl mb-[10px]">
+        $12.00<span className="text-secondary">/Month</span>
+      </div>
       <div className="px-4 py-6">
         <div className="flex items-center justify-between rating-like ">
           <div className="flex gap-1 mb-2 starts">
