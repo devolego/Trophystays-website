@@ -34,3 +34,48 @@ body {
   width:100%;
   margin: 0 auto;
 }
+.hotel-suggestion .slick-arrow.slick-next ,.hotel-suggestion .slick-arrow.slick-prev{
+  background-size: 30px;
+  width: 30px;  
+  height: 30px;
+  border-radius: 50%;
+  z-index: 1;
+}
+.hotel-suggestion .slick-arrow.slick-prev , .hotel-suggestion .slick-prev:hover,.hotel-suggestion .slick-prev:focus{
+  left:16px;
+  background: url("../images/slider-arrow.png") no-repeat center !important; 
+}
+.hotel-suggestion .slick-arrow.slick-next ,.hotel-suggestion .slick-arrow.slick-next,.hotel-suggestion .slick-next:hover,.hotel-suggestion .slick-next:focus{
+ right: 16px;
+ background: url("../images/slider-arrow-right.png") no-repeat center !important;
+}
+.hotel-suggestion .slick-arrow.slick-next:before ,.hotel-suggestion .slick-arrow.slick-prev:before{
+  display: none;
+}
+.multiple-width-img .slick-list{
+  margin: 0 -28px 0 0 ;
+}
+.multiple-width-img .slick-active{
+  margin:0 14px 0 0;
+}
+.hotel-suggestion .slick-dots button::before{
+  width:6px;
+  height:6px;
+  color: rgba(255,255,255,0.4);
+  opacity: 1;
+
+}
+.hotel-suggestion .slick-dots{
+  bottom: 20px;
+  text-align:right;
+  padding-right:16px;
+}
+.hotel-suggestion .slick-dots li{
+  width: 6px;
+  height:6px;
+  margin: 0 2.5px;
+}
+.hotel-suggestion .slick-dots li.slick-active button::before {
+  color: #fff;
+  opacity: 1;
+}

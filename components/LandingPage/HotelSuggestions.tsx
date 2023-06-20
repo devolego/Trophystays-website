@@ -4,7 +4,7 @@ import CardWithSlider from "../Common/CardWithSlider";
 
 const HotelSuggestions = () => {
   return (
-    <div className="bg-lightBrown py-[60px] px-[50px] max-lg:px-4 max-lg:py-10">
+    <div className="bg-lightBrown py-[60px] px-[50px] max-lg:px-4 max-lg:py-10 hotel-suggestion">
       <h2
         className={` ${josefin.className} text-[40px] text-black max-w-[452px] mb-[50px] max-lg:text-[32px] max-lg:leading-[35px] max-lg:mb-[30px]`}
       >
