@@ -18,7 +18,7 @@ const Amenities = () => {
         <div className="grid grid-cols-4 max-w-[650px] w-full my-[30px]">
           <div className="flex items-start ">
             <Image src={kitchen} alt="" className="object-contain mr-[10px]" />
-            <p className="text-sm max-w-[105px]">Fully equipped kitchen</p>
+            <p className="text-sm">Fully equipped kitchen</p>
           </div>
 
           <div className="flex items-start ">
@@ -27,7 +27,7 @@ const Amenities = () => {
               alt=""
               className="object-contain mr-[10px]"
             />
-            <p className="text-sm max-w-[105px]">Linen & towels</p>
+            <p className="text-sm">Linen & towels</p>
           </div>
 
           <div className="flex items-start ">
@@ -36,12 +36,12 @@ const Amenities = () => {
               alt=""
               className="object-contain mr-[10px]"
             />
-            <p className="text-sm max-w-[105px]">Ongoing support</p>
+            <p className="text-sm ">Ongoing support</p>
           </div>
 
           <div className="flex items-start ">
             <Image src={wifi} alt="" className="object-contain mr-[10px]" />
-            <p className="text-sm max-w-[105px]">Wifi</p>
+            <p className="text-sm">Wifi</p>
           </div>
         </div>
 

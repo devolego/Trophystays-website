@@ -19,6 +19,7 @@ import arrowUp from "../../images/primary-color-arrow.png";
 import map from "../../images/map.png";
 import starImg from "../../images/star-icon.png";
 import starOutlineImg from "../../images/star-outline.png";
+import userImg from "../../images/user-img.png";
 
 import { josefin } from "../../utils/utilsFonts";
 import Button from "../Common/Button";
@@ -57,7 +58,7 @@ const PropertyDetails = () => {
         />
       </Slider>
 
-      <div className="container-2xl max-lg:px-4 lg:px-[50px] flex max-lg:flex-col">
+      <div className="container-2xl max-lg:px-4 lg:px-[50px] flex max-lg:flex-col gap-4">
         <div className="w-[62%] max-lg:w-full">
           <div className="mt-4 p-[20px] flex justify-between">
             <h1 className={`text-3xl ${josefin.className}`}>
@@ -68,64 +69,79 @@ const PropertyDetails = () => {
             </Link>
           </div>
           <div className="room-details flex gap-2 mt-[12px] justify-between flex-wrap mb-6">
-            <div className="pb-[54px]">
-              <div className="flex pb-6">
-                <div className="flex text-sm text-primary">
-                  <Image
-                    className="object-contain mr-1"
-                    src={multiPerson}
-                    alt=""
-                  />
-                  <span className="text-base text-black capitalize">
-                    {"2 sleeps"}
-                  </span>
+            <div className="pb-[54px] w-full">
+              <div className="flex items-center justify-between w-full">
+                <div className="flex pb-6">
+                  <div className="flex text-sm text-primary">
+                    <Image
+                      className="object-contain mr-1"
+                      src={multiPerson}
+                      alt=""
+                    />
+                    <span className="text-base text-black capitalize">
+                      {"2 sleeps"}
+                    </span>
+                  </div>
+                  <span className="px-4 text-greyishBrown">|</span>
+                  <div className="flex text-sm text-primary">
+                    <Image
+                      className="object-contain mr-1"
+                      src={bedRoomIcon}
+                      alt=""
+                    />
+                    <span className="text-base text-black capitalize">
+                      {"1 Bedroom"}
+                    </span>
+                  </div>
+                  <span className="px-4 text-greyishBrown">|</span>
+                  <div className="flex text-sm text-primary">
+                    <Image
+                      className="object-contain mr-1"
+                      src={bathTubIcon}
+                      alt=""
+                    />
+                    <span className="text-base text-black capitalize">
+                      {"1 Bath"}
+                    </span>
+                  </div>
                 </div>
-                <span className="px-4 text-greyishBrown">|</span>
-                <div className="flex text-sm text-primary">
-                  <Image
-                    className="object-contain mr-1"
-                    src={bedRoomIcon}
-                    alt=""
-                  />
-                  <span className="text-base text-black capitalize">
-                    {"1 Bedroom"}
-                  </span>
-                </div>
-                <span className="px-4 text-greyishBrown">|</span>
-                <div className="flex text-sm text-primary">
-                  <Image
-                    className="object-contain mr-1"
-                    src={bathTubIcon}
-                    alt=""
-                  />
-                  <span className="text-base text-black capitalize">
-                    {"1 Bath"}
-                  </span>
+                <div className="text-base bg-secondary rounded-[20px] px-5 flex items-center text-white py-[2px]">
+                  ID: 1F2315
                 </div>
               </div>
 
-              <div className="flex">
-                <div className="flex text-sm text-primary">
-                  <Image
-                    className="object-contain mr-1"
-                    src={spaceIcon}
-                    alt=""
-                  />
-                  <span className="text-base text-black capitalize">
-                    {"447 ft²"}
-                  </span>
-                </div>
-                <span className="px-4 text-greyishBrown">|</span>
+              <div className="flex items-center justify-between">
+                <div className="flex ">
+                  <div className="flex text-sm text-primary">
+                    <Image
+                      className="object-contain mr-1"
+                      src={spaceIcon}
+                      alt=""
+                    />
+                    <span className="text-base text-black capitalize">
+                      {"447 ft²"}
+                    </span>
+                  </div>
+                  <span className="px-4 text-greyishBrown">|</span>
 
-                <div className="flex text-sm text-primary">
-                  <Image
-                    className="object-contain mr-1"
-                    src={floorIcon}
-                    alt=""
-                  />
-                  <span className="text-base text-black capitalize">
-                    {"3rd Floor"}
-                  </span>
+                  <div className="flex text-sm text-primary">
+                    <Image
+                      className="object-contain mr-1"
+                      src={floorIcon}
+                      alt=""
+                    />
+                    <span className="text-base text-black capitalize">
+                      {"3rd Floor"}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex px-[10px] py-[6px] bg-lightBrown rounded-xl">
+                  <Image src={userImg} alt="" className="object-contain mr-3" />
+                  <div className="flex flex-col">
+                    <p>Jane Doe</p>
+                    <p className="text-[#DC4200] text-sm">Host</p>
+                  </div>
                 </div>
               </div>
             </div>
