@@ -33,7 +33,7 @@ var settings = {
   slidesToScroll: 2,
 };
 const PropertyDetails = () => {
-  const [showModal, setShowModal] = React.useState<boolean>(true);
+  const [showModal, setShowModal] = React.useState<boolean>(false);
   return (
     <div className="overflow-hidden">
       <Slider {...settings}>
