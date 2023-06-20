@@ -18,7 +18,7 @@ import floorIcon from "../../images/floor.png";
 import arrowUp from "../../images/primary-color-arrow.png";
 import map from "../../images/map.png";
 import starImg from "../../images/star-icon.png";
-import starOutlineImg from "../../images/star-outline.png";
+import starOutlineImg from "../../images/Star-outline.png";
 import userImg from "../../images/user-img.png";
 
 import { josefin } from "../../utils/utilsFonts";
