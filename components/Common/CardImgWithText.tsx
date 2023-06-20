@@ -18,7 +18,7 @@ const CardImgWithText = ({
   cardContent,
 }: any) => {
   return (
-    <div className={`rounded-[16px] w-full ${cardClass}`}>
+    <div className={`rounded-[16px] w-full overflow-hidden ${cardClass}`}>
       <Image className={`${cardImageStyle} w-full`} src={cardImage} alt="" />
       <div className={`${cardContentClasses}`}>
         <h6

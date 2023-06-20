@@ -3,12 +3,30 @@ import ummalquwainImg from "../images/ummalquwain.png";
 import fujairahImg from "../images/fujairah.png";
 
 export const navbarItems = [
-  "About Us",
-  "Stay with Us",
-  "Host with Us",
-  "Reviews",
-  "Blogs",
-  "Contact Us",
+  {
+    name: "About Us",
+    link: "#",
+  },
+  {
+    name: "Stay with us",
+    link: "/stay-with-us",
+  },
+  {
+    name: "Host with us",
+    link: "#",
+  },
+  {
+    name: "Reviews",
+    link: "#",
+  },
+  {
+    name: "Blogs",
+    link: "#",
+  },
+  {
+    name: "Contact us",
+    link: "#",
+  },
 ];
 
 export const footerMenuMainPageOption = [

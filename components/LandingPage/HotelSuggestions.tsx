@@ -4,13 +4,13 @@ import CardWithSlider from "../Common/CardWithSlider";
 
 const HotelSuggestions = () => {
   return (
-    <div className="bg-lightBrown py-[60px] px-[50px]">
+    <div className="bg-lightBrown py-[60px] px-[50px] max-lg:px-4 max-lg:py-10">
       <h2
-        className={` ${josefin.className} text-[40px] text-black max-w-[452px] mb-[50px]`}
+        className={` ${josefin.className} text-[40px] text-black max-w-[452px] mb-[50px] max-lg:text-[32px] max-lg:leading-[35px] max-lg:mb-[30px]`}
       >
         Hotels You would want to Visit
       </h2>
-      <div className="grid grid-cols-4 gap-6 hotel-card-design">
+      <div className="grid grid-cols-4 gap-6 hotel-card-design max-lg:grid-cols-1">
         <CardWithSlider
           paraText={" 1 Bed Apartment with Stunning View"}
           rating={"5.0"}

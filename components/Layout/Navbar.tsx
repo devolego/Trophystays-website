@@ -25,7 +25,7 @@ const Navbar = () => {
 
           <div
             className="nav-links max-lg:hidden max-lg:peer-checked:block max-lg:fixed max-lg:top-[72px] max-lg:left-0 max-lg:w-full max-lg:h-full z-20 max-lg:bg-white
-           max-lg:text-primary max-lg:text-2xl leading-[30px]
+           max-lg:text-primary 
           "
           >
             <ul className="flex items-center h-full max-lg:pb-20 max-lg:flex-col max-lg:justify-center max-lg:items-center md:-mr-7">
@@ -33,9 +33,9 @@ const Navbar = () => {
                 return (
                   <li
                     key={index}
-                    className="lg:mr-[20px] lg:text-sm xl:mr-[50px] xl:text-base text-black"
+                    className="lg:mr-[20px] max-lg:text-2xl lg:text-sm xl:mr-[50px] xl:text-base text-black max-lg:leading-[] "
                   >
-                    {items}
+                    <Link href={`${items.link}`}>{items.name}</Link>
                   </li>
                 );
               })}

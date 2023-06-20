@@ -27,7 +27,7 @@ var settings = {
 };
 const CardWithSlider = (props) => {
   return (
-    <div className="bg-white rounded-[16px]">
+    <div className="bg-white rounded-[16px] overflow-hidden">
       <Slider {...settings}>
         <Image
           className="w-full h-[240px] object-cover"
