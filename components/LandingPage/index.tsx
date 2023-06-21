@@ -14,7 +14,7 @@ const LandingPage = () => {
     <React.Fragment>
       <div className="container-2xl max-lg:px-4 lg:px-[50px]">
         <Banner />
-        <SearchBox searchClasses="-mt-[83px] " />
+        <SearchBox searchClasses="-mt-[83px]" />
         <Neighbourhoods />
       </div>
       <HotelSuggestions />

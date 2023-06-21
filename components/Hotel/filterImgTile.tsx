@@ -10,7 +10,7 @@ import lsland from "../../images/island-filter-icon.png";
 import farms from "../../images/farms-filter-icon.png";
 import lakeView from "../../images/lake-filter-icon.png";
 
-const filterImgTile = () => {
+const FilterImgTile = () => {
   return (
     <div className="grid grid-cols-8 gap-4">
       <Link href="/">
@@ -48,4 +48,4 @@ const filterImgTile = () => {
   );
 };
 
-export default filterImgTile;
+export default FilterImgTile;

@@ -1,13 +1,12 @@
+"use client";
 import Image from "next/image";
 import React, { useState } from "react";
 import { josefin } from "../../utils/utilsFonts";
 import Button from "./Button";
-import Dropdown from "./Dropdown";
 import locationIcon from "../../images/location.png";
 import termIcon from "../../images/term-icon.png";
 import bedroomIcon from "../../images/bedroom.png";
 import arrivalIcon from "../../images/arrival.png";
-import Link from "next/link";
 import {
   departureItems,
   locationFilterItems,

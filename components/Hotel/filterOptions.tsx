@@ -4,7 +4,7 @@ import listIcon from "../../images/list-icon.png";
 import mapIcon from "../../images/map-icon.png";
 import Dropdown from "../Common/Dropdown";
 
-const filterOptions = () => {
+const FilterOptions = () => {
   return (
     <div className="flex items-center justify-between">
       <Dropdown />
@@ -30,4 +30,4 @@ const filterOptions = () => {
   );
 };
 
-export default filterOptions;
+export default FilterOptions;
