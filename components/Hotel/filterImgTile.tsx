@@ -12,7 +12,7 @@ import lakeView from "../../images/lake-filter-icon.png";
 
 const FilterImgTile = () => {
   return (
-    <div className="grid grid-cols-8 mb-10 max-sm:grid-cols-2 max-lg:grid-cols-4 max-sm:items-center">
+    <div className="grid grid-cols-8 mb-10 max-sm:grid-cols-2 max-lg:grid-cols-4 max-sm:items-center max-w-[1190px] w-full mx-auto">
       <Link href="/" className="flex justify-center">
         <Image src={kitcherIcon} alt="" />
       </Link>

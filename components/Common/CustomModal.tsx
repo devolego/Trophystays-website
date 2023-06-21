@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import closeIcon from "../../images/crossIcon.png";
+import closeIcon from "../../images/close-icon.png";
 import Image from "next/image";
 
 const CustomModal = ({
@@ -12,19 +12,19 @@ const CustomModal = ({
 }: any) => {
   const modalBg = useMemo(() => {
     if (isBackground) {
-      return "border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none";
+      return "border-0 rounded-lg relative flex flex-col w-full bg-white outline-none focus:outline-none";
     } else {
-      return "border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-trasperent outline-none focus:outline-none";
+      return "border-0 rounded-lg relative flex flex-col w-full bg-trasperent outline-none focus:outline-none";
     }
   }, [isBackground]);
   return (
     <>
       {showModal ? (
         <>
-          <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-            <div className="relative w-auto my-6 mx-auto max-w-3xl">
+          <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none bg-black-gradiant backdrop-blur-sm">
+            <div className="relative w-auto mx-auto max-w-[1440px] px-12 max-lg:px-5 h-full">
               <div className={modalBg}>
-                <div className="flex items-start justify-between p-5 ">
+                <div className="flex items-start justify-between py-9 ">
                   {modalTitle ? (
                     <h3 className="text-3xl font-semibold">{modalTitle}</h3>
                   ) : null}
@@ -33,7 +33,7 @@ const CustomModal = ({
                     onClick={() => setShowModal(false)}
                   >
                     <span className=" text-white h-6 w-6 text-2xl block outline-none focus:outline-none">
-                      ×
+                      <Image src={closeIcon} alt="" />
                     </span>
                   </button>
                 </div>

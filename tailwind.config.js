@@ -34,6 +34,8 @@ module.exports = {
         "slider-overlay": "url('../images/slider-overlay.png')",
         "down-arrow": "url('../images/down-triangle.png')",
         "primary-color-arrow-up": "url('../images/primary-color-arrow.png)",
+        "black-gradiant":
+          "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(180deg, rgba(41, 32, 33, 0.64) 0%, rgba(41, 32, 33, 0.56) 100%)",
       },
       container: {
         screens: {
