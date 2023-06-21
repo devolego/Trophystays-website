@@ -166,7 +166,7 @@ const Amenities = () => {
                 <Image
                   src={noPetsIcon}
                   alt=""
-                  className="object-contain mr-[10px]"
+                  className="object-contain mr-[10px]gi"
                 />
                 <p className="text-sm">No Pets</p>
               </div>
