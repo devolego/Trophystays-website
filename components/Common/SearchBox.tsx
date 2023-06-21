@@ -53,7 +53,7 @@ const SearchBox = ({ searchClasses }) => {
           <SearchBoxDropdown imageSrc={locationIcon} seachHeading="Filter" />
           {locationItems && (
             <div>
-              <div className="p-4 rounded-xl grid grid-cols-2 max-w-[587px] bg-white mt-3 max-md:grid-cols-1">
+              <div className="p-4 rounded-xl grid grid-cols-2 md:w-[587px] bg-white mt-3 max-md:grid-cols-1">
                 {locationFilterItems.map((items) => {
                   return (
                     <div
