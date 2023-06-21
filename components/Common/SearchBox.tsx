@@ -1,22 +1,18 @@
-"use client";
 import Image from "next/image";
 import React, { useState } from "react";
 import { josefin } from "../../utils/utilsFonts";
 import Button from "./Button";
+import Dropdown from "./Dropdown";
 import locationIcon from "../../images/location.png";
 import termIcon from "../../images/term-icon.png";
 import bedroomIcon from "../../images/bedroom.png";
 import arrivalIcon from "../../images/arrival.png";
+import Link from "next/link";
 import {
   departureItems,
   locationFilterItems,
   termMenuItems,
 } from "../../utils/utilsItems";
-
-// termMenuItems
-// bedroomsItems
-// arrivalItems
-// departureItems
 
 const SearchBox = ({ searchClasses }) => {
   const [locationItems, setLocationItems] = useState(false);
@@ -41,7 +37,7 @@ const SearchBox = ({ searchClasses }) => {
   };
   return (
     <div
-      className={`bg-white p-[30px] rounded-xl shadow-sm max-w-[1190px] w-full m-auto relative z-1 ${searchClasses} max-h-[166px] h-full`}
+      className={`bg-white p-[30px] rounded-xl shadow-md max-w-[1190px] w-full m-auto relative z-1 ${searchClasses} max-h-[166px] h-full`}
     >
       <h3 className={`text-2xl ${josefin.className} mb-4`}>
         Search for your most needed hotels.
