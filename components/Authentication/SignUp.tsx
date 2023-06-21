@@ -6,7 +6,7 @@ import RightFormSection from "./RightFormSection";
 
 const SignUp = () => {
   return (
-    <div className="flex p-[50px] bg-white rounded-[16px]">
+    <div className="lg:flex md:m-[50px] m-[20px]  bg-white rounded-2xl overflow-hidden">
       <Image src={signupImage} alt="loginImage" className="basis-3/6" />
       <RightFormSection
         titleText={"Register Your Account"}
@@ -18,9 +18,10 @@ const SignUp = () => {
         authLink={'/login'}
       >
         <form className="flex flex-col justify-center items-center pt-6 max-w-[384px] w-full mx-auto">
-          <div className="mb-2">
-            <input type="text" placeholder="Email" className="py-[18px] px-6 border border-greyishBrown rounded-[8px]"/>
+          <div className="mb-2 w-full">
+            <input type="text" placeholder="Email" className="py-[18px] px-6 border border-greyishBrown rounded-lg w-full"/>
           </div>
+          <p className="text-sm text-darkGrey pt-8 pb-6">We’ll send you an email to confirm your email address. Standard message and data rates may apply</p>
           <Button
             ButtonText={"Register"}
             ButtonClasses={"w-full bg-primary text-center text-white py-[15px]"}
