@@ -12,9 +12,9 @@ const CustomModal = ({
 }: any) => {
   const modalBg = useMemo(() => {
     if (isBackground) {
-      return "border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none";
+      return "border-0 px-5 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none";
     } else {
-      return "border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-trasperent outline-none focus:outline-none";
+      return "border-0 px-5 rounded-lg shadow-lg relative flex flex-col w-full bg-trasperent outline-none focus:outline-none";
     }
   }, [isBackground]);
   return (
@@ -24,15 +24,15 @@ const CustomModal = ({
           <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
             <div className="relative w-auto max-w-3xl mx-auto my-6">
               <div className={modalBg}>
-                <div className="flex items-start justify-between p-5 ">
+                <div className="flex items-start justify-between pt-5 pb-2">
                   {modalTitle ? (
-                    <h3 className="text-3xl font-semibold">{modalTitle}</h3>
+                    <h3 className="text-base font-medium">{modalTitle}</h3>
                   ) : null}
                   <button
                     className="float-right p-1 ml-auto text-3xl font-semibold leading-none text-white border-0 outline-none focus:outline-none"
                     onClick={() => setShowModal(false)}
                   >
-                    <span className="block w-6 h-6 text-2xl text-white outline-none focus:outline-none">
+                    <span className="block w-6 h-6 text-2xl text-black outline-none focus:outline-none">
                       ×
                     </span>
                   </button>

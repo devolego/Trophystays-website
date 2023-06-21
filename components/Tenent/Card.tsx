@@ -4,6 +4,7 @@ import editIcon from "../../images/edit-pencil.png";
 import Image from "next/image";
 import Button from "../Common/Button";
 import CustomModal from "../Common/CustomModal";
+import UploadFileButton from "./UploadFileButton";
 
 const Card = (props) => {
   const [showModal, setShowModal] = React.useState<boolean>(false);
@@ -52,14 +53,11 @@ const Card = (props) => {
         setShowModal={setShowModal}
         modalTitle={props.modalTitle}
       >
-        <div className="w-3/4 pl-5 font-normal text-sm text-[#939393]">
+        <div className="w-3/4 font-normal text-sm text-[#939393]">
           Verify Your Government ID by Uploading Pictures of your ID Card
         </div>
-
-        <div className="border-2 border-dotted rounded-md">
-          <div>Upload Front Side</div>
-        </div>
-
+        <UploadFileButton labelText="Upload Front Side" />
+        <UploadFileButton labelText="Upload Back Side" />
         <div className="flex items-center justify-center p-6 border-t border-solid rounded-b border-slate-200">
           <button
             className="px-9 py-3.5 mb-1 mr-1 text-base font-medium text-white transition-all duration-150 ease-linear rounded-md shadow outline-none bg-[#333333] active:bg-[#333333] hover:shadow-lg focus:outline-none"
