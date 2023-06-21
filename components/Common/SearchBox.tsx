@@ -52,28 +52,26 @@ const SearchBox = ({ searchClasses }) => {
         >
           <SearchBoxDropdown imageSrc={locationIcon} seachHeading="Filter" />
           {locationItems && (
-            <div>
-              <div className="p-4 rounded-xl grid grid-cols-2 md:w-[587px] bg-white mt-3 max-md:grid-cols-1">
-                {locationFilterItems.map((items) => {
-                  return (
-                    <div
-                      key={items.id}
-                      className="odd:border-r odd:border-[#E1D9CE] odd:mr-[30px] max-md:border-none"
-                    >
-                      <h2 className="text-base font-semibold mt-[30px]">
-                        {items.heading}
-                      </h2>
-                      {items.menuItem.map((value, index) => {
-                        return (
-                          <div key={index} className="font-extralight p-">
-                            {value}
-                          </div>
-                        );
-                      })}
-                    </div>
-                  );
-                })}
-              </div>
+            <div className="p-4 rounded-xl grid grid-cols-2 md:w-[587px] bg-white mt-3 max-md:grid-cols-1 absolute z-[1] bg-white max-md:w-full">
+              {locationFilterItems.map((items) => {
+                return (
+                  <div
+                    key={items.id}
+                    className="odd:border-r odd:border-[#E1D9CE] odd:mr-[30px] max-md:border-none"
+                  >
+                    <h2 className="text-base font-semibold mt-[30px]">
+                      {items.heading}
+                    </h2>
+                    {items.menuItem.map((value, index) => {
+                      return (
+                        <div key={index} className="font-extralight p-">
+                          {value}
+                        </div>
+                      );
+                    })}
+                  </div>
+                );
+              })}
             </div>
           )}
         </div>
@@ -85,16 +83,14 @@ const SearchBox = ({ searchClasses }) => {
         >
           <SearchBoxDropdown imageSrc={termIcon} seachHeading="Term" />
           {termItem && (
-            <div>
-              <div className="p-4 rounded-xl grid grid-cols-2 bg-white mt-3">
-                {termMenuItems.map((items, index) => {
-                  return (
-                    <div key={index} className="">
-                      <h2 className="text-base ">{items}</h2>
-                    </div>
-                  );
-                })}
-              </div>
+            <div className="p-4 rounded-xl grid grid-cols-2 bg-white mt-3 absolute z-[1] bg-white w-full">
+              {termMenuItems.map((items, index) => {
+                return (
+                  <div key={index} className="">
+                    <h2 className="text-base ">{items}</h2>
+                  </div>
+                );
+              })}
             </div>
           )}
         </div>
@@ -106,16 +102,14 @@ const SearchBox = ({ searchClasses }) => {
         >
           <SearchBoxDropdown imageSrc={bedroomIcon} seachHeading="Bedrooms" />
           {bedRoomItem && (
-            <div>
-              <div className="p-4 rounded-xl grid grid-cols-2 bg-white mt-3">
-                {bedroomsItems.map((items, index) => {
-                  return (
-                    <div key={index} className="text-base">
-                      {items}
-                    </div>
-                  );
-                })}
-              </div>
+            <div className="p-4 rounded-xl grid grid-cols-2 bg-white mt-3 absolute z-[1] bg-white w-full">
+              {bedroomsItems.map((items, index) => {
+                return (
+                  <div key={index} className="text-base">
+                    {items}
+                  </div>
+                );
+              })}
             </div>
           )}
         </div>
@@ -127,16 +121,14 @@ const SearchBox = ({ searchClasses }) => {
         >
           <SearchBoxDropdown imageSrc={arrivalIcon} seachHeading="Arrival" />
           {arrivalMenuItem && (
-            <div>
-              <div className="p-4 rounded-xl grid grid-cols-2 bg-white mt-3">
-                {arrivalItems.map((items, index) => {
-                  return (
-                    <div key={index} className="text-base">
-                      {items}
-                    </div>
-                  );
-                })}
-              </div>
+            <div className="p-4 rounded-xl grid grid-cols-2 bg-white mt-3 absolute z-[1] bg-white w-full">
+              {arrivalItems.map((items, index) => {
+                return (
+                  <div key={index} className="text-base">
+                    {items}
+                  </div>
+                );
+              })}
             </div>
           )}
         </div>
@@ -148,16 +140,14 @@ const SearchBox = ({ searchClasses }) => {
         >
           <SearchBoxDropdown imageSrc={arrivalIcon} seachHeading="Departure" />
           {departureMenuItem && (
-            <div>
-              <div className="p-4 rounded-xl grid grid-cols-2 bg-white mt-3">
-                {departureItems.map((items, index) => {
-                  return (
-                    <div key={index} className="">
-                      <h2 className="text-base ">{items}</h2>
-                    </div>
-                  );
-                })}
-              </div>
+            <div className="p-4 rounded-xl grid grid-cols-2 bg-white mt-3 absolute z-[1] bg-white w-full">
+              {departureItems.map((items, index) => {
+                return (
+                  <div key={index} className="">
+                    <h2 className="text-base ">{items}</h2>
+                  </div>
+                );
+              })}
             </div>
           )}
         </div>
