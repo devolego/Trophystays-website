@@ -8,6 +8,15 @@ import airConditioning from "../../images/air-conditioning.png";
 import heater from "../../images/heater.png";
 import laundary from "../../images/laundary.png";
 import dishwasher from "../../images/dishwasher.png";
+import gymIcon from "../../images/gym.png";
+import elevatorIcon from "../../images/elevator.png";
+import rooftopIcon from "../../images/rooftop.png";
+import freeParking from "../../images/free-parking.png";
+import moveInIcon from "../../images/move-in.png";
+import noSmokeIcon from "../../images/no-smoke.png";
+import noPetsIcon from "../../images/no-pets.png";
+import cancelIcon from "../../images/cancel.png";
+import bookingConfirmation from "../../images/booking-cofirmation.png";
 
 const Amenities = () => {
   return (
@@ -87,7 +96,7 @@ const Amenities = () => {
           <div className="grid grid-cols-4 max-w-[650px] w-full my-[30px]">
             <div className="flex items-start ">
               <Image
-                src={airConditioning}
+                src={gymIcon}
                 alt=""
                 className="object-contain mr-[10px]"
               />
@@ -95,13 +104,17 @@ const Amenities = () => {
             </div>
 
             <div className="flex items-start ">
-              <Image src={heater} alt="" className="object-contain mr-[10px]" />
+              <Image
+                src={elevatorIcon}
+                alt=""
+                className="object-contain mr-[10px]"
+              />
               <p className="text-sm">Elevator</p>
             </div>
 
             <div className="flex items-start ">
               <Image
-                src={laundary}
+                src={rooftopIcon}
                 alt=""
                 className="object-contain mr-[10px]"
               />
@@ -115,7 +128,7 @@ const Amenities = () => {
           <div className="grid grid-cols-4 max-w-[650px] w-full my-[30px]">
             <div className="flex items-start ">
               <Image
-                src={laundary}
+                src={freeParking}
                 alt=""
                 className="object-contain mr-[10px]"
               />
@@ -131,7 +144,7 @@ const Amenities = () => {
             <div className="grid grid-cols-3 max-w-[650px] w-full my-[30px]">
               <div className="flex items-start ">
                 <Image
-                  src={laundary}
+                  src={moveInIcon}
                   alt=""
                   className="object-contain mr-[10px]"
                 />
@@ -142,7 +155,7 @@ const Amenities = () => {
 
               <div className="flex items-start ">
                 <Image
-                  src={laundary}
+                  src={noSmokeIcon}
                   alt=""
                   className="object-contain mr-[10px]"
                 />
@@ -151,9 +164,9 @@ const Amenities = () => {
 
               <div className="flex items-start ">
                 <Image
-                  src={laundary}
+                  src={noPetsIcon}
                   alt=""
-                  className="object-contain mr-[10px]"
+                  className="object-contain mr-[10px]gi"
                 />
                 <p className="text-sm">No Pets</p>
               </div>
@@ -162,7 +175,7 @@ const Amenities = () => {
             <p className="mb-5 text-base">Booking cancellation and refunds</p>
             <div className="flex items-start mb-[31px]">
               <Image
-                src={laundary}
+                src={cancelIcon}
                 alt=""
                 className="object-contain mr-[10px]"
               />
@@ -173,7 +186,7 @@ const Amenities = () => {
 
             <div className="flex items-start mb-[31px]">
               <Image
-                src={laundary}
+                src={bookingConfirmation}
                 alt=""
                 className="object-contain mr-[10px]"
               />

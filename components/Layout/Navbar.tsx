@@ -52,7 +52,7 @@ const Navbar = () => {
         {isLogin ? (
           <div className="flex items-center max-lg:hidden">
             <Image className="w-[44px] h-[44px]" src={profileImage} alt="" />
-            <span className="pl-2 text-base font-normal">John Doe</span>
+            <span className="pl-2 text-base font-normal">Trophy</span>
             <Image className="w-[20px] pl-2" src={arrowDown} alt="" />
           </div>
         ) : (

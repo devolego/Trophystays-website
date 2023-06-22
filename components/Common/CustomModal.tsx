@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import closeIcon from "../../images/crossIcon.png";
+import closeIcon from "../../images/close-icon.png";
 import Image from "next/image";
 
 const CustomModal = ({
@@ -12,9 +12,9 @@ const CustomModal = ({
 }: any) => {
   const modalBg = useMemo(() => {
     if (isBackground) {
-      return "border-0 px-5 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none";
+      return "border-0 px-6 py-3 rounded-lg relative flex flex-col w-full bg-white outline-none focus:outline-none";
     } else {
-      return "border-0 px-5 rounded-lg shadow-lg relative flex flex-col w-full bg-trasperent outline-none focus:outline-none";
+      return "border-0 px-6 py-3 rounded-lg relative flex flex-col w-full bg-trasperent outline-none focus:outline-none";
     }
   }, [isBackground]);
   return (
@@ -22,9 +22,9 @@ const CustomModal = ({
       {showModal ? (
         <>
           <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
-            <div className="relative w-auto max-w-3xl mx-auto my-6">
+            <div className="relative w-auto max-w-3xl mx-auto my-6 max-lg:mx-2">
               <div className={modalBg}>
-                <div className="flex items-start justify-between pt-5 pb-2">
+                <div className="flex items-start justify-between pt-5">
                   {modalTitle ? (
                     <h3 className="text-base font-medium">{modalTitle}</h3>
                   ) : null}
@@ -32,8 +32,8 @@ const CustomModal = ({
                     className="float-right p-1 ml-auto text-3xl font-semibold leading-none text-white border-0 outline-none focus:outline-none"
                     onClick={() => setShowModal(false)}
                   >
-                    <span className="block w-6 h-6 text-2xl text-black outline-none focus:outline-none">
-                      ×
+                    <span className="block w-6 h-6 text-2xl text-white outline-none focus:outline-none">
+                      <Image src={closeIcon} alt="" />
                     </span>
                   </button>
                 </div>

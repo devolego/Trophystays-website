@@ -253,7 +253,7 @@ const PropertyDetails = () => {
         showModal={showModal}
         setShowModal={setShowModal}
       >
-        <div className="flex">
+        <div className="grid gap-[25px] grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 mb-12">
           <Image
             className="w-full h-[240px] object-cover"
             src={sliderImg}
