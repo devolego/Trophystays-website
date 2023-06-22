@@ -21,7 +21,7 @@ export const navbarItems = [
   },
   {
     name: "Blogs",
-    link: "#",
+    link: "/blogs",
   },
   {
     name: "Contact us",
