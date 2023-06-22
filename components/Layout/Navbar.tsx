@@ -9,7 +9,7 @@ import logoText from "../../images/logo-text.png";
 import { navbarItems } from "../../utils/utilsItems";
 import Button from "../Common/Button";
 import { usePathname } from "next/navigation";
-const withLogin = ["/tenent", "/booking-history"];
+const withLogin = ["/tenent", "/booking-history", "/admin", "/admin/setting"];
 const Navbar = () => {
   const router = usePathname();
   const isLogin = withLogin.includes(router);
