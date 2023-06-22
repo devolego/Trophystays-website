@@ -35,38 +35,40 @@ var settings = {
 const PropertyDetails = () => {
   const [showModal, setShowModal] = React.useState<boolean>(false);
   return (
-    <div className="overflow-hidden">
-      <Slider {...settings}>
-        <Image
-          className="w-full h-[240px] object-cover"
-          src={sliderImg}
-          alt=""
-        />
-        <Image
-          className="w-full h-[240px] object-cover"
-          src={sliderImg1}
-          alt=""
-        />
-        <Image
-          className="w-full h-[240px] object-cover"
-          src={sliderImg2}
-          alt=""
-        />
-        <Image
-          className="w-full h-[240px] object-cover"
-          src={sliderImg3}
-          alt=""
-        />
-      </Slider>
+    <div>
+      <div className="overflow-hidden">
+        <Slider {...settings}>
+          <Image
+            className="w-full h-[240px] object-cover"
+            src={sliderImg}
+            alt=""
+          />
+          <Image
+            className="w-full h-[240px] object-cover"
+            src={sliderImg1}
+            alt=""
+          />
+          <Image
+            className="w-full h-[240px] object-cover"
+            src={sliderImg2}
+            alt=""
+          />
+          <Image
+            className="w-full h-[240px] object-cover"
+            src={sliderImg3}
+            alt=""
+          />
+        </Slider>
+      </div>
 
       <div className="container-2xl max-lg:px-4 lg:px-[50px] flex max-lg:flex-col gap-4">
         <div className="w-[62%] max-lg:w-full">
-          <div className="mt-4 p-[20px] flex justify-between">
+          <div className="mt-4 py-5 flex justify-between">
             <h1 className={`text-3xl ${josefin.className}`}>
               The Arnold, 1621 E 6th St
             </h1>
             <Link href="/">
-              <Image src={heartImg} alt="" />
+              <Image src={heartImg} alt="" className="w-[36px] h-[36px]" />
             </Link>
           </div>
           <div className="room-details flex gap-2 mt-[12px] justify-between flex-wrap mb-6">
@@ -220,8 +222,10 @@ const PropertyDetails = () => {
             <Image src={map} alt="" className="mb-[50px]" />
           </div>
         </div>
-        <div className="w-[38%] bg-[#FAFAFA] rounded-[16px] mt-10 px-[30px] py-[20px] h-max max-lg:w-full">
-          <span className="text-[#FF7676]">$16.00</span>
+        <div className="w-[38%] bg-[#FAFAFA] rounded-[16px] mt-10 px-[30px] py-[20px] h-max max-lg:w-full sticky top-[80px] right-0">
+          <span className="text-[#FF7676]">
+            <del>$16.00</del>
+          </span>
           <p className="text-3xl">
             12.00 AED
             <span className="text-secondary ">/Month</span>
