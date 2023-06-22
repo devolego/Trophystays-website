@@ -9,8 +9,8 @@ const BlogCardTils = ({
   subHeading,
   paraText,
   dateText,
-  linkText,
-}) => {
+  id,
+}: any) => {
   return (
     <div className="bg-white w-full text-black max-lg:pb-6 mb-7 h-full">
       <div>
@@ -34,10 +34,10 @@ const BlogCardTils = ({
         <p className="text-base mb-3">{paraText}</p>
 
         <Link
-          href="/"
+          href={`blog-details/1Aserdwaaxxde${id}`}
           className="text-base underline text-primary my-3 max-md:text-sm"
         >
-          {linkText}
+          Read More
         </Link>
       </div>
     </div>

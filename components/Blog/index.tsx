@@ -34,57 +34,57 @@ const BlogPage = () => {
         <div>
           <div className="grid gird-cols-1 md:grid-cols-2 lg:px-[74px] gap-[30px] xl:grid-cols-3">
             <BlogCardTils
+              id="1"
               blogCardImg={blogGridImg}
               heading="News"
               subHeading="Opens Three New Locations Across Some of Washington"
               dateText="May 02, 2023"
               paraText="What began as a journey to provide a better..."
-              linkText="Read More"
             />
 
             <BlogCardTils
+              id="2"
               blogCardImg={blogGridImgSec}
               heading="Design"
               subHeading="Unveil Sonder’s new photography creative concept"
               dateText="May 02, 2023"
               paraText="What began as a journey to provide a better..."
-              linkText="Read More"
             />
 
             <BlogCardTils
+              id="3"
               blogCardImg={blogGridImgThird}
               heading="Design"
               subHeading="Super Bowl 2023: Stay with Trophy"
               dateText="May 02, 2023"
               paraText="What began as a journey to provide a better stay has grown into a celebration of modern design and exceptional comfort."
-              linkText="Read More"
             />
 
             <BlogCardTils
+              id="4"
               blogCardImg={blogGridImgSec}
               heading="Design"
               subHeading="Unveil Sonder’s new photography creative concept"
               dateText="May 02, 2023"
               paraText="What began as a journey to provide a better..."
-              linkText="Read More"
             />
 
             <BlogCardTils
+              id="5"
               blogCardImg={blogGridImgThird}
               heading="Design"
               subHeading="Super Bowl 2023: Stay with Trophy"
               dateText="May 02, 2023"
               paraText="What began as a journey to provide a better stay has grown into a celebration of modern design and exceptional comfort."
-              linkText="Read More"
             />
 
             <BlogCardTils
+              id="6"
               blogCardImg={blogGridImg}
               heading="News"
               subHeading="Opens Three New Locations Across Some of Washington"
               dateText="May 02, 2023"
               paraText="What began as a journey to provide a better..."
-              linkText="Read More"
             />
           </div>
         </div>

@@ -1,7 +1,5 @@
 import React from "react";
-import BlogPage from "../../components/BlogPage";
-import ImageText from "../../components/Common/ImageText";
-import blogSubImg from "../../images/blog-img-2.png";
+import BlogPage from "../../components/Blog";
 
 const blogs = () => {
   return (

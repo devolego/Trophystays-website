@@ -104,3 +104,16 @@ export const departureItems = ["Departure"];
 //     image: "sharjah.png",
 //   },
 // ];
+
+export const blogDetailPara1 =
+  " Royal Garden Apartments in Edinburgh has expanded with 11 additional apartments ready to book. We’re excited to grow in the heart of this historic city. The property is located opposite the Scottish National Portrait Gallery, and guests have access to the secluded Queen Street Gardens.";
+
+export const blogDeailPara2 =
+  " The rise of hybrid and remote working, as well as travelers combining business and leisure into single trips, means that a new cohort of travelers are seeking flexible accommodation which provides space to work and relax. Our Royal Garden Apartments meet this need perfectly, while also appealing to families. The property offers spacious apartments with in-unit kitchens and laundry, while contactless check-in and 24/7 on-the-ground support are available.";
+
+export const blogDeailPara3 =
+  "Royal Garden Apartments in Edinburgh has expanded with 11 additional apartments ready to book. We’re excited to grow in the heart of this historic city. The property is located opposite the Scottish National Portrait Gallery, and guests have access to the secluded Queen Street Gardens.";
+export const blogDeailPara4 =
+  "The rise of hybrid and remote working, as well as travelers combining business and leisure into single trips, means that a new cohort of travelers are seeking flexible accommodation which provides space to work and relax. Our Royal Garden Apartments meet this need perfectly, while also appealing to families. The property offers spacious apartments with in-unit kitchens and laundry, while contactless check-in and 24/7 on-the-ground support are available.";
+export const blogDeailPara5 =
+  "  Whether you’re returning to the Scottish capital, or planning your first trip, Royal Garden Apartments are available for stays starting at two nights. We look forward to welcoming you in Duai.";
