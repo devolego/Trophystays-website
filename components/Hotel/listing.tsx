@@ -8,7 +8,7 @@ import FilterOptions from "./filterOptions";
 const HotelListing = () => {
   return (
     <div>
-      {/* <SearchBox searchClasses="mt-[20px] mb-10" /> */}
+      <SearchBox searchClasses="mt-[20px] mb-10" />
       <FilterImgTile />
       <FilterOptions />
       <div className="grid grid-cols-4 gap-6 hotel-suggestion max-lg:grid-cols-1">

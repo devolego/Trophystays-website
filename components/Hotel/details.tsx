@@ -4,8 +4,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
-import sliderImg from "../../images/slider-img.png";
-import sliderImg1 from "../../images/kitchen-img-2.png";
+import sliderImg from "../../images/property-detail-img-1.png";
+import sliderImg1 from "../../images/property-detail-img-2.png";
 import sliderImg2 from "../../images/hero.png";
 import sliderImg3 from "../../images/login-form-img-1.png";
 import Link from "next/link";
@@ -24,49 +24,74 @@ import { josefin } from "../../utils/utilsFonts";
 import Button from "../Common/Button";
 import Amenities from "./amenities";
 import CustomModal from "../Common/CustomModal";
+import DatePicker from "../Common/DatePicker";
 
 var settings = {
-  dots: true,
+  dots: false,
   infinite: true,
   speed: 500,
-  slidesToShow: 2,
+  // slidesToShow: 1,
+  // slidesToShow: 2,
   slidesToScroll: 2,
+  variableWidth: true,
+  // centerMode: true,
 };
 const PropertyDetails = () => {
   const [showModal, setShowModal] = React.useState<boolean>(false);
+  const [showCalenderModal, setShowCalenderModal] =
+    React.useState<boolean>(false);
+
   return (
-    <div className="overflow-hidden">
-      <Slider {...settings}>
-        <Image
-          className="w-full h-[240px] object-cover"
-          src={sliderImg}
-          alt=""
-        />
-        <Image
-          className="w-full h-[240px] object-cover"
-          src={sliderImg1}
-          alt=""
-        />
-        <Image
-          className="w-full h-[240px] object-cover"
-          src={sliderImg2}
-          alt=""
-        />
-        <Image
-          className="w-full h-[240px] object-cover"
-          src={sliderImg3}
-          alt=""
-        />
-      </Slider>
+    <div>
+      <div className="overflow-hidden property-detail hotel-suggestion relative">
+        <Slider {...settings} className="h-[450px]">
+          <Image
+            className="w-full object-cover h-[450px]"
+            src={sliderImg}
+            alt=""
+            style={{ width: "60vw" }}
+          />
+          <Image
+            className="w-full object-cover h-[450px]"
+            src={sliderImg1}
+            alt=""
+            style={{ width: "40vw" }}
+          />
+          <Image
+            className="w-full object-cover h-[450px]"
+            src={sliderImg2}
+            alt=""
+            style={{ width: "60vw" }}
+          />
+          <Image
+            className="w-full object-cover h-[450px]"
+            src={sliderImg3}
+            alt=""
+            style={{ width: "40vw" }}
+          />
+        </Slider>
+
+        <div className="absolute bottom-[40px] left-[50px] flex gap-5">
+          <span className="bg-black/50 text-white px-3 py-2 rounded-lg">
+            East Austin, Austin
+          </span>
+          <span className="bg-black/50 text-white px-3 py-2 rounded-lg">
+            Available from: 18 May 2023
+          </span>
+          <span className="bg-black/50 text-white px-3 py-2 rounded-lg">
+            See All
+          </span>
+        </div>
+      </div>
 
       <div className="container-2xl max-lg:px-4 lg:px-[50px] flex max-lg:flex-col gap-4">
         <div className="w-[62%] max-lg:w-full">
-          <div className="mt-4 p-[20px] flex justify-between">
+          <div className="mt-4 py-5 flex justify-between">
             <h1 className={`text-3xl ${josefin.className}`}>
               The Arnold, 1621 E 6th St
             </h1>
             <Link href="/">
-              <Image src={heartImg} alt="" />
+              <Image src={heartImg} alt="" className="w-[36px] h-[36px]" />
             </Link>
           </div>
           <div className="room-details flex gap-2 mt-[12px] justify-between flex-wrap mb-6">
@@ -220,8 +245,10 @@ const PropertyDetails = () => {
             <Image src={map} alt="" className="mb-[50px]" />
           </div>
         </div>
-        <div className="w-[38%] bg-[#FAFAFA] rounded-[16px] mt-10 px-[30px] py-[20px] h-max max-lg:w-full">
-          <span className="text-[#FF7676]">$16.00</span>
+        <div className="w-[38%] bg-[#FAFAFA] rounded-[16px] mt-10 px-[30px] py-[20px] h-max max-lg:w-full sticky top-[80px] right-0">
+          <span className="text-[#FF7676]">
+            <del>$16.00</del>
+          </span>
           <p className="text-3xl">
             12.00 AED
             <span className="text-secondary ">/Month</span>
@@ -243,6 +270,7 @@ const PropertyDetails = () => {
             <div className="text-base text-darkGrey">(21 Reviews) </div>
           </div>
           <Button
+            ButtonClicked={() => setShowCalenderModal(true)}
             ButtonText="Buy Now"
             ButtonClasses="text-white mt-[36px] text-center"
           />
@@ -275,6 +303,14 @@ const PropertyDetails = () => {
             alt=""
           />
         </div>
+      </CustomModal>
+
+      <CustomModal
+        isBackground={false}
+        showModal={showCalenderModal}
+        setShowModal={setShowCalenderModal}
+      >
+        <DatePicker />
       </CustomModal>
     </div>
   );
