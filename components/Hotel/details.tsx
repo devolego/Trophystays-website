@@ -24,6 +24,7 @@ import { josefin } from "../../utils/utilsFonts";
 import Button from "../Common/Button";
 import Amenities from "./amenities";
 import CustomModal from "../Common/CustomModal";
+import DatePicker from "../Common/DatePicker";
 
 var settings = {
   dots: true,
@@ -34,6 +35,8 @@ var settings = {
 };
 const PropertyDetails = () => {
   const [showModal, setShowModal] = React.useState<boolean>(false);
+  const [showCalenderModal, setShowCalenderModal] =
+    React.useState<boolean>(true);
   return (
     <div>
       <div className="overflow-hidden">
@@ -279,6 +282,14 @@ const PropertyDetails = () => {
             alt=""
           />
         </div>
+      </CustomModal>
+
+      <CustomModal
+        isBackground={false}
+        showModal={showCalenderModal}
+        setShowModal={setShowCalenderModal}
+      >
+        <DatePicker />
       </CustomModal>
     </div>
   );
