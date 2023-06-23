@@ -4,8 +4,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
-import sliderImg from "../../images/slider-img.png";
-import sliderImg1 from "../../images/kitchen-img-2.png";
+import sliderImg from "../../images/property-detail-img-1.png";
+import sliderImg1 from "../../images/property-detail-img-2.png";
 import sliderImg2 from "../../images/hero.png";
 import sliderImg3 from "../../images/login-form-img-1.png";
 import Link from "next/link";
@@ -27,41 +27,61 @@ import CustomModal from "../Common/CustomModal";
 import DatePicker from "../Common/DatePicker";
 
 var settings = {
-  dots: true,
+  dots: false,
   infinite: true,
   speed: 500,
-  slidesToShow: 2,
+  // slidesToShow: 1,
+  // slidesToShow: 2,
   slidesToScroll: 2,
+  variableWidth: true,
+  // centerMode: true,
 };
 const PropertyDetails = () => {
   const [showModal, setShowModal] = React.useState<boolean>(false);
   const [showCalenderModal, setShowCalenderModal] =
     React.useState<boolean>(true);
+
   return (
     <div>
-      <div className="overflow-hidden">
-        <Slider {...settings}>
+      <div className="overflow-hidden property-detail hotel-suggestion relative">
+        <Slider {...settings} className="h-[450px]">
           <Image
-            className="w-full h-[240px] object-cover"
+            className="w-full object-cover h-[450px]"
             src={sliderImg}
             alt=""
+            style={{ width: "60vw" }}
           />
           <Image
-            className="w-full h-[240px] object-cover"
+            className="w-full object-cover h-[450px]"
             src={sliderImg1}
             alt=""
+            style={{ width: "40vw" }}
           />
           <Image
-            className="w-full h-[240px] object-cover"
+            className="w-full object-cover h-[450px]"
             src={sliderImg2}
             alt=""
+            style={{ width: "60vw" }}
           />
           <Image
-            className="w-full h-[240px] object-cover"
+            className="w-full object-cover h-[450px]"
             src={sliderImg3}
             alt=""
+            style={{ width: "40vw" }}
           />
         </Slider>
+
+        <div className="absolute bottom-[40px] left-[50px] flex gap-5">
+          <span className="bg-black/50 text-white px-3 py-2 rounded-lg">
+            East Austin, Austin
+          </span>
+          <span className="bg-black/50 text-white px-3 py-2 rounded-lg">
+            Available from: 18 May 2023
+          </span>
+          <span className="bg-black/50 text-white px-3 py-2 rounded-lg">
+            See All
+          </span>
+        </div>
       </div>
 
       <div className="container-2xl max-lg:px-4 lg:px-[50px] flex max-lg:flex-col gap-4">

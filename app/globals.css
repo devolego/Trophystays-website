@@ -43,11 +43,11 @@ body {
 }
 .hotel-suggestion .slick-arrow.slick-prev , .hotel-suggestion .slick-prev:hover,.hotel-suggestion .slick-prev:focus{
   left:16px;
-  background: url("../images/slider-arrow.png") no-repeat center !important; 
+  background: url("../images/slider-arrow.png") no-repeat center; 
 }
 .hotel-suggestion .slick-arrow.slick-next ,.hotel-suggestion .slick-arrow.slick-next,.hotel-suggestion .slick-next:hover,.hotel-suggestion .slick-next:focus{
  right: 16px;
- background: url("../images/slider-arrow-right.png") no-repeat center !important;
+ background: url("../images/slider-arrow-right.png") no-repeat center;
 }
 .hotel-suggestion .slick-arrow.slick-next:before ,.hotel-suggestion .slick-arrow.slick-prev:before{
   display: none;
@@ -123,4 +123,25 @@ body {
 }
 .react-calendar__navigation__label{
   color:#886750 !important
+}
+/* slick */
+
+div.property-detail .slick-list {margin: 0 -5px;} 
+.property-detail .slick-slide>div {padding: 0 5px;}
+
+.property-detail.hotel-suggestion .slick-arrow.slick-prev, 
+.property-detail.hotel-suggestion .slick-prev:hover, 
+.property-detail.hotel-suggestion .slick-prev:focus{
+  left: 50px;
+  background: url('../images/secondary-solid-color-arrow.png') no-repeat center;
+  width: 55px;
+  height: 55px;
+}
+.property-detail.hotel-suggestion .slick-arrow.slick-next, 
+.property-detail.hotel-suggestion .slick-next:hover, 
+.property-detail.hotel-suggestion .slick-next:focus{
+  right: 50px;
+  background: url('../images/blog-arrow-right.png') no-repeat center;
+  width: 55px;
+  height: 55px;
 }
