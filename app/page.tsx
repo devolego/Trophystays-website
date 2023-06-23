@@ -1,14 +1,14 @@
-import Image from "next/image";
-import Banner from "../components/LandingPage/Banner";
-import Neighbourhoods from "../components/LandingPage/Neighbourhoods";
-import HotelSuggestions from "../components/LandingPage/HotelSuggestions";
-import EveryThingRightHere from "../components/LandingPage/EveryThingRightHere";
-import ImageGallerySection from "../components/LandingPage/ImageGallerySection";
-import LearnMore from "../components/LandingPage/LearnMore";
-import ClientReviews from "../components/LandingPage/ClientReviews";
+"use client";
+import { useEffect, useState } from "react";
 import LandingPage from "../components/LandingPage";
 
 export default function Home() {
+  const [initialRenderComplete, setInitialRenderComplete] =
+    useState<boolean>(false);
+  useEffect(() => {
+    setInitialRenderComplete(true);
+  }, []);
+  if (!initialRenderComplete) return <></>;
   return (
     <div>
       <LandingPage />

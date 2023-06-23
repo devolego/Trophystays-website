@@ -3,12 +3,30 @@ import ummalquwainImg from "../images/ummalquwain.png";
 import fujairahImg from "../images/fujairah.png";
 
 export const navbarItems = [
-  "About Us",
-  "Stay with Us",
-  "Host with Us",
-  "Reviews",
-  "Blogs",
-  "Contact Us",
+  {
+    name: "About Us",
+    link: "#",
+  },
+  {
+    name: "Stay with us",
+    link: "/stay-with-us",
+  },
+  {
+    name: "Host with us",
+    link: "#",
+  },
+  {
+    name: "Reviews",
+    link: "#",
+  },
+  {
+    name: "Blogs",
+    link: "#",
+  },
+  {
+    name: "Contact us",
+    link: "#",
+  },
 ];
 
 export const footerMenuMainPageOption = [
@@ -17,6 +35,52 @@ export const footerMenuMainPageOption = [
   "Host with Us",
 ];
 export const footerMenuOtherOption = ["Reviews", "Blogs", "Contact Us"];
+export const locationFilterItems = [
+  {
+    id: "1",
+    heading: "Abu Dhabi",
+    menuItem: [
+      "Sheikh Khalifa Medical City",
+      "Mussafah Community",
+      "Bawabat Al Sharq",
+      "Mina Zayed",
+    ],
+  },
+  {
+    id: "2",
+    heading: "Dubai",
+    menuItem: [
+      "Sheikh Khalifa Medical City",
+      "Mussafah Community",
+      "Bawabat Al Sharq",
+      "Mina Zayed",
+    ],
+  },
+  {
+    id: "3",
+    heading: "Sharjah",
+    menuItem: [
+      "Sheikh Khalifa Medical City",
+      "Mussafah Community",
+      "Bawabat Al Sharq",
+      "Mina Zayed",
+    ],
+  },
+  {
+    heading: "Umm Al Qaiwain",
+    menuItem: [
+      "Sheikh Khalifa Medical City",
+      "Mussafah Community",
+      "Bawabat Al Sharq",
+      "Mina Zayed",
+    ],
+  },
+];
+
+export const termMenuItems = ["Term"];
+export const bedroomsItems = ["Bedrooms"];
+export const arrivalItems = ["Arrival"];
+export const departureItems = ["Departure"];
 
 // export const neighbourhoodsContent = [
 //   {

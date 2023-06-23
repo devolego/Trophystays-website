@@ -11,9 +11,11 @@ import { josefin } from "../../utils/utilsFonts";
 const ImageGallerySection = () => {
   return (
     <div>
-      <div className="grid grid-cols-4 gap-[30px] mb-[30px]">
+      <div className="grid lg:grid-cols-4 gap-[30px] mb-[30px]">
         <div className="col-span-2 ">
-          <h2 className={`text-[40px] mb-2 ${josefin.className}`}>
+          <h2
+            className={`text-[40px] mb-2 ${josefin.className} max-lg:text-[32px] max-lg:leading-[40px]`}
+          >
             Discover exciting locations where skyline views, modern luxury, and
             amenities seamlessly merge.
           </h2>
@@ -21,21 +23,51 @@ const ImageGallerySection = () => {
             We are happy when our guests are happy.
           </p>
         </div>
-        <Image className="w-full rounded-[16px]" src={gallerImgOne} alt="" />
-        <Image className="w-full rounded-[16px]" src={gallerImgSecond} alt="" />
+        <Image
+          className="w-full rounded-[16px] max-lg:max-h-[195px] max-lg:h-full object-cover max-lg:hidden"
+          src={gallerImgOne}
+          alt=""
+        />
+        <Image
+          className="w-full rounded-[16px] max-lg:max-h-[195px] max-lg:h-full object-cover max-lg:hidden"
+          src={gallerImgSecond}
+          alt=""
+        />
       </div>
 
-      <div className="grid grid-cols-6 gap-[30px]">
-        <div className="col-span-3">
+      <div className="grid lg:grid-cols-6 gap-[30px] max-lg:grid-cols-3">
+        <div className="lg:col-span-3">
           <Image
-            className="w-full rounded-[16px]"
+            className="w-full rounded-[16px] max-lg:max-h-[195px] max-lg:h-full object-cover"
             src={gallerImgThird}
             alt=""
           />
         </div>
-        <Image className="w-full rounded-[16px]" src={gallerImgFourth} alt="" />
-        <Image className="w-full rounded-[16px]" src={gallerImgFifth} alt="" />
-        <Image className="w-full rounded-[16px]" src={gallerImgSixth} alt="" />
+        <Image
+          className="w-full rounded-[16px] lg:hidden"
+          src={gallerImgOne}
+          alt=""
+        />
+        <Image
+          className="w-full rounded-[16px] lg:hidden"
+          src={gallerImgSecond}
+          alt=""
+        />
+        <Image
+          className="w-full rounded-[16px] max-lg:max-h-[195px] max-lg:h-full object-cover"
+          src={gallerImgFourth}
+          alt=""
+        />
+        <Image
+          className="w-full rounded-[16px] max-lg:max-h-[195px] max-lg:h-full object-cover"
+          src={gallerImgFifth}
+          alt=""
+        />
+        <Image
+          className="w-full rounded-[16px] max-lg:max-h-[195px] max-lg:h-full object-cover"
+          src={gallerImgSixth}
+          alt=""
+        />
       </div>
     </div>
   );
