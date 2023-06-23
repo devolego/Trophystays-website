@@ -1,5 +1,5 @@
 import React from 'react'
-import { Line, LineChart, ResponsiveContainer } from 'recharts';
+import { Area, AreaChart, CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 
 const data = [
   {
@@ -17,7 +17,7 @@ const data = [
   {
     name: 'Page C',
     uv: 2000,
-    pv: 9800,
+    pv: 3000,
     amt: 2290,
   },
   {
@@ -29,30 +29,34 @@ const data = [
   {
     name: 'Page E',
     uv: 1890,
-    pv: 4800,
+    pv: 4000,
     amt: 2181,
   },
-  {
-    name: 'Page F',
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: 'Page G',
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
+  
 ];
 
-const LineChartComman = () => {
+const LineChartComman = (props:any) => {
   return (
-       <ResponsiveContainer width="100%" height="100%">
-      <LineChart width={300} height={100} data={data}>
-        <Line type="monotone" dataKey="pv" stroke="#000" strokeWidth={2} />
-      </LineChart>
-    </ResponsiveContainer>
+    <ResponsiveContainer width="100%" height={140}>
+    <AreaChart
+      width={500}
+      height={200}
+      data={data}
+      syncId="anyId"
+      margin={{
+        top: 10,
+        right: 0,
+        left: 0,
+        bottom: 0,
+      }}
+    >
+      {/* <CartesianGrid strokeDasharray="3 3" /> */}
+      {/* <XAxis dataKey="name" />
+      <YAxis /> */}
+      <Tooltip />
+      <Area type="monotone" dataKey={props.dataKey} stroke={props.color} fill={props.color} />
+    </AreaChart>
+  </ResponsiveContainer>
   )
 }
 
