@@ -7,12 +7,14 @@ import aboutImgFourth from "../../images/about-img-4.png";
 
 const Uniqueness = () => {
   return (
-    <div className="bg-lightBrown p-[50px] rounded-2xl mb-[50px]">
-      <h2 className={`${josefin.className} text-[40px] font-bold mb-[40px]`}>
+    <div className="bg-lightBrown md:p-[50px] rounded-2xl mb-[50px] max-md:px-4 max-md:py-6">
+      <h2
+        className={`${josefin.className} text-[40px] font-bold mb-[40px] max-md:font-semibold max-md:text-[32px] max-md:mb-4`}
+      >
         Uniqueness
       </h2>
 
-      <div className="grid grid-cols-2 gap-4 my-[50px]">
+      <div className="grid grid-cols-2 gap-4 md:my-[50px] max-md:my-4">
         <Image
           src={aboutImgSec}
           alt=""
@@ -30,7 +32,7 @@ const Uniqueness = () => {
         />
       </div>
 
-      <p className="font-bold text-base leading-6">
+      <p className="font-bold text-base leading-6 max-md:mt-6 max-md:font-normal">
         In the signature hotels of the Earth you will come into contact with new
         flavors and textures but it is certain that you will recognize familiar
         recipes, which will appear in front of you more colorful and dynamic,
