@@ -26,10 +26,11 @@ const DatePicker = () => {
         </div>
       </div>
       <DateRangePicker
-        onChange={onChange}
+        onChange={() => onChange}
         value={value}
         isOpen={true}
         format="dd MMMM,y"
+        closeCalendar={false}
       />
 
       <div className="flex justify-between">

@@ -39,7 +39,7 @@ var settings = {
 const PropertyDetails = () => {
   const [showModal, setShowModal] = React.useState<boolean>(false);
   const [showCalenderModal, setShowCalenderModal] =
-    React.useState<boolean>(true);
+    React.useState<boolean>(false);
 
   return (
     <div>
@@ -270,6 +270,7 @@ const PropertyDetails = () => {
             <div className="text-base text-darkGrey">(21 Reviews) </div>
           </div>
           <Button
+            ButtonClicked={() => setShowCalenderModal(true)}
             ButtonText="Buy Now"
             ButtonClasses="text-white mt-[36px] text-center"
           />
