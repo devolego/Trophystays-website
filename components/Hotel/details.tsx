@@ -274,6 +274,68 @@ const PropertyDetails = () => {
             ButtonText="Buy Now"
             ButtonClasses="text-white mt-[36px] text-center"
           />
+
+          <div className="text-sm bg-white rounded-lg my-4 px-4">
+            <div className="py-2 mt-2">
+              <div className="flex justify-between my-2 ">
+                <p>Rent per month</p>
+                <p>AED 61,450.00</p>
+              </div>
+              <div className="flex justify-between my-2 ">
+                <p>Utilities per month</p>
+                <p>AED 2,370.00</p>
+              </div>
+              <div className="flex justify-between my-2 ">
+                <p className="font-medium">Monthly subtotal</p>
+                <p>AED 59,080.00</p>
+              </div>
+            </div>
+
+            <div className="h-px w-full bg-primary/50 mb-2"></div>
+            <div className="flex justify-between items-center">
+              <p className="font-semibold text-sm">
+                Add Pets
+                <span className="text-secondary text-xs ml-1">Extra Fee</span>
+              </p>
+              <p className="text-sm px-3 py-2 bg-secondary text-white rounded-[50px]">
+                +
+              </p>
+            </div>
+            <p className="text-darkGrey text-sm">
+              (Pet fee: MXN940/mo per pet)
+            </p>
+            <div className="h-px w-full bg-primary/50 my-4"></div>
+            <div>
+              <div className="flex justify-between my-2 ">
+                <p>Fees & insurance</p>
+                <p>AED 8,304.00</p>
+              </div>
+              <div className="flex justify-between my-2 ">
+                <p className="font-medium">
+                  Total charges
+                  <span className="text-darkGrey ml-2">(Single payment)</span>
+                </p>
+                <p>AED 71,736.26</p>
+              </div>
+              <div className="flex justify-between my-2 ">
+                <p className="text-sm">Refundable security deposit</p>
+                <p>AED 29,540.00</p>
+              </div>
+            </div>
+            <div className="h-px w-full bg-primary/50 my-4"></div>
+            <div className="flex justify-between">
+              <p className="font-medium">
+                Total <span className="text-darkGrey">(1 month & 1 day)</span>
+              </p>
+              <p>AED 101,276.26</p>
+            </div>
+          </div>
+
+          <Button
+            ButtonClicked={() => setShowCalenderModal(true)}
+            ButtonText="Reserve"
+            ButtonClasses="bg-primary text-white mt-[36px] text-center py-4 items-center"
+          />
         </div>
       </div>
       <CustomModal
