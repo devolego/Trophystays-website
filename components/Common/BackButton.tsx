@@ -1,9 +1,16 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import arrowLeft from "../../images/arrow-left.png";
+import { useRouter } from "next/navigation";
 const BackButton = (props) => {
+  const router = useRouter();
+
   return (
-    <div className="flex justify-start pb-4 lg:ml-2">
+    <div
+      onClick={() => router.back()}
+      className="flex justify-start pb-4 cursor-pointer lg:ml-2"
+    >
       <Image src={arrowLeft} alt="" />
       <span className="pl-2 text-[#292021] text-base text-[16px]">
         {props.buttonText}

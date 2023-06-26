@@ -1,12 +1,12 @@
-import React from 'react'
-import AdminAccountSetting from '../../../components/Admin/Settings/AdminAccountSetting'
+import React from "react";
+import AdminSetting from "../../../components/Admin/Settings/AdminSetting";
 
 const setting = () => {
   return (
     <div>
-      <AdminAccountSetting />
+      <AdminSetting />
     </div>
-  )
-}
+  );
+};
 
-export default setting
+export default setting;

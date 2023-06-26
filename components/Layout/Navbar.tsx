@@ -7,10 +7,22 @@ import arrowDown from "../../images/arrow-down.png";
 // import logoText from "../../images/trophy-logo.png";
 import logoText from "../../images/logo-text.png";
 import { navbarItems } from "../../utils/utilsItems";
-import Button from "../Common/Button";
 import { usePathname } from "next/navigation";
-const withLogin = ["/tenent", "/booking-history", "/admin", "/admin/setting"];
-const withAdmin = ["/admin", "/admin/setting"];
+const withLogin = [
+  "/tenent",
+  "/booking-history",
+  "/admin",
+  "/admin/setting",
+  "/admin/setting/personal-info",
+  "/admin/setting/login-security",
+];
+
+const withAdmin = [
+  "/admin",
+  "/admin/setting",
+  "/admin/setting/personal-info",
+  "/admin/setting/login-security",
+];
 const Navbar = () => {
   const router = usePathname();
   const isLogin = withLogin.includes(router);
@@ -49,7 +61,7 @@ const Navbar = () => {
               </ul>
             </div>
           )}
-          {isAdmin && (
+          {/* {isAdmin && (
             <div
               className="nav-links max-lg:hidden max-lg:peer-checked:block max-lg:fixed max-lg:top-[72px] max-lg:left-0 max-lg:w-full max-lg:h-full z-20 max-lg:bg-white
        max-lg:text-primary 
@@ -64,7 +76,7 @@ const Navbar = () => {
                 </li>
               </ul>
             </div>
-          )}
+          )} */}
         </div>
 
         {isLogin ? (
