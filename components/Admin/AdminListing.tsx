@@ -23,7 +23,7 @@ const AdminListing = () => {
       <div className="container-2xl max-lg:px-4 lg:px-[50px] py-5">
         <div className="flex items-center justify-between gap-4 max-xl:flex-col max-xl:justify-start max-xl:items-start">
           <BackButton buttonText="Listing" btnProperty={"pb-0"} />
-          <div className="flex justify-between md:max-w-fit max-md:grid max-md:grid-cols-2 max-md:w-full max-md:justify-between max-md:gap-4">
+          <div className="flex justify-between max-md:gap-4 md:gap-2 md:max-w-fit max-md:grid max-md:grid-cols-2 max-md:w-full max-md:justify-between md:flex-wrap">
             {listingTopArr &&
               listingTopArr.length > 0 &&
               listingTopArr.map((data, index) => {
@@ -44,7 +44,7 @@ const AdminListing = () => {
           </div>
           <div className="opacity-1 invisible w-[84px] max-xl:hidden"></div>
         </div>
-        <div className="flex content-center justify-between gap-4 mt-4 mb-6 max-md:flex-col">
+        <div className="flex content-center justify-between gap-4 mt-4 mb-6 max-md:flex-col md:flex-wrap">
           {/* <div className="filter border border-solid border-greyishBrown rounded-lg p-2 w-[185px] h-[52px] text-darkGrey text-base">
             <Image
               className="relative top-[12px] left-[145px]"
@@ -57,7 +57,7 @@ const AdminListing = () => {
           <div className="flex justify-center items-start md:w-[507px] gap-4 max-md:w-full max-md:justify-between max-md:flex-col">
             <div className="relative top-0 left-0 search-bar max-md:w-[100%]">
               <input
-                className="pl-12 md:max-w-[375px] w-full h-[52px] border border-solid border-greyishBrown rounded-lg"
+                className="pl-12 md:w-[375px] max-md:w-full h-[52px] border border-solid border-greyishBrown rounded-lg"
                 type="text"
                 placeholder="Search by keyword"
               />
