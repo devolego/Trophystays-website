@@ -4,6 +4,7 @@ import Image from "next/image";
 import Button from "../Common/Button";
 import CustomModal from "../Common/CustomModal";
 import UploadFileButton from "./UploadFileButton";
+import closeIconGrey from "../../images/close-icon-grey.png";
 
 const Card = (props) => {
   const [showModal, setShowModal] = React.useState<boolean>(false);
@@ -17,7 +18,9 @@ const Card = (props) => {
       <div
         className={`${
           props.iconPosition === "left" ? "bg-[#FAFAFA]" : "bg-[#FFFDFB]"
-        } px-2 py-5 lg:m-1 border border-[#E1D9CE] rounded-md`}
+        } px-2 py-5 lg:m-1 border border-[#E1D9CE] rounded-md ${
+          isEdit ? "row-span-2" : ""
+        } ${props.cardProperty ? props.cardProperty : ""}`}
       >
         {isEdit ? (
           <div className="flex flex-col justify-between mx-4 mr-10">
@@ -85,15 +88,17 @@ const Card = (props) => {
         showModal={showModal}
         setShowModal={setShowModal}
         modalTitle={props.modalTitle}
+        modalTitleStyle="font-semibold md:text-xl max-md:text-base mb-3"
+        modalCloseIcon={closeIconGrey}
       >
-        <div className="w-3/4 font-normal text-sm text-[#939393]">
+        <div className="w-3/4 font-normal text-base leading-[24px] text-[#939393] mb-3 max-md:">
           Verify Your Government ID by Uploading Pictures of your ID Card
         </div>
         <UploadFileButton labelText="Upload Front Side" />
         <UploadFileButton labelText="Upload Back Side" />
-        <div className="flex items-center justify-center p-6 border-t border-solid rounded-b border-slate-200">
+        <div className="flex items-center justify-center p-6 rounded-b">
           <button
-            className="px-9 py-3.5 mb-1 mr-1 text-base font-medium text-white transition-all duration-150 ease-linear rounded-md shadow outline-none bg-[#333333] active:bg-[#333333] hover:shadow-lg focus:outline-none"
+            className="max-md:px-6 md:px-9 md:py-3.5 max-md:py-2 mb-1 mr-1 max-md:text-sm md:text-base font-medium text-white transition-all duration-150 ease-linear rounded-md shadow outline-none bg-[#333333] active:bg-[#333333] hover:shadow-lg focus:outline-none"
             type="button"
             onClick={() => setShowModal(false)}
           >

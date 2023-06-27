@@ -9,6 +9,8 @@ const CustomModal = ({
   isFooter,
   setShowModal,
   showModal,
+  modalTitleStyle,
+  modalCloseIcon,
 }: any) => {
   const modalBg = useMemo(() => {
     if (isBackground) {
@@ -26,14 +28,30 @@ const CustomModal = ({
               <div className={modalBg}>
                 <div className="flex items-start justify-between pt-5">
                   {modalTitle ? (
-                    <h3 className="text-base font-medium">{modalTitle}</h3>
+                    <h3
+                      className={`${
+                        modalTitleStyle
+                          ? modalTitleStyle
+                          : "text-base font-medium "
+                      }`}
+                    >
+                      {modalTitle}
+                    </h3>
                   ) : null}
                   <button
                     className="float-right p-1 ml-auto text-3xl font-semibold leading-none text-white border-0 outline-none focus:outline-none"
                     onClick={() => setShowModal(false)}
                   >
-                    <span className="block w-6 h-6 text-2xl text-white outline-none focus:outline-none">
-                      <Image src={closeIcon} alt="" />
+                    <span
+                      className={`block text-2xl text-white outline-none focus:outline-none ${
+                        modalCloseIcon ? "-mt-4 w-4 h-4" : "w-6 h-6 "
+                      }`}
+                    >
+                      <Image
+                        className={`${modalCloseIcon ? "-mt-4 w-4" : ""}`}
+                        src={modalCloseIcon ? modalCloseIcon : closeIcon}
+                        alt=""
+                      />
                     </span>
                   </button>
                 </div>

@@ -4,12 +4,12 @@ import fileUploadIcon from "../../images/file-upload.png";
 
 const UploadFileButton = (props) => {
   return (
-    <div className="border-2 my-2 border-dotted rounded-md">
-      <div className="flex flex-col py-3 px-6 ">
-        <div className="relative font-medium text-base text-black">
+    <div className="my-2 border-2 border-dashed rounded-md">
+      <div className="flex flex-col px-6 py-3 ">
+        <div className="relative text-base font-medium text-black">
           {props.labelText}
         </div>
-        <div className="flex justify-center relative p-8">
+        <div className="relative flex justify-center p-8">
           <input
             type="file"
             id="myFileInput"

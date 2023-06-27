@@ -55,42 +55,49 @@ const AdminPersonalInfo = () => {
     <React.Fragment>
       <div className="container-2xl max-lg:px-4 lg:px-[50px] py-10">
         <BackButton buttonText="Personal Info" />
+        {/* <h3 className="mb-5 text-sm font-medium">Account Settings</h3> */}
         <div className="grid grid-cols-1 gap-3 lg:gap-6 lg:grid-cols-3">
           <Card
             label1Text="Name"
             label2Text="Trophy"
             icon={editIcon}
             editCode={nameEditCode}
+            cardProperty="h-max"
           />
           <Card
             label1Text="Email"
             label2Text="t****y@example.com"
             icon={editIcon}
             editCode={emailEditCode}
+            cardProperty="h-max"
           />
           <Card
             label1Text="Phone Number"
             label2Text="+12*****7425"
             icon={editIcon}
             editCode={phoneEditCode}
+            cardProperty="h-max"
           />
           <Card
             label1Text="Address"
             label2Text="Street, Building, Area, City"
             icon={editIcon}
             editCode={addressEditCode}
+            cardProperty="h-max"
           />
           <Card
             label1Text="Government ID"
             label2Text="**********"
             button="verify"
             modalTitle="Government ID Verification"
+            cardProperty="h-max"
           />
           <Card
             label1Text="Passport ID"
             label2Text="**********"
             button="verify"
             modalTitle="Passport ID Verification"
+            cardProperty="h-max"
           />
         </div>
       </div>
