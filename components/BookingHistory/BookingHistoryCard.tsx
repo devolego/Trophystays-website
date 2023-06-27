@@ -12,7 +12,7 @@ const BookingHistoryCard = (props) => {
         <div className="pr-2 max-lg:hidden">
           <Image src={props.image} alt="" width={100} height={100} />
         </div>
-        <div className="grid gap-4 lg:grid-cols-4 lg:place-items-center">
+        <div className="grid w-full gap-4 lg:grid-cols-4 lg:place-items-center">
           <div className="flex">
             <div className="pr-2 lg:hidden">
               <Image src={props.image} alt="" width={100} height={100} />

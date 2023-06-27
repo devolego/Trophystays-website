@@ -1,5 +1,5 @@
 import React from "react";
-import BookingHistory from "../../components/BookingHistory";
+import BookingHistory from "../../../components/BookingHistory";
 
 const tenent = () => {
   return (
