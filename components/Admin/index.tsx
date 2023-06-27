@@ -8,7 +8,7 @@ const Admin = () => {
   const [listingTab, setListingTab] = useState(true);
   return (
     <React.Fragment>
-      <div className="flex w-max text-center h-[80px] mx-auto md:-mt-[80px] sticky z-20 cursor-pointer items-center sticky top-0 mx-auto">
+      <div className="flex w-max text-center h-[80px] mx-auto md:-mt-[80px] lg:sticky lg:z-20 cursor-pointer items-center lg:top-0 mx-auto">
         <h3
           className={` ${
             josefin.className
