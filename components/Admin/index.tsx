@@ -8,11 +8,11 @@ const Admin = () => {
   const [listingTab, setListingTab] = useState(true);
   return (
     <React.Fragment>
-      <div className="flex w-max text-center h-[80px] mx-auto -mt-[80px] sticky z-20 cursor-pointer items-center sticky top-0">
+      <div className="flex w-max text-center h-[80px] mx-auto md:-mt-[80px] sticky z-20 cursor-pointer items-center sticky top-0 mx-auto">
         <h3
           className={` ${
             josefin.className
-          } px-5 mx-4 h-full flex items-center border-b-[3px] rounded-sm transition-all ${
+          } max-md:px-2 md:px-5 md:mx-4 max-md:mx-2 h-full flex items-center border-b-[3px] rounded-sm transition-all ${
             listingTab === true
               ? "text-primary border-primary"
               : "border-transparent"
@@ -24,7 +24,7 @@ const Admin = () => {
         <h3
           className={`${
             josefin.className
-          } px-5 mx-4 h-full flex items-center border-b-[3px] rounded-sm transition-all ${
+          } max-md:px-2 md:px-5 md:mx-4 max-md:mx-2 h-full flex items-center border-b-[3px] rounded-sm transition-all ${
             listingTab === false
               ? "text-primary border-primary"
               : "border-transparent"
