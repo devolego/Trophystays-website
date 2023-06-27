@@ -22,6 +22,7 @@ module.exports = {
       },
       gridTemplateColumns: {
         "image-gallery-4": "160px repeat(3 , 1fr)",
+        "listing-5": "0.9fr 1fr 0.5fr 0.5fr 0.8fr",
       },
 
       backgroundImage: {
@@ -39,6 +40,7 @@ module.exports = {
           "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(180deg, rgba(41, 32, 33, 0.64) 0%, rgba(41, 32, 33, 0.56) 100%)",
         "arrow-right-primary": "url('../images/goal-arrow.png')",
       },
+
       container: {
         screens: {
           "2xl": "1440px",

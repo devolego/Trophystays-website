@@ -9,9 +9,11 @@ const BackButton = (props) => {
   return (
     <div
       onClick={() => router.back()}
-      className="flex justify-start pb-4 cursor-pointer lg:ml-2"
+      className={`flex justify-start cursor-pointer lg:ml-2 ${
+        props.btnProperty ? props.btnProperty : "pb-4 "
+      } `}
     >
-      <Image src={arrowLeft} alt="" />
+      <Image src={arrowLeft} alt="" className="object-contain" />
       <span className="pl-2 text-[#292021] text-base text-[16px]">
         {props.buttonText}
       </span>

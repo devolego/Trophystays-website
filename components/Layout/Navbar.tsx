@@ -28,7 +28,7 @@ const Navbar = () => {
   const isLogin = withLogin.includes(router);
   const isAdmin = withAdmin.includes(router);
   return (
-    <div className="sticky top-0 left-0 z-20 w-full h-auto bg-white">
+    <div className="sticky top-0 left-0 z-20 w-full h-auto bg-white shadow-md">
       <div className="flex items-center justify-between max-w-full py-[13px] mx-auto px-5 lg:px-[50px] ">
         <div className="flex gap-[50px]">
           <Link className="flex items-center" href="/">

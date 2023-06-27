@@ -12,9 +12,7 @@ const AdminSetting = () => {
       <React.Fragment>
         <div className="container-2xl max-lg:px-4 lg:px-[50px] py-10">
           <div className="pb-4">
-            <span className="pl-2 text-[#292021] text-base text-[16px]">
-              Account Setting
-            </span>
+            <span className="pl-2 text-base text-black">Account Setting</span>
           </div>
           <div className="grid grid-cols-1 gap-3 lg:gap-6 lg:grid-cols-3">
             <Link href="/admin/setting/personal-info">
