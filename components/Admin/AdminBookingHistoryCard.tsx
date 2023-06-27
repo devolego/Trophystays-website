@@ -7,7 +7,7 @@ import starImg from "../../images/star-icon.png";
 
 const AdminBookingHistoryCard = (props) => {
   return (
-    <div className="px-4 py-4 my-4 bg-offWhite lg:px-6 rounded-xl max-lg:basis-[48%] max-md:basis-[100%]">
+    <div className="px-4 py-4 my-4 bg-offWhite lg:px-6 rounded-xl w-full max-lg:basis-[48%] max-md:basis-[100%]">
       <div className="flex items-center justify-center">
         <div className="pr-2 max-lg:hidden">
           <Image src={props.image} alt="" width={100} height={100} />
