@@ -23,7 +23,7 @@ const AdminListing = () => {
       <div className="container-2xl max-lg:px-4 lg:px-[50px] py-5">
         <div className="flex items-center justify-between gap-4 max-xl:flex-col max-xl:justify-start max-xl:items-start">
           <BackButton buttonText="Listing" btnProperty={"pb-0"} />
-          <div className="flex justify-between max-w-fit max-lg:">
+          <div className="flex justify-between md:max-w-fit max-md:grid max-md:grid-cols-2 max-md:w-full max-md:justify-between max-md:gap-4">
             {listingTopArr &&
               listingTopArr.length > 0 &&
               listingTopArr.map((data, index) => {
@@ -44,7 +44,7 @@ const AdminListing = () => {
           </div>
           <div className="opacity-1 invisible w-[84px] max-xl:hidden"></div>
         </div>
-        <div className="flex content-center justify-between mt-4 mb-6">
+        <div className="flex content-center justify-between gap-4 mt-4 mb-6 max-md:flex-col">
           {/* <div className="filter border border-solid border-greyishBrown rounded-lg p-2 w-[185px] h-[52px] text-darkGrey text-base">
             <Image
               className="relative top-[12px] left-[145px]"
@@ -54,45 +54,47 @@ const AdminListing = () => {
             <div>Filter</div>
           </div> */}
           <Dropdown dropdownBeforeImg="hidden" />
-          <div className="center-div lg:flex justify-center items-start w-[507px] gap-4">
-            <div className="relative search-bar ">
+          <div className="flex justify-center items-start md:w-[507px] gap-4 max-md:w-full max-md:justify-between max-md:flex-col">
+            <div className="relative top-0 left-0 search-bar max-md:w-[100%]">
+              <input
+                className="pl-12 md:max-w-[375px] w-full h-[52px] border border-solid border-greyishBrown rounded-lg"
+                type="text"
+                placeholder="Search by keyword"
+              />
               <Image
                 className="absolute top-[50%] -translate-y-[50%] left-4"
                 src={searchIcon}
                 alt={""}
               />
-              <input
-                className="pl-12 w-[375px] h-[52px] border border-solid border-greyishBrown rounded-lg"
-                type="text"
-                placeholder="Search by keyword"
-              />
             </div>
-            <div className="search-button">
-              <button className="w-[116px] h-[52px] bg-blackLight rounded-lg text-white text-base">
+            <div className="w-full search-button">
+              <button className="w-[116px] max-md:w-full h-[52px] bg-blackLight rounded-lg text-white text-base">
                 Search
               </button>
             </div>
           </div>
 
-          <button className="py-3 px-6 border border-solid border-blackLight rounded-lg w-max h-[52px] text-base">
+          <button className="py-3 px-6 border border-solid border-blackLight rounded-lg md:w-max h-[52px] text-base max-md:w-full">
             Contact Support
           </button>
         </div>
-        <AdminBookingHistoryCard
-          image={BookingHistoryImage1}
-          bookingDate="15 Jun 2022 → 20 Jun 2022"
-          remainingTime="2 Days, 12:00:00"
-        />
-        <AdminBookingHistoryCard
-          image={BookingHistoryImage2}
-          bookingDate="15 Jun 2022 → 20 Jun 2022"
-          remainingTime="2 Days, 12:00:00"
-        />
-        <AdminBookingHistoryCard
-          image={BookingHistoryImage3}
-          bookingDate="15 Jun 2022 → 20 Jun 2022"
-          remainingTime="2 Days, 12:00:00"
-        />
+        <div className="flex flex-wrap justify-between gap-4">
+          <AdminBookingHistoryCard
+            image={BookingHistoryImage1}
+            bookingDate="15 Jun 2022 → 20 Jun 2022"
+            remainingTime="2 Days, 12:00:00"
+          />
+          <AdminBookingHistoryCard
+            image={BookingHistoryImage2}
+            bookingDate="15 Jun 2022 → 20 Jun 2022"
+            remainingTime="2 Days, 12:00:00"
+          />
+          <AdminBookingHistoryCard
+            image={BookingHistoryImage3}
+            bookingDate="15 Jun 2022 → 20 Jun 2022"
+            remainingTime="2 Days, 12:00:00"
+          />
+        </div>
       </div>
     </React.Fragment>
   );

@@ -7,7 +7,7 @@ import starImg from "../../images/star-icon.png";
 
 const AdminBookingHistoryCard = (props) => {
   return (
-    <div className="px-4 py-4 my-4 bg-offWhite lg:px-6 rounded-xl">
+    <div className="px-4 py-4 my-4 bg-offWhite lg:px-6 rounded-xl max-lg:basis-[48%] max-md:basis-[100%]">
       <div className="flex items-center justify-center">
         <div className="pr-2 max-lg:hidden">
           <Image src={props.image} alt="" width={100} height={100} />
@@ -64,15 +64,15 @@ const AdminBookingHistoryCard = (props) => {
             </div>
           </div>
           <div className="flex flex-col col-span-1 ">
-            <div className="text-[16px] font-medium mb-8">Location</div>
+            <div className="mb-2 text-base font-medium lg:mb-8">Location</div>
             <div className="font-normal text-">Sharjah, Dubai</div>
           </div>
           <div className="flex flex-col col-span-1 ">
-            <div className="text-[16px] font-medium mb-8">Status</div>
+            <div className="mb-2 text-base font-medium lg:mb-8">Status</div>
             <div className="text- font-normal text-[#00AC26]">In Progress</div>
           </div>
           <div className="flex flex-col col-span-1 ">
-            <div className="text-[16px] font-medium mb-8">Action</div>
+            <div className="mb-2 text-base font-medium lg:mb-8">Action</div>
             <div className="flex gap-3 font-normal">
               <button className="w-[100px] h-[30px] bg-[#e6e6e6] rounded-lg text-blackLight">
                 Check-out
