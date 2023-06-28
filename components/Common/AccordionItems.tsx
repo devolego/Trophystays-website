@@ -14,7 +14,7 @@ const AccordionItems = ({
 
   return (
     <div
-      className={`py-5 border-b cursor-pointer accordion-card border-lightBrown  ${
+      className={`py-5 border-b cursor-pointer accordion-card border-lightBrown max-md:mr-[20px] ${
         active === id ? "active" : ""
       }`}
       onClick={() => handleToggle(id)}

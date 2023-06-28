@@ -22,7 +22,7 @@ const CustomerHelp = () => {
         bannerHeading="Customer Help"
       />
       <div className="lg:px-[74px] max-lg:md-10 mb-[70px] lg:mb-[80px] md:mt-[100px] max-md:mt-[50px]">
-        <div className="flex gap-4 bg-white shadow-xl p-9 rounded-xl mb-[50px] max-md:flex-col">
+        <div className="flex gap-4 bg-white shadow-xl max-md:p-4 md:p-9 rounded-xl mb-[50px] max-md:flex-col">
           <div className="relative w-full ">
             <input
               className="w-full py-3 pl-10 pr-5 border rounded-lg border-greyishBrown"

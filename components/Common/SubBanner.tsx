@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import overlayImg from "../../images/left-shadow-overlay.png";
+import { josefin } from "../../utils/utilsFonts";
 
 const SubBanner = ({
   imageDesktopSrc,
@@ -28,7 +29,9 @@ const SubBanner = ({
         />
       </div>
       <div className="absolute left-[75px] max-md:left-[30px] text-white font-semibold top-[50%] -translate-y-[50%]">
-        <h2 className="text-[56px] max-md:text-[40px]">{bannerHeading}</h2>
+        <h2 className={`text-[56px] max-md:text-[40px] ${josefin.className}`}>
+          {bannerHeading}
+        </h2>
         <p className="text-base">{bannerSubHeading}</p>
       </div>
     </div>
