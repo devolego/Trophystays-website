@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import logoLionImage from "../../images/logo.png";
 import profileImage from "../../images/profile.png";
@@ -27,6 +27,7 @@ const Navbar = () => {
   const router = usePathname();
   const isLogin = withLogin.includes(router);
   const isAdmin = withAdmin.includes(router);
+  const [userSettingDropdown, setUserSettingDropdown] = useState(false);
   return (
     <div className="sticky top-0 left-0 z-20 w-full h-auto bg-white shadow-md">
       <div className="flex items-center justify-between max-w-full py-[13px] mx-auto px-5 lg:px-[50px] ">
@@ -80,10 +81,23 @@ const Navbar = () => {
         </div>
 
         {isLogin ? (
-          <div className="flex items-center max-lg:hidden">
-            <Image className="w-[44px] h-[44px]" src={profileImage} alt="" />
-            <span className="pl-2 text-base font-normal">Trophy</span>
-            <Image className="w-[20px] pl-2" src={arrowDown} alt="" />
+          <div className="relative cursor-pointer">
+            <div
+              className="flex items-center max-lg:hidden"
+              onClick={() => setUserSettingDropdown(!userSettingDropdown)}
+            >
+              <Image className="w-[44px] h-[44px]" src={profileImage} alt="" />
+              <span className="pl-2 text-base font-normal">Trophy</span>
+              <Image className="w-[20px] pl-2" src={arrowDown} alt="" />
+            </div>
+            {userSettingDropdown && (
+              <div className="p-4 rounded grid grid-cols-2 bg-white mt-4 absolute z-[1] bg-white w-full top-[100%]">
+                <ul>
+                  <li className="my-2 text-base">Setting</li>
+                  <li className="my-2 text-base">Logout</li>
+                </ul>
+              </div>
+            )}
           </div>
         ) : (
           <div className="flex items-center gap-5 max-lg:hidden">

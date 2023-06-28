@@ -7,6 +7,8 @@ import ListingImg1 from "../../images/admin-listing1.png";
 import ListingImg2 from "../../images/admin-listing2.png";
 import Listing from "./Listing";
 import { josefin } from "../../utils/utilsFonts";
+import primaryArrowDown from "../../images/primary-arrow-down.png";
+import Image from "next/image";
 const reviewArr = [
   {
     headingName: "By Waqas L",
@@ -90,6 +92,14 @@ const AdminInsights = () => {
                   </div>
                 );
               })}
+            <button className="flex px-3 py-2 text-xs font-medium border rounded md:hidden text-primary border-primary">
+              See More
+              <Image
+                className="object-contain ml-2"
+                src={primaryArrowDown}
+                alt=""
+              />
+            </button>
           </div>
           <div className="p-5 bg-offWhite rounded-xl max-md:p-3">
             <p className="mb-5 font-semibold leading-9 text-black max-md:text-lg md:text-2xl lg:flex-wrap">
