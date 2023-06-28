@@ -21,7 +21,7 @@ const AccordionItems = ({
     >
       <div className="accordion-header">
         <div className="flex justify-between w-full px-2 accordion-toggle h-max">
-          <h5 className="flex pl-3 font-semibold accordion-title before:list-item">
+          <h5 className="flex pl-3 pr-5 font-semibold accordion-title before:list-item">
             {title}
           </h5>
 

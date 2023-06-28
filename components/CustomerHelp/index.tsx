@@ -19,11 +19,10 @@ const CustomerHelp = () => {
       <SubBanner
         imageDesktopSrc={subBannerImg}
         imageModbileSrc={subBannerMobileImg}
-        bannerHeading="Privacy Policy"
-        bannerSubHeading="Last updated: February 16, 2023"
+        bannerHeading="Customer Help"
       />
-      <div className="lg:px-[74px] max-lg:md-10 mb-[70px] lg:mb-[80px] mt-[100px]">
-        <div className="flex gap-4 bg-white shadow-xl p-9 rounded-xl mb-[50px]">
+      <div className="lg:px-[74px] max-lg:md-10 mb-[70px] lg:mb-[80px] md:mt-[100px] max-md:mt-[50px]">
+        <div className="flex gap-4 bg-white shadow-xl p-9 rounded-xl mb-[50px] max-md:flex-col">
           <div className="relative w-full ">
             <input
               className="w-full py-3 pl-10 pr-5 border rounded-lg border-greyishBrown"
@@ -39,7 +38,7 @@ const CustomerHelp = () => {
 
           <Button
             ButtonText="Search"
-            ButtonClasses="bg-primary text-white w-max flex items-center"
+            ButtonClasses="text-white w-max flex items-center max-md:w-full justify-center max-md:py-3 md:bg-primary "
           />
         </div>
 
@@ -64,12 +63,12 @@ const CustomerHelp = () => {
             alt=""
           />
           <p className="mx-5 text-base text-secondary max-md:mx-3 max-md:text-sm max-md:text-darkGrey">
-            Older Posts
+            Older Questions
           </p>
         </Link>
         <Link href="/" className="flex items-center">
           <p className="mx-5 text-base text-primary max-md:mx-3 max-md:text-sm max-md:text-black">
-            Newer Posts
+            Newer Questions
           </p>
           <Image
             className="object-contain w-[55px] max-md:hidden"
