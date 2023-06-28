@@ -17,7 +17,7 @@ import Link from "next/link";
 const BlogPage = () => {
   return (
     <React.Fragment>
-      <div className="container-2xl max-lg:px-4 lg:px-[50px]">
+      <div className="container-2xl max-lg:px-4 lg:px-[50px] max-md:py-5">
         <SubBanner
           imageDesktopSrc={subBannerImg}
           imageModbileSrc={subBannerMobileImg}
@@ -100,12 +100,12 @@ const BlogPage = () => {
               src={arrowLeftMobile}
               alt=""
             />
-            <p className="text-secondary text-base mx-5 max-md:mx-3 max-md:text-sm max-md:text-darkGrey">
+            <p className="mx-5 text-base text-secondary max-md:mx-3 max-md:text-sm max-md:text-darkGrey">
               Older Posts
             </p>
           </Link>
           <Link href="/" className="flex items-center">
-            <p className="text-primary text-base mx-5 max-md:mx-3 max-md:text-sm max-md:text-black">
+            <p className="mx-5 text-base text-primary max-md:mx-3 max-md:text-sm max-md:text-black">
               Newer Posts
             </p>
             <Image
