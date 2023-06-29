@@ -1,19 +1,41 @@
+"use client";
 import Image from "next/image";
 import React, { useState } from "react";
 import filterIcon from "../../images/filter-icon.png";
 import { arrivalItems } from "../../utils/utilsItems";
 
-const Dropdown = () => {
+const Dropdown = ({
+  dropdownBeforeImg,
+  filterText,
+  filterIconHidden,
+  filterTextStyle,
+  dropDownWidth,
+}: any) => {
   const [filtreMenu, setFilterMenu] = useState(false);
   return (
-    <div className="relative">
+    <div className={`relative ${dropDownWidth}`}>
       <div
-        className="flex p-4 border rounded-lg border-greyishBrown relative cursor-pointer xl:w-[185px] w-full max-md:py-2"
+        className={`flex px-4 py-[13px] border rounded-lg border-greyishBrown relative cursor-pointer w-full max-md:py-2 ${
+          dropDownWidth ? dropDownWidth : "xl:w-[185px]"
+        }`}
         onClick={() => setFilterMenu(!filtreMenu)}
       >
-        <Image src={filterIcon} alt="" className="mr-3 object-contain" />
-        <p className="text-base text-darkGrey after:bg-down-arrow after:absolute after:top-[50%] after:right-4 after:-translate-y-2/4 max-sm:pr-[50px] pr-[140px] after:w-3 after:bg-no-repeat after:h-2 after:bg-center">
-          Filter
+        {filterIconHidden !== "hidden" && (
+          <Image
+            src={filterIcon}
+            alt=""
+            className={`${
+              dropdownBeforeImg ? dropdownBeforeImg : "mr-3 object-contain"
+            }`}
+          />
+        )}
+
+        <p
+          className={`text-base text-darkGrey after:bg-down-arrow after:absolute after:top-[50%] after:right-4 after:-translate-y-2/4 after:w-3 after:bg-no-repeat after:h-2 after:bg-center ${
+            filterTextStyle ? filterTextStyle : "max-sm:pr-[50px] pr-[140px] "
+          }`}
+        >
+          {filterText ? filterText : " Filter"}
         </p>
       </div>
       {filtreMenu && (

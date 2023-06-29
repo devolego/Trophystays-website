@@ -1,6 +1,8 @@
 import sharjahImg from "../images/sharjah.png";
 import ummalquwainImg from "../images/ummalquwain.png";
 import fujairahImg from "../images/fujairah.png";
+import ListingImg1 from "../images/admin-listing1.png";
+import ListingImg2 from "../images/admin-listing2.png";
 
 export const navbarItems = [
   {
@@ -17,7 +19,7 @@ export const navbarItems = [
   },
   {
     name: "Reviews",
-    link: "#",
+    link: "/reviews",
   },
   {
     name: "Blogs",
@@ -25,7 +27,7 @@ export const navbarItems = [
   },
   {
     name: "Contact us",
-    link: "#",
+    link: "/contact",
   },
 ];
 
@@ -144,3 +146,133 @@ export const aboutGoal = [
       "Offering spacious work & living areas, our purposefully designed spaces provide inspired spaces for the modern traveler.",
   },
 ];
+
+export const privacyPolicyContent = [
+  {
+    id: 1,
+    title: "When's the best time to complete your online check-in process?",
+    contentPara1:
+      "It’s best to complete the online check-in process as soon as you’ve booked your stay with Sonder. At the very latest we recommend you complete it before you travel.",
+    contentPara2:
+      "This is because most of our properties do not have in-person check-ins, so if you arrive having not checked in online, you will need to check-in online in order to receive your Sonder’s access information. In some instances, we need to review the information you’ve submitted and may contact you about it - It’s easier to address these situations ahead of time, and not when in transit or outside your Sonder. We recommend using a computer and an updated version of Google’s Chrome browser to complete the online check-in process. If you encounter issues, we recommend trying on google chrome and/or on a computer prior to contacting us for assistance.",
+  },
+  {
+    id: 2,
+    title: "When's the best time to complete your online check-in process?",
+    contentPara1:
+      "It’s best to complete the online check-in process as soon as you’ve booked your stay with Sonder. At the very latest we recommend you complete it before you travel.",
+    contentPara2:
+      "This is because most of our properties do not have in-person check-ins, so if you arrive having not checked in online, you will need to check-in online in order to receive your Sonder’s access information. In some instances, we need to review the information you’ve submitted and may contact you about it - It’s easier to address these situations ahead of time, and not when in transit or outside your Sonder. We recommend using a computer and an updated version of Google’s Chrome browser to complete the online check-in process. If you encounter issues, we recommend trying on google chrome and/or on a computer prior to contacting us for assistance.",
+  },
+  {
+    id: 3,
+    title: "How will Trophy store & protect my personal information?",
+    contentPara1:
+      "It’s best to complete the online check-in process as soon as you’ve booked your stay with Sonder. At the very latest we recommend you complete it before you travel.",
+    contentPara2:
+      "This is because most of our properties do not have in-person check-ins, so if you arrive having not checked in online, you will need to check-in online in order to receive your Sonder’s access information. In some instances, we need to review the information you’ve submitted and may contact you about it - It’s easier to address these situations ahead of time, and not when in transit or outside your Sonder. We recommend using a computer and an updated version of Google’s Chrome browser to complete the online check-in process. If you encounter issues, we recommend trying on google chrome and/or on a computer prior to contacting us for assistance.",
+  },
+];
+
+export const accordionContent = [
+  {
+    id: 1,
+    title: "When's the best time to complete your online check-in process?",
+    contentPara1:
+      "It’s best to complete the online check-in process as soon as you’ve booked your stay with Sonder. At the very latest we recommend you complete it before you travel.",
+    contentPara2:
+      "This is because most of our properties do not have in-person check-ins, so if you arrive having not checked in online, you will need to check-in online in order to receive your Sonder’s access information. In some instances, we need to review the information you’ve submitted and may contact you about it - It’s easier to address these situations ahead of time, and not when in transit or outside your Sonder. We recommend using a computer and an updated version of Google’s Chrome browser to complete the online check-in process. If you encounter issues, we recommend trying on google chrome and/or on a computer prior to contacting us for assistance.",
+  },
+  {
+    id: 2,
+    title: "When's the best time to complete your online check-in process?",
+    contentPara1:
+      "It’s best to complete the online check-in process as soon as you’ve booked your stay with Sonder. At the very latest we recommend you complete it before you travel.",
+    contentPara2:
+      "This is because most of our properties do not have in-person check-ins, so if you arrive having not checked in online, you will need to check-in online in order to receive your Sonder’s access information. In some instances, we need to review the information you’ve submitted and may contact you about it - It’s easier to address these situations ahead of time, and not when in transit or outside your Sonder. We recommend using a computer and an updated version of Google’s Chrome browser to complete the online check-in process. If you encounter issues, we recommend trying on google chrome and/or on a computer prior to contacting us for assistance.",
+  },
+  {
+    id: 3,
+    title: "How will Trophy store & protect my personal information?",
+    contentPara1:
+      "It’s best to complete the online check-in process as soon as you’ve booked your stay with Sonder. At the very latest we recommend you complete it before you travel.",
+    contentPara2:
+      "This is because most of our properties do not have in-person check-ins, so if you arrive having not checked in online, you will need to check-in online in order to receive your Sonder’s access information. In some instances, we need to review the information you’ve submitted and may contact you about it - It’s easier to address these situations ahead of time, and not when in transit or outside your Sonder. We recommend using a computer and an updated version of Google’s Chrome browser to complete the online check-in process. If you encounter issues, we recommend trying on google chrome and/or on a computer prior to contacting us for assistance.",
+  },
+  {
+    id: 4,
+    title:
+      "Once I have completed the online check-in process, when will I receive the access instructions for my Trophy?",
+    contentPara1:
+      "It’s best to complete the online check-in process as soon as you’ve booked your stay with Sonder. At the very latest we recommend you complete it before you travel.",
+    contentPara2:
+      "This is because most of our properties do not have in-person check-ins, so if you arrive having not checked in online, you will need to check-in online in order to receive your Sonder’s access information. In some instances, we need to review the information you’ve submitted and may contact you about it - It’s easier to address these situations ahead of time, and not when in transit or outside your Sonder. We recommend using a computer and an updated version of Google’s Chrome browser to complete the online check-in process. If you encounter issues, we recommend trying on google chrome and/or on a computer prior to contacting us for assistance.",
+  },
+];
+export const reviewArr = [
+  {
+    id: 1,
+    headingName: "By Waqas L",
+    headingDetails:
+      "stayed at Luxurious 1 BR Apt at Adress Residence Jumeirah Resort in May 2023",
+    review:
+      "Location and apartment is amazing and Anna’s keep things updated I give 5star highly recommended",
+  },
+  {
+    id: 2,
+    headingName: "By Mirette A",
+    headingDetails:
+      "stayed at Modern | Chic Studio in the heart of Arjan in May 2023",
+    review:
+      "The place was very clean and the whole prep was was very smooth and organized and it was really easy to reach out to Anna",
+  },
+  {
+    id: 3,
+    headingName: "By Pablo D ",
+    headingDetails:
+      "stayed at Amazing 1 BR Apt W/unbelievable View to Burj Khalifa in Apr 2023",
+    review:
+      "Nice apartment well equipped and largely as described. Very comfortable bed and pillows and cool views of the souk and Burj Khalifa. Building setup is simple and effective. The only bummer was the high rise construction next to the pool.. quite common in Business Bay.. Anna and Rohit were very responsive and professional.",
+  },
+  {
+    id: 4,
+    headingName: "By Waqas L",
+    headingDetails:
+      "stayed at Luxurious 1 BR Apt at Adress Residence Jumeirah Resort in May 2023",
+    review:
+      "Location and apartment is amazing and Anna’s keep things updated I give 5star highly recommended",
+  },
+  {
+    id: 5,
+    headingName: "By Mirette A",
+    headingDetails:
+      "stayed at Modern | Chic Studio in the heart of Arjan in May 2023",
+    review:
+      "The place was very clean and the whole prep was was very smooth and organized and it was really easy to reach out to Anna",
+  },
+  {
+    id: 6,
+    headingName: "By Pablo D ",
+    headingDetails:
+      "stayed at Amazing 1 BR Apt W/unbelievable View to Burj Khalifa in Apr 2023",
+    review:
+      "Nice apartment well equipped and largely as described. Very comfortable bed and pillows and cool views of the souk and Burj Khalifa. Building setup is simple and effective. The only bummer was the high rise construction next to the pool.. quite common in Business Bay.. Anna and Rohit were very responsive and professional.",
+  },
+];
+// export const listingArr = [
+//   {
+//     headingName: "1 Bed Apartment with Stunning View",
+//     revenue: "$1200.00",
+//     bannerImg: ListingImg1,
+//   },
+//   {
+//     headingName: "1 Bed Apartment with Stunning View",
+//     revenue: "$1200.00",
+//     bannerImg: ListingImg2,
+//   },
+//   {
+//     headingName: "1 Bed Apartment with Stunning View",
+//     revenue: "$1200.00",
+//     bannerImg: ListingImg1,
+//   },
+// ];

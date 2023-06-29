@@ -43,42 +43,38 @@ const PropertyDetails = () => {
 
   return (
     <div>
-      <div className="overflow-hidden property-detail hotel-suggestion relative">
+      <div className="relative overflow-hidden property-detail hotel-suggestion">
         <Slider {...settings} className="h-[450px]">
           <Image
-            className="w-full object-cover h-[450px]"
+            className="w-full object-cover h-[450px] md:!w-[60vw]"
             src={sliderImg}
             alt=""
-            style={{ width: "60vw" }}
           />
           <Image
-            className="w-full object-cover h-[450px]"
+            className="w-full object-cover h-[450px] md:!w-[40vw]"
             src={sliderImg1}
             alt=""
-            style={{ width: "40vw" }}
           />
           <Image
-            className="w-full object-cover h-[450px]"
+            className="w-full object-cover h-[450px] md:!w-[60vw]"
             src={sliderImg2}
             alt=""
-            style={{ width: "60vw" }}
           />
           <Image
-            className="w-full object-cover h-[450px]"
+            className="w-full object-cover h-[450px]  md:!w-[40vw]"
             src={sliderImg3}
             alt=""
-            style={{ width: "40vw" }}
           />
         </Slider>
 
-        <div className="absolute bottom-[40px] left-[50px] flex gap-5">
-          <span className="bg-black/50 text-white px-3 py-2 rounded-lg">
+        <div className="absolute bottom-[40px] left-[50px] flex gap-5 max-md:flex-wrap max-md:bottom-5 max-md:gap-3 max-md:pr-4">
+          <span className="px-3 py-2 text-white rounded-lg bg-black/50">
             East Austin, Austin
           </span>
-          <span className="bg-black/50 text-white px-3 py-2 rounded-lg">
+          <span className="px-3 py-2 text-white rounded-lg bg-black/50">
             Available from: 18 May 2023
           </span>
-          <span className="bg-black/50 text-white px-3 py-2 rounded-lg">
+          <span className="px-3 py-2 text-white rounded-lg bg-black/50">
             See All
           </span>
         </div>
@@ -86,7 +82,7 @@ const PropertyDetails = () => {
 
       <div className="container-2xl max-lg:px-4 lg:px-[50px] flex max-lg:flex-col gap-4">
         <div className="w-[62%] max-lg:w-full">
-          <div className="mt-4 py-5 flex justify-between">
+          <div className="flex justify-between py-5 mt-4">
             <h1 className={`text-3xl ${josefin.className}`}>
               The Arnold, 1621 E 6th St
             </h1>
@@ -273,6 +269,68 @@ const PropertyDetails = () => {
             ButtonClicked={() => setShowCalenderModal(true)}
             ButtonText="Buy Now"
             ButtonClasses="text-white mt-[36px] text-center"
+          />
+
+          <div className="px-4 my-4 text-sm bg-white rounded-lg">
+            <div className="py-2 mt-2">
+              <div className="flex justify-between my-2 ">
+                <p>Rent per month</p>
+                <p>AED 61,450.00</p>
+              </div>
+              <div className="flex justify-between my-2 ">
+                <p>Utilities per month</p>
+                <p>AED 2,370.00</p>
+              </div>
+              <div className="flex justify-between my-2 ">
+                <p className="font-medium">Monthly subtotal</p>
+                <p>AED 59,080.00</p>
+              </div>
+            </div>
+
+            <div className="w-full h-px mb-2 bg-primary/50"></div>
+            <div className="flex items-center justify-between">
+              <p className="text-sm font-semibold">
+                Add Pets
+                <span className="ml-1 text-xs text-secondary">Extra Fee</span>
+              </p>
+              <p className="text-sm px-3 py-2 bg-secondary text-white rounded-[50px]">
+                +
+              </p>
+            </div>
+            <p className="text-sm text-darkGrey">
+              (Pet fee: MXN940/mo per pet)
+            </p>
+            <div className="w-full h-px my-4 bg-primary/50"></div>
+            <div>
+              <div className="flex justify-between my-2 ">
+                <p>Fees & insurance</p>
+                <p>AED 8,304.00</p>
+              </div>
+              <div className="flex justify-between my-2 ">
+                <p className="font-medium">
+                  Total charges
+                  <span className="ml-2 text-darkGrey">(Single payment)</span>
+                </p>
+                <p>AED 71,736.26</p>
+              </div>
+              <div className="flex justify-between my-2 ">
+                <p className="text-sm">Refundable security deposit</p>
+                <p>AED 29,540.00</p>
+              </div>
+            </div>
+            <div className="w-full h-px my-4 bg-primary/50"></div>
+            <div className="flex justify-between">
+              <p className="font-medium">
+                Total <span className="text-darkGrey">(1 month & 1 day)</span>
+              </p>
+              <p>AED 101,276.26</p>
+            </div>
+          </div>
+
+          <Button
+            ButtonClicked={() => setShowCalenderModal(true)}
+            ButtonText="Reserve"
+            ButtonClasses="bg-primary text-white mt-[36px] text-center py-4 items-center"
           />
         </div>
       </div>
