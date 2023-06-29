@@ -45,8 +45,9 @@ const FormikForm = ({ isSubmitting }: any) => {
               Guest Details
             </div>
             <div className="flex flex-col gap-4">
-              <div className="form-control p-4 border border-solid border-greyishBrown rounded-[8px] h-[60px]">
+              <div className="form-control">
                 <Field
+                  className="p-4 border border-solid rounded-lg border-greyishBrown"
                   type="text"
                   id="firstname"
                   name="firstname"
@@ -59,11 +60,13 @@ const FormikForm = ({ isSubmitting }: any) => {
                 />
               </div>
 
-              <div className="form-control p-4 border border-solid border-greyishBrown rounded-[8px] h-[60px]">
+              <div className="form-control">
                 <Field
+                  className="p-4 border border-solid rounded-lg border-greyishBrown"
                   type="text"
                   id="lastname"
-                  className="flex flex-col gap-4e"
+                  name="lastname"
+                  placeholder="Lastname"
                 />
                 <ErrorMessage
                   className="error"
@@ -71,8 +74,9 @@ const FormikForm = ({ isSubmitting }: any) => {
                   component="div"
                 />
               </div>
-              <div className="form-control p-4 border border-solid border-greyishBrown rounded-[8px] h-[60px]">
+              <div className="form-control">
                 <Field
+                  className="p-4 border border-solid rounded-lg border-greyishBrown"
                   type="email"
                   id="email"
                   name="email"
@@ -80,8 +84,9 @@ const FormikForm = ({ isSubmitting }: any) => {
                 />
                 <ErrorMessage className="error" name="email" component="div" />
               </div>
-              <div className="form-control p-4 border border-solid border-greyishBrown rounded-[8px] h-[60px]">
+              <div className="form-control">
                 <Field
+                  className="p-4 border border-solid rounded-lg border-greyishBrown"
                   type="tel"
                   id="phone"
                   name="phone"
@@ -96,8 +101,9 @@ const FormikForm = ({ isSubmitting }: any) => {
               Guest Details
             </div>
             <div className="flex flex-col gap-4">
-              <div className="form-control p-4 border border-solid border-greyishBrown rounded-[8px] h-[60px]">
+              <div className="form-control">
                 <Field
+                  className="p-4 border border-solid rounded-lg border-greyishBrown"
                   type="text"
                   id="companyname"
                   name="companyname"
@@ -109,8 +115,9 @@ const FormikForm = ({ isSubmitting }: any) => {
                   component="div"
                 />
               </div>
-              <div className="form-control p-4 border border-solid border-greyishBrown rounded-[8px] h-[60px]">
+              <div className="form-control">
                 <Field
+                  className="p-4 border border-solid rounded-lg border-greyishBrown"
                   type="text"
                   id="address"
                   name="address"
@@ -122,8 +129,9 @@ const FormikForm = ({ isSubmitting }: any) => {
                   component="div"
                 />
               </div>
-              <div className="form-control p-4 border border-solid border-greyishBrown rounded-[8px] h-[60px]">
+              <div className="form-control">
                 <Field
+                  className="p-4 border border-solid rounded-lg border-greyishBrown"
                   type="text"
                   id="country"
                   name="country"
