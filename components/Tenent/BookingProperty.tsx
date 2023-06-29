@@ -6,6 +6,8 @@ import checkboxIcon from "../../images/checkbox.png";
 import bookingBedroom from "../../images/booking-bedroom.png";
 import arrow from "../../images/arrow-left.png";
 import lineIcon from "../../images/line_icon.png";
+import arrowLeft from "../../images/arrow-left-with-circle-primary.png";
+import arrowRight from "../../images/arrow-right-with-circle-primary.png";
 import Image from "next/image";
 import FormikFormPayment from "./FormikFormPayment";
 
@@ -31,13 +33,13 @@ const BookingProperty = () => {
                 Pay now to reserve this property
               </div>
               <div className="p-3 mt-1 bg-white rounded-xl">
-                <div className="flex gap-[35.9rem]">
+                <div className="flex gap-[34.9rem]">
                   <div className="text-sm font-medium text-black">Subtotal</div>
                   <div className="text-sm font-normal text-black">
                     AED 71,736.26
                   </div>
                 </div>
-                <div className="flex mt-2 gap-[27.9rem]">
+                <div className="flex mt-2 gap-[26.9rem]">
                   <div className="text-sm font-medium text-black">
                     Card processing fee (3.2%)
                   </div>
@@ -48,7 +50,7 @@ const BookingProperty = () => {
                 <div>
                   <Image className="w-full my-3" src={lineIcon} alt={""} />
                 </div>
-                <div className="flex gap-[34.7rem]">
+                <div className="flex gap-[33.6rem]">
                   <div className="text-sm font-medium text-black">
                     Total cost
                   </div>
@@ -81,8 +83,18 @@ const BookingProperty = () => {
         </div>
         <div className="w-3/5 right-section min-h-max">
           <div className="p-4 rounded-2xl bg-offWhite">
-            <div>
+            <div className="relative">
+              <Image
+                className="absolute -translate-y-2/4 top-28 left-4"
+                src={arrowLeft}
+                alt={""}
+              />
               <Image src={bookingBedroom} alt={""} />
+              <Image
+                className="absolute -translate-y-2/4 top-28 left-[347px]"
+                src={arrowRight}
+                alt={""}
+              />
             </div>
             <div className="mt-3 text-lg font-medium text-black">
               1 Bed Apartment with Stunning View
@@ -166,7 +178,7 @@ const BookingProperty = () => {
               Reserve this apartment
             </div>
             <div className="p-4 mt-2 bg-white rounded-lg">
-              <div className="flex gap-[7.9rem]">
+              <div className="flex gap-[10.1rem]">
                 <p className="text-base font-normal text-black">Due now</p>
                 <p className="text-base font-normal text-black">
                   AED 106,946.058
@@ -175,35 +187,35 @@ const BookingProperty = () => {
               <div>
                 <Image className="mt-4 mb-1" src={lineIcon} alt={""} />
               </div>
-              <div className="flex mt-3 gap-[12.7rem]">
+              <div className="flex mt-3 gap-[14.9rem]">
                 <p className="text-sm font-normal text-black">Rent</p>
                 <p className="text-sm font-normal text-black">AED 60,985.11</p>
               </div>
-              <div className="flex mt-3 gap-[11.5rem]">
+              <div className="flex mt-3 gap-[13.7rem]">
                 <p className="text-sm font-normal text-black">Utilities</p>
                 <p className="text-sm font-normal text-black">AED 51,985.51</p>
               </div>
-              <div className="flex mt-3 gap-[12.3rem]">
+              <div className="flex mt-3 gap-[14.5rem]">
                 <p className="text-sm font-normal text-black">Pets</p>
                 <p className="text-sm font-normal text-black">AED 24,985.56</p>
               </div>
-              <div className="flex mt-3 gap-[6.2rem]">
+              <div className="flex mt-3 gap-36">
                 <p className="text-sm font-normal text-black">
                   Renter insurance
                 </p>
                 <p className="text-sm font-normal text-black">AED 67,985.34</p>
               </div>
-              <div className="flex mt-3 gap-[9.6rem]">
+              <div className="flex mt-3 gap-[11.8rem]">
                 <p className="text-sm font-normal text-black">Booking fee</p>
                 <p className="text-sm font-normal text-black">AED 18,985.12</p>
               </div>
-              <div className="flex mt-3 gap-[4.5rem]">
+              <div className="flex mt-3 gap-[6.7rem]">
                 <p className="text-sm font-normal text-black">
                   One-time cleaning fee
                 </p>
                 <p className="text-sm font-normal text-black">AED 60,985.61</p>
               </div>
-              <div className="flex mt-3 gap-[7.1rem]">
+              <div className="flex mt-3 gap-[9.3rem]">
                 <p className="text-sm font-normal text-black">
                   Security deposit
                 </p>
