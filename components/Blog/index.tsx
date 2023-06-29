@@ -7,13 +7,8 @@ import blogSubImg from "../../images/blog-img-2.png";
 import blogGridImg from "../../images/blog-card-img.png";
 import blogGridImgSec from "../../images/blog-card-img-2.png";
 import blogGridImgThird from "../../images/blog-card-img-3.png";
-import arrowRight from "../../images/blog-arrow-right.png";
-import arrowRightMobile from "../../images/arrow-with-circle-dark.png";
-import arrowLeft from "../../images/secondary-color-arrow.png";
-import arrowLeftMobile from "../../images/arrow-with-circle.png";
 import BlogCardTils from "./BlogCardTils";
-import Image from "next/image";
-import Link from "next/link";
+import NextPerviousBtn from "../Common/NextPerviousBtn";
 const BlogPage = () => {
   return (
     <React.Fragment>
@@ -88,38 +83,7 @@ const BlogPage = () => {
             />
           </div>
         </div>
-        <div className="flex w-full justify-between items-center my-[50px]">
-          <Link href="/" className="flex items-center">
-            <Image
-              className="object-contain w-[55px] max-md:hidden"
-              src={arrowLeft}
-              alt=""
-            />
-            <Image
-              className="object-contain w-[40px] md:hidden"
-              src={arrowLeftMobile}
-              alt=""
-            />
-            <p className="mx-5 text-base text-secondary max-md:mx-3 max-md:text-sm max-md:text-darkGrey">
-              Older Posts
-            </p>
-          </Link>
-          <Link href="/" className="flex items-center">
-            <p className="mx-5 text-base text-primary max-md:mx-3 max-md:text-sm max-md:text-black">
-              Newer Posts
-            </p>
-            <Image
-              className="object-contain w-[55px] max-md:hidden"
-              src={arrowRight}
-              alt=""
-            />
-            <Image
-              className="object-contain w-[40px] md:hidden"
-              src={arrowRightMobile}
-              alt=""
-            />
-          </Link>
-        </div>
+        <NextPerviousBtn prevBtnText=" Older Posts" nextBtnText="Newer Posts" />
       </div>
     </React.Fragment>
   );

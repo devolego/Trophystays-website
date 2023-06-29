@@ -7,11 +7,7 @@ import Button from "../Common/Button";
 import searchIcon from "../../images/search.png";
 import Image from "next/image";
 import Accordion from "../Common/Accordion";
-import Link from "next/link";
-import arrowRight from "../../images/blog-arrow-right.png";
-import arrowRightMobile from "../../images/arrow-with-circle-dark.png";
-import arrowLeft from "../../images/secondary-color-arrow.png";
-import arrowLeftMobile from "../../images/arrow-with-circle.png";
+import NextPerviousBtn from "../Common/NextPerviousBtn";
 
 const CustomerHelp = () => {
   return (
@@ -49,39 +45,11 @@ const CustomerHelp = () => {
           <Accordion />
         </div>
       </div>
-      {/* next prev btn */}
-      <div className="flex w-full justify-between items-center my-[50px]">
-        <Link href="/" className="flex items-center">
-          <Image
-            className="object-contain w-[55px] max-md:hidden"
-            src={arrowLeft}
-            alt=""
-          />
-          <Image
-            className="object-contain w-[40px] md:hidden"
-            src={arrowLeftMobile}
-            alt=""
-          />
-          <p className="mx-5 text-base text-secondary max-md:mx-3 max-md:text-sm max-md:text-darkGrey">
-            Older Questions
-          </p>
-        </Link>
-        <Link href="/" className="flex items-center">
-          <p className="mx-5 text-base text-primary max-md:mx-3 max-md:text-sm max-md:text-black">
-            Newer Questions
-          </p>
-          <Image
-            className="object-contain w-[55px] max-md:hidden"
-            src={arrowRight}
-            alt=""
-          />
-          <Image
-            className="object-contain w-[40px] md:hidden"
-            src={arrowRightMobile}
-            alt=""
-          />
-        </Link>
-      </div>
+
+      <NextPerviousBtn
+        prevBtnText="Older Questions"
+        nextBtnText="Newer Questions"
+      />
     </div>
   );
 };
