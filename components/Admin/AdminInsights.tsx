@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import LineChartComman from "./LineChartComman";
+import LineChartCommon from "./LineChartCommon";
 import Rating from "../Common/Rating";
 import Reviews from "./Reviews";
 import ListingImg1 from "../../images/admin-listing1.png";
@@ -52,20 +52,20 @@ const AdminInsights = () => {
           Insights
         </p>
         <div className="justify-between grid-cols-3 lg:grid lg:gap-6">
-          <div className="bg-offWhite w-full h-[185px] rounded-2xl overflow-hidden">
+          <div className="bg-offWhite w-full max-lg:mb-4 h-[185px rounded-2xl overflow-hidden">
             <p className="text-xl font-medium text-center">$0.00</p>
             <p className="text-[10px] text-center">This Month Earning</p>
-            <LineChartComman color="#8FA3CA" dataKey="pv" />
+            <LineChartCommon color="#8FA3CA" dataKey="pv" />
           </div>
-          <div className="bg-offWhite w-full h-[185px] rounded-2xl overflow-hidden">
+          <div className="bg-offWhite w-full max-lg:mb-4 h-[185px] rounded-2xl overflow-hidden">
             <p className="text-xl font-medium text-center">0</p>
             <p className="text-[10px] text-center">30-Day Views</p>
-            <LineChartComman color="#CA8FB2" dataKey="uv" />
+            <LineChartCommon color="#CA8FB2" dataKey="uv" />
           </div>
-          <div className="bg-offWhite w-full h-[185px] rounded-2xl overflow-hidden">
+          <div className="bg-offWhite w-full max-lg:mb-4 h-[185px] rounded-2xl overflow-hidden">
             <p className="text-xl font-medium text-center">0</p>
             <p className="text-[10px] text-center">30-Day Bookings</p>
-            <LineChartComman color="#8FCAB5" dataKey="amt" />
+            <LineChartCommon color="#8FCAB5" dataKey="amt" />
           </div>
         </div>
         <div className="grid justify-between gap-4 mt-6 mb-2 lg:grid-cols-3 max-lg:grid-cols-1">
