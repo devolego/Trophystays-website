@@ -97,8 +97,12 @@ const Navbar = () => {
             {userSettingDropdown && (
               <div className="p-4 rounded grid grid-cols-2 bg-white mt-4 absolute z-[1] bg-white w-full top-[100%]">
                 <ul>
-                  <li className="my-2 text-base">Setting</li>
-                  <li className="my-2 text-base">Logout</li>
+                  <li className="my-2 text-base">
+                    <Link href="/admin/setting">Setting</Link>
+                  </li>
+                  <li className="my-2 text-base">
+                    <Link href="/">Logout</Link>
+                  </li>
                 </ul>
               </div>
             )}
