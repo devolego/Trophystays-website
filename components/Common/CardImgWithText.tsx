@@ -16,9 +16,12 @@ const CardImgWithText = ({
   reviewUserNameStyling,
   cardLink,
   cardContent,
+  stepName
 }: any) => {
   return (
     <div className={`rounded-[16px] w-full overflow-hidden ${cardClass}`}>
+      {stepName && <p className={`text-md text-primary mt-10 flex justify-center`}>Step {stepName} </p>
+      }
       <Image className={`${cardImageStyle} w-full`} src={cardImage} alt="" />
       <div className={`${cardContentClasses}`}>
         <h6

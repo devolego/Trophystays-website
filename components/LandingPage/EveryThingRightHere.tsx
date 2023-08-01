@@ -13,7 +13,7 @@ const EveryThingRightHere = () => {
     <div className="my-[119px] rounded-[16px] max-lg:my-[80px]">
       <div className="max-w-[405px] w-full mb-[50px] max-lg:mb-[30px]">
         <h2
-          className={`text-[40px] max-lg:text-[32px] max-lg:leading-[32px] mb-4 ${josefin.className} `}
+          className={`text-[40px] max-lg:text-[32px] text-black max-lg:leading-[32px] mb-4 ${josefin.className} `}
         >
           Everything You Need. All Right Here.
         </h2>

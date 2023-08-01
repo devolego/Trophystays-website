@@ -14,7 +14,7 @@ const ImageGallerySection = () => {
       <div className="grid lg:grid-cols-4 gap-[30px] mb-[30px]">
         <div className="col-span-2 ">
           <h2
-            className={`text-[40px] mb-2 ${josefin.className} max-lg:text-[32px] max-lg:leading-[40px]`}
+            className={`text-[40px] mb-2 ${josefin.className} max-lg:text-[32px] max-lg:leading-[40px] text-black`}
           >
             Discover exciting locations where skyline views, modern luxury, and
             amenities seamlessly merge.

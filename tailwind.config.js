@@ -39,6 +39,7 @@ module.exports = {
         "black-gradiant":
           "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(180deg, rgba(41, 32, 33, 0.64) 0%, rgba(41, 32, 33, 0.56) 100%)",
         "arrow-right-primary": "url('../images/goal-arrow.png')",
+        "host-with-us-banner": "url('../images/hostwithus.png')"
       },
 
       container: {

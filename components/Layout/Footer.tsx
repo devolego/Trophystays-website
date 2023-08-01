@@ -16,7 +16,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="bg-[#241400] text-white lg:p-[50px] px-5 py-10">
+    <div className="bg-[#111111] text-white lg:p-[50px] px-5 py-10">
       <div className="grid grid-cols-5 gap-[15px] lg:gap-[50px] max-lg:grid-cols-2">
         <div className="max-lg:col-span-2">
           <div className="flex items-center justify-start">

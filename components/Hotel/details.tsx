@@ -157,14 +157,6 @@ const PropertyDetails = () => {
                     </span>
                   </div>
                 </div>
-
-                <div className="flex px-[10px] py-[6px] bg-lightBrown rounded-xl my-3">
-                  <Image src={userImg} alt="" className="object-contain mr-3" />
-                  <div className="flex flex-col">
-                    <p>Jane Doe</p>
-                    <p className="text-[#DC4200] text-sm">Host</p>
-                  </div>
-                </div>
               </div>
             </div>
 

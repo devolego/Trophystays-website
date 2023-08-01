@@ -9,6 +9,7 @@ import Listing from "./Listing";
 import { josefin } from "../../utils/utilsFonts";
 import primaryArrowDown from "../../images/primary-arrow-down.png";
 import Image from "next/image";
+import BarChartCommon from "../Common/BarChartCommon";
 const reviewArr = [
   {
     headingName: "By Waqas L",
@@ -67,9 +68,10 @@ const AdminInsights = () => {
             <p className="text-[10px] text-center">30-Day Bookings</p>
             <LineChartCommon color="#8FCAB5" dataKey="amt" />
           </div>
+
         </div>
         <div className="grid justify-between gap-4 mt-6 mb-2 lg:grid-cols-3 max-lg:grid-cols-1">
-          <div className="col-span-2 p-5 bg-offWhite rounded-xl max-md:p-3">
+          <div className="col-span-1 p-5 bg-offWhite rounded-xl max-md:p-3">
             <div className="flex justify-between mb-5">
               <p className="mr-10 font-semibold leading-9 text-black md:text-2xl max-md:text-lg">
                 Reviews
@@ -101,6 +103,12 @@ const AdminInsights = () => {
               />
             </button>
           </div>
+       
+          <div className="bg-offWhite w-full max-lg:mb-4 p-3 rounded-2xl overflow-hidden">
+            <p className="text-[10px] text-center">Property Revenue Insights</p>
+            <BarChartCommon color="#8FCAB5" dataKey="amt" />
+          </div>
+   
           <div className="p-5 bg-offWhite rounded-xl max-md:p-3">
             <p className="mb-5 font-semibold leading-9 text-black max-md:text-lg md:text-2xl lg:flex-wrap">
               Listings
