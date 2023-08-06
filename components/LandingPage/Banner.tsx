@@ -19,7 +19,10 @@ const Banner = () => {
           of excellence. You deserve a love-at-first-sight home, ideal for
           living, working or relaxing.
         </p>
+        <a href="/contact">
         <Button ButtonText="Contact Us" ButtonClasses="text-white w-max" />
+        </a>
+
       </div>
     </div>
   );

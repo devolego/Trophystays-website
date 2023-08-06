@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -19,52 +19,75 @@ import map from "../../images/map.png";
 import starImg from "../../images/star-icon.png";
 import starOutlineImg from "../../images/Star-outline.png";
 import userImg from "../../images/user-img.png";
-
 import { josefin } from "../../utils/utilsFonts";
 import Button from "../Common/Button";
 import Amenities from "./amenities";
 import CustomModal from "../Common/CustomModal";
 import DatePicker from "../Common/DatePicker";
+import { getListing } from "../../service/service";
 
 var settings = {
   dots: false,
   infinite: true,
   speed: 500,
-  // slidesToShow: 1,
-  // slidesToShow: 2,
   slidesToScroll: 2,
   variableWidth: true,
-  // centerMode: true,
 };
+
+interface Property {
+  _id: string;
+  longitude: number;
+  latitude: number;
+  internalName: string;
+  averageReview: number;
+  bedrooms: number;
+  bathrooms: number;
+  images: PropertyImage[];
+  ownerRezId: number;
+  internalCode: string;
+  __v: number;
+  priceFrom: number;
+  priceTo: number;
+  isMonthly: boolean;
+  isWishlisted: boolean;
+}
+
+interface PropertyImage {
+  croppedUrl: string;
+  originalUrl: string;
+  _id: string;
+}
+
+
+
 const PropertyDetails = () => {
   const [showModal, setShowModal] = React.useState<boolean>(false);
+  const [property, setProperty] = useState<Property>();
   const [showCalenderModal, setShowCalenderModal] =
     React.useState<boolean>(false);
+
+  useEffect(() => {
+    getListing(399269)
+      .then((response: Property) => {
+        setProperty(response)
+      })
+      .catch(error => {
+        console.error('Error fetching tasks:', error);
+      });
+  }, [])
 
   return (
     <div>
       <div className="relative overflow-hidden property-detail hotel-suggestion">
         <Slider {...settings} className="h-[450px]">
-          <Image
-            className="w-full object-cover h-[450px] md:!w-[60vw]"
-            src={sliderImg}
-            alt=""
-          />
-          <Image
-            className="w-full object-cover h-[450px] md:!w-[40vw]"
-            src={sliderImg1}
-            alt=""
-          />
-          <Image
-            className="w-full object-cover h-[450px] md:!w-[60vw]"
-            src={sliderImg2}
-            alt=""
-          />
-          <Image
-            className="w-full object-cover h-[450px]  md:!w-[40vw]"
-            src={sliderImg3}
-            alt=""
-          />
+          {property?.images?.map((image) => (
+            <Image
+              key={image._id}
+              className="w-full object-cover h-[450px]  md:!w-[40vw]"
+              src={image.croppedUrl}
+              alt=""
+            />
+          ))}
         </Slider>
 
         <div className="absolute bottom-[40px] left-[50px] flex gap-5 max-md:flex-wrap max-md:bottom-5 max-md:gap-3 max-md:pr-4">

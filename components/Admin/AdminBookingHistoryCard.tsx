@@ -75,14 +75,14 @@ const AdminBookingHistoryCard = (props) => {
             <div className="mb-2 text-base font-medium lg:mb-8">Action</div>
             <div className="flex gap-3 font-normal">
               <button className="w-[100px] h-[30px] bg-[#e6e6e6] rounded-lg text-blackLight">
-                Check-out
+                View
               </button>
-              <button className="w-[69px] h-[30px] bg-[#fceaea] rounded-lg text-[#EB5757]">
+              {/* <button className="w-[69px] h-[30px] bg-[#fceaea] rounded-lg text-[#EB5757]">
                 Delete
               </button>
               <button className="h-[30px] bg-[#fbf0e9] rounded-lg text-[#F2994A] w-max px-2">
                 Edit
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

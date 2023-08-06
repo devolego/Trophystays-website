@@ -11,11 +11,8 @@ import AdminBookingHistoryCard from "./AdminBookingHistoryCard";
 import Dropdown from "../Common/Dropdown";
 
 const listingTopArr = [
-  { name: "Checking Out (0)", active: false },
-  { name: "Currently Hosting (0)", active: true },
-  { name: "Arriving Soon (0)", active: false },
-  { name: "Upcoming (0)", active: false },
-  { name: "Pending Review (0)", active: false },
+  { name: "Total Properties 32", active: true },
+
 ];
 const AdminListing = () => {
   return (
@@ -73,10 +70,10 @@ const AdminListing = () => {
               </button>
             </div>
           </div>
-
+{/* 
           <button className="py-3 px-6 border border-solid border-blackLight rounded-lg md:w-max h-[52px] text-base max-md:w-full">
             Contact Support
-          </button>
+          </button> */}
         </div>
         <div className="flex flex-wrap justify-between gap-4">
           <AdminBookingHistoryCard
