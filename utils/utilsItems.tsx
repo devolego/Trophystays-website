@@ -15,7 +15,7 @@ export const navbarItems = [
   },
   {
     name: "Host with us",
-    link: "#",
+    link: "/host-with-us",
   },
   {
     name: "Reviews",
@@ -83,6 +83,7 @@ export const termMenuItems = ["Term"];
 export const bedroomsItems = ["Bedrooms"];
 export const arrivalItems = ["Arrival"];
 export const departureItems = ["Departure"];
+export const furnishingItems = ["Furnishing"];
 
 // export const neighbourhoodsContent = [
 //   {
