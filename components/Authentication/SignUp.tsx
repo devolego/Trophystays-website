@@ -1,10 +1,25 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import signupImage from "../../images/sign-up.png";
 import Button from "../Common/Button";
 import RightFormSection from "./RightFormSection";
-
+import { Formik, Form } from "formik";
+import { postApi } from "../../service/api";
 const SignUp = () => {
+  const initialValues = {email: ""};
+  const [signUpInfo, setSignUpInfo] = useState<any>(initialValues);
+  
+  const handleSubmit = (values: any) => {
+    console.log(values)
+    postApi("/register-email",values)
+    .then((res)=>{
+      console.log("register res--", res)
+    })
+    .catch((err)=>{
+      console.log("register err--", err)
+    })
+  };
+  
   return (
     <div className="lg:flex md:m-[50px] m-[20px]  bg-white rounded-2xl overflow-hidden">
       <Image src={signupImage} alt="loginImage" className="basis-3/6" />
@@ -15,18 +30,34 @@ const SignUp = () => {
         authText={"Already have an account?"}
         isAuthText={true}
         authLinkText={"login"}
-        authLink={'/login'}
+        authLink={"/login"}
       >
-        <form className="flex flex-col justify-center items-center pt-6 max-w-[384px] w-full mx-auto">
-          <div className="mb-2 w-full">
-            <input type="text" placeholder="Email" className="py-[18px] px-6 border border-greyishBrown rounded-lg w-full"/>
-          </div>
-          <p className="text-sm text-darkGrey pt-8 pb-6">We’ll send you an email to confirm your email address. Standard message and data rates may apply</p>
-          <Button
-            ButtonText={"Register"}
-            ButtonClasses={"w-full bg-primary text-center text-white py-[15px]"}
-          ></Button>
-        </form>
+        <Formik initialValues={signUpInfo} onSubmit={handleSubmit}>
+          {({ handleSubmit, handleChange}) => (
+            <Form className="flex flex-col justify-center items-center pt-6 max-w-[384px] w-full mx-auto">
+              <div className="w-full mb-2">
+                <input
+                  type="email"
+                  name={"email"}
+                  onChange={handleChange}
+                  placeholder="Email"
+                  className="py-[18px] px-6 border border-greyishBrown rounded-lg w-full"
+                />
+              </div>
+              <p className="pt-8 pb-6 text-sm text-darkGrey">
+                We’ll send you an email to confirm your email address. Standard
+                message and data rates may apply
+              </p>
+              <Button
+                ButtonClicked={handleSubmit}
+                ButtonText={"Register"}
+                ButtonClasses={
+                  "w-full bg-primary text-center text-white py-[15px]"
+                }
+              ></Button>
+            </Form>
+          )}
+        </Formik>
       </RightFormSection>
     </div>
   );

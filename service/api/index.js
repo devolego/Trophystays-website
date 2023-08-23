@@ -25,6 +25,7 @@ export const postApi = async (action, data) => {
       setAuthToken(localStorage.getItem("auth_token"));
     }
     let apiUrl = `${config.serverURL + config.version}${action}`;
+    console.log("apiUrl---",apiUrl,data)
     const response = await Axios.post(apiUrl, data);
     return response?.data;
   } catch (error) {
