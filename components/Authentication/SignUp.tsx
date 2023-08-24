@@ -1,23 +1,30 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import signupImage from "../../images/sign-up.png";
 import Button from "../Common/Button";
 import RightFormSection from "./RightFormSection";
 import { Formik, Form } from "formik";
-import { postApi } from "../../service/api";
-const SignUp = () => {
+import { registerEmail } from "../../service/service";
+// import ToastContext from "../../app/ToastContext";
+const SignUpComponent = (props:any) => {
+  // const Toast = useContext(ToastContext);
   const initialValues = {email: ""};
   const [signUpInfo, setSignUpInfo] = useState<any>(initialValues);
   
   const handleSubmit = (values: any) => {
     console.log(values)
-    postApi("/register-email",values)
+    // Toast.showToast("success", "Register successfully");
+    registerEmail(values)
     .then((res)=>{
-      console.log("register res--", res)
+      console.log("register email res--", res)
+      if (res.data){
+        props.setSignUpStep(2)
+      }
     })
     .catch((err)=>{
-      console.log("register err--", err)
+      console.log("register email err--", err)
     })
+    
   };
   
   return (
@@ -63,4 +70,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignUpComponent;

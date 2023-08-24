@@ -19,11 +19,13 @@ const RightFormSection = ({
 }: any) => {
   return (
     <div className="p-4 basis-3/6 bg-[#fafafa]">
+       {isAuthText ?
       <Link className="flex items-center justify-center" href="/">
         <Image className="w-[45px]" src={logoLionImage} alt="" />
         <Image className="w-auto h-full pl-2 max-h-3" src={logoText} alt="" />
         {/* {logoText} */}
       </Link>
+      : null}
       <h3
         className={`flex items-center justify-center pt-6 text-2xl ${josefin.className}`}
       >
@@ -32,21 +34,21 @@ const RightFormSection = ({
       {children}
       {isAuthText ? (
         <>
-          <p className="text-center text-2xl mt-4 text-darkGrey">or</p>
+          <p className="mt-4 text-2xl text-center text-darkGrey">or</p>
           <div className="m-2 max-w-[384px] w-full mx-auto">
             <div className="flex justify-center items-center mb-6 px-4 py-[11px] border border-lightBrown rounded-[8px]">
               <Image className="w-7 h-[30px]  mr-2" src={google} alt="" />
-              <p className="text-base text-black font-medium">{googleText}</p>
+              <p className="text-base font-medium text-black">{googleText}</p>
             </div>
             <div className="flex justify-center items-center mb-6 px-4 py-[11px] border border-lightBrown rounded-[8px]">
               <Image className="w-7 h-[30px] mr-2" src={linkedin} alt="" />
-              <p className="text-base text-black font-medium">{linkedinText}</p>
+              <p className="text-base font-medium text-black">{linkedinText}</p>
             </div>
           </div>
         </>
       ) : null}
       {isAuthText ? (
-        <p className="text-center mt-3 text-darkGrey text-sm">
+        <p className="mt-3 text-sm text-center text-darkGrey">
           {authText}{" "}
           <span>
             <Link

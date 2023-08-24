@@ -5,7 +5,7 @@ import Link from "next/link";
 import Button from "../Common/Button";
 import RightFormSection from "./RightFormSection";
 import { Formik, Form } from "formik";
-import { postApi } from "../../service/api";
+import { userLogin } from "../../service/service";
 
 const Login = () => {
   const initialValues = { email: "", password: "" };
@@ -13,7 +13,7 @@ const Login = () => {
 
   const handleSubmit = (values: any) => {
     console.log(values);
-    postApi("/login",values)
+    userLogin(values)
     .then((res)=>{
       console.log("login res--", res)
     })
