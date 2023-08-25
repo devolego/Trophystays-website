@@ -1,27 +1,34 @@
+
 import Image from "next/image";
-import React, { useContext, useState } from "react";
+import React, {useState } from "react";
 import signupImage from "../../images/sign-up.png";
 import Button from "../Common/Button";
 import RightFormSection from "./RightFormSection";
 import { Formik, Form } from "formik";
 import { verifyEmail } from "../../service/service";
 import OtpInput from "./OtpInput";
-const ConfirmEmail = (props: any) => {
+import { useRouter } from "next/navigation";
+const ConfirmEmail = () => {
+  const router = useRouter()
   const initialValues = { otp: "" };
   const [otpInfo, setOtpInfo] = useState<any>(initialValues);
-  const [otp, setOtp] = useState("");
-  const handleSubmit = (values: any) => {
+  const [otp, setOtp] = useState<any>("");
+  const userEmail = localStorage.getItem("email"); 
+  const handleSubmit = () => {
     verifyEmail(otp)
       .then((res) => {
-        console.log("register res--", res);
+        console.log("verify email res--", res);
+        if(res?.message === "Email verified successfully"){
+          router.push("/user-register")
+        }
       })
       .catch((err) => {
-        console.log("register err--", err);
+        console.log("verify email err--", err);
       });
-  };
+};
 
-  const handleBack = ()=>{
-    props.setSignUpStep(1)
+const handleBack = ()=>{
+  router.push("/signup")
   }
 
   return (
@@ -32,7 +39,7 @@ const ConfirmEmail = (props: any) => {
           {({ handleSubmit, handleChange }) => (
             <Form className="flex flex-col justify-center items-center pt-6 max-w-[384px] w-full mx-auto">
               <p className="pt-32 pb-8 pl-2 text-sm text-darkGrey">
-                Enter the code we send over email to trophy@example.com
+                Enter the code we send over email to {userEmail}
               </p>
               {/* <div className="grid grid-cols-6 gap-2 mb-[100px] ">
                 <input

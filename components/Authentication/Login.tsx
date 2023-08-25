@@ -6,8 +6,10 @@ import Button from "../Common/Button";
 import RightFormSection from "./RightFormSection";
 import { Formik, Form } from "formik";
 import { userLogin } from "../../service/service";
+import { useRouter } from "next/navigation";
 
 const Login = () => {
+  const router = useRouter()
   const initialValues = { email: "", password: "" };
   const [loginInfo, setLoginInfo] = useState<any>(initialValues);
 
@@ -15,7 +17,9 @@ const Login = () => {
     console.log(values);
     userLogin(values)
     .then((res)=>{
-      console.log("login res--", res)
+      console.log("login res--", res, res?.data?.message?.user?.token)
+      localStorage.setItem("auth_token", res?.data?.message?.user?.token)
+      router.push("/")
     })
     .catch((err)=>{
       console.log("login err--", err)

@@ -15,14 +15,16 @@ export const homeRoute = (id) => getApi(`/`);
 // Post Login data
 export const userLogin = (data) => postApi('/login',data)
 
-//  Register data
+// Register data 
 export const registerEmail = (data) => postApi('/register-email',data)
 
 export const verifyEmail = (otp) => getApi(`/verify-email?verificationToken=${otp}`)
 
 export const userRegister = (data) => postApi('/register',data)
 
+// Forgot Password 
+export const forgotPassword = (email) => postApi('/forgot-password',email)
 
-
-
+// Reset Password 
+export const resetPassword = (data) => postApi('/reset-password',data)
 

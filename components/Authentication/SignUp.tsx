@@ -5,26 +5,27 @@ import Button from "../Common/Button";
 import RightFormSection from "./RightFormSection";
 import { Formik, Form } from "formik";
 import { registerEmail } from "../../service/service";
+import { useRouter } from "next/navigation";
 // import ToastContext from "../../app/ToastContext";
 const SignUpComponent = (props:any) => {
   // const Toast = useContext(ToastContext);
+  const router = useRouter()
   const initialValues = {email: ""};
   const [signUpInfo, setSignUpInfo] = useState<any>(initialValues);
   
   const handleSubmit = (values: any) => {
-    console.log(values)
     // Toast.showToast("success", "Register successfully");
+    localStorage.setItem("email", values.email);
     registerEmail(values)
     .then((res)=>{
       console.log("register email res--", res)
-      if (res.data){
-        props.setSignUpStep(2)
+      if (res?.data){
+        router.push("/verify-email")
       }
     })
     .catch((err)=>{
       console.log("register email err--", err)
     })
-    
   };
   
   return (

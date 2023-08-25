@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 // import ToastContext from "../../app/ToastContext";
 // import { ToastContainer, toast } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
-const withoutLayout = ["/login", "/signup", "/forgot-password"];
+const withoutLayout = ["/login", "/signup", "/verify-email", "/user-register" ,"/forgot-password", "/reset-password"];
 const withLogin = [
   "/tenent",
   "/booking-history",

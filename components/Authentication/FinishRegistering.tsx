@@ -6,9 +6,9 @@ import RightFormSection from "./RightFormSection";
 import { Formik, Form } from "formik";
 import { userRegister } from "../../service/service";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
-// import ToastContext from "../../app/ToastContext";
+import { useRouter } from "next/navigation";
 const FinishRegistering = () => {
-  // const Toast = useContext(ToastContext);
+  const router = useRouter()
   const initialValues = {
     email: "",
     password: "",
@@ -21,14 +21,17 @@ const FinishRegistering = () => {
 
   const handleSubmit = (values: any) => {
     console.log(values);
-    // Toast.showToast("success", "Register successfully");
-    // userRegister("/register", values)
-    //   .then((res) => {
-    //     console.log("register res--", res);
-    //   })
-    //   .catch((err) => {
-    //     console.log("register err--", err);
-    //   });
+   
+    userRegister(values)
+      .then((res) => {
+        console.log("finish register res--", res);
+        if (res?.data){
+          router.push("/login")
+        }
+      })
+      .catch((err) => {
+        console.log("finish register err--", err);
+      });
   };
 
   const togglePassword = () => {

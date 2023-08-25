@@ -1,5 +1,5 @@
 const config = {
-    serverURL: "https://2edc-86-99-195-100.ngrok-free.app", // Server Base url
+    serverURL: "https://trophy-test-281550a6867d.herokuapp.com", // Server Base url
     fileServer: "", // File server url
     version: "",
   };
