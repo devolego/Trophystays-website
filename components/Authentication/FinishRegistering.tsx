@@ -84,7 +84,7 @@ const FinishRegistering = () => {
               </div>
               <div className="relative w-full mb-[30px]">
                 <input
-                  type="text"
+                  type="date"
                   name={"birthDay"}
                   onChange={handleChange}
                   placeholder="Birthday"

@@ -20,3 +20,9 @@ const nextConfig = {
 }
 
 module.exports = nextConfig
+module.exports = {
+    images: {
+      domains: ['uc.orez.io'],
+    },
+  }
+  

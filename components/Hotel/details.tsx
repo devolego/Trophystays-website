@@ -25,6 +25,7 @@ import Amenities from "./amenities";
 import CustomModal from "../Common/CustomModal";
 import DatePicker from "../Common/DatePicker";
 import { getListing } from "../../service/service";
+import { useParams } from "next/navigation";
 
 var settings = {
   dots: false,
@@ -62,14 +63,16 @@ interface PropertyImage {
 
 const PropertyDetails = () => {
   const [showModal, setShowModal] = React.useState<boolean>(false);
-  const [property, setProperty] = useState<Property>();
+  const [property, setProperty] = useState<any>();
   const [showCalenderModal, setShowCalenderModal] =
     React.useState<boolean>(false);
+    const {id} = useParams()
 
   useEffect(() => {
-    getListing(399269)
+    getListing(id)
       .then((response: Property) => {
         setProperty(response)
+        console.log(response , "res")
       })
       .catch(error => {
         console.error('Error fetching tasks:', error);
@@ -80,14 +83,16 @@ const PropertyDetails = () => {
     <div>
       <div className="relative overflow-hidden property-detail hotel-suggestion">
         <Slider {...settings} className="h-[450px]">
-          {property?.images?.map((image) => (
+          {/* {property?.thumbnailUrl?.map((image) => ( */}
             <Image
-              key={image._id}
-              className="w-full object-cover h-[450px]  md:!w-[40vw]"
-              src={image.croppedUrl}
+              // key={._id}
+              width={500}
+              height={250}
+              className="w-full  object-cover h-[450px]  md:!w-[40vw]"
+              src={property?.thumbnailUrl.mediumOriginal}
               alt=""
             />
-          ))}
+          {/* ))} */}
         </Slider>
 
         <div className="absolute bottom-[40px] left-[50px] flex gap-5 max-md:flex-wrap max-md:bottom-5 max-md:gap-3 max-md:pr-4">
@@ -107,7 +112,7 @@ const PropertyDetails = () => {
         <div className="w-[62%] max-lg:w-full">
           <div className="flex justify-between py-5 mt-4">
             <h1 className={`text-3xl ${josefin.className}`}>
-              The Arnold, 1621 E 6th St
+              {property?.headline}
             </h1>
             <Link href="/">
               <Image src={heartImg} alt="" className="w-[36px] h-[36px]" />
@@ -124,7 +129,7 @@ const PropertyDetails = () => {
                       alt=""
                     />
                     <span className="text-base text-black capitalize">
-                      {"2 sleeps"}
+                      {`${property?.sleepsMax} sleeps`}
                     </span>
                   </div>
                   <span className="px-4 text-greyishBrown">|</span>
@@ -135,7 +140,7 @@ const PropertyDetails = () => {
                       alt=""
                     />
                     <span className="text-base text-black capitalize">
-                      {"1 Bedroom"}
+                      {`${property?.bedroomCount} Bedroom`}
                     </span>
                   </div>
                   <span className="px-4 text-greyishBrown">|</span>
@@ -146,12 +151,13 @@ const PropertyDetails = () => {
                       alt=""
                     />
                     <span className="text-base text-black capitalize">
-                      {"1 Bath"}
+                      {`${property?.bathroomCount} Bath`}
                     </span>
                   </div>
                 </div>
                 <div className="text-base bg-secondary rounded-[20px] px-5 flex items-center text-white py-[2px] w-max">
-                  ID: 1F2315
+                  ID: {property?.id
+}
                 </div>
               </div>
 
@@ -185,29 +191,17 @@ const PropertyDetails = () => {
 
             <div>
               <h3 className="mb-5 text-xl font-medium">Description</h3>
-              <p className="mb-5 text-base">
-                Discover the best of Austin, with this studio East Austin
-                apartment with balcony views over the city. It’ll be easy to
-                simply show up and start living in this lavishly Blueground
-                furnished apartment with its fully-equipped kitchen, spacious
-                living room, and our dedicated, on-the-ground support. (ID
-                #ATX6)
-              </p>
+               
+               {/* {property?.description} */}
+               <div className="mb-5 text-base" dangerouslySetInnerHTML={{__html: property?.description}} />
+             
 
               <p className="mb-5 text-base font-medium">
                 Designed with you in mind
               </p>
 
               <p className="mb-5 text-base">
-                Thoughtfully designed with bespoke finishes, modern furnishings,
-                and a fully-equipped kitchen, you’ll enjoy that “I’m home”
-                feeling with this Blueground apartment. Whether you’re lounging
-                in your sophisticated living room streaming the latest and
-                greatest entertainment on the smart TV or premium wireless
-                speaker, or getting some well-earned rest on the superior
-                quality mattress with luxury linens, you’ll fall in love with
-                everything this East Austin apartment has to offer. This
-                apartment also offers in-apartment laundry.
+               {property?.featuresDescription}
               </p>
 
               <p className="mb-5 text-base font-medium">
@@ -275,10 +269,10 @@ const PropertyDetails = () => {
                 alt=""
                 className="object-contain mx-[2px]"
               />
-              <span className="text-2xl">4.0</span>
+              <span className="text-2xl">{property?.reviewAverage}</span>
             </div>
 
-            <div className="text-base text-darkGrey">(21 Reviews) </div>
+            <div className="text-base text-darkGrey">({property?.reviewCount} Reviews) </div>
           </div>
           <Button
             ButtonClicked={() => setShowCalenderModal(true)}
