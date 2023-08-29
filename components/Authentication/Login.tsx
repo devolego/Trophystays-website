@@ -7,6 +7,9 @@ import RightFormSection from "./RightFormSection";
 import { Formik, Form } from "formik";
 import { userLogin } from "../../service/service";
 import { useRouter } from "next/navigation";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Login = () => {
   const router = useRouter()
@@ -16,15 +19,30 @@ const Login = () => {
   const handleSubmit = (values: any) => {
     console.log(values);
     userLogin(values)
-    .then((res)=>{
-      console.log("login res--", res, res?.data?.message?.user?.token)
-      localStorage.setItem("auth_token", res?.data?.message?.user?.token)
-      router.push("/")
+    .then((res) => {
+      console.log("login res--", res, res?.data?.message?.user?.token);
+      if (res?.data?.message?.user?.token) {
+        localStorage.setItem("auth_token", res.data.message.user.token);
+        router.push("/");
+      } else {
+        // Handle the case when the token is not returned
+        console.log("Token not returned");
+        toast.error("Email or password is not correct.");
+      }
     })
-    .catch((err)=>{
-      console.log("login err--", err)
-    })
+    .catch((err) => {
+      console.log("login err--", err);
+      if (err.response && err.response.status === 401) {
+        // Handle login failure here
+        console.log("Unauthorized");
+        toast.error("Email or password is not correct.");
+      }
+    });
   };
+  
+  
+  
+  
   return (
     <div className="lg:flex md:m-[50px] m-[20px]  bg-white rounded-2xl overflow-hidden">
       <Image src={loginImage} alt="loginImage" className="basis-3/6" />

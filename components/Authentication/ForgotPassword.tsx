@@ -7,20 +7,34 @@ import Button from "../Common/Button";
 import RightFormSection from "./RightFormSection";
 import { Formik, Form } from "formik";
 import { forgotPassword } from "../../service/service";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+
 const ForgotPassword = () => {
   const initialValues = {email: ""};
   const [info, setInfo] = useState<any>(initialValues);
   
   const handleSubmit = (values: any) => {
-    console.log(values)
+    console.log(values);
     forgotPassword(values)
-    .then((res)=>{
-      console.log("forgot pwd res--", res)
-    })
-    .catch((err)=>{
-      console.log("forgot pwd err--", err)
-    })
-   };
+      .then((res) => {
+        console.log("forgot pwd res--", res);
+        if (res?.data) {
+          localStorage.setItem('emailReset', values.email)
+          toast.success("Password reset link sent to your email.");
+          // You can also redirect the user or perform some other action here
+        } else {
+          toast.error("Failed to send password reset link. Please try again.");
+        }
+      })
+      .catch((err) => {
+        console.log("forgot pwd err--", err);
+        toast.error("An error occurred. Please try again.");
+      });
+  };
+  
   return (
     <div className="lg:flex md:m-[50px] m-[20px]  bg-white rounded-2xl overflow-hidden">
       <Image src={loginImage} alt="loginImage" className="basis-3/6" />

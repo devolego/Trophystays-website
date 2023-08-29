@@ -17,6 +17,11 @@ const RightFormSection = ({
   authLinkText,
   authLink,
 }: any) => {
+
+function handleGoogle() {
+  window.location.href = 'https://trophy-test-281550a6867d.herokuapp.com/auth/google'
+}
+
   return (
     <div className="p-4 basis-3/6 bg-[#fafafa]">
        {isAuthText ?
@@ -34,18 +39,27 @@ const RightFormSection = ({
       {children}
       {isAuthText ? (
         <>
-          <p className="mt-4 text-2xl text-center text-darkGrey">or</p>
-          <div className="m-2 max-w-[384px] w-full mx-auto">
-            <div className="flex justify-center items-center mb-6 px-4 py-[11px] border border-lightBrown rounded-[8px]">
-              <Image className="w-7 h-[30px]  mr-2" src={google} alt="" />
-              <p className="text-base font-medium text-black">{googleText}</p>
-            </div>
-            <div className="flex justify-center items-center mb-6 px-4 py-[11px] border border-lightBrown rounded-[8px]">
-              <Image className="w-7 h-[30px] mr-2" src={linkedin} alt="" />
-              <p className="text-base font-medium text-black">{linkedinText}</p>
-            </div>
+        <p className="mt-4 text-2xl text-center text-darkGrey">or</p>
+        <div className="m-2 max-w-[384px] w-full mx-auto">
+          <div 
+            className="flex justify-center items-center mb-6 px-4 py-[11px] border border-lightBrown rounded-[8px] cursor-pointer"
+            onClick={handleGoogle}
+          >
+            <Image className="w-7 h-[30px]  mr-2" src={google} alt="" />
+            <p className="text-base font-medium text-black">{googleText}</p>
           </div>
-        </>
+          <div 
+            className="flex justify-center items-center mb-6 px-4 py-[11px] border border-lightBrown rounded-[8px] opacity-50 pointer-events-none"
+          >
+            <Image className="w-7 h-[30px] mr-2" src={linkedin} alt="" />
+            <p className="text-base font-medium text-black">{linkedinText}</p>
+          </div>
+        </div>
+      </>
+      
+      
+      
+      
       ) : null}
       {isAuthText ? (
         <p className="mt-3 text-sm text-center text-darkGrey">

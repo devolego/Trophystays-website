@@ -9,9 +9,10 @@ import LearnMore from "./LearnMore";
 import ClientReviews from "./ClientReviews";
 import SearchBox from "../Common/SearchBox";
 import DurationBanner from "./DurationBanner";
+import { useRouter } from "next/navigation";
 
 const LandingPage = () => {
-
+  const router = useRouter()
   const perMonthDescription = {
     description: 'Save more than 20% when you go the monthly way!',
     price: '$49',
@@ -58,6 +59,11 @@ const LandingPage = () => {
       }
     ],
     duration: 'Day'
+  }
+
+  const handleLogout = () => {
+    localStorage.removeItem('auth_token')
+    router.push('/')
   }
 
   return (
