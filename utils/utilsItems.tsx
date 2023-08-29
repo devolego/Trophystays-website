@@ -79,8 +79,8 @@ export const locationFilterItems = [
   },
 ];
 
-export const termMenuItems = ["Term"];
-export const bedroomsItems = ["Bedrooms"];
+export const termMenuItems = ["Monthly"];
+export const bedroomsItems = ["1","2","3","4"];
 export const arrivalItems = ["Arrival"];
 export const departureItems = ["Departure"];
 

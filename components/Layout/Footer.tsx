@@ -1,5 +1,6 @@
+'use client';
 import Image from "next/image";
-import React from "react";
+import React,{useState} from "react";
 import FooterLogo from "../../images/footer-logo.png";
 import FooterLogoText from "../../images/footer-logo-text.png";
 import {
@@ -13,9 +14,28 @@ import instaIcon from "../../images/insta.png";
 import linkedIn from "../../images/linkedIn.png";
 import whatappIcon from "../../images/whatapp.png";
 import Link from "next/link";
+import { Formik, Form } from "formik";
+import { emailSubscribe } from "../../service/service";
 
 const Footer = () => {
+  const initialValues = { email: ""};
+  const [emailInfo, setEmailInfo] = useState<any>(initialValues);
+  const handleSubmit = (values: any,{resetForm})=>{
+    emailSubscribe(values)
+    .then((res)=>{
+      console.log("newsletter res--", res)
+      if(res.data){
+         resetForm({values:""})
+      }
+    })
+    .catch((err)=>{
+      console.log("newletter err---",err)
+    })
+  }
+  
   return (
+    <Formik initialValues={emailInfo} onSubmit={handleSubmit}>
+    {({ handleSubmit, handleChange,values }) => (
     <div className="bg-[#111111] text-white lg:p-[50px] px-5 py-10">
       <div className="grid grid-cols-5 gap-[15px] lg:gap-[50px] max-lg:grid-cols-2">
         <div className="max-lg:col-span-2">
@@ -83,9 +103,13 @@ const Footer = () => {
             Subscribe to Our Newsletter
           </h6>
           <div className="flex gap-6 mb-[35px]">
+          
             <div className="relative">
               <input
                 type="email"
+                name={"email"}
+                onChange={handleChange}
+                value={values.email}
                 placeholder="Email"
                 className="bg-transparent placeholder:text-darkGrey border border-[#E1D9CE] py-[14px] pl-[46px] rounded-[8px] max-w-[311px] w-full max-lg:py-[7px]"
               />
@@ -96,11 +120,13 @@ const Footer = () => {
               />
             </div>
             <Button
+              ButtonClicked = {handleSubmit}
               ButtonText={"Subscribe"}
               ButtonClasses={
                 "bg-white text-blackLight px-[24px] py-[14px] w-max font-medium leading-4 flex items-center max-lg:px-4 max-lg:py-[7px]"
               }
             />
+            
           </div>
 
           <div className="w-full">
@@ -150,6 +176,8 @@ const Footer = () => {
         </div>
       </div>
     </div>
+    )}
+    </Formik>
   );
 };
 

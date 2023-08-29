@@ -7,17 +7,18 @@ import RightFormSection from "./RightFormSection";
 import { Formik, Form } from "formik";
 import {resetPassword} from "../../service/service";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
-import { useRouter } from "next/navigation";
+import { useRouter,useSearchParams } from "next/navigation";
 const NewPassword = () => {
   const router = useRouter()
-  // const {slug} = router.query
-  console.log(router, "query---")
+  const searchParams = useSearchParams()
+  const token = searchParams.get('token')
+
   const initialValues = {password: "" };
   const [loginInfo, setLoginInfo] = useState<any>(initialValues);
   const [isNewPasswordVisible, setIsNewPasswordVisible] = useState(false);
   const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
   const handleSubmit = (values: any) => {
-    let data = {token:"faa45c02cc22088e21411b47cf68742f032adfd5abe42cfcd6f5c6dbe03d7a31", password:values.password}
+    let data = {token:token, password:values.password}
     console.log(data);
     resetPassword(data)
     .then((res)=>{

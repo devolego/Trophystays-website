@@ -28,3 +28,13 @@ export const forgotPassword = (email) => postApi('/forgot-password',email)
 // Reset Password 
 export const resetPassword = (data) => postApi('/reset-password',data)
 
+// Get Reviews 
+export const getReviews = (id) => getApi(`/apartments/${id}/reviews`)
+
+
+
+
+
+// Post newsletter api
+export const emailSubscribe = (email)=> postApi('/newsletter',email)
+

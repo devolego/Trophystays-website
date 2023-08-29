@@ -17,9 +17,11 @@ const Login = () => {
     console.log(values);
     userLogin(values)
     .then((res)=>{
-      console.log("login res--", res, res?.data?.message?.user?.token)
+      console.log("login res--", res)
       localStorage.setItem("auth_token", res?.data?.message?.user?.token)
-      router.push("/")
+      if(res?.data?.message?.user?.token){
+        router.push("/")
+      }
     })
     .catch((err)=>{
       console.log("login err--", err)

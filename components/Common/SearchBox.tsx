@@ -39,6 +39,7 @@ const SearchBox = ({ searchClasses }) => {
   const handleDepartureMenuItem = () => {
     setDepartureMenuItem(!departureMenuItem);
   };
+  
   return (
     <div
       className={`bg-white p-[30px] rounded-xl shadow-md max-w-[1190px] w-full m-auto relative z-1 ${searchClasses} xl:max-h-[166px] h-full max-xl:h-max`}
@@ -46,7 +47,7 @@ const SearchBox = ({ searchClasses }) => {
       <h3 className={`text-2xl ${josefin.className} mb-4`}>
         Search for your most needed hotels.
       </h3>
-      <div className="flex justify-between gap-4 relative max-xl:grid max-xl:grid-cols-3 max-md:grid-cols-1">
+      <div className="relative flex justify-between gap-4 max-xl:grid max-xl:grid-cols-3 max-md:grid-cols-1">
         <div
           className="relative xl:w-[185px] max-xl:w-full"
           onClick={handleLocationItems}
@@ -88,7 +89,7 @@ const SearchBox = ({ searchClasses }) => {
               {termMenuItems.map((items, index) => {
                 return (
                   <div key={index} className="">
-                    <h2 className="text-base ">{items}</h2>
+                    <h2 className="text-base">{items}</h2>
                   </div>
                 );
               })}
@@ -103,7 +104,7 @@ const SearchBox = ({ searchClasses }) => {
         >
           <SearchBoxDropdown imageSrc={bedroomIcon} seachHeading="Bedrooms" />
           {bedRoomItem && (
-            <div className="p-4 rounded-xl grid grid-cols-2 bg-white mt-3 absolute z-[1] bg-white w-full">
+            <div className="p-4 rounded-xl grid grid-cols-1 bg-white mt-3 absolute z-[1] bg-white w-full">
               {bedroomsItems.map((items, index) => {
                 return (
                   <div key={index} className="text-base">
@@ -151,6 +152,7 @@ const SearchBox = ({ searchClasses }) => {
               })}
             </div>
           )}
+          {/* <input type="date"  className="py-[16px] mb-[30px] px-6 border border-greyishBrown rounded-[8px] w-full"/> */}
         </div>
 
         <Button
