@@ -8,18 +8,24 @@ import { Formik, Form } from "formik";
 import { verifyEmail } from "../../service/service";
 import OtpInput from "./OtpInput";
 import { useRouter } from "next/navigation";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const ConfirmEmail = () => {
   const router = useRouter()
   const initialValues = { otp: "" };
   const [otpInfo, setOtpInfo] = useState<any>(initialValues);
   const [otp, setOtp] = useState<any>("");
   const userEmail = localStorage.getItem("email"); 
+  
   const handleSubmit = () => {
     verifyEmail(otp)
       .then((res) => {
         console.log("verify email res--", res);
         if(res?.message === "Email verified successfully"){
+          // toast.success("Email verified successfully")
           router.push("/user-register")
+        }else if(res?.message === "Invalid verification token"){
+          toast.error("Invalid verification token")
         }
       })
       .catch((err) => {

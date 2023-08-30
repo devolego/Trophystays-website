@@ -4,28 +4,29 @@ import loginImage from "../../images/login-form-img-1.png";
 import Link from "next/link";
 import Button from "../Common/Button";
 import RightFormSection from "./RightFormSection";
-import { Formik, Form } from "formik";
-import {resetPassword} from "../../service/service";
+import { Formik, Form, ErrorMessage } from "formik";
+import { resetPassword } from "../../service/service";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useRouter, useSearchParams } from "next/navigation";
+import * as Yup from "yup";
 
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { useRouter, useSearchParams } from 'next/navigation';
+const validationSchema = Yup.object({
+  password: Yup.string().required("Password is required"),
+  confirmPassword: Yup.string().required("Confirm Password is required"),
+});
 const NewPassword = () => {
-  // const {slug} = router.query
-  // console.log(router, "query---")
-  const router = useRouter()
+  const router = useRouter();
 
-  const initialValues = {password: "" };
+  const initialValues = { password: "" };
   const [loginInfo, setLoginInfo] = useState<any>(initialValues);
   const [isNewPasswordVisible, setIsNewPasswordVisible] = useState(false);
-  const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
+  const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] =
+    useState(false);
 
-
-  const token = useSearchParams().get('token')
-  
-
+  const token = useSearchParams().get("token");
 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
@@ -37,16 +38,17 @@ const NewPassword = () => {
 
       const data = {
         token: token,
-        password: values.password
-      }
+        password: values.password,
+      };
 
-  
       // Call the resetPassword service function
       const response = await resetPassword(data);
-      console.log(response)
+      console.log(response);
       if (response.status === 200) {
         toast.success("Password reset successfully");
-        router.push('/login')
+        setTimeout(() => {
+          router.push("/login");
+        }, 4000);
       } else {
         toast.error("Failed to reset password");
       }
@@ -57,31 +59,35 @@ const NewPassword = () => {
     }
   };
 
-  
-  const toggleNewPassword = () => {
+  const toggleNewPassword = (event: any) => {
+    event.preventDefault();
     setIsNewPasswordVisible(!isNewPasswordVisible);
   };
-  const toggleConfirmPassword = () => {
+  const toggleConfirmPassword = (event: any) => {
+    event.preventDefault();
     setIsConfirmPasswordVisible(!isConfirmPasswordVisible);
   };
- 
+
   return (
     <div className="lg:flex md:m-[50px] m-[20px]  bg-white rounded-2xl overflow-hidden">
       <Image src={loginImage} alt="loginImage" className="basis-3/6" />
-      <RightFormSection
-        titleText={"Create New Password"}
-        isAuthText={false}
-      >
-        <Formik initialValues={loginInfo} onSubmit={handleSubmit}>
+      <RightFormSection titleText={"Create New Password"} isAuthText={false}>
+        <Formik initialValues={loginInfo} validationSchema={validationSchema} onSubmit={handleSubmit}>
           {({ handleSubmit, handleChange }) => (
             <Form className="flex flex-col justify-center items-center pt-6 mt-[80px] max-w-[384px] w-full mx-auto w-full">
-                <div className=" relative w-full mb-[30px]">
+              <div className=" relative w-full mb-[30px]">
                 <input
                   type={isNewPasswordVisible ? "text" : "password"}
-                  name={"password"}
+                  name="password"
                   onChange={handleChange}
                   placeholder="New Password"
                   className="py-[18px] px-6 border border-greyishBrown rounded-lg w-full"
+                />
+                <ErrorMessage
+                  className="error"
+                  name="password"
+                  component="div"
+                  style={{color:"#ff3434"}}
                 />
                 <button
                   className="absolute inset-y-0 right-0 flex items-center px-4"
@@ -97,10 +103,16 @@ const NewPassword = () => {
               <div className=" relative w-full mb-[160px]">
                 <input
                   type={isConfirmPasswordVisible ? "text" : "password"}
-                  name={"confirmPassword"}
+                  name="confirmPassword"
                   onChange={handleChange}
                   placeholder="Confirm Password"
                   className="py-[18px] px-6 border border-greyishBrown rounded-lg w-full"
+                />
+                 <ErrorMessage
+                  className="error"
+                  name="confirmPassword"
+                  component="div"
+                  style={{color:"#ff3434"}}
                 />
                 <button
                   className="absolute inset-y-0 right-0 flex items-center px-4"

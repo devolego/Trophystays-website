@@ -6,6 +6,7 @@ import logoText from "../../images/logo-text.png";
 import google from "../../images/google-logo.png";
 import linkedin from "../../images/linkedinLogin.png";
 import { josefin } from "../../utils/utilsFonts";
+import { googleLogin } from "../../service/service";
 
 const RightFormSection = ({
   titleText,
@@ -19,7 +20,13 @@ const RightFormSection = ({
 }: any) => {
 
 function handleGoogle() {
-  window.location.href = 'https://trophy-test-281550a6867d.herokuapp.com/auth/google'
+  // window.location.href = 'https://trophy-test-281550a6867d.herokuapp.com/auth/google'
+  googleLogin().then((res)=>{
+    console.log("google res---", res)
+  })
+  .catch((err)=> {
+    console.log("google err---", err)
+  })
 }
 
   return (

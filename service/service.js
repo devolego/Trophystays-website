@@ -35,8 +35,13 @@ export const resetPassword = (data) => postApi('/reset-password', data)
 export const getReviews = (id) => getApi(`/apartments/${id}/reviews`)
 
 
+// Post Auth Google
+export const googleLogin = () => getApi('/auth/google')
 
 
+
+// Wish list
+export const addRemoveWishList = (data) => postApi('/wishlist',data)
 
 // Post newsletter api
 export const emailSubscribe = (email)=> postApi('/newsletter',email)

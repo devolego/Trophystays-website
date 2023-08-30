@@ -24,7 +24,7 @@ import Button from "../Common/Button";
 import Amenities from "./amenities";
 import CustomModal from "../Common/CustomModal";
 import DatePicker from "../Common/DatePicker";
-import { getListing } from "../../service/service";
+import { addRemoveWishList, getListing } from "../../service/service";
 import { useParams } from "next/navigation";
 
 var settings = {
@@ -59,39 +59,47 @@ interface PropertyImage {
   _id: string;
 }
 
-
-
 const PropertyDetails = () => {
   const [showModal, setShowModal] = React.useState<boolean>(false);
   const [property, setProperty] = useState<any>();
   const [showCalenderModal, setShowCalenderModal] =
     React.useState<boolean>(false);
-    const {id} = useParams()
+  const { id } = useParams();
 
   useEffect(() => {
     getListing(id)
       .then((response: Property) => {
-        setProperty(response)
-        console.log(response , "res")
+        setProperty(response);
+        console.log(response, "res");
       })
-      .catch(error => {
-        console.error('Error fetching tasks:', error);
+      .catch((error) => {
+        console.error("Error fetching tasks:", error);
       });
-  }, [])
+  }, []);
+
+  const handleLike = () => {
+    addRemoveWishList({ propertyId: property?.id })
+      .then((res) => {
+        console.log("res wishlist", res);
+      })
+      .catch((err) => {
+        console.log("err wishlist--", err);
+      });
+  };
 
   return (
     <div>
       <div className="relative overflow-hidden property-detail hotel-suggestion">
         <Slider {...settings} className="h-[450px]">
           {/* {property?.thumbnailUrl?.map((image) => ( */}
-            <Image
-              // key={._id}
-              width={500}
-              height={250}
-              className="w-full  object-cover h-[450px]  md:!w-[40vw]"
-              src={property?.thumbnailUrl.mediumOriginal}
-              alt=""
-            />
+          <Image
+            // key={._id}
+            width={500}
+            height={250}
+            className="w-full  object-cover h-[450px]  md:!w-[40vw]"
+            src={property?.thumbnailUrl.mediumOriginal}
+            alt=""
+          />
           {/* ))} */}
         </Slider>
 
@@ -114,9 +122,9 @@ const PropertyDetails = () => {
             <h1 className={`text-3xl ${josefin.className}`}>
               {property?.headline}
             </h1>
-            <Link href="/">
-              <Image src={heartImg} alt="" className="w-[36px] h-[36px]" />
-            </Link>
+            <div onClick={handleLike}>
+              <Image src={heartImg} alt="" className="w-[36px] h-[36px] cursor-pointer" />
+            </div>
           </div>
           <div className="room-details flex gap-2 mt-[12px] justify-between flex-wrap mb-6">
             <div className="pb-[54px] w-full">
@@ -156,8 +164,7 @@ const PropertyDetails = () => {
                   </div>
                 </div>
                 <div className="text-base bg-secondary rounded-[20px] px-5 flex items-center text-white py-[2px] w-max">
-                  ID: {property?.id
-}
+                  ID: {property?.id}
                 </div>
               </div>
 
@@ -191,18 +198,18 @@ const PropertyDetails = () => {
 
             <div>
               <h3 className="mb-5 text-xl font-medium">Description</h3>
-               
-               {/* {property?.description} */}
-               <div className="mb-5 text-base" dangerouslySetInnerHTML={{__html: property?.description}} />
-             
+
+              {/* {property?.description} */}
+              <div
+                className="mb-5 text-base"
+                dangerouslySetInnerHTML={{ __html: property?.description }}
+              />
 
               <p className="mb-5 text-base font-medium">
                 Designed with you in mind
               </p>
 
-              <p className="mb-5 text-base">
-               {property?.featuresDescription}
-              </p>
+              <p className="mb-5 text-base">{property?.featuresDescription}</p>
 
               <p className="mb-5 text-base font-medium">
                 Sleeping arrangements
@@ -272,7 +279,9 @@ const PropertyDetails = () => {
               <span className="text-2xl">{property?.reviewAverage}</span>
             </div>
 
-            <div className="text-base text-darkGrey">({property?.reviewCount} Reviews) </div>
+            <div className="text-base text-darkGrey">
+              ({property?.reviewCount} Reviews){" "}
+            </div>
           </div>
           <Button
             ButtonClicked={() => setShowCalenderModal(true)}

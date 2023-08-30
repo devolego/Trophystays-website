@@ -1,14 +1,25 @@
 import Image from "next/image";
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import signupImage from "../../images/sign-up.png";
 import Button from "../Common/Button";
 import RightFormSection from "./RightFormSection";
-import { Formik, Form } from "formik";
+import { Formik, Form, ErrorMessage } from "formik";
 import { userRegister } from "../../service/service";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import * as Yup from "yup";
+
+const validationSchema = Yup.object({
+  firstName: Yup.string().required("First Name is required"),
+  lastName: Yup.string().required("Last Name is required"),
+  password: Yup.string().required("Password is required"),
+  birthDay: Yup.string().required("Birth Day is required"),
+  email: Yup.string().email("Email is not valid").required("Email is required"),
+});
 const FinishRegistering = () => {
-  const router = useRouter()
+  const router = useRouter();
   const initialValues = {
     email: "",
     password: "",
@@ -21,12 +32,15 @@ const FinishRegistering = () => {
 
   const handleSubmit = (values: any) => {
     console.log(values);
-   
+
     userRegister(values)
       .then((res) => {
         console.log("finish register res--", res);
-        if (res?.data){
-          router.push("/login")
+        if (res?.data) {
+          // toast.success("User Registered. Please check your email")
+          router.push("/login");
+        } else if (res.message === "No user with this email address exists.") {
+          toast.error("No user with this email address exists.");
         }
       })
       .catch((err) => {
@@ -34,7 +48,8 @@ const FinishRegistering = () => {
       });
   };
 
-  const togglePassword = () => {
+  const togglePassword = (event: any) => {
+    event.preventDefault();
     setIsPasswordVisible(!isPasswordVisible);
   };
 
@@ -42,7 +57,11 @@ const FinishRegistering = () => {
     <div className="lg:flex md:m-[50px] m-[20px]  bg-white rounded-2xl overflow-hidden">
       <Image src={signupImage} alt="loginImage" className="basis-3/6" />
       <RightFormSection titleText={"Finish Registering"} isAuthText={false}>
-        <Formik initialValues={registerInfo} onSubmit={handleSubmit}>
+        <Formik
+          initialValues={registerInfo}
+          validationSchema={validationSchema}
+          onSubmit={handleSubmit}
+        >
           {({ handleSubmit, handleChange }) => (
             <Form className="flex flex-col justify-center items-center pt-6 max-w-[384px] w-full mx-auto">
               <div className="w-full mb-[30px]">
@@ -53,6 +72,12 @@ const FinishRegistering = () => {
                   placeholder="First Name"
                   className="py-[18px] px-6 border border-greyishBrown rounded-lg w-full"
                 />
+                <ErrorMessage
+                  className="error"
+                  name="firstName"
+                  component="div"
+                  style={{ color: "#ff3434" }}
+                />
               </div>
               <div className="w-full mb-[30px]">
                 <input
@@ -62,6 +87,12 @@ const FinishRegistering = () => {
                   placeholder="Last Name"
                   className="py-[18px] px-6 border border-greyishBrown rounded-lg w-full"
                 />
+                <ErrorMessage
+                  className="error"
+                  name="lastName"
+                  component="div"
+                  style={{ color: "#ff3434" }}
+                />
               </div>
               <div className=" relative w-full mb-[30px]">
                 <input
@@ -70,6 +101,12 @@ const FinishRegistering = () => {
                   onChange={handleChange}
                   placeholder="Password"
                   className="py-[18px] px-6 border border-greyishBrown rounded-lg w-full"
+                />
+                <ErrorMessage
+                  className="error"
+                  name="password"
+                  component="div"
+                  style={{ color: "#ff3434" }}
                 />
                 <button
                   className="absolute inset-y-0 right-0 flex items-center px-4"
@@ -82,6 +119,7 @@ const FinishRegistering = () => {
                   )}
                 </button>
               </div>
+              
               <div className="relative w-full mb-[30px]">
                 <input
                   type="date"
@@ -89,6 +127,12 @@ const FinishRegistering = () => {
                   onChange={handleChange}
                   placeholder="Birthday"
                   className="py-[18px] px-6 border border-greyishBrown rounded-lg w-full"
+                />
+                 <ErrorMessage
+                  className="error"
+                  name="birthDay"
+                  component="div"
+                  style={{ color: "#ff3434" }}
                 />
                 <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none">
                   <svg
@@ -102,6 +146,7 @@ const FinishRegistering = () => {
                   </svg>
                 </div>
               </div>
+             
               <div className="w-full mb-[30px]">
                 <input
                   type="email"
@@ -109,6 +154,12 @@ const FinishRegistering = () => {
                   onChange={handleChange}
                   placeholder="Email"
                   className="py-[18px] px-6 border border-greyishBrown rounded-lg w-full"
+                />
+                <ErrorMessage
+                  className="error"
+                  name="email"
+                  component="div"
+                  style={{ color: "#ff3434" }}
                 />
               </div>
               <p className="pt-8 pb-6 text-sm text-darkGrey">

@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { josefin } from "../../utils/utilsFonts";
 import Button from "./Button";
 import Dropdown from "./Dropdown";
@@ -17,6 +17,8 @@ import {
   termMenuItems,
 } from "../../utils/utilsItems";
 import SearchBoxDropdown from "./SearchBoxDropdown";
+import { getAreas } from "../../service/service";
+import axios from "axios";
 
 const SearchBox = ({ searchClasses }) => {
   const [locationItems, setLocationItems] = useState(false);
@@ -39,6 +41,20 @@ const SearchBox = ({ searchClasses }) => {
   const handleDepartureMenuItem = () => {
     setDepartureMenuItem(!departureMenuItem);
   };
+
+  useEffect(()=>{
+    getAreas()
+    .then((res)=> {
+      // console.log("area res--", res)
+    })
+    .catch((err)=>{
+      console.log("area err--",err)
+    })
+   
+  },[])
+
+
+
   
   return (
     <div

@@ -3,24 +3,31 @@ import React, { useContext, useState } from "react";
 import signupImage from "../../images/sign-up.png";
 import Button from "../Common/Button";
 import RightFormSection from "./RightFormSection";
-import { Formik, Form } from "formik";
+import { Formik, Form, ErrorMessage } from "formik";
 import { registerEmail } from "../../service/service";
 import { useRouter } from "next/navigation";
-// import ToastContext from "../../app/ToastContext";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import * as Yup from "yup";
+
+const validationSchema = Yup.object({
+  email: Yup.string().email("Email is not valid").required("Email is required"),
+});
 const SignUpComponent = (props:any) => {
-  // const Toast = useContext(ToastContext);
   const router = useRouter()
   const initialValues = {email: ""};
   const [signUpInfo, setSignUpInfo] = useState<any>(initialValues);
   
   const handleSubmit = (values: any) => {
-    // Toast.showToast("success", "Register successfully");
     localStorage.setItem("email", values.email);
     registerEmail(values)
     .then((res)=>{
       console.log("register email res--", res)
       if (res?.data){
+        // toast.success("User Registered. Please check your email")
         router.push("/verify-email")
+      }else if(res.message === "A user with this email already exists."){
+        toast.error("A user with this email already exists.")
       }
     })
     .catch((err)=>{
@@ -40,7 +47,7 @@ const SignUpComponent = (props:any) => {
         authLinkText={"login"}
         authLink={"/login"}
       >
-        <Formik initialValues={signUpInfo} onSubmit={handleSubmit}>
+        <Formik initialValues={signUpInfo} validationSchema={validationSchema} onSubmit={handleSubmit}>
           {({ handleSubmit, handleChange}) => (
             <Form className="flex flex-col justify-center items-center pt-6 max-w-[384px] w-full mx-auto">
               <div className="w-full mb-2">
@@ -50,6 +57,12 @@ const SignUpComponent = (props:any) => {
                   onChange={handleChange}
                   placeholder="Email"
                   className="py-[18px] px-6 border border-greyishBrown rounded-lg w-full"
+                />
+                 <ErrorMessage
+                  className="error"
+                  name="email"
+                  component="div"
+                  style={{color:"#ff3434"}}
                 />
               </div>
               <p className="pt-8 pb-6 text-sm text-darkGrey">
