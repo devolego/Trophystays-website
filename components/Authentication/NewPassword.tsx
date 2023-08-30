@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import loginImage from "../../images/login-form-img-1.png";
 import Link from "next/link";
 import Button from "../Common/Button";
@@ -7,30 +7,57 @@ import RightFormSection from "./RightFormSection";
 import { Formik, Form } from "formik";
 import {resetPassword} from "../../service/service";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
-import { useRouter,useSearchParams } from "next/navigation";
+
+
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useRouter, useSearchParams } from 'next/navigation';
 const NewPassword = () => {
+  // const {slug} = router.query
+  // console.log(router, "query---")
   const router = useRouter()
-  const searchParams = useSearchParams()
-  const token = searchParams.get('token')
 
   const initialValues = {password: "" };
   const [loginInfo, setLoginInfo] = useState<any>(initialValues);
   const [isNewPasswordVisible, setIsNewPasswordVisible] = useState(false);
   const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
-  const handleSubmit = (values: any) => {
-    let data = {token:token, password:values.password}
-    console.log(data);
-    resetPassword(data)
-    .then((res)=>{
-      console.log("new password res--", res)
-      if(res?.data){
-        router.push("/login")
+
+
+  const token = useSearchParams().get('token')
+  
+
+
+  const handleSubmit = async (values, { setSubmitting }) => {
+    try {
+      // Validate the form data
+      if (values.password !== values.confirmPassword) {
+        toast.error("Passwords do not match");
+        return;
       }
-    })
-    .catch((err)=>{
-      console.log("new password err--", err)
-    })
+
+      const data = {
+        token: token,
+        password: values.password
+      }
+
+  
+      // Call the resetPassword service function
+      const response = await resetPassword(data);
+      console.log(response)
+      if (response.status === 200) {
+        toast.success("Password reset successfully");
+        router.push('/login')
+      } else {
+        toast.error("Failed to reset password");
+      }
+    } catch (error) {
+      toast.error("An error occurred");
+    } finally {
+      setSubmitting(false);
+    }
   };
+
+  
   const toggleNewPassword = () => {
     setIsNewPasswordVisible(!isNewPasswordVisible);
   };
