@@ -16,10 +16,26 @@ const CardImgWithText = ({
   reviewUserNameStyling,
   cardLink,
   cardContent,
+  stepName,
+  cardOverlapText,
 }: any) => {
   return (
-    <div className={`rounded-[16px] w-full ${cardClass}`}>
-      <Image className={`${cardImageStyle} w-full`} src={cardImage} alt="" />
+    <div className={`rounded-[16px] w-full overflow-hidden ${cardClass}`}>
+      {stepName && (
+        <p className={`text-md text-primary mt-10 flex justify-center`}>
+          Step {stepName}{" "}
+        </p>
+      )}
+      <div className="relative">
+        <Image
+          className={`filter ${cardImageStyle} w-full brightness-75`}
+          src={cardImage}
+          alt=""
+        />
+        <h6 className="text-2xl font-semibold text-white absolute bottom-5 left-1/2 transform -translate-x-1/2">
+          {cardOverlapText}
+        </h6>
+      </div>
       <div className={`${cardContentClasses}`}>
         <h6
           className={`text-2xl tex-black mb-2 ${josefin.className} ${cardHeadingStyle}`}

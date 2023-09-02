@@ -1,3 +1,5 @@
+const { url } = require("inspector");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -20,6 +22,7 @@ module.exports = {
       },
       gridTemplateColumns: {
         "image-gallery-4": "160px repeat(3 , 1fr)",
+        "listing-5": "0.9fr 1fr 0.5fr 0.5fr 0.8fr",
       },
 
       backgroundImage: {
@@ -29,7 +32,17 @@ module.exports = {
         "banner-image": "url('../images/hero.jpg')",
         "banner-overlay": "url('../images/banner-overlay.png')",
         "email-icon": "url('../images/email-icon.png)",
+        "slider-overlay": "url('../images/slider-overlay.png')",
+        "down-arrow": "url('../images/down-triangle.png')",
+        "primary-color-arrow-up": "url('../images/primary-color-arrow.png')",
+        "left-shaded-overlay": "url('../images/left-shadow-overlay.png')",
+        "black-gradiant":
+          "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(180deg, rgba(41, 32, 33, 0.64) 0%, rgba(41, 32, 33, 0.56) 100%)",
+        "arrow-right-primary": "url('../images/goal-arrow.png')",
+        "host-with-us-banner": "url('../images/hostwithus.png')",
+        "host-with-us-handle": "url('../images/host_handle.png')",
       },
+
       container: {
         screens: {
           "2xl": "1440px",

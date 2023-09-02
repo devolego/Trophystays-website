@@ -1,5 +1,4 @@
 import React from "react";
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import CardImgWithText from "../Common/CardImgWithText";
@@ -10,50 +9,22 @@ import arrowRight from "../../images/arrow-with-circle-dark.png";
 import Image from "next/image";
 
 const ClientReviews = () => {
-  // var settings = {
-  //   dots: true,
-  //   infinite: true,
-  //   speed: 500,
-  //   slidesToShow: 1,
-  //   slidesToScroll: 1,
-  // };
   return (
     <div className="py-[140px]">
-      {/* Hello World.
-      <Slider {...settings}>
-        <div>
-          <h3>1</h3>
-        </div>
-        <div>
-          <h3>2</h3>
-        </div>
-        <div>
-          <h3>3</h3>
-        </div>
-        <div>
-          <h3>4</h3>
-        </div>
-        <div>
-          <h3>5</h3>
-        </div>
-        <div>
-          <h3>6</h3>
-        </div>
-      </Slider> */}
       <div className="flex items-center justify-between">
         <h2
-          className={`text-[40px] mb-4 max-w-[452px] w-full ${josefin.className}`}
+          className={`text-[40px] mb-4 max-w-[452px] w-full ${josefin.className} max-lg:text-[32px] max-lg:leading-[40px]`}
         >
           What Our Clients Says About Us
         </h2>
 
-        <div className="flex gap-6 pr-[124px] cursor-pointer">
+        <div className="flex gap-6 pr-[124px] cursor-pointer max-lg:hidden">
           <Image className="object-contain w-[55px]" src={arrowLeft} alt="" />
           <Image className="object-contain w-[55px]" src={arrowRight} alt="" />
         </div>
       </div>
 
-      <div className="grid grid-cols-3 px-[124px] gap-[30px]">
+      <div className="grid lg:grid-cols-3 lg:px-[124px] gap-[30px]">
         <CardImgWithText
           cardClass="bg-lightBrown px-[27px] pb-11"
           cardImage={QuoteIcon}
