@@ -6,16 +6,16 @@ import ListingImg2 from "../images/admin-listing2.png";
 
 export const navbarItems = [
   {
-    name: "About Us",
-    link: "/about",
-  },
-  {
     name: "Stay with us",
     link: "/stay-with-us",
   },
   {
     name: "Host with us",
     link: "/host-with-us",
+  },
+  {
+    name: "About Us",
+    link: "/about",
   },
   {
     name: "Reviews",

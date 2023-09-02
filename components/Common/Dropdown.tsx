@@ -35,7 +35,7 @@ const Dropdown = ({
             filterTextStyle ? filterTextStyle : "max-sm:pr-[50px] pr-[140px] "
           }`}
         >
-          {filterText ? filterText : " Filter"}
+          {filterText ? filterText : "Filter"}
         </p>
       </div>
       {filtreMenu && (

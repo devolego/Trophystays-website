@@ -10,7 +10,7 @@ const LearnMore = () => {
     <div className="mt-[119px] mb-[61px] rounded-[16px]">
       <div className="max-w-[545px] w-full mb-[50px]">
         <h2
-          className={`text-[40px] mb-4 ${josefin.className} max-lg:text-[32px] max-lg:leading-[40px]`}
+          className={`text-black text-[40px] mb-4 ${josefin.className} max-lg:text-[32px] max-lg:leading-[40px]`}
         >
           Learn more about the passion that powers us
         </h2>
