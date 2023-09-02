@@ -57,9 +57,15 @@ const Navbar = () => {
                   return (
                     <li
                       key={index}
-                      className="lg:mr-[20px] max-lg:text-2xl lg:text-sm xl:mr-[50px] xl:text-base text-black max-lg:leading-[] "
+                      className={`lg:mr-[20px] mb-5 lg:mb-0 max-lg:text-2xl lg:text-sm xl:mr-[50px] xl:text-base text-black max-lg:leading-[] ${
+                        items.link === router
+                          ? "underline underline-offset-8"
+                          : ""
+                      }`}
                     >
-                      <Link href={`${items.link}`}>{items.name}</Link>
+                      <Link className="" href={`${items.link}`}>
+                        {items.name}
+                      </Link>
                     </li>
                   );
                 })}
