@@ -77,17 +77,17 @@ const PropertyDetails = () => {
         console.error("Error fetching tasks:", error);
       });
 
-      axios.get(`https://trophy-test-281550a6867d.herokuapp.com/user/64ec3496a78c4513566f4f90/wishlist`,
-     {
-        headers:{
-          "Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVjMzQ5NmE3OGM0NTEzNTY2ZjRmOTAiLCJpYXQiOjE2OTM1NjcxODIsImV4cCI6MTY5MzY1MzU4Mn0.xl-Dkrx5mf_8qtg7v6zjo5itYEqMMJTtL5XGR_aFhqE"
-        }
-      }).then((res)=>{
-        console.log("user wishlist res---", res)
-      })
-      .catch((err)=>{
-        console.log("user wishlist err--", err)
-      })
+    //   axios.get(`https://trophy-test-281550a6867d.herokuapp.com/user/64ec3496a78c4513566f4f90/wishlist`,
+    //  {
+    //     headers:{
+    //       "Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVjMzQ5NmE3OGM0NTEzNTY2ZjRmOTAiLCJpYXQiOjE2OTM4MDU1MjMsImV4cCI6MTY5Mzg5MTkyM30.pLZ3MlZrf4lygEFp7DagbFqjQO07yb96PDx3BtEx42s"
+    //     }
+    //   }).then((res)=>{
+    //     console.log("user wishlist res---", res)
+    //   })
+    //   .catch((err)=>{
+    //     console.log("user wishlist err--", err)
+    //   })
   }, []);
 
   const handleLike = () => {

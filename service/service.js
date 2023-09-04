@@ -35,7 +35,7 @@ export const resetPassword = (data) => postApi('/reset-password', data)
 export const getReviews = (id) => getApi(`/apartments/${id}/reviews`)
 
 // Post Review 
-// export const postReview = (id,data) => postApi(`/apartments/${id}/reviews`,data)
+export const postReview = (id,data) => postApi(`/apartments/${id}/reviews`,data)
 
 
 // Post Auth Google

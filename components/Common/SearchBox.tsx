@@ -92,10 +92,10 @@ const SearchBox = ({ searchClasses }) => {
                   </div>
                 );
               })} */}
-              {areaData.map((items) => {
+              {areaData.map((items,index) => {
                 return (
                   <div
-                    key={items.id}
+                    key={index}
                     className="odd:border-r odd:border-[#E1D9CE] odd:mr-[30px] max-md:border-none "
                   >
                     <h2 className="text-base font-semibold mt-[30px]">
