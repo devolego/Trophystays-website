@@ -50,7 +50,7 @@ const AdminListing = () => {
             />
             <div>Filter</div>
           </div> */}
-          <Dropdown dropdownBeforeImg="hidden" />
+          {/* <Dropdown dropdownBeforeImg="hidden" /> */}
           <div className="flex justify-center items-start md:w-[507px] gap-4 max-md:w-full max-md:justify-between max-md:flex-col">
             <div className="relative top-0 left-0 search-bar max-md:w-[100%]">
               <input
@@ -80,16 +80,19 @@ const AdminListing = () => {
             image={BookingHistoryImage1}
             bookingDate="15 Jun 2022 → 20 Jun 2022"
             remainingTime="2 Days, 12:00:00"
+            status="Vacant"
           />
           <AdminBookingHistoryCard
             image={BookingHistoryImage2}
             bookingDate="15 Jun 2022 → 20 Jun 2022"
             remainingTime="2 Days, 12:00:00"
+            status="Booked"
           />
           <AdminBookingHistoryCard
             image={BookingHistoryImage3}
             bookingDate="15 Jun 2022 → 20 Jun 2022"
             remainingTime="2 Days, 12:00:00"
+            status="Booked"
           />
         </div>
       </div>

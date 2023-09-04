@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import BackButton from "../Common/BackButton";
 import FilterBar from "./FilterBar";
@@ -12,9 +13,9 @@ const BookingHistory = () => {
       <div className="container-2xl max-lg:px-4 lg:px-[50px] py-10">
         <BackButton buttonText="History of Bookings" />
 
-        <div className="pb-4">
+        {/* <div className="pb-4">
           <FilterBar />
-        </div>
+        </div> */}
         <BookingHistoryCard
           image={BookingHistoryImage1}
           bookingDate="15 Jun 2022 → 20 Jun 2022"

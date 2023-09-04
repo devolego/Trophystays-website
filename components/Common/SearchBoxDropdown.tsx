@@ -1,9 +1,10 @@
 import Image from "next/image";
 import React from "react";
+import '../../public/styles/utils.css'
 
 const SearchBoxDropdown = ({ imageSrc, seachHeading }) => {
   return (
-    <div className="flex p-4 border rounded-lg border-greyishBrown relative cursor-pointer xl:w-auto w-full max-md:py-2">
+    <div className="flex p-4 border rounded-lg border-greyishBrown relative cursor-pointer xl:w-auto w-full max-md:py-2 z-50 hover:bg-gray-200 z-index-important" style={{zIndex: '100 !important'}}>
       <Image src={imageSrc} alt="" className="mr-3 object-contain" />
       <p className="text-base text-darkGrey after:bg-down-arrow after:absolute after:top-[50%] after:right-[22px] after:-translate-y-2/4 after:w-3 after:bg-no-repeat after:h-2 after:bg-center">
         {seachHeading}
@@ -11,5 +12,6 @@ const SearchBoxDropdown = ({ imageSrc, seachHeading }) => {
     </div>
   );
 };
+
 
 export default SearchBoxDropdown;

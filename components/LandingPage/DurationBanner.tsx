@@ -1,15 +1,19 @@
 import React from 'react'
 
-const DurationBanner = ({ durationObject }) => {
+const DurationBanner = ({ durationObject, backgroundImage }) => {
     const { description, price, duration, features } = durationObject;
     return (
         <div>
-            <div className="mt-10 flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow w-96">
-                <h3 className="mb-4 text-2xl font-semibold"></h3>
-                <p className="font-light text-gray-500 sm:text-lg ">{description}</p>
+            <div className="mt-10 flex flex-col p-6 mx-auto max-w-lg text-center text-white bg-white rounded-lg border border-gray-100 shadow w-96 relative">
+                {/* Background Image with Dark Overlay */}
+                <div style={{ backgroundImage: `url('${backgroundImage}')`, backgroundSize: 'cover', backgroundPosition: 'center' }} className="absolute inset-0 rounded-lg"></div>
+            <div className="absolute inset-0 bg-black opacity-60 rounded-lg"></div>
+            <div className='relative z-10'>
+            <h3 className="mb-4 text-2xl font-semibold"></h3>
+                <p className="font-light text-white sm:text-lg ">{description}</p>
                 <div className="flex justify-center items-baseline my-8">
                     <span className="mr-2 text-5xl font-extrabold">{price}</span>
-                    <span className="text-gray-500 ">/{duration}</span>
+                    <span className="text-white ">/{duration}</span>
                 </div>
                 <ul role="list" className="mb-8 space-y-4 text-left">
                     {features.map((feature) => (
@@ -25,9 +29,16 @@ const DurationBanner = ({ durationObject }) => {
                     ))}
                 </ul>
                 <div className='flex items-end'>
-                    <a href="#" className="bg-primary-600 border border-gray-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Go the /{duration} Way!</a>
+                <a href="#" className="bg-white text-gray-900 border border-gray-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-opacity-50">
+  Go the /{duration} Way!
+</a>
+
+
                 </div>
             </div>
+            </div>
+
+                
         </div>
 
 

@@ -21,9 +21,9 @@ const AdminBookingHistoryCard = (props) => {
               <span className="pb-2 text-base">
                 1 Bed Apartment with Stunning View
               </span>
-              <span className="text-sm">
+              {/* <span className="text-sm">
                 $12,000.00<span className="text-secondary">/Month</span>
-              </span>
+              </span> */}
             </div>
           </div>
 
@@ -69,7 +69,7 @@ const AdminBookingHistoryCard = (props) => {
           </div>
           <div className="flex flex-col col-span-1 ">
             <div className="mb-2 text-base font-medium lg:mb-8">Status</div>
-            <div className="text- font-normal text-[#00AC26]">In Progress</div>
+            <div className="text- font-normal text-[#00AC26]">{props.status}</div>
           </div>
           <div className="flex flex-col col-span-1 ">
             <div className="mb-2 text-base font-medium lg:mb-8">Action</div>

@@ -10,8 +10,23 @@ const Dropdown = ({
   filterIconHidden,
   filterTextStyle,
   dropDownWidth,
+  options,
+  onSelect
 }: any) => {
   const [filtreMenu, setFilterMenu] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(filterText);
+
+  const handleItemClick = (value, label) => {
+    console.log("Item clicked: ", value, label);
+    onSelect(value);  // Pass only the value to onSelect
+    setSelectedOption(label);  // Update the selected option label
+    console.log('selected', selectedOption)
+    setFilterMenu(false);  // Close the dropdown
+    
+  };
+
+  console.log("Current selected option: ", selectedOption)
+
   return (
     <div className={`relative ${dropDownWidth}`}>
       <div
@@ -35,18 +50,25 @@ const Dropdown = ({
             filterTextStyle ? filterTextStyle : "max-sm:pr-[50px] pr-[140px] "
           }`}
         >
-          {filterText ? filterText : "Filter"}
+          {/* {filterText ? filterText : "Filter"} */}
+          {selectedOption}
         </p>
       </div>
       {filtreMenu && (
-        <div className="p-4 rounded-xl grid grid-cols-2 bg-white mt-2 absolute z-[1] bg-white w-full top-[100%]">
-          {arrivalItems.map((items, index) => {
-            return (
-              <div key={index} className="text-base">
-                {items}
-              </div>
-            );
-          })}
+        <div className="p-4 rounded-xl bg-white mt-2 absolute z-[1] bg-white w-full top-[100%]">
+          <div className="flex flex-col">
+            {options.map((item, index) => {
+              return (
+                <div 
+                  key={index} 
+                  className="text-base cursor-pointer hover:bg-gray-200 p-2"
+                  onClick={() => handleItemClick(item.value, item.label)}
+                >
+                  {item.label}
+                </div>
+              );
+            })}
+          </div>
         </div>
       )}
     </div>

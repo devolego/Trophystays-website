@@ -1,9 +1,9 @@
 const config = {
-    serverURL: "https://2a69-2-51-49-156.ngrok-free.app", // Server Base url
-    fileServer: "", // File server url
-    version: "",
-  };
-  
+  serverURL: "https://trophy-test-281550a6867d.herokuapp.com", // Server Base url
+  fileServer: "", // File server url
+  version: "",
+};
+
 export default config;
-  
+
 
