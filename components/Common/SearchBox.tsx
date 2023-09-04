@@ -26,6 +26,7 @@ const SearchBox = ({ searchClasses }) => {
   const [bedRoomItem, setBedRoomItem] = useState(false);
   const [arrivalMenuItem, setArrivalMenuItem] = useState(false);
   const [departureMenuItem, setDepartureMenuItem] = useState(false);
+  const [areaData, setAreaData] = useState([])
   const handleLocationItems = () => {
     setLocationItems(!locationItems);
   };
@@ -42,20 +43,21 @@ const SearchBox = ({ searchClasses }) => {
     setDepartureMenuItem(!departureMenuItem);
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     getAreas()
-    .then((res)=> {
-      // console.log("area res--", res)
-    })
-    .catch((err)=>{
-      console.log("area err--",err)
-    })
-   
-  },[])
+      .then((res) => {
+        console.log("area res--", res)
+        setAreaData(res)
+      })
+      .catch((err) => {
+        console.log("area err--", err)
+      })
+
+  }, [])
 
 
 
-  
+
   return (
     <div
       className={`bg-white p-[30px] rounded-xl shadow-md max-w-[1190px] w-full m-auto relative z-1 ${searchClasses} xl:max-h-[166px] h-full max-xl:h-max`}
@@ -70,8 +72,8 @@ const SearchBox = ({ searchClasses }) => {
         >
           <SearchBoxDropdown imageSrc={locationIcon} seachHeading="Filter" />
           {locationItems && (
-            <div className="p-4 rounded-xl grid grid-cols-2 md:w-[587px] bg-white mt-3 max-md:grid-cols-1 absolute z-[1] bg-white max-md:w-full">
-              {locationFilterItems.map((items) => {
+            <div className="p-4 rounded-xl grid grid-cols-1 md:w-[180px] h-[400px] overflow-y-auto bg-white mt-3 max-md:grid-cols-1 absolute z-[1] bg-white max-md:w-full">
+              {/* {locationFilterItems.map((items) => {
                 return (
                   <div
                     key={items.id}
@@ -87,6 +89,22 @@ const SearchBox = ({ searchClasses }) => {
                         </div>
                       );
                     })}
+                  </div>
+                );
+              })} */}
+              {areaData.map((items) => {
+                return (
+                  <div
+                    key={items.id}
+                    className="odd:border-r odd:border-[#E1D9CE] odd:mr-[30px] max-md:border-none "
+                  >
+                    <h2 className="text-base font-semibold mt-[30px]">
+                      {items.city}
+                    </h2>
+                    <div className="font-extralight p-">
+                      {items.area}
+                    </div>
+
                   </div>
                 );
               })}
