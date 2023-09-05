@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import logoLionImage from "../../images/logo.png";
 import profileImage from "../../images/profile.png";
@@ -8,8 +8,6 @@ import arrowDown from "../../images/arrow-down.png";
 import logoText from "../../images/logo-text.png";
 import { navbarItems } from "../../utils/utilsItems";
 import { usePathname } from "next/navigation";
-
-import { userLogout } from '../../service/service';
 const withLogin = [
   "/tenent",
   "/booking-history",
@@ -26,35 +24,10 @@ const withAdmin = [
   "/admin/setting/login-security",
 ];
 const Navbar = () => {
-  const [authToken, setAuthToken] = useState(null)
-
-  useEffect(() => {
-    const token = localStorage.getItem('auth_token')
-    setAuthToken(token)
-  }, [])
-
-  const isLoggedIn = !!authToken;
   const router = usePathname();
   const isLogin = withLogin.includes(router);
   const isAdmin = withAdmin.includes(router);
   const [userSettingDropdown, setUserSettingDropdown] = useState(false);
-
-
-  const handleLogout = async () => {
-    try {
-      await userLogout()
-
-        // Remove the token from local storage or any state management you're using
-        localStorage.removeItem('auth_token');
-        
-        // Redirect to the home page or login page
-        window.location.href = '/';
-    } catch (error) {
-      console.error('An error occurred:', error);
-    }
-  };
-
-
   return (
     <div
       className={`sticky top-0 left-0 z-20 w-full h-auto bg-white ${
@@ -84,9 +57,15 @@ const Navbar = () => {
                   return (
                     <li
                       key={index}
-                      className="lg:mr-[20px] max-lg:text-2xl lg:text-sm xl:mr-[50px] xl:text-base text-black max-lg:leading-[] "
+                      className={`lg:mr-[20px] mb-5 lg:mb-0 max-lg:text-2xl lg:text-sm xl:mr-[50px] xl:text-base text-black max-lg:leading-[] ${
+                        items.link === router
+                          ? "underline underline-offset-8"
+                          : ""
+                      }`}
                     >
-                      <Link href={`${items.link}`}>{items.name}</Link>
+                      <Link className="" href={`${items.link}`}>
+                        {items.name}
+                      </Link>
                     </li>
                   );
                 })}
@@ -111,7 +90,7 @@ const Navbar = () => {
           )} */}
         </div>
 
-        {isLoggedIn ? (
+        {isLogin ? (
           <div className="relative cursor-pointer">
             <div
               className="flex items-center max-lg:hidden"
@@ -128,7 +107,7 @@ const Navbar = () => {
                     <Link href="/admin/setting">Setting</Link>
                   </li>
                   <li className="my-2 text-base">
-                    <button onClick={handleLogout}>Logout</button>
+                    <Link href="/">Logout</Link>
                   </li>
                 </ul>
               </div>

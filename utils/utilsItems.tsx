@@ -79,10 +79,11 @@ export const locationFilterItems = [
   },
 ];
 
-export const termMenuItems = ["Monthly"];
-export const bedroomsItems = ["1","2","3","4"];
+export const termMenuItems = ["Term"];
+export const bedroomsItems = ["Bedrooms"];
 export const arrivalItems = ["Arrival"];
 export const departureItems = ["Departure"];
+export const furnishingItems = ["Furnishing"];
 
 // export const neighbourhoodsContent = [
 //   {

@@ -11,6 +11,7 @@ import { josefin } from "../../utils/utilsFonts";
 import arrowLeft from "../../images/arrow-with-circle.png";
 import arrowRight from "../../images/arrow-with-circle-dark.png";
 import Image from "next/image";
+import Button from "../Common/Button";
 
 const SixSteps = () => {
   return (
@@ -20,11 +21,11 @@ const SixSteps = () => {
           className={`text-[40px] mb-4 max-w-[452px] w-full ${josefin.className} max-lg:text-[32px] max-lg:leading-[40px]`}
         >
           Six easy steps to start
-
-          <p className="text-[18px] font-light">Six easy steps to start
-            For you to become a partner and tap into the upside of your asset</p>
+          <p className="text-[18px] font-light">
+            Six easy steps to start For you to become a partner and tap into the
+            upside of your asset
+          </p>
         </h2>
-
 
         <div className="flex gap-6 pr-[124px] cursor-pointer max-lg:hidden">
           <Image className="object-contain w-[55px]" src={arrowLeft} alt="" />
@@ -33,11 +34,10 @@ const SixSteps = () => {
       </div>
 
       <div className="grid lg:grid-cols-3 lg:px-[124px] gap-[30px]">
-
         <CardImgWithText
           cardClass="bg-lightBrown px-[27px] pb-11"
           cardImage={Step1}
-          stepName = {1}
+          stepName={1}
           cardImageStyle="h-7 object-contain mt-[65px] mb-10"
           cardHeading="Submit Your Property for Review"
           cardHeadingStyle="text-center"
@@ -48,7 +48,7 @@ const SixSteps = () => {
 
         <CardImgWithText
           cardClass={`bg-lightBrown px-[27px] pb-11`}
-          stepName = {2}
+          stepName={2}
           cardImage={Step2}
           cardImageStyle="h-7 object-contain mt-[65px] mb-10"
           cardHeading="Onboarding"
@@ -62,7 +62,7 @@ const SixSteps = () => {
         <CardImgWithText
           cardClass={`bg-lightBrown px-[27px] pb-11`}
           cardImage={Step3}
-          stepName = {3}
+          stepName={3}
           cardImageStyle="h-7 object-contain mt-[65px] mb-10"
           cardHeading="Listing Creation"
           cardHeadingStyle="text-center"
@@ -74,7 +74,7 @@ const SixSteps = () => {
         <CardImgWithText
           cardClass={`bg-lightBrown px-[27px] pb-11`}
           cardImage={Step3}
-          stepName = {4}
+          stepName={4}
           cardImageStyle="h-7 object-contain mt-[65px] mb-10"
           cardHeading="Listing Creation"
           cardHeadingStyle="text-center"
@@ -86,7 +86,7 @@ const SixSteps = () => {
         <CardImgWithText
           cardClass={`bg-lightBrown px-[27px] pb-11`}
           cardImage={Step3}
-          stepName = {5}
+          stepName={5}
           cardImageStyle="h-7 object-contain mt-[65px] mb-10"
           cardHeading="Listing Creation"
           cardHeadingStyle="text-center"
@@ -98,7 +98,7 @@ const SixSteps = () => {
         <CardImgWithText
           cardClass={`bg-lightBrown px-[27px] pb-11`}
           cardImage={Step3}
-          stepName = {6}
+          stepName={6}
           cardImageStyle="h-7 object-contain mt-[65px] mb-10"
           cardHeading="Listing Creation"
           cardHeadingStyle="text-center"
@@ -106,10 +106,17 @@ const SixSteps = () => {
           cardPara="We will create listing of your property, take professional pastures ensuring it stands out on all booking platforms."
           cardParaStyle="text-darkGrey text-center"
         />
-
       </div>
-    </div>
-  )
-}
 
-export default SixSteps
+      <Button
+        className="my-20"
+        ButtonText={"Contact Us"}
+        ButtonClasses={
+          "w-fit flex items-center text-white justify-center max-h-[58px] max-xl:w-full mx-auto mt-10"
+        }
+      ></Button>
+    </div>
+  );
+};
+
+export default SixSteps;
