@@ -23,6 +23,8 @@ export const registerEmail = (data) => postApi('/register-email', data)
 
 export const verifyEmail = (otp) => getApi(`/verify-email?verificationToken=${otp}`)
 
+export const resendVerifyEmail = (email) => postApi('/resend-verification-email', email)
+
 export const userRegister = (data) => postApi('/register', data)
 
 // Forgot Password 

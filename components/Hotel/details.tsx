@@ -10,6 +10,7 @@ import sliderImg2 from "../../images/hero.png";
 import sliderImg3 from "../../images/login-form-img-1.png";
 import Link from "next/link";
 import heartImg from "../../images/heart-icon-outline.png";
+import heartFillImg from "../../images/heart-icon.png";
 import multiPerson from "../../images/multi-person.png";
 import bedRoomIcon from "../../images/bedroom-icon.png";
 import bathTubIcon from "../../images/bathtub-icon.png";
@@ -91,7 +92,7 @@ const PropertyDetails = () => {
   }, []);
 
   const handleLike = () => {
-    addRemoveWishList({ propertyId: property?.id })
+    addRemoveWishList({ propertyId: (property?.id).toString() })
       .then((res) => {
         console.log("res wishlist", res);
       })
@@ -136,7 +137,19 @@ const PropertyDetails = () => {
               {property?.headline}
             </h1>
             <div onClick={handleLike}>
-              <Image src={heartImg} alt="" className="w-[36px] h-[36px] cursor-pointer" />
+              {property?.isWishlisted === false ? (
+                <Image
+                  src={heartImg}
+                  alt=""
+                  className="w-[36px] h-[36px] cursor-pointer"
+                />
+              ) : (
+                <Image
+                  src={heartFillImg}
+                  alt=""
+                  className="w-[36px] h-[36px] cursor-pointer"
+                />
+              )}
             </div>
           </div>
           <div className="room-details flex gap-2 mt-[12px] justify-between flex-wrap mb-6">
