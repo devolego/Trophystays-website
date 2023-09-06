@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { josefin } from "../../utils/utilsFonts";
 import Button from "./Button";
 import Dropdown from "./Dropdown";
@@ -17,6 +17,8 @@ import {
   termMenuItems,
 } from "../../utils/utilsItems";
 import SearchBoxDropdown from "./SearchBoxDropdown";
+import { getAreas } from "../../service/service";
+import axios from "axios";
 
 const SearchBox = ({ searchClasses }) => {
   const [locationItems, setLocationItems] = useState(false);
@@ -24,6 +26,9 @@ const SearchBox = ({ searchClasses }) => {
   const [bedRoomItem, setBedRoomItem] = useState(false);
   const [arrivalMenuItem, setArrivalMenuItem] = useState(false);
   const [departureMenuItem, setDepartureMenuItem] = useState(false);
+  const [areaData, setAreaData] = useState([])
+  const[areaName, setAreaName] = useState("")
+  
   const handleLocationItems = () => {
     setLocationItems(!locationItems);
   };
@@ -39,6 +44,25 @@ const SearchBox = ({ searchClasses }) => {
   const handleDepartureMenuItem = () => {
     setDepartureMenuItem(!departureMenuItem);
   };
+
+  useEffect(() => {
+    getAreas()
+      .then((res) => {
+        console.log("area res--", res)
+        setAreaData(res)
+      })
+      .catch((err) => {
+        console.log("area err--", err)
+      })
+
+  }, [])
+
+  
+const getAreaName = (items:any)=>{
+  console.log(items)
+  setAreaName(items?.area)
+}
+
   return (
     <div
       className={`bg-white p-[30px] rounded-xl shadow-md max-w-[1190px] w-full m-auto relative z-1 ${searchClasses} xl:max-h-[166px] h-full max-xl:h-max`}
@@ -46,15 +70,15 @@ const SearchBox = ({ searchClasses }) => {
       <h3 className={`text-2xl ${josefin.className} mb-4`}>
         Search for your most needed hotels.
       </h3>
-      <div className="flex justify-between gap-4 relative max-xl:grid max-xl:grid-cols-3 max-md:grid-cols-1">
+      <div className="relative flex justify-between gap-4 max-xl:grid max-xl:grid-cols-3 max-md:grid-cols-1">
         <div
           className="relative xl:w-[185px] max-xl:w-full"
           onClick={handleLocationItems}
         >
-          <SearchBoxDropdown imageSrc={locationIcon} seachHeading="Filter" />
+          <SearchBoxDropdown imageSrc={locationIcon} seachHeading={areaName ? areaName : "Filter"} />
           {locationItems && (
-            <div className="p-4 rounded-xl grid grid-cols-2 md:w-[587px] bg-white mt-3 max-md:grid-cols-1 absolute z-[1] bg-white max-md:w-full">
-              {locationFilterItems.map((items) => {
+            <div className="p-4 rounded-xl grid grid-cols-1 md:w-[180px] h-[350px] overflow-y-auto bg-white mt-3 max-md:grid-cols-1 absolute z-[1] bg-white max-md:w-full">
+              {/* {locationFilterItems.map((items) => {
                 return (
                   <div
                     key={items.id}
@@ -70,6 +94,23 @@ const SearchBox = ({ searchClasses }) => {
                         </div>
                       );
                     })}
+                  </div>
+                );
+              })} */}
+              {areaData.map((items,index) => {
+                return (
+                  <div
+                    key={index}
+                    className="cursor-pointer max-md:border-none"
+                    onClick={()=> getAreaName(items)}
+                  >
+                    <h2 className="text-base font-semibold mt-[20px]">
+                      {items.city}
+                    </h2>
+                    <div className="font-extralight p-">
+                      {items.area}
+                    </div>
+
                   </div>
                 );
               })}
@@ -88,7 +129,7 @@ const SearchBox = ({ searchClasses }) => {
               {termMenuItems.map((items, index) => {
                 return (
                   <div key={index} className="">
-                    <h2 className="text-base ">{items}</h2>
+                    <h2 className="text-base">{items}</h2>
                   </div>
                 );
               })}
@@ -103,7 +144,7 @@ const SearchBox = ({ searchClasses }) => {
         >
           <SearchBoxDropdown imageSrc={bedroomIcon} seachHeading="Bedrooms" />
           {bedRoomItem && (
-            <div className="p-4 rounded-xl grid grid-cols-2 bg-white mt-3 absolute z-[1] bg-white w-full">
+            <div className="p-4 rounded-xl grid grid-cols-1 bg-white mt-3 absolute z-[1] bg-white w-full">
               {bedroomsItems.map((items, index) => {
                 return (
                   <div key={index} className="text-base">
@@ -151,6 +192,7 @@ const SearchBox = ({ searchClasses }) => {
               })}
             </div>
           )}
+          {/* <input type="date"  className="py-[16px] mb-[30px] px-6 border border-greyishBrown rounded-[8px] w-full"/> */}
         </div>
 
         <Button

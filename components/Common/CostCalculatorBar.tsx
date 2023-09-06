@@ -35,10 +35,10 @@ const SearchBox = ({ searchClasses }) => {
       className={`bg-white p-[30px] rounded-xl shadow-md max-w-[1190px] w-full m-auto relative z-1 ${searchClasses} xl:max-h-[500px] h-full max-xl:h-max`}
     >
       <h3 className={`text-2xl ${josefin.className} mb-4`}>
-        Estimate Your Revenue <span className=" text-gray-500">(AED)</span>
+        Estimate Your Revenue <span className="text-gray-500 ">(AED)</span>
       </h3>
 
-      <div className="flex justify-between gap-1 relative max-xl:grid max-xl:grid-cols-3 max-md:grid-cols-1">
+      <div className="relative flex justify-between gap-1 max-xl:grid max-xl:grid-cols-3 max-md:grid-cols-1">
         <div
           className="relative xl:w-full max-xl:w-full"
           onClick={handleLocationItems}
@@ -131,7 +131,7 @@ const SearchBox = ({ searchClasses }) => {
           type="range"
           min="90"
           max="365"
-          className="slider w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-500 accent-gray-700 "
+          className="w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer slider dark:bg-gray-500 accent-gray-700 "
         />
 
         <div className="flex justify-between w-full pt-2">
@@ -143,8 +143,8 @@ const SearchBox = ({ searchClasses }) => {
       </div>
 
       {/* Result */}
-      <div className="flex flex-col mt-6 items-center">
-        <div className="text-4xl bg-gray-200 w-full p-5 rounded-md text-center">
+      <div className="flex flex-col items-center mt-6">
+        <div className="w-full p-5 text-4xl text-center bg-gray-200 rounded-md">
           114 756
         </div>
       </div>

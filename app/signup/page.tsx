@@ -1,10 +1,14 @@
-import React from "react";
-import SignUp from "../../components/Authentication/SignUp";
-
-const signUp = () => {
-  return <React.Fragment>
-    <SignUp />
-  </React.Fragment>;
+"use client";
+import React, { useState } from "react";
+import SignUpComponent from "../../components/Authentication/SignUp";
+import {ToastContainer} from 'react-toastify';
+const SignUp = () => {
+  return (
+    <React.Fragment>
+      <ToastContainer/>
+      <SignUpComponent />
+    </React.Fragment>
+  );
 };
 
-export default signUp;
+export default SignUp;

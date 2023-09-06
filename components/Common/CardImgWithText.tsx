@@ -32,7 +32,7 @@ const CardImgWithText = ({
           src={cardImage}
           alt=""
         />
-        <h6 className="text-2xl font-semibold text-white absolute bottom-5 left-1/2 transform -translate-x-1/2">
+        <h6 className="absolute text-2xl font-semibold text-white transform -translate-x-1/2 bottom-5 left-1/2">
           {cardOverlapText}
         </h6>
       </div>
