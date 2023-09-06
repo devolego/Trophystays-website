@@ -27,6 +27,8 @@ const SearchBox = ({ searchClasses }) => {
   const [arrivalMenuItem, setArrivalMenuItem] = useState(false);
   const [departureMenuItem, setDepartureMenuItem] = useState(false);
   const [areaData, setAreaData] = useState([])
+  const[areaName, setAreaName] = useState("")
+  
   const handleLocationItems = () => {
     setLocationItems(!locationItems);
   };
@@ -55,8 +57,11 @@ const SearchBox = ({ searchClasses }) => {
 
   }, [])
 
-
-
+  
+const getAreaName = (items:any)=>{
+  console.log(items)
+  setAreaName(items?.area)
+}
 
   return (
     <div
@@ -70,7 +75,7 @@ const SearchBox = ({ searchClasses }) => {
           className="relative xl:w-[185px] max-xl:w-full"
           onClick={handleLocationItems}
         >
-          <SearchBoxDropdown imageSrc={locationIcon} seachHeading="Filter" />
+          <SearchBoxDropdown imageSrc={locationIcon} seachHeading={areaName ? areaName : "Filter"} />
           {locationItems && (
             <div className="p-4 rounded-xl grid grid-cols-1 md:w-[180px] h-[350px] overflow-y-auto bg-white mt-3 max-md:grid-cols-1 absolute z-[1] bg-white max-md:w-full">
               {/* {locationFilterItems.map((items) => {
@@ -96,7 +101,8 @@ const SearchBox = ({ searchClasses }) => {
                 return (
                   <div
                     key={index}
-                    className=" max-md:border-none"
+                    className="cursor-pointer max-md:border-none"
+                    onClick={()=> getAreaName(items)}
                   >
                     <h2 className="text-base font-semibold mt-[20px]">
                       {items.city}

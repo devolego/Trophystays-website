@@ -48,8 +48,7 @@ const FinishRegistering = () => {
       });
   };
 
-  const togglePassword = (event: any) => {
-    event.preventDefault();
+  const togglePassword = () => {
     setIsPasswordVisible(!isPasswordVisible);
   };
 
@@ -111,6 +110,7 @@ const FinishRegistering = () => {
                 <button
                   className="absolute inset-y-0 right-0 flex items-center px-4"
                   onClick={togglePassword}
+                  type="button"
                 >
                   {isPasswordVisible ? (
                     <AiFillEye className="text-2xl text-greyishBrown" />

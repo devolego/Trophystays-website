@@ -43,8 +43,6 @@ export const postReview = (id,data) => postApi(`/apartments/${id}/reviews`,data)
 // Post Auth Google
 export const googleLogin = () => getApi('/auth/google')
 
-
-
 // Wish list
 export const addRemoveWishList = (data) => postApi('/wishlist',data)
 

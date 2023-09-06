@@ -59,12 +59,10 @@ const NewPassword = () => {
     }
   };
 
-  const toggleNewPassword = (event: any) => {
-    event.preventDefault();
+  const toggleNewPassword = () => {
     setIsNewPasswordVisible(!isNewPasswordVisible);
   };
-  const toggleConfirmPassword = (event: any) => {
-    event.preventDefault();
+  const toggleConfirmPassword = () => {
     setIsConfirmPasswordVisible(!isConfirmPasswordVisible);
   };
 
@@ -92,6 +90,7 @@ const NewPassword = () => {
                 <button
                   className="absolute inset-y-0 right-0 flex items-center px-4"
                   onClick={toggleNewPassword}
+                  type="button"
                 >
                   {isNewPasswordVisible ? (
                     <AiFillEye className="text-2xl text-greyishBrown" />
@@ -117,6 +116,7 @@ const NewPassword = () => {
                 <button
                   className="absolute inset-y-0 right-0 flex items-center px-4"
                   onClick={toggleConfirmPassword}
+                  type="button"
                 >
                   {isConfirmPasswordVisible ? (
                     <AiFillEye className="text-2xl text-greyishBrown" />

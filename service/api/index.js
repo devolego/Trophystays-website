@@ -16,7 +16,7 @@ export const getApi = async (action, url) => {
     // Axios.defaults.headers.common['ngrok-skip-browser-warning'] = 'true';
     let apiUrl = `${config.serverURL + config.version}${action}`;
     const response = await Axios.get(apiUrl);
-    console.log(response,apiUrl);
+    // console.log(response,apiUrl);
 
     return response?.data;
   } catch (error) {
