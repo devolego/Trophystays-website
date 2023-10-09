@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Inter, Poppins } from "next/font/google";
 import Layout from "../components/Layout";
+import GTM from '../components/Common/GTM';
 
 // const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({
@@ -33,6 +34,7 @@ export default function RootLayout({
       /> */}
       <body className={`${poppins.className}`}>
         <Layout>
+          <GTM />
           <div>{children}</div>
         </Layout>
       </body>

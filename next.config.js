@@ -3,6 +3,12 @@
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+
+    images: {
+        domains: ['uc.orez.io']
+    },
+
+
     async headers() {
         return [
             {

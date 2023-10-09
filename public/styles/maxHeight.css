@@ -1,0 +1,12 @@
+.maxHeight {
+    max-height: 500px;
+}
+
+.objectPosTop {
+    object-position: center;
+}
+
+.dims {
+    width: 320px;
+    height: 280px;
+}

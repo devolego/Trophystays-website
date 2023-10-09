@@ -10,6 +10,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import CustomTooltip from '../Common/CustomToolTip';
 
 const data = [
   {
@@ -45,12 +46,16 @@ const data = [
 ];
 
 const LineChartCommon = (props: any) => {
+
+  console.log('LineChart Props', props.data)
+
+
   return (
     <ResponsiveContainer width="100%" height={140}>
       <AreaChart
         width={500}
         height={200}
-        data={data}
+        data={props.data || []}
         syncId="anyId"
         margin={{
           top: 10,
@@ -62,12 +67,15 @@ const LineChartCommon = (props: any) => {
         {/* <CartesianGrid strokeDasharray="3 3" /> */}
         {/* <XAxis dataKey="name" />
       <YAxis /> */}
-        <Tooltip />
+      <XAxis dataKey="name" hide={true}/>
+        <Tooltip content={<CustomTooltip {...props} percentage={props.percentage} bookings={props.bookings}/>} />
+
         <Area
           type="monotone"
           dataKey={props.dataKey}
           stroke={props.color}
           fill={props.color}
+
         />
       </AreaChart>
     </ResponsiveContainer>

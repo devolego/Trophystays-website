@@ -13,18 +13,18 @@ export const navbarItems = [
     name: "Host with us",
     link: "/host-with-us",
   },
-  {
-    name: "About Us",
-    link: "/about",
-  },
-  {
-    name: "Reviews",
-    link: "/reviews",
-  },
-  {
-    name: "Blogs",
-    link: "/blogs",
-  },
+  // {
+  //   name: "About Us",
+  //   link: "/about",
+  // },
+  // {
+  //   name: "Reviews",
+  //   link: "/reviews",
+  // },
+  // {
+  //   name: "Blogs",
+  //   link: "/blogs",
+  // },
   {
     name: "Contact us",
     link: "/contact",

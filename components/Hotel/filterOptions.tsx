@@ -6,14 +6,35 @@ import mapIcon from "../../images/map-icon.png";
 import mapWhiteIcon from "../../images/map-icon-white.png";
 import Dropdown from "../Common/Dropdown";
 
-const FilterOptions = ({ listOrMapView }: any) => {
+const FilterOptions = ({ listOrMapView, onSortChange, sortOption, setSortOption }: any) => {
   const [mapView, setMapView] = useState(false);
+  const [selectedSort, setSelectedSort] = useState(null);
+
   const handleMapView = () => {
     setMapView(!mapView);
   };
+
+  const handleSortSelect = (value) => {
+    console.log('hre')
+    setSortOption(value)
+    // here you can also call any function to perform sorting, for instance:
+    // performSort(value);
+  };
+
+  const sortOptions = [
+    { label: "Low to High", value: "ascending" },
+    { label: "High to Low", value: "descending" },
+    // ... (add more options as necessary)
+  ];
+
   return (
     <div className="flex items-center justify-between mb-10 flex-wrap gap-5">
-      <Dropdown />
+      <Dropdown 
+        options={sortOptions}
+        onSelect={handleSortSelect}
+        filterText="Sort"
+      />
+      
       <div
         className="flex border rounded-lg border-greyishBrown cursor-pointer"
         onClick={() => {

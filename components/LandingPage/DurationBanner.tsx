@@ -8,7 +8,7 @@ const DurationBanner = ({ durationObject, backgroundImage }) => {
                 {/* Background Image with Dark Overlay */}
                 <div style={{ backgroundImage: `url('${backgroundImage}')`, backgroundSize: 'cover', backgroundPosition: 'center' }} className="absolute inset-0 rounded-lg"></div>
             <div className="absolute inset-0 bg-black opacity-60 rounded-lg"></div>
-            <div className='relative z-10'>
+            <div className='relative'>
             <h3 className="mb-4 text-2xl font-semibold"></h3>
                 <p className="font-light text-white sm:text-lg ">{description}</p>
                 <div className="flex justify-center items-baseline my-8">

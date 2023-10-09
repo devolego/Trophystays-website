@@ -43,7 +43,7 @@ const SearchBox = ({ searchClasses }) => {
           className="relative xl:w-full max-xl:w-full"
           onClick={handleLocationItems}
         >
-          <SearchBoxDropdown imageSrc={locationIcon} seachHeading="Area" />
+          {/* <SearchBoxDropdown imageSrc={locationIcon} seachHeading="Area" /> */}
           {locationItems && (
             <div className="p-4 rounded-xl grid grid-cols-2 md:w-[587px] bg-white mt-3 max-md:grid-cols-1 absolute z-[1] max-md:w-full">
               {locationFilterItems.map((items) => {
@@ -74,7 +74,7 @@ const SearchBox = ({ searchClasses }) => {
           className="relative xl:w-full max-xl:w-full"
           onClick={handleBedRoomItem}
         >
-          <SearchBoxDropdown imageSrc={bedroomIcon} seachHeading="Bedrooms" />
+          {/* <SearchBoxDropdown imageSrc={bedroomIcon} seachHeading="Bedrooms" /> */}
           {bedRoomItem && (
             <div className="p-4 rounded-xl grid grid-cols-2 bg-white mt-3 absolute z-[1] w-full">
               {bedroomsItems.map((items, index) => {
@@ -93,10 +93,10 @@ const SearchBox = ({ searchClasses }) => {
           className="relative xl:w-full max-xl:w-full"
           onClick={handleFurnishingItem}
         >
-          <SearchBoxDropdown
+          {/* <SearchBoxDropdown
             imageSrc={bedroomIcon}
             seachHeading="Furnishing & View"
-          />
+          /> */}
           {furnishingItem && (
             <div className="p-4 rounded-xl grid grid-cols-2 bg-white mt-3 absolute z-[1] w-full">
               {furnishingItems.map((items, index) => {

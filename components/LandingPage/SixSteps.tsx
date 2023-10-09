@@ -27,10 +27,10 @@ const SixSteps = () => {
           </p>
         </h2>
 
-        <div className="flex gap-6 pr-[124px] cursor-pointer max-lg:hidden">
+        {/* <div className="flex gap-6 pr-[124px] cursor-pointer max-lg:hidden">
           <Image className="object-contain w-[55px]" src={arrowLeft} alt="" />
           <Image className="object-contain w-[55px]" src={arrowRight} alt="" />
-        </div>
+        </div> */}
       </div>
 
       <div className="grid lg:grid-cols-3 lg:px-[124px] gap-[30px]">

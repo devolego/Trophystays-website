@@ -28,7 +28,7 @@ var settings = {
 const CardWithSlider = (props) => {
   return (
     <div className="bg-white rounded-[16px] overflow-hidden hotel-card-design">
-      <Slider {...settings}>
+      {/* <Slider {...settings}>
         <div className="relative before:bg-slider-overlay before:absolute before:h-full before:w-full before:top-0 before:left-0">
           <Image
             className="w-full h-[240px] object-cover"
@@ -60,52 +60,90 @@ const CardWithSlider = (props) => {
             alt=""
           />
         </div>
-      </Slider>
-      <div className="text-white bg-black bg-opacity-50 px-[11px] py-[3px] -mt-[45px] relative z-1 w-max ml-4 rounded-2xl mb-[10px]">
-        $12.00<span className="text-secondary">/Month</span>
+      </Slider> */}
+
+<Slider {...settings}>
+  {props.imgUrls && props.imgUrls.length > 0 ? (
+    props.imgUrls.map((imgUrl, index) => (
+      <div key={index} className="relative before:bg-slider-overlay before:absolute before:h-full before:w-full before:top-0 before:left-0">
+        <Image
+          className="w-full h-[240px] object-cover"
+          src={imgUrl}
+          alt=""
+          width={500}  // specify a width here
+          height={240} // specify a height here
+        />
       </div>
+    ))
+  ) : (
+    <div className="relative before:bg-slider-overlay before:absolute before:h-full before:w-full before:top-0 before:left-0">
+      <p>No Images Available</p>
+    </div>
+  )}
+</Slider>
+
+
+      <div className="text-white bg-black bg-opacity-50 px-[11px] py-[3px] -mt-[45px] relative z-1 w-max ml-4 rounded-2xl mb-[10px]">
+        {props.priceFrom} AED<span className="text-secondary"> /{props.isMonthly ? 'Monthly' : 'Daily'}
+</span></div>
       <div className="px-4 py-6">
         <div className="flex items-center justify-between rating-like ">
           <div className="flex gap-1 mb-2 starts">
-            {props.rating === "5.0" ? (
-              <>
-                <Image className="object-contain" src={startImg} alt="" />
-                <Image className="object-contain" src={startImg} alt="" />
-                <Image className="object-contain" src={startImg} alt="" />
-                <Image className="object-contain" src={startImg} alt="" />
-                <Image className="object-contain" src={startImg} alt="" />
-              </>
-            ) : props.rating === "4.0" ? (
-              <>
-                <Image className="object-contain" src={startImg} alt="" />
-                <Image className="object-contain" src={startImg} alt="" />
-                <Image className="object-contain" src={startImg} alt="" />
-                <Image className="object-contain" src={startImg} alt="" />
-                <Image
-                  className="object-contain"
-                  src={startOutlineImg}
-                  alt=""
-                />
-              </>
-            ) : props.rating === "3.0" ? (
-              <>
-                <Image className="object-contain" src={startImg} alt="" />
-                <Image className="object-contain" src={startImg} alt="" />
-                <Image className="object-contain" src={startImg} alt="" />
-                <Image
-                  className="object-contain"
-                  src={startOutlineImg}
-                  alt=""
-                />
-                <Image
-                  className="object-contain"
-                  src={startOutlineImg}
-                  alt=""
-                />
-              </>
-            ) : (
-              ""
-            )}
+          {props.rating === "5.0" && (
+  <>
+    <Image className="object-contain" src={startImg} alt="" />
+    <Image className="object-contain" src={startImg} alt="" />
+    <Image className="object-contain" src={startImg} alt="" />
+    <Image className="object-contain" src={startImg} alt="" />
+    <Image className="object-contain" src={startImg} alt="" />
+  </>
+)}
+{props.rating === "4.0" && (
+  <>
+    <Image className="object-contain" src={startImg} alt="" />
+    <Image className="object-contain" src={startImg} alt="" />
+    <Image className="object-contain" src={startImg} alt="" />
+    <Image className="object-contain" src={startImg} alt="" />
+    <Image className="object-contain" src={startOutlineImg} alt="" />
+  </>
+)}
+{props.rating === "3.0" && (
+  <>
+    <Image className="object-contain" src={startImg} alt="" />
+    <Image className="object-contain" src={startImg} alt="" />
+    <Image className="object-contain" src={startImg} alt="" />
+    <Image className="object-contain" src={startOutlineImg} alt="" />
+    <Image className="object-contain" src={startOutlineImg} alt="" />
+  </>
+)}
+{props.rating === "2.0" && (
+  <>
+    <Image className="object-contain" src={startImg} alt="" />
+    <Image className="object-contain" src={startImg} alt="" />
+    <Image className="object-contain" src={startOutlineImg} alt="" />
+    <Image className="object-contain" src={startOutlineImg} alt="" />
+    <Image className="object-contain" src={startOutlineImg} alt="" />
+  </>
+)}
+{props.rating === "1.0" && (
+  <>
+    <Image className="object-contain" src={startImg} alt="" />
+    <Image className="object-contain" src={startOutlineImg} alt="" />
+    <Image className="object-contain" src={startOutlineImg} alt="" />
+    <Image className="object-contain" src={startOutlineImg} alt="" />
+    <Image className="object-contain" src={startOutlineImg} alt="" />
+  </>
+)}
+{props.rating === "0.0" && (
+  <>
+    <Image className="object-contain" src={startOutlineImg} alt="" />
+    <Image className="object-contain" src={startOutlineImg} alt="" />
+    <Image className="object-contain" src={startOutlineImg} alt="" />
+    <Image className="object-contain" src={startOutlineImg} alt="" />
+    <Image className="object-contain" src={startOutlineImg} alt="" />
+  </>
+)}
+
             <span>{props.rating}</span>
           </div>
           <div>
@@ -121,7 +159,7 @@ const CardWithSlider = (props) => {
           </div>
         </div>
         <Image className="my-2" src={greylineImg} alt="" />
-        <Link href={`property-details/1Aserdwaaxxde${props.id}`}>
+        <Link href={`property-details/${props.ownerRezId}`}>
           <p className={`text-base ${josefin.className}`}>{props.paraText}</p>
         </Link>
         <div className="room-details flex gap-2 mt-[12px] justify-between flex-wrap">

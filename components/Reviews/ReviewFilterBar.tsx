@@ -39,7 +39,7 @@ const ReviewFilterBar: React.FC<ReviewFilterBarProps> = ({ onSearchChange }) => 
         <div>
           <h6 className="mb-2 font-medium">Sort by</h6>
           <Dropdown
-            filterText="Most Recent Stay"
+            filterText="Recent Stay"
             filterIconHidden="hidden"
             filterTextStyle="pr-0"
             dropDownWidth="w-full"
@@ -51,7 +51,7 @@ const ReviewFilterBar: React.FC<ReviewFilterBarProps> = ({ onSearchChange }) => 
           <h6 className="mb-2 font-medium">Filter by</h6>
           <div className="flex gap-4 max-md:flex-col max-md:gap-5">
             <Dropdown
-              filterText="All Stars"
+              filterText="Stars"
               filterIconHidden="hidden"
               filterTextStyle="pr-0"
               dropDownWidth="w-full"

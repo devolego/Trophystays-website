@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
@@ -25,16 +26,27 @@ import Amenities from "./amenities";
 import CustomModal from "../Common/CustomModal";
 import DatePicker from "../Common/DatePicker";
 import { getListing } from "../../service/service";
+import { useRouter, useParams } from 'next/navigation';
+import DOMPurify from 'dompurify'
+import HtmlContent from '../Common/HtmlContent';
+import 'mapbox-gl/dist/mapbox-gl.css'
+import Map, {GeolocateControl, Marker, Popup} from 'react-map-gl'
+import axios from 'axios';
 
 var settings = {
   dots: false,
   infinite: true,
   speed: 500,
-  slidesToScroll: 2,
-  variableWidth: true,
+  slidesToScroll: 1,
+  variableWidth: false,
 };
 
 interface Property {
+  locationDescription: any;
+  accommodationsDetail: any;
+  accomadotionsDetail: any;
+  accomadationsDetail: any;
+  description: any;
   _id: string;
   longitude: number;
   latitude: number;
@@ -50,6 +62,13 @@ interface Property {
   priceTo: number;
   isMonthly: boolean;
   isWishlisted: boolean;
+  headline: string;
+  address: any;
+  city: string;
+  sleepsMax: number;
+  bedroomCount: number;
+  bathroomCount: number;
+  // amenities: any;
 }
 
 interface PropertyImage {
@@ -61,57 +80,130 @@ interface PropertyImage {
 
 
 const PropertyDetails = () => {
+
+  const [partImages, setPartImages] = useState(null)
+  async function findParticularListingImages(ownerRezId) {
+    try {
+      const response = await axios.get(`https://trophy-test-281550a6867d.herokuapp.com/listings?part=true&propertyId=${ownerRezId}`);
+      console.log('IMAGES', response?.data[0]?.images)
+      setPartImages(response.data[0].images)
+    } catch (error) {
+      console.error('Error fetching images:', error);
+      // Optionally, you might want to handle the error differently or return a fallback value
+      return null;
+    }
+  }
+
+  const [dates, setDates] = useState(null)
+  async function findUnavailableDates(propertyId) {
+    try {
+      // Get the current date
+      const now = new Date();
+      // Format the start date as yyyy-mm-dd
+      const startDate = now.toISOString().split('T')[0];
+      console.log('Start date: ' + startDate);
+      
+      // // Calculate the end date as one year from now
+      // const endDateObject = new Date(now.setFullYear(now.getFullYear() + 1));
+      // // Format the end date as yyyy-mm-dd
+      // const endDate = endDateObject.toISOString().split('T')[0];
+  
+      // Make the API request
+      const response = await axios.get(`https://trophy-test-281550a6867d.herokuapp.com/datesavailable`, {
+        params: {
+          propertyId,
+          start: startDate,
+        }
+      });
+
+      
+      setDates(response.data)
+      console.log(response.data)
+      // Now you have an array of unavailable dates
+      return response.data;
+    } catch (error) {
+      console.error(error);
+      throw new Error('Error fetching unavailable dates');
+    }
+  }
+  
+
+
+  
+  const searchParams = useParams()
+  console.log('params:', searchParams)
+  const propertyId = searchParams.id
+  const [loading, setLoading] = useState(true)
   const [showModal, setShowModal] = React.useState<boolean>(false);
   const [property, setProperty] = useState<Property>();
   const [showCalenderModal, setShowCalenderModal] =
     React.useState<boolean>(false);
 
   useEffect(() => {
-    getListing(399269)
+    setLoading(true);
+    getListing(propertyId)
       .then((response: Property) => {
         setProperty(response)
+        findParticularListingImages(propertyId)
+        findUnavailableDates(propertyId)
+        console.log('RESPONSE:', response)
+        // console.log('YOPPP', property)
+        setLoading(false);
       })
       .catch(error => {
         console.error('Error fetching tasks:', error);
+        setLoading(false);
       });
-  }, [])
+  }, [propertyId])
+
+  const [map, setMap] = useState({
+    latitude: property?.latitude,
+    longitude: property?.longitude,
+    zoom: 10
+  })
+
+  if (loading) {
+    return <div>Loading...</div>
+  }
+
+  
 
   return (
     <div>
-      <div className="relative overflow-hidden property-detail hotel-suggestion">
-        <Slider {...settings} className="h-[450px]">
-          {property?.images?.map((image) => (
-            <Image
-              key={image._id}
-              className="w-full object-cover h-[450px]  md:!w-[40vw]"
-              src={image.croppedUrl}
-              alt=""
-            />
-          ))}
-        </Slider>
-
-        <div className="absolute bottom-[40px] left-[50px] flex gap-5 max-md:flex-wrap max-md:bottom-5 max-md:gap-3 max-md:pr-4">
-          <span className="px-3 py-2 text-white rounded-lg bg-black/50">
-            East Austin, Austin
-          </span>
-          <span className="px-3 py-2 text-white rounded-lg bg-black/50">
-            Available from: 18 May 2023
-          </span>
-          <span className="px-3 py-2 text-white rounded-lg bg-black/50">
-            See All
-          </span>
+<div className="relative overflow-hidden property-detail hotel-suggestion">
+  <Slider {...settings} className="h-[750px] xl:h-[800px] 2xl:h-[1100px] md:h-[500px] sm:h-[350px]">
+    {partImages?.slice(0, 10).map((image) => (
+      <div key={image._id} className="w-full h-full relative">
+        <div className="w-full h-full relative">
+          <img
+            src={image.originalUrl}
+            alt=""
+            className="object-cover w-full h-auto h-[750px] xl:h-[800px] 2xl:h-[1100px] md:h-[500px] sm:h-[350px]"
+            style={{ objectPosition: 'center -100px' }}
+          />
         </div>
       </div>
+    ))}
+  </Slider>
+
+    <div className="absolute bottom-[40px] left-[50px] flex gap-5 max-md:flex-wrap max-md:bottom-5 max-md:gap-3 max-md:pr-4">
+        <span className="px-3 py-2 text-white rounded-lg bg-black/50">
+            {property?.address?.street1}, {property?.address?.city}
+        </span>
+        {/* other spans */}
+    </div>
+</div>
+
 
       <div className="container-2xl max-lg:px-4 lg:px-[50px] flex max-lg:flex-col gap-4">
         <div className="w-[62%] max-lg:w-full">
           <div className="flex justify-between py-5 mt-4">
             <h1 className={`text-3xl ${josefin.className}`}>
-              The Arnold, 1621 E 6th St
+              {property?.headline}
             </h1>
-            <Link href="/">
+            {/* <Link href="/">
               <Image src={heartImg} alt="" className="w-[36px] h-[36px]" />
-            </Link>
+            </Link> */}
           </div>
           <div className="room-details flex gap-2 mt-[12px] justify-between flex-wrap mb-6">
             <div className="pb-[54px] w-full">
@@ -124,7 +216,7 @@ const PropertyDetails = () => {
                       alt=""
                     />
                     <span className="text-base text-black capitalize">
-                      {"2 sleeps"}
+                      {property?.sleepsMax} Sleeps
                     </span>
                   </div>
                   <span className="px-4 text-greyishBrown">|</span>
@@ -135,7 +227,7 @@ const PropertyDetails = () => {
                       alt=""
                     />
                     <span className="text-base text-black capitalize">
-                      {"1 Bedroom"}
+                      {property?.bedroomCount} Bedrooms
                     </span>
                   </div>
                   <span className="px-4 text-greyishBrown">|</span>
@@ -146,16 +238,16 @@ const PropertyDetails = () => {
                       alt=""
                     />
                     <span className="text-base text-black capitalize">
-                      {"1 Bath"}
+                      {property?.bathroomCount} Bathrooms
                     </span>
                   </div>
                 </div>
-                <div className="text-base bg-secondary rounded-[20px] px-5 flex items-center text-white py-[2px] w-max">
+                {/* <div className="text-base bg-secondary rounded-[20px] px-5 flex items-center text-white py-[2px] w-max">
                   ID: 1F2315
-                </div>
+                </div> */}
               </div>
 
-              <div className="flex items-center justify-between max-sm:flex-wrap">
+              {/* <div className="flex items-center justify-between max-sm:flex-wrap">
                 <div className="flex ">
                   <div className="flex text-sm text-primary">
                     <Image
@@ -180,37 +272,26 @@ const PropertyDetails = () => {
                     </span>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             <div>
               <h3 className="mb-5 text-xl font-medium">Description</h3>
               <p className="mb-5 text-base">
-                Discover the best of Austin, with this studio East Austin
-                apartment with balcony views over the city. It’ll be easy to
-                simply show up and start living in this lavishly Blueground
-                furnished apartment with its fully-equipped kitchen, spacious
-                living room, and our dedicated, on-the-ground support. (ID
-                #ATX6)
+                <HtmlContent html={property?.description} />
               </p>
 
-              <p className="mb-5 text-base font-medium">
+              {/* AMMENNITIES */}
+
+              {/* <p className="mb-5 text-base font-medium">
                 Designed with you in mind
               </p>
 
               <p className="mb-5 text-base">
-                Thoughtfully designed with bespoke finishes, modern furnishings,
-                and a fully-equipped kitchen, you’ll enjoy that “I’m home”
-                feeling with this Blueground apartment. Whether you’re lounging
-                in your sophisticated living room streaming the latest and
-                greatest entertainment on the smart TV or premium wireless
-                speaker, or getting some well-earned rest on the superior
-                quality mattress with luxury linens, you’ll fall in love with
-                everything this East Austin apartment has to offer. This
-                apartment also offers in-apartment laundry.
-              </p>
+                {property?.accommodationsDetail}
+              </p> */}
 
-              <p className="mb-5 text-base font-medium">
+              {/* <p className="mb-5 text-base font-medium">
                 Sleeping arrangements
               </p>
 
@@ -226,40 +307,66 @@ const PropertyDetails = () => {
                 can schedule additional cleanings, submit maintenance requests,
                 and view our neighborhood recommendations with just a few taps.
                 We’ll share all details upon confirmation of your stay.
-              </p>
+              </p> */}
             </div>
 
-            <Button
+            {/* <Button
               ButtonText="See Less"
               ButtonClasses="text-primary border-primary border bg-transparent after:bg-primary-color-arrow-up after:w-[9px]"
-            />
+            /> */}
           </div>
-          <Amenities />
+          
+          {/* {property ? <Amenities amenityData={property} /> : <div>Loading...</div>} */}
 
           <div>
             <p className="mb-5 text-base font-medium">About the Neighborhood</p>
-            <p className="mb-5 text-base">
-              This furnished apartment is located in East Austin, one of the
-              city’s hippest and most diverse neighborhoods. The area is home to
-              a thriving nightlife scene that includes breweries, cocktail bars,
-              and live-music venues like the Native Hostel and Parish. Anyone
-              who likes to shop will delight in the selection at East Austin
-              boutiques like Take Heart and Raven + Lily. The dining scene is
-              also eclectic, featuring everything from Asian fusion to
-              gastropubs to the world famous Franklin Barbeque, regarded by many
-              to be the best BBQ in the US.
-            </p>
-            <Button
+            {/* <p className="mb-5 text-base">
+              {property?.locationDescription}
+            </p> */}
+            {/* <Button
               ButtonText="See Less"
               ButtonClasses="text-primary border-primary border bg-transparent after:bg-primary-color-arrow-up after:w-[9px] w-max mb-10"
-            />
-            <Image src={map} alt="" className="mb-[50px]" />
+            /> */}
+            {/* <Image src={map} alt="" className="mb-[50px]" /> */}
+            {/* <div className="map-container mb-[50px]">
+              <iframe
+                width="100%"
+                height="450"
+                src={`https://www.google.com/maps/embed/v1/view?key=AIzaSyCuP8uflObugANoMJ4gOeUlsw1iH0SFd_g&center=${property?.latitude},${property?.longitude}&zoom=18`} 
+              >
+              </iframe>
+            </div> */}
+            <div className='mb-[50px]'>
+              <Map
+              style={{height: "450px", width: "100%",}}
+              mapboxAccessToken='pk.eyJ1IjoiZGV2b2xlZ292aWNoIiwiYSI6ImNsbDBqNzJpcDF1YTczY216ZDEwdXhkd2IifQ.YS24fRbk-I43rMr9q2v0fQ'
+              initialViewState={{
+                longitude: property.longitude,
+                latitude: property.latitude,
+                zoom: 10
+              }}
+              mapStyle="mapbox://styles/mapbox/streets-v11"
+              >
+
+                  <GeolocateControl
+                positionOptions={{ enableHighAccuracy: true }}
+                trackUserLocation={true}
+                />
+
+                <Marker key={property._id} latitude={property.latitude} longitude={property.longitude}>
+                    
+                  </Marker>
+
+
+                </Map>
+              </div>
+
           </div>
         </div>
         <div className="w-[38%] bg-[#FAFAFA] rounded-[16px] mt-10 px-[30px] py-[20px] h-max max-lg:w-full sticky top-[80px] right-0">
-          <span className="text-[#FF7676]">
+          {/* <span className="text-[#FF7676]">
             <del>$16.00</del>
-          </span>
+          </span> */}
           <p className="text-3xl">
             12.00 AED
             <span className="text-secondary ">/Month</span>
@@ -278,13 +385,13 @@ const PropertyDetails = () => {
               <span className="text-2xl">4.0</span>
             </div>
 
-            <div className="text-base text-darkGrey">(21 Reviews) </div>
+            {/* <div className="text-base text-darkGrey">(21 Reviews) </div> */}
           </div>
-          <Button
+          {/* <Button
             ButtonClicked={() => setShowCalenderModal(true)}
             ButtonText="Buy Now"
             ButtonClasses="text-white mt-[36px] text-center"
-          />
+          /> */}
 
           <div className="px-4 my-4 text-sm bg-white rounded-lg">
             <div className="py-2 mt-2">
@@ -383,7 +490,9 @@ const PropertyDetails = () => {
         showModal={showCalenderModal}
         setShowModal={setShowCalenderModal}
       >
-        <DatePicker />
+        <DatePicker 
+          disabledDates={dates}
+        />
       </CustomModal>
     </div>
   );

@@ -5,10 +5,67 @@ import Button from "../Common/Button";
 import CustomModal from "../Common/CustomModal";
 import UploadFileButton from "./UploadFileButton";
 import closeIconGrey from "../../images/close-icon-grey.png";
+import axios from 'axios';
+
 
 const Card = (props) => {
   const [showModal, setShowModal] = React.useState<boolean>(false);
   const [isEdit, setIsEdit] = React.useState<boolean>(false);
+  // const [inputValues, setInputValues] = React.useState({
+  //   firstName: '',
+  //   lastName: '',
+  //   email: '',
+  //   phoneNumber: '',
+  //   address: '',
+  //   // ... other fields
+  // });
+
+  const { inputValues, handleInputChange } = props;
+
+  // const handleInputChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setInputValues({
+  //     ...inputValues,
+  //     [name]: value,
+  //   });
+  // };
+
+
+  const handleSave = async () => {
+    const userId = props.userId;
+    try {
+      const formData = new FormData();
+  
+      // Append text fields
+      Object.keys(inputValues).forEach(key => {
+        formData.append(key, inputValues[key]);
+      });
+  
+      // Assume fileInputs is a state holding File objects from file input fields
+      // Append file fields if they exist
+      // const { profile, passport1, government1, government2 } = fileInputs;
+      // if (profile) formData.append('profile', profile, profile.name);
+      // if (passport1) formData.append('passport1', passport1, passport1.name);
+      // if (government1) formData.append('government1', government1, government1.name);
+      // if (government2) formData.append('government2', government2, government2.name);
+  
+      const response = await axios.put(
+        `https://trophy-test-281550a6867d.herokuapp.com/user/${userId}/profile`,
+        formData,  // Now sending formData
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',  // Set content type to multipart/form-data
+          },
+        }
+      );
+      console.log('User updated successfully:', response.data);
+    } catch (error) {
+      console.error('Failed to update user:', error.response ? error.response.data : error.message);
+    }
+  };
+  
+  
+  
 
   const handleCancel = () => {
     setIsEdit(false);
@@ -38,6 +95,7 @@ const Card = (props) => {
               <Button
                 ButtonText="Save"
                 ButtonClasses="px-8 py-3 bg-[#333333] text-white border border-[#333333] rounded-md"
+                ButtonClicked={handleSave}
               />
             </div>
           </div>

@@ -23,26 +23,27 @@ const Review = () => {
 
 
   useEffect(() => {
-    if (searchClicked) {  // Only run if searchClicked is true
-      const fetchReviews = async () => {
-        try {
-          const reviews = await getReviews(
-            searchCriteria.keyword,
-            searchCriteria.apartmentId,
-            searchCriteria.rating,
-            searchCriteria.sortBy
-          );
-          setReviewArr(reviews);
-          console.log('Fetched reviews:', reviews.length);
-        } catch (error) {
-          console.log('Error fetching reviews:', error);
-        }
-      };
+    const fetchReviews = async () => {
+      try {
+        const reviews = await getReviews(
+          searchCriteria.keyword,
+          searchCriteria.apartmentId,
+          searchCriteria.rating,
+          searchCriteria.sortBy
+        );
+        setReviewArr(reviews);
+        console.log('Fetched reviews:', reviews.length);
+      } catch (error) {
+        console.log('Error fetching reviews:', error);
+      }
+    };
   
-      fetchReviews();
+    fetchReviews();  // Move this line outside the if statement
+    if (searchClicked) {
       setSearchClicked(false);  // Reset to false after API call
     }
   }, [searchCriteria, searchClicked]);
+  
 
   const handleSearchChange = (newCriteria) => {
     setSearchCriteria({ ...searchCriteria, ...newCriteria });
@@ -57,22 +58,24 @@ const Review = () => {
         imageModbileSrc={ReviewMobileImg}
         bannerHeading="Reviews"
       />
-      <div className="lg:px-[74px] md:mt-[100px] max-md:mt-[50px] ">
+      <div className="lg:px-[74px] md:mt-[100px] max-md:mt-[50px] mb-4">
         <ReviewFilterBar onSearchChange={handleSearchChange} />
 
         <h6 className="mt-3 mb-5 text-sm text-darkGrey">
           Showing 1 - 10 of {reviewArr.length}
         </h6>
-        {reviewArr &&
-          reviewArr.length &&
-          reviewArr.map((data) => {
-            return (
-              <div key={data._id} className="my-6">
-                <Rating rating={data.rating}/>
-                <Reviews data={data} />
-              </div>
-            );
-          })}
+        {reviewArr.length > 0 ? (
+      reviewArr.map((data) => (
+        <div key={data._id} className="my-6">
+          <Rating rating={data.rating}/>
+          <Reviews data={data} />
+        </div>
+      ))
+    ) : (
+      <div className="text-center text-darkGrey">
+        Sorry nothing here
+      </div>
+    )}
         {/* <NextPerviousBtn
           prevBtnText="Prevous Page"
           nextBtnText="Next Page"

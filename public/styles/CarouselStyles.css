@@ -1,0 +1,5 @@
+.vignette {
+    background: radial-gradient(circle at center, transparent, black 99%);
+    pointer-events: none; /* So the vignette doesn't block interactions with elements below it */
+    opacity: 0.5;
+}

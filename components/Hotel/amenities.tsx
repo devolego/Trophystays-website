@@ -18,17 +18,31 @@ import noPetsIcon from "../../images/no-pets.png";
 import cancelIcon from "../../images/cancel.png";
 import bookingConfirmation from "../../images/booking-cofirmation.png";
 
-const Amenities = () => {
+const Amenities = ({amenityData}) => {
+
+  // console.log(amenityData.callOutAmenities)
+  const callOutAmenities = amenityData.callOutAmenities
+  const amenities = amenityData.amenities
+  const amenityCategories = amenityData.amenityCategories
+
+  // const mapAmenities = (amenities, defaultIcon) => {
+  //   // console.log(amenities)
+  //   return amenities.map((amenity, index) => {
+  //     <div className="flex items-start " key={index}>
+  //       <Image src={defaultIcon} alt="" className="object-contain mr-[10px]" />
+  //       <p className="text-sm">{amenity.text}</p>
+  //     </div>
+  //   })
+  // }
+
+
   return (
     <div>
       <h3 className="mb-5 text-xl">Amenities</h3>
       <div>
         <p className="text-base">Speciality</p>
         <div className="grid grid-cols-4 max-w-[650px] w-full my-[30px]">
-          <div className="flex items-start ">
-            <Image src={kitchen} alt="" className="object-contain mr-[10px]" />
-            <p className="text-sm">Fully equipped kitchen</p>
-          </div>
+        {/* {mapAmenities(amenityData["popular Amenities"], wifi)} */}
 
           <div className="flex items-start ">
             <Image

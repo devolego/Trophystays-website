@@ -13,7 +13,7 @@ const AdminLoginSecurity = () => {
             <span className="pb-4 pl-2 text-lg font-medium">Login</span>
             <Card label1Text="Password" label2Text="********" icon={editIcon} />
           </div>
-          <div className="flex flex-col justify-end">
+          {/* <div className="flex flex-col justify-end">
             <span className="pb-4 pl-2 text-lg font-medium">
               Social Accounts
             </span>
@@ -22,8 +22,8 @@ const AdminLoginSecurity = () => {
               label2Text="t****y@facebook.com"
               icon={editIcon}
             />
-          </div>
-          <div className="flex flex-col justify-end">
+          </div> */}
+          {/* <div className="flex flex-col justify-end">
             <Card
               label1Text="Google"
               label2Text="t****y@google.cm"
@@ -37,7 +37,7 @@ const AdminLoginSecurity = () => {
               label2Text="Street, Building, Area, City"
               icon={editIcon}
             />
-          </div>
+          </div> */}
         </div>
       </div>
     </React.Fragment>

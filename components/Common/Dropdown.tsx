@@ -46,9 +46,10 @@ const Dropdown = ({
         )}
 
         <p
-          className={`text-base text-darkGrey after:bg-down-arrow after:absolute after:top-[50%] after:right-4 after:-translate-y-2/4 after:w-3 after:bg-no-repeat after:h-2 after:bg-center ${
-            filterTextStyle ? filterTextStyle : "max-sm:pr-[50px] pr-[140px] "
-          }`}
+          className={`text-base text-darkGrey 
+          ${selectedOption !== filterText ? 'pr-[20px] max-sm:pr-[20px]' : 'max-sm:pr-[50px] pr-[140px]'}
+          ${filterTextStyle ? filterTextStyle : ''} 
+          line-relaxed`}
         >
           {/* {filterText ? filterText : "Filter"} */}
           {selectedOption}

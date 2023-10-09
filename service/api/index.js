@@ -8,9 +8,15 @@ export const getApi = async (action, url) => {
     // if (token) {
     //   setAuthToken(localStorage.getItem("auth_token"));
     // }
+
     let apiUrl = `${config.serverURL + config.version}${action}`;
-    const response = await Axios.get(apiUrl);
-    console.log(response,apiUrl);
+    console.log(apiUrl);
+    const response = await Axios.get(apiUrl, {
+      withCredentials: true,
+      crossdomain: true,
+    });
+
+    console.log(response, apiUrl);
 
     return response?.data;
   } catch (error) {

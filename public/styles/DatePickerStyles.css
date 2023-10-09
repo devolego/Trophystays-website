@@ -1,0 +1,14 @@
+.react-datepicker__day, .react-datepicker__day-name {
+    width: 2.5em !important;
+    line-height: 2.5em !important;
+    border-radius: 5px !important;
+  }
+  
+  .react-datepicker__day {
+    margin: 0.25em !important;
+  }
+  
+  .react-datepicker__current-month .react-datepicker__day--selected {
+    background-color: #f0ad4e !important;
+  }
+  

@@ -1,11 +1,31 @@
+'use client'
 import Image from "next/image";
 import React from "react";
 import multiPerson from "../../images/multi-person.png";
 import bedRoomIcon from "../../images/bedroom-icon.png";
 import bathTubIcon from "../../images/bathtub-icon.png";
 import starImg from "../../images/star-icon.png";
+import { useRouter } from 'next/navigation';
 
 const AdminBookingHistoryCard = (props) => {
+
+  const router = useRouter()
+
+
+  const handleViewClick = () => {
+    const queryObject = {
+      tab: 'insights',
+      ownerRezId: props.ownerRezId,
+      internalCode: props.internalCode
+    }
+
+    const queryString = new URLSearchParams(queryObject).toString();
+    router.push(`/admin?${queryString}`)
+
+    // router.push('/admin?tab=insights')
+    // router.push()
+  }
+
   return (
     <div className="px-4 py-4 bg-offWhite lg:px-6 rounded-xl w-full max-lg:basis-[48%] max-md:basis-[100%]">
       <div className="flex items-center justify-center">
@@ -19,7 +39,7 @@ const AdminBookingHistoryCard = (props) => {
             </div>
             <div className="flex flex-col col-span-1 px-2 font-medium">
               <span className="pb-2 text-base">
-                1 Bed Apartment with Stunning View
+                {props.internalName}
               </span>
               {/* <span className="text-sm">
                 $12,000.00<span className="text-secondary">/Month</span>
@@ -27,7 +47,7 @@ const AdminBookingHistoryCard = (props) => {
             </div>
           </div>
 
-          <div className="flex flex-col col-span-1 px-2">
+          {/* <div className="flex flex-col col-span-1 px-2">
             <div className="flex flex-wrap justify-between pb-2 mt-3 text-base lg:pb-4">
               <div className="flex pr-3 text-sm">
                 <Image
@@ -62,19 +82,19 @@ const AdminBookingHistoryCard = (props) => {
               <Image className="object-contain mr-1" src={starImg} alt="" />
               <span className="pt-2 text-base font-medium">5.0</span>
             </div>
-          </div>
+          </div> */}
           <div className="flex flex-col col-span-1 ">
             <div className="mb-2 text-base font-medium lg:mb-8">Location</div>
-            <div className="font-normal text-">Sharjah, Dubai</div>
+            <div className="font-normal text-">{props.location}</div>
           </div>
           <div className="flex flex-col col-span-1 ">
             <div className="mb-2 text-base font-medium lg:mb-8">Status</div>
-            <div className="text- font-normal text-[#00AC26]">{props.status}</div>
+            <div className="text- font-normal text-[#00AC26]">Booked</div>
           </div>
           <div className="flex flex-col col-span-1 ">
             <div className="mb-2 text-base font-medium lg:mb-8">Action</div>
             <div className="flex gap-3 font-normal">
-              <button className="w-[100px] h-[30px] bg-[#e6e6e6] rounded-lg text-blackLight">
+              <button className="w-[100px] h-[30px] bg-[#e6e6e6] rounded-lg text-blackLight" onClick={handleViewClick}>
                 View
               </button>
               {/* <button className="w-[69px] h-[30px] bg-[#fceaea] rounded-lg text-[#EB5757]">

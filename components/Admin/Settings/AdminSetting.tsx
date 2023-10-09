@@ -23,15 +23,15 @@ const AdminSetting = () => {
                 icon={personalInfoIcon}
               />
             </Link>
-            <Link href="/admin/setting/login-security">
+            {/* <Link href="/admin/setting/login-security">
               <Card
                 label1Text="Login & security"
                 label2Text="Update your password and secure your account"
                 iconPosition="left"
                 icon={securityIcon}
               />
-            </Link>
-            <Card
+            </Link> */}
+            {/* <Card
               label1Text="Payments & payouts"
               label2Text="Review payments, payouts, coupons, and gift cards"
               iconPosition="left"
@@ -42,7 +42,7 @@ const AdminSetting = () => {
               label2Text="Choose notification preferences and how you want to be contacted"
               iconPosition="left"
               icon={bellIcon}
-            />
+            /> */}
           </div>
         </div>
       </React.Fragment>

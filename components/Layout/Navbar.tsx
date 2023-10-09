@@ -1,13 +1,17 @@
+'use client'
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import logoLionImage from "../../images/logo.png";
-import profileImage from "../../images/profile.png";
+import profileImage from "../../images/user.png";
 import arrowDown from "../../images/arrow-down.png";
 // import logoText from "../../images/trophy-logo.png";
 import logoText from "../../images/logo-text.png";
 import { navbarItems } from "../../utils/utilsItems";
 import { usePathname } from "next/navigation";
+import '../../public/styles/NavbarStyles.css'
+import { userLogout } from '../../service/service';
+
 const withLogin = [
   "/tenent",
   "/booking-history",
@@ -24,13 +28,69 @@ const withAdmin = [
   "/admin/setting/login-security",
 ];
 const Navbar = () => {
+
+  const [username, setUserName] = useState()
+
+  useEffect(() => {
+    getUser()
+  }, [])
+
+  const [authToken, setAuthToken] = useState(null)
+
+  useEffect(() => {
+    const token = localStorage.getItem('auth_token')
+    setAuthToken(token)
+  }, [])
+
+  const isLoggedIn = !!authToken;
   const router = usePathname();
   const isLogin = withLogin.includes(router);
   const isAdmin = withAdmin.includes(router);
   const [userSettingDropdown, setUserSettingDropdown] = useState(false);
+
+  function getToken() {
+    return localStorage.getItem('auth_token')
+  }
+
+  function getUser() {
+    const token = getToken();  // Define this function to retrieve the token
+    fetch('https://trophy-test-281550a6867d.herokuapp.com/user', {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Nav Bar', data);
+    if (data?.isLandlord) {
+      setUserName(data?.landlord?.name)
+    } else {
+      setUserName(data?.firstName)
+
+    }
+  })
+  .catch(error => console.error(error));
+  }
+
+
+  const handleLogout = async () => {
+    try {
+      await userLogout()
+
+        // Remove the token from local storage or any state management you're using
+        localStorage.removeItem('auth_token');
+        
+        // Redirect to the home page or login page
+        window.location.href = '/';
+    } catch (error) {
+      console.error('An error occurred:', error);
+    }
+  };
+
+
   return (
     <div
-      className={`sticky top-0 left-0 z-20 w-full h-auto bg-white ${
+      className={`sticky top-0 left-0 w-full h-auto bg-white z-index ${
         isLogin || isAdmin ? "shadow-md" : ""
       } `}
     >
@@ -90,24 +150,27 @@ const Navbar = () => {
           )} */}
         </div>
 
-        {isLogin ? (
+        {isLoggedIn ? (
           <div className="relative cursor-pointer">
             <div
               className="flex items-center max-lg:hidden"
               onClick={() => setUserSettingDropdown(!userSettingDropdown)}
             >
-              <Image className="w-[44px] h-[44px]" src={profileImage} alt="" />
-              <span className="pl-2 text-base font-normal">Trophy</span>
+              <Image className="w-[20px] h-[20px]" src={profileImage} alt="" />
+              <span className="pl-2 text-base font-normal">{username}</span>
               <Image className="w-[20px] pl-2" src={arrowDown} alt="" />
             </div>
             {userSettingDropdown && (
               <div className="p-4 rounded grid grid-cols-2 bg-white mt-4 absolute z-[1] bg-white w-full top-[100%]">
                 <ul>
+                <li className="my-2 text-base">
+                    <Link href="/admin">Dashboard</Link>
+                  </li>
                   <li className="my-2 text-base">
                     <Link href="/admin/setting">Setting</Link>
                   </li>
                   <li className="my-2 text-base">
-                    <Link href="/">Logout</Link>
+                    <button onClick={handleLogout}>Logout</button>
                   </li>
                 </ul>
               </div>
